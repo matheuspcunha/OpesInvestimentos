@@ -1,0 +1,172 @@
+[
+    {
+        "stockType": "ON N1",
+        "code": "BBDC3",
+        "date": "2020-07-01T00:00:00.000Z",
+        "type": "JUROS SOBRE CAPITAL PRÓPRIO",
+        "quantity": 31,
+        "factor": 1,
+        "grossValue": 0.53,
+        "netValue": 0.46
+    },
+    {
+        "stockType": "ON NM",
+        "code": "CEAB3",
+        "date": "2001-01-01T00:00:00.000Z",
+        "type": "JUROS SOBRE CAPITAL PRÓPRIO",
+        "quantity": 100,
+        "factor": 1,
+        "grossValue": 25.34,
+        "netValue": 21.54
+    },
+    {
+        "stockType": "ON NM",
+        "code": "EVEN3",
+        "date": "2020-12-31T00:00:00.000Z",
+        "type": "DIVIDENDO",
+        "quantity": 88,
+        "factor": 1,
+        "grossValue": 12.52,
+        "netValue": 12.52
+    },
+    {
+        "stockType": "PN N1",
+        "code": "ITSA4",
+        "date": "2020-07-01T00:00:00.000Z",
+        "type": "DIVIDENDO",
+        "quantity": 127,
+        "factor": 1,
+        "grossValue": 2.54,
+        "netValue": 2.54
+    },
+    {
+        "stockType": "PN N1",
+        "code": "ITUB4",
+        "date": "2020-07-01T00:00:00.000Z",
+        "type": "DIVIDENDO",
+        "quantity": 23,
+        "factor": 1,
+        "grossValue": 0.34,
+        "netValue": 0.34
+    },
+    {
+        "stockType": "ON NM",
+        "code": "MGLU3",
+        "date": "2001-01-01T00:00:00.000Z",
+        "type": "JUROS SOBRE CAPITAL PRÓPRIO",
+        "quantity": 43,
+        "factor": 1,
+        "grossValue": 1.53,
+        "netValue": 1.31
+    },
+    {
+        "stockType": "ON NM",
+        "code": "MGLU3",
+        "date": "2001-01-01T00:00:00.000Z",
+        "type": "JUROS SOBRE CAPITAL PRÓPRIO",
+        "quantity": 16,
+        "factor": 1,
+        "grossValue": 1.17,
+        "netValue": 1
+    },
+    {
+        "stockType": "ON NM",
+        "code": "MOVI3",
+        "date": "2020-12-29T00:00:00.000Z",
+        "type": "JUROS SOBRE CAPITAL PRÓPRIO",
+        "quantity": 35,
+        "factor": 1,
+        "grossValue": 4.68,
+        "netValue": 3.98
+    },
+    {
+        "stockType": "UNT N2",
+        "code": "SAPR11",
+        "date": "2020-06-22T00:00:00.000Z",
+        "type": "JUROS SOBRE CAPITAL PRÓPRIO",
+        "quantity": 10,
+        "factor": 1,
+        "grossValue": 15.7,
+        "netValue": 13.35
+    },
+    {
+        "stockType": "ON NM",
+        "code": "VALE3",
+        "date": "2001-01-01T00:00:00.000Z",
+        "type": "JUROS SOBRE CAPITAL PRÓPRIO",
+        "quantity": 15,
+        "factor": 1,
+        "grossValue": 21.21,
+        "netValue": 18.03
+    },
+    {
+        "stockType": "ON NM",
+        "code": "WEGE3",
+        "date": "2020-08-12T00:00:00.000Z",
+        "type": "JUROS SOBRE CAPITAL PRÓPRIO",
+        "quantity": 108,
+        "factor": 1,
+        "grossValue": 3.26,
+        "netValue": 2.78
+    },
+    {
+        "stockType": "ON N1",
+        "code": "BBDC3",
+        "date": "2020-06-01T00:00:00.000Z",
+        "type": "JUROS SOBRE CAPITAL PRÓPRIO",
+        "quantity": 31,
+        "factor": 1,
+        "grossValue": 0.55,
+        "netValue": 0.47
+    },
+    {
+        "stockType": "ON N1",
+        "code": "BBDC3",
+        "date": "2020-06-12T00:00:00.000Z",
+        "type": "LEILÃO DE FRAÇÕES",
+        "quantity": 0,
+        "factor": 1,
+        "grossValue": 16.52,
+        "netValue": 16.52
+    },
+    {
+        "stockType": "CI",
+        "code": "HGCR11",
+        "date": "2020-06-12T00:00:00.000Z",
+        "type": "RENDIMENTO",
+        "quantity": 30,
+        "factor": 1,
+        "grossValue": 16.8,
+        "netValue": 16.8
+    },
+    {
+        "stockType": "CI",
+        "code": "FIGS11",
+        "date": "2020-06-15T00:00:00.000Z",
+        "type": "RENDIMENTO",
+        "quantity": 50,
+        "factor": 1,
+        "grossValue": 2.5,
+        "netValue": 2.5
+    },
+    {
+        "stockType": "CI",
+        "code": "KNIP11",
+        "date": "2020-06-12T00:00:00.000Z",
+        "type": "RENDIMENTO",
+        "quantity": 7,
+        "factor": 1,
+        "grossValue": 2.8,
+        "netValue": 2.8
+    },
+    {
+        "stockType": "PN N1",
+        "code": "ITUB4",
+        "date": "2020-06-01T00:00:00.000Z",
+        "type": "DIVIDENDO",
+        "quantity": 23,
+        "factor": 1,
+        "grossValue": 0.34,
+        "netValue": 0.34
+    }
+]

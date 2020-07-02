@@ -1,0 +1,317 @@
+[
+   {
+      "institution":"308 - CLEAR CORRETORA - GRUPO XP",
+      "account":"582129",
+      "stockWallet":[
+         {
+            "company":"BRADESCO",
+            "stockType":"ON N1",
+            "code":"BBDC3",
+            "isin":"BRBBDCACNOR1",
+            "price":19.63,
+            "quantity":31,
+            "quotationFactor":1,
+            "totalValue":608.53
+         },
+         {
+            "company":"BBSEGURIDADE",
+            "stockType":"ON NM",
+            "code":"BBSE3",
+            "isin":"BRBBSEACNOR5",
+            "price":29,
+            "quantity":39,
+            "quotationFactor":1,
+            "totalValue":1131
+         },
+         {
+            "company":"CYRELA REALT",
+            "stockType":"ON NM",
+            "code":"CYRE3",
+            "isin":"BRCYREACNOR7",
+            "price":23.15,
+            "quantity":50,
+            "quotationFactor":1,
+            "totalValue":1157.5
+         },
+         {
+            "company":"EVEN",
+            "stockType":"ON NM",
+            "code":"EVEN3",
+            "isin":"BREVENACNOR8",
+            "price":11.1,
+            "quantity":88,
+            "quotationFactor":1,
+            "totalValue":976.8
+         },
+         {
+            "company":"FII GEN SHOP",
+            "stockType":"CI",
+            "code":"FIGS11",
+            "isin":"BRFIGSCTF009",
+            "price":64.09,
+            "quantity":20,
+            "quotationFactor":1,
+            "totalValue":1281.8
+         },
+         {
+            "company":"FLEURY",
+            "stockType":"ON NM",
+            "code":"FLRY3",
+            "isin":"BRFLRYACNOR5",
+            "price":24.94,
+            "quantity":66,
+            "quotationFactor":1,
+            "totalValue":1646.04
+         },
+         {
+            "company":"FII HEDGEBS",
+            "stockType":"CI",
+            "code":"HGBS11",
+            "isin":"BRHGBSCTF000",
+            "price":214.99,
+            "quantity":5,
+            "quotationFactor":1,
+            "totalValue":1074.95
+         },
+         {
+            "company":"FII CSHG CRI",
+            "stockType":"CI",
+            "code":"HGCR11",
+            "isin":"BRHGCRCTF000",
+            "price":106.46,
+            "quantity":30,
+            "quotationFactor":1,
+            "totalValue":3193.8
+         },
+         {
+            "company":"IRBBRASIL RE",
+            "stockType":"ON NM",
+            "code":"IRBR3",
+            "isin":"BRIRBRACNOR4",
+            "price":11.25,
+            "quantity":50,
+            "quotationFactor":1,
+            "totalValue":562.5
+         },
+         {
+            "company":"ITAUSA",
+            "stockType":"PN N1",
+            "code":"ITSA4",
+            "isin":"BRITSAACNPR7",
+            "price":9.96,
+            "quantity":127,
+            "quotationFactor":1,
+            "totalValue":1264.92
+         },
+         {
+            "company":"ITAUUNIBANCO",
+            "stockType":"PN N1",
+            "code":"ITUB4",
+            "isin":"BRITUBACNPR1",
+            "price":26.15,
+            "quantity":23,
+            "quotationFactor":1,
+            "totalValue":601.45
+         },
+         {
+            "company":"JHSF PART",
+            "stockType":"ON NM",
+            "code":"JHSF3",
+            "isin":"BRJHSFACNOR2",
+            "price":7,
+            "quantity":100,
+            "quotationFactor":1,
+            "totalValue":700
+         },
+         {
+            "company":"FII KINEA IP",
+            "stockType":"CI",
+            "code":"KNIP11",
+            "isin":"BRKNIPCTF001",
+            "price":113.8,
+            "quantity":7,
+            "quotationFactor":1,
+            "totalValue":796.6
+         },
+         {
+            "company":"MAGAZ LUIZA",
+            "stockType":"ON NM",
+            "code":"MGLU3",
+            "isin":"BRMGLUACNOR2",
+            "price":69.69,
+            "quantity":43,
+            "quotationFactor":1,
+            "totalValue":2996.67
+         },
+         {
+            "company":"MOVIDA",
+            "stockType":"ON NM",
+            "code":"MOVI3",
+            "isin":"BRMOVIACNOR0",
+            "price":13.11,
+            "quantity":60,
+            "quotationFactor":1,
+            "totalValue":786.6
+         },
+         {
+            "company":"PETROBRAS",
+            "stockType":"PN N2",
+            "code":"PETR4",
+            "isin":"BRPETRACNPR6",
+            "price":21.47,
+            "quantity":71,
+            "quotationFactor":1,
+            "totalValue":1524.37
+         },
+         {
+            "company":"FII RB II",
+            "stockType":"CI",
+            "code":"RBRD11",
+            "isin":"BRRBRDCTF008",
+            "price":97.3,
+            "quantity":12,
+            "quotationFactor":1,
+            "totalValue":1167.6
+         },
+         {
+            "company":"SANEPAR",
+            "stockType":"UNT N2",
+            "code":"SAPR11",
+            "isin":"BRSAPRCDAM13",
+            "price":31.85,
+            "quantity":40,
+            "quotationFactor":1,
+            "totalValue":1274
+         },
+         {
+            "company":"SUL AMERICA",
+            "stockType":"UNT EJ N2",
+            "code":"SULA11",
+            "isin":"BRSULACDAM12",
+            "price":46.47,
+            "quantity":15,
+            "quotationFactor":1,
+            "totalValue":697.05
+         },
+         {
+            "company":"VALE",
+            "stockType":"ON NM",
+            "code":"VALE3",
+            "isin":"BRVALEACNOR0",
+            "price":56,
+            "quantity":15,
+            "quotationFactor":1,
+            "totalValue":840
+         },
+         {
+            "company":"VIAVAREJO",
+            "stockType":"ON NM",
+            "code":"VVAR3",
+            "isin":"BRVVARACNOR1",
+            "price":14.55,
+            "quantity":100,
+            "quotationFactor":1,
+            "totalValue":1455
+         },
+         {
+            "company":"WEG",
+            "stockType":"ON NM",
+            "code":"WEGE3",
+            "isin":"BRWEGEACNOR0",
+            "price":49.22,
+            "quantity":108,
+            "quotationFactor":1,
+            "totalValue":5315.76
+         },
+         {
+            "company":"FII XP INDL",
+            "stockType":"CI ER",
+            "code":"XPIN11",
+            "isin":"BRXPINCTF004",
+            "price":118.19,
+            "quantity":4,
+            "quotationFactor":1,
+            "totalValue":472.76
+         }
+      ],
+      "nationalTreasuryWallet":[
+
+      ]
+   },
+   {
+      "institution":"386 - RICO INVESTIMENTOS - GRUPO XP",
+      "account":"635203",
+      "stockWallet":[
+
+      ],
+      "nationalTreasuryWallet":[
+
+      ]
+   },
+   {
+      "institution":"90 - EASYNVEST - TITULO CV S.A.",
+      "account":"5005262",
+      "stockWallet":[
+
+      ],
+      "nationalTreasuryWallet":[
+         {
+            "code":"Tesouro IPCA+ 2026",
+            "expirationDate":"2026-08-15T00:00:00.000Z",
+            "investedValue":2512.48,
+            "grossValue":2583.64,
+            "netValue":2567.16,
+            "quantity":0.93,
+            "blocked":0
+         },
+         {
+            "code":"Tesouro Prefixado 2023",
+            "expirationDate":"2023-01-01T00:00:00.000Z",
+            "investedValue":1616.96,
+            "grossValue":1629,
+            "netValue":1625.66,
+            "quantity":1.81,
+            "blocked":0
+         },
+         {
+            "code":"Tesouro Selic 2025",
+            "expirationDate":"2025-03-01T00:00:00.000Z",
+            "investedValue":1377.52,
+            "grossValue":1382.12,
+            "netValue":1380.97,
+            "quantity":0.13,
+            "blocked":0
+         }
+      ]
+   },
+   {
+      "institution":"1982 - MODAL DTVM LTDA",
+      "account":"86449",
+      "stockWallet":[
+
+      ],
+      "nationalTreasuryWallet":[
+
+      ]
+   },
+   {
+      "institution":"93 - NOVA FUTURA CTVM LTDA",
+      "account":"96028",
+      "stockWallet":[
+
+      ],
+      "nationalTreasuryWallet":[
+
+      ]
+   },
+   {
+      "institution":"3 - XP INVESTIMENTOS CCTVM S/A",
+      "account":"3587033",
+      "stockWallet":[
+
+      ],
+      "nationalTreasuryWallet":[
+
+      ]
+   }
+]
