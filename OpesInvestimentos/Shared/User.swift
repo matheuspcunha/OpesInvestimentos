@@ -10,10 +10,14 @@ import Foundation
 
 class User {
     
+    // MARK: - Properties
+
     private let uid: String
     var name: String
     let cpf: String
     let email: String
+
+    // MARK: - Methods
 
     init(id: String, name: String, cpf: String, email: String) {
         self.uid = id

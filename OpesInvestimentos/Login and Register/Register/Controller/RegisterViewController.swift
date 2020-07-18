@@ -7,18 +7,10 @@
 //
 
 import UIKit
-import Firebase
 
 class RegisterViewController: UIViewController {
 
-    let collection = "UserInfo"
-    
-    let firestore: Firestore = {
-        let firestore = Firestore.firestore()
-        return firestore
-    }()
-    
-    var firestoreListener: ListenerRegistration!
+    // MARK: - Properties
     
     lazy var viewModel = RegisterViewModel()
 
@@ -28,10 +20,11 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var passwordField: CustomTextField!
     @IBOutlet weak var confirmPasswordField: CustomTextField!
     
-    lazy var auth = Auth.auth()
+    // MARK: - Methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel.delegate = self
     }
     
     @IBAction func goBack(_ sender: Any) {
@@ -40,6 +33,25 @@ class RegisterViewController: UIViewController {
     
     @IBAction func signUp(_ sender: Any) {
         viewModel.register(name: emailField.text!, cpf: cpfField.text!,
-                           email: emailField.text!, password: confirmPasswordField.text!)
-    }    
+                           email: emailField.text!, password: passwordField.text!,
+                           confirmpassword: confirmPasswordField.text!)
+    }
+    
+    private func showLoginScreen() {
+        let vc = UIStoryboard(name: "Login", bundle: nil).instantiateViewController(withIdentifier: "LoginViewController")
+        present(vc, animated: true)
+    }
+}
+
+extension RegisterViewController: RegisterViewModelDelegate {
+    func onRegisterUser(result: Result<Bool, FirebaseError>) {
+        DispatchQueue.main.async {
+            switch result {
+            case .success:
+                self.showLoginScreen()
+            case .failure(let error):
+                Alert.show(title: error.title, message: error.message, presenter: self)
+            }
+        }
+    }
 }

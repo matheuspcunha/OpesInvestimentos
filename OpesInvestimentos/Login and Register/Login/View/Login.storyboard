@@ -10,7 +10,7 @@
         <!--Login View Controller-->
         <scene sceneID="Wz9-xd-BDK">
             <objects>
-                <viewController id="6xa-Az-4Mg" customClass="LoginViewController" customModule="Opes" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" modalPresentationStyle="fullScreen" id="6xa-Az-4Mg" customClass="LoginViewController" customModule="Opes" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YUG-DF-D4D">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

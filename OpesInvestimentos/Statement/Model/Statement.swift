@@ -40,18 +40,48 @@ class Statement {
         }
     }
     
+    init(dictionary data: [String: Any]) {
+        
+        self.date = Date(timeIntervalSince1970: data["date"] as! TimeInterval)
+        self.operation = (data["operation"] as? String) ?? ""
+        self.code = (data["code"] as? String) ?? ""
+        self.quantity = (data["quantity"] as? Int) ?? 0
+        let price = (data["price"] as? Double) ?? 0.0
+        self.total = (data["total"] as? Double) ?? 0.0
+        
+        if (price == 0) {
+            self.price = (total / Double(quantity))
+        }
+        else {
+            self.price = price
+        }
+    }
+    
     var type: Operation {
         switch self.operation {
-        case "C":
+        case "C", "Compra":
             return Operation.Compra
-        case "V":
+        case "V", "Venda":
             return Operation.Venda
-        case "DIVIDENDO", "RENDIMENTO":
+        case "DIVIDENDO", "Dividendo", "RENDIMENTO":
             return Operation.Dividendo
-        case "JUROS SOBRE CAPITAL PRÓPRIO":
+        case "JUROS SOBRE CAPITAL PRÓPRIO", "Juros Sobre Capital":
             return Operation.JurosCapital
         default:
             return Operation.Leilao
         }
+    }
+    
+    func toData() -> [String: Any] {
+        let data: [String: Any] = [
+            "date": self.date.timeIntervalSince1970,
+            "operation": self.operation,
+            "code": self.code,
+            "quantity": self.quantity,
+            "price": self.price,
+            "total": self.total
+        ]
+        
+        return data
     }
 }

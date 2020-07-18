@@ -10,7 +10,7 @@ import Foundation
 
 class StatementCellViewModel {
     
-    var statement: Statement
+    private var statement: Statement
 
     init(statement: Statement) {
         self.statement = statement
@@ -37,10 +37,10 @@ class StatementCellViewModel {
         
         if self.statement.type == .Dividendo || self.statement.type == .JurosCapital {
             price = "+ " + (Formatter.currencyFormatter.string(from: NSNumber(value: statement.total)) ?? "R$ \(statement.total)")
-        }else if self.statement.type == .Venda {
+        } else if self.statement.type == .Venda {
             price = "- " + (Formatter.currencyFormatter.string(from: NSNumber(value: statement.total)) ?? "R$ \(statement.total)")
 
-        }else {
+        } else {
             price = Formatter.currencyFormatter.string(from: NSNumber(value: statement.total)) ?? "R$ \(statement.total)"
         }
         

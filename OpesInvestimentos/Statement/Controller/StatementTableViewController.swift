@@ -37,13 +37,23 @@ class StatementTableViewController: UITableViewController {
         return cell
     }
     
-    func statementLoaded() {
+    private func statementLoaded() {
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
     }
     
-    func loadStatement(){
+    private func loadStatement(){
         viewModel.loadStatement()
+    }
+}
+
+extension StatementTableViewController: StatementViewModelDelegate {
+    func onLoadStatement(error: FirebaseError?) {
+        DispatchQueue.main.async {
+            if let error = error {
+                Alert.show(title: error.title, message: error.message, presenter: self)
+            }
+        }
     }
 }

@@ -23,9 +23,10 @@ enum RESTOperation: String {
     case wallet = "wallet"
 }
 
-class CEIServiceAPI {
+final class CEIServiceAPI {
     
     // MARK: - Properties
+    
     private static let basePath = "https://api-cei.rj.r.appspot.com/"
     
     private static let session = URLSession(configuration: configuration)
@@ -47,6 +48,7 @@ class CEIServiceAPI {
     }()
     
     // MARK: - Methods
+    
     private init() {}
     
     static func getDividends(params: [String: String],
@@ -63,8 +65,7 @@ class CEIServiceAPI {
         
         let task = session.dataTask(with: request) { (data, response, error) in
             if let _ = error {
-                onComplete(.failure(.taskError))
-                return
+                return onComplete(.failure(.taskError))
             }
             
             guard let response = response as? HTTPURLResponse else {

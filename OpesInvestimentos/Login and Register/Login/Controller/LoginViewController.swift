@@ -10,24 +10,22 @@ import UIKit
 
 class LoginViewController: UIViewController {
     
+    // MARK: - Properties
+    
     @IBOutlet weak var emailField: CustomTextField!
     @IBOutlet weak var passwordField: CustomTextField!
     
+    lazy var viewModel = LoginViewModel()
+
+    // MARK: - Methods
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel.delegate = self
     }
     
     @IBAction func signIn(_ sender: Any) {
-        FirebaseService.login(withEmail: emailField.text!, password: passwordField.text!) { [weak self] (result) in
-            guard let self = self else {return}
-            
-            switch result {
-            case .success( _):
-                self.showMainScreen()
-            case .failure(let err):
-                print(err)
-            }
-        }
+        viewModel.login(withEmail: emailField.text!, password: passwordField.text!)
     }
     
     @IBAction func goBack(_ sender: Any) {
@@ -37,5 +35,18 @@ class LoginViewController: UIViewController {
     private func showMainScreen() {
         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainNavigationController")
         present(vc, animated: true)
+    }
+}
+
+extension LoginViewController: LoginViewModelDelegate {
+    func onLoginUser(result: Result<Bool, FirebaseError>) {
+        DispatchQueue.main.async {
+            switch result {
+            case .success:
+                self.showMainScreen()
+            case .failure(let error):
+                Alert.show(title: error.title, message: error.message, presenter: self)
+            }
+        }
     }
 }
