@@ -26,10 +26,19 @@ class User {
         self.email = email
     }
     
+    init(data: [String: Any]) {
+        self.uid = (data["id"] as? String) ?? ""
+        self.name = (data["name"] as? String) ?? ""
+        self.cpf = (data["cpf"] as? String) ?? ""
+        self.email = (data["email"] as? String) ?? ""
+    }
+    
     func toData() -> [String: Any] {
         let data: [String: Any] = [
             "id": self.uid,
-            "cpf": self.cpf
+            "cpf": self.cpf,
+            "name": self.name,
+            "email": self.email
         ]
         
         return data

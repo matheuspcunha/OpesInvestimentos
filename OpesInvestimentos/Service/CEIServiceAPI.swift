@@ -33,7 +33,7 @@ final class CEIServiceAPI {
     
     private static let configuration: URLSessionConfiguration = {
         let configuration = URLSessionConfiguration.default
-        configuration.timeoutIntervalForRequest = 40
+        configuration.timeoutIntervalForRequest = 60
         configuration.allowsCellularAccess = true
         configuration.httpMaximumConnectionsPerHost = 6
         return configuration
@@ -52,7 +52,7 @@ final class CEIServiceAPI {
     private init() {}
     
     static func getDividends(params: [String: String],
-                             onComplete: @escaping (Result<[Dividends], APIError>) -> Void) {
+                             onComplete: @escaping (Result<Bool, APIError>) -> Void) {
         
         guard let url = URL(string: "\(basePath)\(RESTOperation.dividends)") else {
             return onComplete(.failure(.invalidURL))
@@ -82,9 +82,23 @@ final class CEIServiceAPI {
             
             do {
                 let dividends = try decoder.decode([Dividends].self, from: data)
-                onComplete(.success(dividends))
+                var statement: [Statement] = []
+
+                for dividend in dividends {
+                    let components = Calendar.current.dateComponents([.year], from: Date(), to: dividend.date)
+                    
+                    if (dividend.date <= Date() && components.year! >= 0) {
+                        FirebaseService.setSubCollection(in: .dividends, set: dividend.toData())
+                        statement.append(Statement(date: dividend.date, operation: dividend.type, code: dividend.code, quantity: dividend.quantity, price: 0, total: dividend.grossValue))
+                    }
+                }
+                
+                for stmt in statement {
+                    FirebaseService.setSubCollection(in: .statement, set: stmt.toData())
+                }
+                
+                onComplete(.success(true))
             } catch {
-                print(error)
                 onComplete(.failure(.invalidJSON))
             }
         }
@@ -92,7 +106,7 @@ final class CEIServiceAPI {
     }
     
     static func getStockHistory(params: [String: String],
-                                onComplete: @escaping (Result<[History.StockHistory], APIError>)->Void) {
+                                onComplete: @escaping (Result<Bool, APIError>)->Void) {
         
         guard let url = URL(string: "\(basePath)\(RESTOperation.stockHistory)") else {
             onComplete(.failure(.invalidURL))
@@ -123,16 +137,77 @@ final class CEIServiceAPI {
             
             do {
                 let history = try decoder.decode([History].self, from: data)
+                var statement: [Statement] = []
                 
-                var stocks: [History.StockHistory] = []
                 for h in history {
-                    guard let stock = h.stockHistory else {continue}
-                    stocks.append(contentsOf: stock)
+                    if let stocks = h.stockHistory {
+                        for stock in stocks {
+                            FirebaseService.setSubCollection(in: .stockHistory, set: stock.toData())
+                            statement.append(Statement(date: stock.date, operation: stock.operation, code: stock.code, quantity: stock.quantity, price: stock.price, total: stock.totalValue))
+                        }
+                    }
                 }
                 
-                onComplete(.success(stocks))
+                for stmt in statement {
+                    FirebaseService.setSubCollection(in: .statement, set: stmt.toData())
+                }
+                
+                onComplete(.success(true))
             } catch {
-                print(error)
+                onComplete(.failure(.invalidJSON))
+            }
+        }
+        task.resume()
+    }
+    
+    static func getWallet(params: [String: String],
+                          onComplete: @escaping (Result<[Wallet], APIError>) -> Void) {
+        
+        guard let url = URL(string: "\(basePath)\(RESTOperation.wallet)") else {
+            return onComplete(.failure(.invalidURL))
+        }
+        
+        let postString = params.map { "\($0.0)=\($0.1)" }.joined(separator: "&")
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.httpBody = postString.data(using: .utf8)
+        
+        let task = session.dataTask(with: request) { (data, response, error) in
+            if let _ = error {
+                return onComplete(.failure(.taskError))
+            }
+            
+            guard let response = response as? HTTPURLResponse else {
+                return onComplete(.failure(.invalidResponse))
+            }
+            
+            if response.statusCode != 200 {
+                return onComplete(.failure(.invalidStatusCode(response.statusCode)))
+            }
+            
+            guard let data = data else {
+                return onComplete(.failure(.noData))
+            }
+            
+            do {
+                let wallet = try decoder.decode([Wallet].self, from: data)
+                
+                for w in wallet {
+                    if let stocks = w.stockWallet {
+                        for stock in stocks {
+                            FirebaseService.setSubCollection(in: .stockWallet, set: stock.toData())
+                        }
+                    }
+                    
+                    if let treasures = w.nationalTreasuryWallet {
+                        for treasury in treasures {
+                            FirebaseService.setSubCollection(in: .treasuryWallet, set: treasury.toData())
+                        }
+                    }
+                }
+                
+                onComplete(.success(wallet))
+            } catch {
                 onComplete(.failure(.invalidJSON))
             }
         }
@@ -166,6 +241,19 @@ final class CEIServiceAPI {
         do {
             let jsonData = try Data(contentsOf: jsonURL)
             return try decoder.decode([Dividends].self, from: jsonData)
+        } catch {
+            print(error)
+        }
+        
+        return nil
+    }
+    
+    static func testGetWallet() -> [Wallet]? {
+        guard let jsonURL = Bundle.main.url(forResource: "wallet", withExtension: "json") else {return nil}
+        
+        do {
+            let jsonData = try Data(contentsOf: jsonURL)
+            return try decoder.decode([Wallet].self, from: jsonData)
         } catch {
             print(error)
         }

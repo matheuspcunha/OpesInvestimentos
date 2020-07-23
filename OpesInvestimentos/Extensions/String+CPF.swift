@@ -48,5 +48,25 @@ extension String {
                                     options: .regularExpression,
                                     range: startIndex..<endIndex)
     }
+    
+    func cpfFormat() -> String {
+        var result = String()
+        var i = 1
+        var editChar = String()
+        
+        for char in self {
+            if i == 3 || i == 6 {
+                editChar = "."
+            }
+            if i == 9 {
+                editChar = "-"
+            }
+            result = result + "\(char)" + editChar
+            i += 1
+            editChar = String()
+        }
+        
+        return result
+    }
 
 }

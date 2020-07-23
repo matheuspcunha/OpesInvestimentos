@@ -16,56 +16,63 @@ class RegisterViewModel {
     
     // MARK: - Properties
     
-    private var user: User?
     weak var delegate: RegisterViewModelDelegate?
 
     // MARK: - Methods
     
-    func register(name: String, cpf: String, email: String, password: String, confirmpassword: String) {
-
-        if !self.validateUserInfo(name, cpf, email, password, confirmpassword) {
-            return
-        }
-
-        FirebaseService.register(email: email, password: password) { [weak self] (result) in
-            guard let self = self else {return}
-                        
-            switch result {
-            case .success:
-                self.storeUserInfo(name, cpf, email)
-            case .failure(let error):
-                self.delegate?.onRegisterUser(result: .failure(error))
+    func register(name: String, cpf: String, email: String,
+                  password: String, confirmpassword: String) {
+                
+        let info = ["name":  name,
+                    "cpf": cpf,
+                    "email": email,
+                    "password": password,
+                    "confirmPassword": confirmpassword ]
+        
+        if infoIsValid(fields: info) {
+            FirebaseService.register(email: email, withPassword: password) { [weak self] (result) in
+                guard let self = self else {return}
+                            
+                switch result {
+                case .success:
+                    let uid = FirebaseService.currentUser?.uid
+                    let user = User(id: uid!, name: name, cpf: cpf, email: email)
+                    
+                    FirebaseService.setUserInfo(data: user.toData())
+                    self.delegate?.onRegisterUser(result: .success(true))
+                case .failure(let error):
+                    self.delegate?.onRegisterUser(result: .failure(error))
+                }
             }
         }
     }
     
-    private func storeUserInfo(_ name: String, _ cpf: String, _ email: String) {
-        let uid = FirebaseService.currentUser?.uid
-        self.user = User(id: uid!, name: name, cpf: cpf, email: email)
+    private func infoIsValid(fields: [String : String]) -> Bool {
         
-        guard let userId = self.user?.id, let userData = self.user?.toData() else { return }
+        let cpf = fields["cpf"]
+        let password = fields["password"]
+        let confirmPassword = fields["confirmPassword"]
         
-        FirebaseService.addUser(id: userId, data: userData) { [weak self] (result) in
-            guard let self = self else {return}
-
-            switch result {
-            case .success:
-                self.delegate?.onRegisterUser(result: .success(true))
-            case .failure(let error):
-                self.delegate?.onRegisterUser(result: .failure(error))
-            }
-        }
-    }
-    
-    private func validateUserInfo(_ name: String, _ cpf: String, _ email: String, _ password: String, _ confirmpassword: String) -> Bool {
-        if name.isEmpty || cpf.isEmpty || email.isEmpty || password.isEmpty || confirmpassword.isEmpty {
+        if !checkFieldsFilled(fields) {
             self.delegate?.onRegisterUser(result: .failure(FirebaseError.emptyField))
             return false
-        } else if !password.elementsEqual(confirmpassword) {
+        } else if !password!.elementsEqual(confirmPassword!) {
             print("Senhas não conferem")
-        } else if !cpf.isCPF {
+            return false
+        } else if !cpf!.isCPF {
             self.delegate?.onRegisterUser(result: .failure(FirebaseError.invalidCPF))
             return false
+        }
+        
+        return true
+    }
+    
+    private func checkFieldsFilled(_ fields: [String : String]) -> Bool {
+        
+        for field in fields {
+            if field.value.isEmpty {
+                return false
+            }
         }
         
         return true

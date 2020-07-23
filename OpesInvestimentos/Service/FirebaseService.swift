@@ -12,6 +12,11 @@ import Firebase
 enum DBCollection: String {
     case userInfo = "UserInfo"
     case statement = "Statement"
+    case stockHistory = "StockHistory"
+    case dividends = "Dividends"
+    case wallet = "Wallet"
+    case stockWallet = "StockWallet"
+    case treasuryWallet = "TreasuryWallet"
 }
 
 class FirebaseService {
@@ -22,15 +27,31 @@ class FirebaseService {
 
     private static var firestoreListener: ListenerRegistration!
 
-    private static let db: Firestore = {
-        return Firestore.firestore()
+    private static let firestore: Firestore = {
+        let settings = FirestoreSettings()
+        settings.isPersistenceEnabled = true
+        let firestore = Firestore.firestore()
+        firestore.settings = settings
+        return firestore
     }()
+    
+    private static let db: DocumentReference = {
+        return firestore.collection(DBCollection.userInfo.rawValue).document(userID)
+    }()
+    
+    private static let userID: String = {
+        return currentUser!.uid
+    }()
+    
+    static var currentUser: Firebase.User? {
+        return self.auth.currentUser
+    }
     
     // MARK: - Methods
     
     private init() {}
 
-    static func register(email: String, password: String,
+    static func register(email: String, withPassword password: String,
                          onComplete: @escaping (Result<Bool, FirebaseError>) -> Void) {
         
         auth.createUser(withEmail: email, password: password) { (result, error) in
@@ -58,32 +79,35 @@ class FirebaseService {
         }
     }
     
-    static func addUser(id: String, data: [String : Any],
-                        onComplete: @escaping (Result<Bool, FirebaseError>) -> Void) {
+    static func setUserInfo(data: [String : Any]) {
+        self.db.setData(data)
+    }
+    
+    static func getUserInfo(onComplete: @escaping (User?, FirebaseError?) -> Void) {
         
-        self.db.collection(DBCollection.userInfo.rawValue).document(id).setData(data) { (error) in
+        db.getDocument(source: .server) { (doc, error) in
             if let error = error as NSError? {
                 if let errorCode = FirestoreErrorCode(rawValue: error.code) {
-                    onComplete(.failure(errorCode.error))
+                    onComplete(nil, errorCode.error)
                 }
+            }
+            
+            if let doc = doc, doc.exists, let userData = doc.data() {
+                onComplete(User(data: userData), nil)
             } else {
-                onComplete(.success(true))
+                onComplete(nil, FirebaseError.unknown)
             }
         }
     }
     
-    static func setToSubCollection(in collection: DBCollection, set data: [String : Any]) {
-        guard let userID = self.currentUser?.uid else {return}
-
-        self.db.collection(DBCollection.userInfo.rawValue).document(userID)
-            .collection(collection.rawValue).addDocument(data: data)
+    static func setSubCollection(in collection: DBCollection, set data: [String : Any]) {
+        self.db.collection(collection.rawValue).addDocument(data: data)
     }
     
-    static func getDocument(collection: DBCollection,
-                            onComplete: @escaping (QuerySnapshot?, FirebaseError?) -> Void) {
+    static func getSubCollection(collection: DBCollection,
+                                 onComplete: @escaping (QuerySnapshot?, FirebaseError?) -> Void) {
         
-        guard let userID = self.currentUser?.uid else {return}
-        let docRef = db.collection(DBCollection.userInfo.rawValue).whereField("id", isEqualTo: userID)
+        let docRef = db.collection(collection.rawValue).order(by: "date")
         
         firestoreListener = docRef.addSnapshotListener(includeMetadataChanges: true, listener: { (snapshot, error) in
                                 
@@ -100,23 +124,19 @@ class FirebaseService {
                             })
     }
     
-    static func getSubDocument(collection: DBCollection,
-                               onComplete: @escaping (QuerySnapshot?, FirebaseError?) -> Void) {
-        
-        guard let userID = self.currentUser?.uid else {return}
-        let docRef = db.collection(DBCollection.userInfo.rawValue).document(userID).collection(collection.rawValue)
-        
+    static func checkIfExist(collection: DBCollection, onCompletion: @escaping (Bool) -> ()) {
+        let docRef = db.collection(collection.rawValue)
+
         firestoreListener = docRef.addSnapshotListener(includeMetadataChanges: true, listener: { (snapshot, error) in
-                                
-                                if let error = error as NSError? {
-                                    if let errorCode = FirestoreErrorCode(rawValue: error.code) {
-                                        onComplete(nil, errorCode.error)
-                                    }
+                                if error != nil {
+                                    onCompletion(false)
                                 }
                                 
                                 guard let snapshot = snapshot else {return}
                                 if snapshot.metadata.isFromCache || snapshot.documents.count > 0 {
-                                    onComplete(snapshot, nil)
+                                    onCompletion(true)
+                                } else {
+                                    onCompletion(false)
                                 }
                             })
     }
@@ -128,11 +148,6 @@ class FirebaseService {
         changeRequest.commitChanges { (error) in
             print(error ?? "")
         }
-        
-    }
-    
-    static var currentUser: Firebase.User? {
-        return self.auth.currentUser
     }
     
     static func signOut() {

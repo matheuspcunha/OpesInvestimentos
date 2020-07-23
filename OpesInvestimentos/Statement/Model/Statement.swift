@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import FirebaseFirestore
 
 enum Operation: String {
     case Compra = "Compra"
@@ -34,15 +35,13 @@ class Statement {
         
         if (price == 0) {
             self.price = (total / Double(quantity))
-        }
-        else {
+        } else {
             self.price = price
         }
     }
     
     init(dictionary data: [String: Any]) {
-        
-        self.date = Date(timeIntervalSince1970: data["date"] as! TimeInterval)
+        self.date = Timestamp.dateValue(data["date"] as! Timestamp)()
         self.operation = (data["operation"] as? String) ?? ""
         self.code = (data["code"] as? String) ?? ""
         self.quantity = (data["quantity"] as? Int) ?? 0
@@ -50,9 +49,8 @@ class Statement {
         self.total = (data["total"] as? Double) ?? 0.0
         
         if (price == 0) {
-            self.price = (total / Double(quantity))
-        }
-        else {
+            self.price = (total / Double(self.quantity))
+        } else {
             self.price = price
         }
     }
@@ -74,7 +72,7 @@ class Statement {
     
     func toData() -> [String: Any] {
         let data: [String: Any] = [
-            "date": self.date.timeIntervalSince1970,
+            "date":  Timestamp(date: self.date),
             "operation": self.operation,
             "code": self.code,
             "quantity": self.quantity,

@@ -32,7 +32,7 @@ class RegisterViewController: UIViewController {
     }
     
     @IBAction func signUp(_ sender: Any) {
-        viewModel.register(name: emailField.text!, cpf: cpfField.text!,
+        viewModel.register(name: nameField.text!, cpf: cpfField.text!,
                            email: emailField.text!, password: passwordField.text!,
                            confirmpassword: confirmPasswordField.text!)
     }

@@ -10,18 +10,47 @@ import UIKit
 
 class StatementTableViewController: UITableViewController {
 
+    // MARK: - Properties
+    
     lazy var viewModel = StatementViewModel()
 
+    // MARK: - Methods
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.refreshControl?.addTarget(self, action: #selector(loadStatement), for: UIControl.Event.valueChanged)
+
         viewModel.statementLoaded = statementLoaded
+        viewModel.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
         self.tabBarController?.navigationItem.title = "Extrato"
+        self.tableView.setLoading()
         self.loadStatement()
     }
 
+    private func statementLoaded() {
+        DispatchQueue.main.async {
+            
+            self.refreshControl?.endRefreshing()
+            
+            if self.viewModel.count == 0 {
+                self.tableView.setEmptyView(title: "Nenhuma Movimentação", message: "O extrato de seus investimentos aparecerá aqui.")
+            } else {
+                self.tableView.reloadData()
+                self.tableView.restore()
+            }
+        }
+    }
+    
+    @objc private func loadStatement(){
+        viewModel.loadStatement()
+    }
+    
+    // MARK: - Table View
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -36,23 +65,15 @@ class StatementTableViewController: UITableViewController {
         
         return cell
     }
-    
-    private func statementLoaded() {
-        DispatchQueue.main.async {
-            self.tableView.reloadData()
-        }
-    }
-    
-    private func loadStatement(){
-        viewModel.loadStatement()
-    }
 }
 
 extension StatementTableViewController: StatementViewModelDelegate {
+    
     func onLoadStatement(error: FirebaseError?) {
         DispatchQueue.main.async {
             if let error = error {
                 Alert.show(title: error.title, message: error.message, presenter: self)
+                self.statementLoaded()
             }
         }
     }

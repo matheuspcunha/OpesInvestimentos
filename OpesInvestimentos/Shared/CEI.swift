@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import FirebaseFirestore
 
 struct History: Decodable {
     
@@ -35,6 +36,23 @@ struct History: Decodable {
                 return "Venda"
             }
         }
+        
+        func toData() -> [String: Any] {
+            let data: [String: Any] = [
+                "date": Timestamp(date: self.date),
+                "operation": self.operation,
+                "market": self.market,
+                "expiration": self.expiration ?? "",
+                "code": self.code,
+                "name": self.name,
+                "quantity": self.quantity,
+                "price": self.price,
+                "totalValue": self.totalValue,
+                "quotationFactor": self.quotationFactor,
+            ]
+            
+            return data
+        }
     }
 }
 
@@ -48,4 +66,19 @@ struct Dividends: Decodable {
     let factor: Int
     let grossValue: Double
     let netValue: Double
+    
+    func toData() -> [String: Any] {
+        let data: [String: Any] = [
+            "stockType": self.stockType,
+            "code": self.code,
+            "date": Timestamp(date: self.date),
+            "type": self.type,
+            "quantity": self.quantity,
+            "factor": self.factor,
+            "grossValue": self.grossValue,
+            "netValue": self.netValue,
+        ]
+        
+        return data
+    }
 }
