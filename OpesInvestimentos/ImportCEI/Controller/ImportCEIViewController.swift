@@ -14,8 +14,8 @@ class ImportCEIViewController: UIViewController {
     
     lazy var viewModel = ImportCEIViewModel()
 
-    @IBOutlet weak var passwordField: CustomTextField!
-    @IBOutlet weak var cpfField: CustomTextField!
+    @IBOutlet weak var passwordField: CustomUITextField!
+    @IBOutlet weak var cpfField: CustomUITextField!
     
      // MARK: - Methods
     

@@ -12,8 +12,8 @@ class LoginViewController: UIViewController {
     
     // MARK: - Properties
     
-    @IBOutlet weak var emailField: CustomTextField!
-    @IBOutlet weak var passwordField: CustomTextField!
+    @IBOutlet weak var emailField: CustomUITextField!
+    @IBOutlet weak var passwordField: CustomUITextField!
     
     lazy var viewModel = LoginViewModel()
 

@@ -14,11 +14,11 @@ class RegisterViewController: UIViewController {
     
     lazy var viewModel = RegisterViewModel()
 
-    @IBOutlet weak var nameField: CustomTextField!
-    @IBOutlet weak var cpfField: CustomTextField!
-    @IBOutlet weak var emailField: CustomTextField!
-    @IBOutlet weak var passwordField: CustomTextField!
-    @IBOutlet weak var confirmPasswordField: CustomTextField!
+    @IBOutlet weak var nameField: CustomUITextField!
+    @IBOutlet weak var cpfField: CustomUITextField!
+    @IBOutlet weak var emailField: CustomUITextField!
+    @IBOutlet weak var passwordField: CustomUITextField!
+    @IBOutlet weak var confirmPasswordField: CustomUITextField!
     
     // MARK: - Methods
     

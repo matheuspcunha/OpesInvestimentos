@@ -49,16 +49,11 @@ extension UITableView {
     }
     
      func setLoading() {
-        let loadingView = UIView(frame: CGRect(x: self.center.x, y: self.center.y, width: self.bounds.size.width, height: self.bounds.size.height))
-        let activityIndicator = UIActivityIndicatorView()
-        
-        activityIndicator.frame = CGRect(x: loadingView.bounds.width / 2, y: loadingView.bounds.height / 2, width: 5, height: 5)
-        activityIndicator.style = .medium
+        let activityIndicator = UIActivityIndicatorView(style: .medium)
+        activityIndicator.center = self.center
         activityIndicator.startAnimating()
         
-        loadingView.addSubview(activityIndicator)
-
-        self.backgroundView = loadingView
+        self.backgroundView = activityIndicator
         self.separatorStyle = .none
         self.isScrollEnabled = false
     }

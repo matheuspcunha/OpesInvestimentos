@@ -32,27 +32,18 @@ class Statement {
         self.code = code
         self.quantity = quantity
         self.total = total
-        
-        if (price == 0) {
-            self.price = (total / Double(quantity))
-        } else {
-            self.price = price
-        }
+        self.price = price == 0 ? (total / Double(quantity)) : price
     }
     
-    init(dictionary data: [String: Any]) {
-        self.date = Timestamp.dateValue(data["date"] as! Timestamp)()
-        self.operation = (data["operation"] as? String) ?? ""
-        self.code = (data["code"] as? String) ?? ""
-        self.quantity = (data["quantity"] as? Int) ?? 0
+    convenience init(dictionary data: [String: Any]) {
+        let date = Timestamp.dateValue(data["date"] as! Timestamp)()
+        let operation = (data["operation"] as? String) ?? ""
+        let code = (data["code"] as? String) ?? ""
+        let quantity = (data["quantity"] as? Int) ?? 0
         let price = (data["price"] as? Double) ?? 0.0
-        self.total = (data["total"] as? Double) ?? 0.0
+        let total = (data["total"] as? Double) ?? 0.0
         
-        if (price == 0) {
-            self.price = (total / Double(self.quantity))
-        } else {
-            self.price = price
-        }
+        self.init(date: date, operation: operation, code: code, quantity: quantity, price: price, total: total)
     }
     
     var type: Operation {
@@ -70,8 +61,8 @@ class Statement {
         }
     }
     
-    func toData() -> [String: Any] {
-        let data: [String: Any] = [
+    var dictionary:[String:Any] {
+        return [
             "date":  Timestamp(date: self.date),
             "operation": self.operation,
             "code": self.code,
@@ -79,7 +70,5 @@ class Statement {
             "price": self.price,
             "total": self.total
         ]
-        
-        return data
     }
 }

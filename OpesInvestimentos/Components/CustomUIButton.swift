@@ -1,5 +1,5 @@
 //
-//  CustomTextField.swift
+//  CustomButton.swift
 //  OpesInvestimentos
 //
 //  Created by Matheus Cunha on 30/05/20.
@@ -9,7 +9,7 @@
 import UIKit
 
 @IBDesignable
-class CustomTextField: UITextField {
+class CustomUIButton: UIButton {
 
     @IBInspectable var padding: CGFloat = 0
     
@@ -32,13 +32,5 @@ class CustomTextField: UITextField {
         didSet {
             layer.borderColor = borderColor.cgColor
         }
-    }
-    
-    override func textRect(forBounds bounds: CGRect) -> CGRect {
-        return CGRect(x: bounds.origin.x + padding, y: bounds.origin.y, width: bounds.width - padding * 2, height: bounds.height)
-    }
-
-    override func editingRect(forBounds bounds: CGRect) -> CGRect {
-        return CGRect(x: bounds.origin.x + padding, y: bounds.origin.y, width: bounds.width - padding * 2, height: bounds.height)
     }
 }

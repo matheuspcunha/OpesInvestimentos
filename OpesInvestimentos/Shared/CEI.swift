@@ -15,6 +15,14 @@ struct History: Decodable {
     let account: String
     let stockHistory: [StockHistory]?
     
+    var dictionary:[String:Any] {
+        return [
+            "institution": self.institution,
+            "account": self.account,
+            "stockHistory": self.stockHistory?.map({$0.dictionary}) ?? NSNull()
+        ]
+    }
+    
     struct StockHistory: Decodable {
         
         let date: Date
@@ -36,11 +44,11 @@ struct History: Decodable {
                 return "Venda"
             }
         }
-        
-        func toData() -> [String: Any] {
-            let data: [String: Any] = [
+
+        var dictionary:[String:Any] {
+            return [
                 "date": Timestamp(date: self.date),
-                "operation": self.operation,
+                "operation": self.operationType,
                 "market": self.market,
                 "expiration": self.expiration ?? "",
                 "code": self.code,
@@ -48,10 +56,8 @@ struct History: Decodable {
                 "quantity": self.quantity,
                 "price": self.price,
                 "totalValue": self.totalValue,
-                "quotationFactor": self.quotationFactor,
+                "quotationFactor": self.quotationFactor
             ]
-            
-            return data
         }
     }
 }
@@ -67,8 +73,8 @@ struct Dividends: Decodable {
     let grossValue: Double
     let netValue: Double
     
-    func toData() -> [String: Any] {
-        let data: [String: Any] = [
+    var dictionary:[String:Any] {
+        return [
             "stockType": self.stockType,
             "code": self.code,
             "date": Timestamp(date: self.date),
@@ -76,9 +82,7 @@ struct Dividends: Decodable {
             "quantity": self.quantity,
             "factor": self.factor,
             "grossValue": self.grossValue,
-            "netValue": self.netValue,
+            "netValue": self.netValue
         ]
-        
-        return data
     }
 }

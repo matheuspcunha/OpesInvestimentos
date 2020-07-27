@@ -10,12 +10,15 @@ import UIKit
 
 class StatementTableViewCell: UITableViewCell {
 
+    // MARK: - Properties
+    
     @IBOutlet weak var labelCode: UILabel!
     @IBOutlet weak var labelPrice: UILabel!
     @IBOutlet weak var labelQuantity: UILabel!
     @IBOutlet weak var labelType: UILabel!
     @IBOutlet weak var labelDate: UILabel!
     
+    // MARK: - Methods
     
     func configure(with viewModel: StatementCellViewModel) {
         labelCode.text = viewModel.code
@@ -24,5 +27,4 @@ class StatementTableViewCell: UITableViewCell {
         labelQuantity.text = viewModel.unityPrice
         labelType.text = viewModel.operationType
     }
-
 }

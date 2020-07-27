@@ -88,13 +88,13 @@ final class CEIServiceAPI {
                     let components = Calendar.current.dateComponents([.year], from: Date(), to: dividend.date)
                     
                     if (dividend.date <= Date() && components.year! >= 0) {
-                        FirebaseService.setSubCollection(in: .dividends, set: dividend.toData())
+                        FirebaseService.setSubCollection(in: .dividends, set: dividend.dictionary)
                         statement.append(Statement(date: dividend.date, operation: dividend.type, code: dividend.code, quantity: dividend.quantity, price: 0, total: dividend.grossValue))
                     }
                 }
                 
                 for stmt in statement {
-                    FirebaseService.setSubCollection(in: .statement, set: stmt.toData())
+                    FirebaseService.setSubCollection(in: .statement, set: stmt.dictionary)
                 }
                 
                 onComplete(.success(true))
@@ -140,16 +140,17 @@ final class CEIServiceAPI {
                 var statement: [Statement] = []
                 
                 for h in history {
+                    FirebaseService.setSubCollection(in: .stockHistory, set: h.dictionary)
+
                     if let stocks = h.stockHistory {
                         for stock in stocks {
-                            FirebaseService.setSubCollection(in: .stockHistory, set: stock.toData())
                             statement.append(Statement(date: stock.date, operation: stock.operation, code: stock.code, quantity: stock.quantity, price: stock.price, total: stock.totalValue))
                         }
                     }
                 }
                 
                 for stmt in statement {
-                    FirebaseService.setSubCollection(in: .statement, set: stmt.toData())
+                    FirebaseService.setSubCollection(in: .statement, set: stmt.dictionary)
                 }
                 
                 onComplete(.success(true))
@@ -193,17 +194,7 @@ final class CEIServiceAPI {
                 let wallet = try decoder.decode([Wallet].self, from: data)
                 
                 for w in wallet {
-                    if let stocks = w.stockWallet {
-                        for stock in stocks {
-                            FirebaseService.setSubCollection(in: .stockWallet, set: stock.toData())
-                        }
-                    }
-                    
-                    if let treasures = w.nationalTreasuryWallet {
-                        for treasury in treasures {
-                            FirebaseService.setSubCollection(in: .treasuryWallet, set: treasury.toData())
-                        }
-                    }
+                    FirebaseService.setSubCollection(in: .wallet, set: w.dictionary)
                 }
                 
                 onComplete(.success(wallet))

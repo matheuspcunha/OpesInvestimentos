@@ -1,15 +1,15 @@
 //
-//  CustomButton.swift
+//  CustomView.swift
 //  OpesInvestimentos
 //
-//  Created by Matheus Cunha on 30/05/20.
+//  Created by Matheus Cunha on 22/07/20.
 //  Copyright © 2020 Matheus Cunha. All rights reserved.
 //
 
 import UIKit
 
 @IBDesignable
-class CustomButton: UIButton {
+class CustomUIView: UIView {
 
     @IBInspectable var padding: CGFloat = 0
     

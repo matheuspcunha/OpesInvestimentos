@@ -43,7 +43,7 @@ class StatementViewModel {
                 let data = document.data()
                 statement.append(Statement(dictionary: data))
             }
-            
+
             statement.sort(by: { $0.date > $1.date})
             self.statement = statement
         }

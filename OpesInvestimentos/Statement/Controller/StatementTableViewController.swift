@@ -12,13 +12,14 @@ class StatementTableViewController: UITableViewController {
 
     // MARK: - Properties
     
-    lazy var viewModel = StatementViewModel()
+    private lazy var viewModel = StatementViewModel()
 
     // MARK: - Methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.configureNavigationItem()
         self.refreshControl?.addTarget(self, action: #selector(loadStatement), for: UIControl.Event.valueChanged)
 
         viewModel.statementLoaded = statementLoaded
@@ -26,7 +27,6 @@ class StatementTableViewController: UITableViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.tabBarController?.navigationItem.title = "Extrato"
         self.tableView.setLoading()
         self.loadStatement()
     }
@@ -34,19 +34,27 @@ class StatementTableViewController: UITableViewController {
     private func statementLoaded() {
         DispatchQueue.main.async {
             
-            self.refreshControl?.endRefreshing()
-            
             if self.viewModel.count == 0 {
                 self.tableView.setEmptyView(title: "Nenhuma Movimentação", message: "O extrato de seus investimentos aparecerá aqui.")
             } else {
                 self.tableView.reloadData()
                 self.tableView.restore()
             }
+            
+            self.refreshControl?.endRefreshing()
         }
     }
     
     @objc private func loadStatement(){
         viewModel.loadStatement()
+    }
+    
+    private func configureNavigationItem() {        
+        let searchController = UISearchController()
+        searchController.obscuresBackgroundDuringPresentation = true
+        searchController.searchBar.placeholder = "Buscar"
+        navigationItem.searchController = searchController
+        navigationItem.hidesSearchBarWhenScrolling = true
     }
     
     // MARK: - Table View

@@ -15,8 +15,6 @@ enum DBCollection: String {
     case stockHistory = "StockHistory"
     case dividends = "Dividends"
     case wallet = "Wallet"
-    case stockWallet = "StockWallet"
-    case treasuryWallet = "TreasuryWallet"
 }
 
 class FirebaseService {
@@ -107,9 +105,9 @@ class FirebaseService {
     static func getSubCollection(collection: DBCollection,
                                  onComplete: @escaping (QuerySnapshot?, FirebaseError?) -> Void) {
         
-        let docRef = db.collection(collection.rawValue).order(by: "date")
+        let docRef = db.collection(collection.rawValue)
         
-        firestoreListener = docRef.addSnapshotListener(includeMetadataChanges: true, listener: { (snapshot, error) in
+        firestoreListener = docRef.addSnapshotListener(includeMetadataChanges: false, listener: { (snapshot, error) in
                                 
                                 if let error = error as NSError? {
                                     if let errorCode = FirestoreErrorCode(rawValue: error.code) {

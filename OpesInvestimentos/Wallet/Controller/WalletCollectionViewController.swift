@@ -2,39 +2,90 @@
 //  WalletCollectionViewController.swift
 //  OpesInvestimentos
 //
-//  Created by Matheus Cunha on 22/07/20.
+//  Created by Matheus Cunha on 26/07/20.
 //  Copyright © 2020 Matheus Cunha. All rights reserved.
 //
 
 import UIKit
 
-private let reuseIdentifier = "Cell"
-
 class WalletCollectionViewController: UICollectionViewController {
+
+    // MARK: - Properties
+
+    @IBOutlet weak var emptyWalletStack: UIStackView!
+    
+    private lazy var viewModel = WalletViewModel()
+    
+    private let indicator = UIActivityIndicatorView(style: .medium)
+    
+    private lazy var layoutSections: UICollectionViewLayout = {
+        let layout = UICollectionViewCompositionalLayout { (index, environment) -> NSCollectionLayoutSection? in
+            return self.viewModel.getSection(in: index).layoutSection()
+        }
+        
+        return layout
+     }()
+    
+    // MARK: - Methods
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+
+        configureIndicator()
+        configureRefreshControl()
+        
+        self.collectionView.register(UINib(nibName: String(describing: TotalViewCell.self), bundle: nil), forCellWithReuseIdentifier: String(describing: TotalViewCell.self))
+        self.collectionView.register(UINib(nibName: String(describing: NameViewCell.self), bundle: nil), forCellWithReuseIdentifier: String(describing: NameViewCell.self))
+
+        viewModel.walletLoaded = walletLoaded
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        self.tabBarController?.navigationItem.title = "Carteira"
+        indicator.startAnimating()
+        loadWallet()
     }
-
+    
+    @objc private func loadWallet() {
+        viewModel.loadWallet()
+    }
+    
+    private func walletLoaded() {
+        DispatchQueue.main.async {
+            if self.viewModel.count == 0 {
+                self.emptyWalletStack.isHidden = false
+            } else {
+                self.collectionView.collectionViewLayout = self.layoutSections
+                self.collectionView.reloadData()
+            }
+            
+            self.indicator.stopAnimating()
+            self.collectionView.refreshControl?.endRefreshing()
+        }
+    }
+    
+    private func configureIndicator() {
+        indicator.center = collectionView.center
+        indicator.hidesWhenStopped = true
+        self.view.addSubview(indicator)
+    }
+    
+    private func configureRefreshControl() {
+        collectionView.refreshControl = UIRefreshControl()
+        collectionView.refreshControl?.addTarget(self, action: #selector(loadWallet), for: .valueChanged)
+    }
+    
     // MARK: UICollectionViewDataSource
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
+        viewModel.count
     }
 
-
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 0
+        return viewModel.numberOfItems(in: section)
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
-
-        return cell
+        return viewModel.getSection(in: indexPath.section).configure(collectionView: collectionView, indexPath: indexPath)
     }
+    
 }
