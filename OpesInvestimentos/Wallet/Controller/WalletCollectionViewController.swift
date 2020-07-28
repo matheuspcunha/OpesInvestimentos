@@ -36,6 +36,7 @@ class WalletCollectionViewController: UICollectionViewController {
         
         self.collectionView.register(UINib(nibName: String(describing: TotalViewCell.self), bundle: nil), forCellWithReuseIdentifier: String(describing: TotalViewCell.self))
         self.collectionView.register(UINib(nibName: String(describing: NameViewCell.self), bundle: nil), forCellWithReuseIdentifier: String(describing: NameViewCell.self))
+        self.collectionView.register(UINib(nibName: String(describing: TypeViewCell.self), bundle: nil), forCellWithReuseIdentifier: String(describing: TypeViewCell.self))
 
         viewModel.walletLoaded = walletLoaded
     }
@@ -52,7 +53,7 @@ class WalletCollectionViewController: UICollectionViewController {
     private func walletLoaded() {
         DispatchQueue.main.async {
             if self.viewModel.count == 0 {
-                self.emptyWalletStack.isHidden = false
+                self.setEmpty()
             } else {
                 self.collectionView.collectionViewLayout = self.layoutSections
                 self.collectionView.reloadData()
@@ -72,6 +73,11 @@ class WalletCollectionViewController: UICollectionViewController {
     private func configureRefreshControl() {
         collectionView.refreshControl = UIRefreshControl()
         collectionView.refreshControl?.addTarget(self, action: #selector(loadWallet), for: .valueChanged)
+    }
+    
+    private func setEmpty() {
+        self.emptyWalletStack.isHidden = false
+        self.collectionView.isScrollEnabled = false
     }
     
     // MARK: UICollectionViewDataSource

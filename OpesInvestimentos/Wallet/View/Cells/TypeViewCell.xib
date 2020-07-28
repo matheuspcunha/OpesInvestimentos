@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="" id="bJ7-Je-D3v" customClass="TypeViewCell" customModule="Opes" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="342" height="70"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="JwC-0X-6sT">
+                <rect key="frame" x="0.0" y="0.0" width="342" height="70"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hOI-Fj-ZDF" userLabel="Separator">
+                        <rect key="frame" x="55" y="69.5" width="247" height="0.5"/>
+                        <color key="backgroundColor" systemColor="separatorColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="0.5" id="o77-a7-3YQ"/>
+                        </constraints>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TESOURO DIRETO" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L4t-Gw-xqT">
+                        <rect key="frame" x="55" y="15" width="247" height="16.5"/>
+                        <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="12"/>
+                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="R$ 00.000.00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ae-lz-6Bf">
+                        <rect key="frame" x="55" y="31.5" width="247" height="27"/>
+                        <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="20"/>
+                        <color key="textColor" red="0.035294117649999998" green="0.30357426399999998" blue="0.96295219659999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="L4t-Gw-xqT" firstAttribute="leading" secondItem="JwC-0X-6sT" secondAttribute="leading" constant="55" id="4Xz-Fj-Yom"/>
+                    <constraint firstAttribute="bottom" secondItem="hOI-Fj-ZDF" secondAttribute="bottom" id="6OS-iu-Tum"/>
+                    <constraint firstAttribute="trailing" secondItem="7ae-lz-6Bf" secondAttribute="trailing" constant="40" id="Dud-xL-wDu"/>
+                    <constraint firstItem="L4t-Gw-xqT" firstAttribute="top" secondItem="JwC-0X-6sT" secondAttribute="top" constant="15" id="EAH-Is-s9E"/>
+                    <constraint firstAttribute="trailing" secondItem="L4t-Gw-xqT" secondAttribute="trailing" constant="40" id="Ypn-bT-h7D"/>
+                    <constraint firstAttribute="trailing" secondItem="hOI-Fj-ZDF" secondAttribute="trailing" constant="40" id="YqZ-b8-SSg"/>
+                    <constraint firstItem="7ae-lz-6Bf" firstAttribute="top" secondItem="L4t-Gw-xqT" secondAttribute="bottom" id="rRU-Qp-gsK"/>
+                    <constraint firstItem="hOI-Fj-ZDF" firstAttribute="leading" secondItem="7ae-lz-6Bf" secondAttribute="leading" id="vOd-SR-JTo"/>
+                    <constraint firstItem="7ae-lz-6Bf" firstAttribute="leading" secondItem="L4t-Gw-xqT" secondAttribute="leading" id="zA3-YH-ejN"/>
+                </constraints>
+            </collectionViewCellContentView>
+            <size key="customSize" width="319" height="1"/>
+            <connections>
+                <outlet property="nameLabel" destination="L4t-Gw-xqT" id="e3B-Wx-XCt"/>
+                <outlet property="totalLabel" destination="7ae-lz-6Bf" id="abr-cg-tsF"/>
+            </connections>
+            <point key="canvasLocation" x="47.826086956521742" y="22.433035714285712"/>
+        </collectionViewCell>
+    </objects>
+</document>

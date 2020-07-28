@@ -33,6 +33,9 @@
 		966C2429249D80AE0099E1BF /* Statement.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 966C2428249D80AE0099E1BF /* Statement.storyboard */; };
 		966C242B249DAD1A0099E1BF /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 966C242A249DAD1A0099E1BF /* Login.storyboard */; };
 		966C242D249DAD950099E1BF /* Register.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 966C242C249DAD950099E1BF /* Register.storyboard */; };
+		966F53DD24CF9ED300289C96 /* TypeViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966F53DB24CF9ED300289C96 /* TypeViewCell.swift */; };
+		966F53DE24CF9ED300289C96 /* TypeViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 966F53DC24CF9ED300289C96 /* TypeViewCell.xib */; };
+		966F53E024CFA0E300289C96 /* TypeSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966F53DF24CFA0E300289C96 /* TypeSection.swift */; };
 		966FF78824CDF237001B1F62 /* WalletCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966FF78724CDF237001B1F62 /* WalletCollectionViewController.swift */; };
 		967091AA24AD377100257A23 /* wallet.json in Resources */ = {isa = PBXBuildFile; fileRef = 967091A924AD377100257A23 /* wallet.json */; };
 		967091AC24AD395500257A23 /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967091AB24AD395500257A23 /* FirebaseService.swift */; };
@@ -93,6 +96,9 @@
 		966C2428249D80AE0099E1BF /* Statement.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Statement.storyboard; sourceTree = "<group>"; };
 		966C242A249DAD1A0099E1BF /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		966C242C249DAD950099E1BF /* Register.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Register.storyboard; sourceTree = "<group>"; };
+		966F53DB24CF9ED300289C96 /* TypeViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeViewCell.swift; sourceTree = "<group>"; };
+		966F53DC24CF9ED300289C96 /* TypeViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TypeViewCell.xib; sourceTree = "<group>"; };
+		966F53DF24CFA0E300289C96 /* TypeSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeSection.swift; sourceTree = "<group>"; };
 		966FF78724CDF237001B1F62 /* WalletCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletCollectionViewController.swift; sourceTree = "<group>"; };
 		967091A924AD377100257A23 /* wallet.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = wallet.json; sourceTree = "<group>"; };
 		967091AB24AD395500257A23 /* FirebaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseService.swift; sourceTree = "<group>"; };
@@ -338,6 +344,7 @@
 				96F1644224CCC6B50008A655 /* Section.swift */,
 				96F1644424CCC6DC0008A655 /* TotalSection.swift */,
 				96F1644C24CCFFCA0008A655 /* NameSection.swift */,
+				966F53DF24CFA0E300289C96 /* TypeSection.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -530,6 +537,8 @@
 				96F1643C24CCB4710008A655 /* TotalViewCell.xib */,
 				96F1644824CCFB5F0008A655 /* NameViewCell.swift */,
 				96F1644924CCFB5F0008A655 /* NameViewCell.xib */,
+				966F53DB24CF9ED300289C96 /* TypeViewCell.swift */,
+				966F53DC24CF9ED300289C96 /* TypeViewCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -609,6 +618,7 @@
 				9672567124884E9400394587 /* dividends.json in Resources */,
 				961CF1FF2482F26600BD25F1 /* LaunchScreen.storyboard in Resources */,
 				9673F01624A573BF008A47A3 /* Wallet.storyboard in Resources */,
+				966F53DE24CF9ED300289C96 /* TypeViewCell.xib in Resources */,
 				96F1643E24CCB4710008A655 /* TotalViewCell.xib in Resources */,
 				96DBF3F224C3C60D00E159DD /* ImportCEI.storyboard in Resources */,
 				9672567224884E9400394587 /* history.json in Resources */,
@@ -688,12 +698,14 @@
 				96F1643D24CCB4710008A655 /* TotalViewCell.swift in Sources */,
 				9665682424AEBBD100E496FF /* FirebaseError.swift in Sources */,
 				96680307249AE5820034F8AF /* StatementCellViewModel.swift in Sources */,
+				966F53DD24CF9ED300289C96 /* TypeViewCell.swift in Sources */,
 				967FE86B2499993700D7C0C5 /* Statement.swift in Sources */,
 				967091AE24AD4EC300257A23 /* User.swift in Sources */,
 				966BFE7F24A439DE00412D9B /* LoginViewModel.swift in Sources */,
 				96F1644724CCDB440008A655 /* UICollectionView+Empty.swift in Sources */,
 				9677ED87248D4F1100CD6557 /* CEI.swift in Sources */,
 				963AA31B24A824A70030CD18 /* SettingsTableViewCell.swift in Sources */,
+				966F53E024CFA0E300289C96 /* TypeSection.swift in Sources */,
 				96680303249AD4FB0034F8AF /* StatementTableViewController.swift in Sources */,
 				96AB5F2C24C8EAC600EF9B82 /* Defaults.swift in Sources */,
 				961CF20C2483373000BD25F1 /* CustomUITextField.swift in Sources */,

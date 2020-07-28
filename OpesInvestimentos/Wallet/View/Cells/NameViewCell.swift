@@ -14,7 +14,7 @@ class NameViewCell: UICollectionViewCell {
     
     var name: String? {
         didSet {
-            labelName.text = "Olá, \(name ?? "")! 🙂"
+            labelName.text = "Olá, \(name ?? "")! 🤑"
         }
     }
 }

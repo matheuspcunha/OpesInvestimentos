@@ -3,7 +3,6 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -31,82 +30,17 @@
             </objects>
             <point key="canvasLocation" x="-564" y="2470"/>
         </scene>
-        <!--Carteira-->
-        <scene sceneID="AEV-kH-Kdq">
-            <objects>
-                <viewController storyboardIdentifier="WalletViewController" id="IgM-Lt-aXf" customClass="WalletViewController" customModule="Opes" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="7tX-Wk-vVu">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="hXx-jD-WIS">
-                                <rect key="frame" x="40" y="360.5" width="334" height="136.5"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nenhum Investimento" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e8L-2b-4gV">
-                                        <rect key="frame" x="0.0" y="0.0" width="334" height="27.5"/>
-                                        <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="20"/>
-                                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sua carteira está vazia. Comece importando seus investimentos." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U4F-7G-UXm">
-                                        <rect key="frame" x="0.0" y="37.5" width="334" height="55"/>
-                                        <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="20"/>
-                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FFp-LG-Q1O" customClass="CustomUIButton" customModule="Opes" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="102.5" width="334" height="34"/>
-                                        <color key="backgroundColor" red="0.036590006199999997" green="0.30357426399999998" blue="0.96295219659999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="34" id="1gJ-nW-fpZ"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="15"/>
-                                        <state key="normal" title="Importar do CEI">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <real key="value" value="5"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <segue destination="Qkp-8q-WTt" kind="presentation" id="A4D-RL-4Zp"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                            </stackView>
-                        </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="hXx-jD-WIS" secondAttribute="trailing" constant="40" id="7dr-6A-Eil"/>
-                            <constraint firstItem="hXx-jD-WIS" firstAttribute="leading" secondItem="7tX-Wk-vVu" secondAttribute="leading" constant="40" id="JbI-JR-Y0r"/>
-                            <constraint firstItem="hXx-jD-WIS" firstAttribute="centerY" secondItem="7tT-B4-G2i" secondAttribute="centerY" id="krw-gg-mkR"/>
-                            <constraint firstItem="hXx-jD-WIS" firstAttribute="centerX" secondItem="7tT-B4-G2i" secondAttribute="centerX" id="uqB-fb-3oy"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="7tT-B4-G2i"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Carteira" id="nPD-HD-hLY"/>
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <connections>
-                        <outlet property="emptyWalletStack" destination="hXx-jD-WIS" id="I8w-h6-1rA"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="uys-VU-2Pp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="348" y="2470"/>
-        </scene>
         <!--ImportCEI-->
         <scene sceneID="jf1-Ev-Hxa">
             <objects>
                 <viewControllerPlaceholder storyboardName="ImportCEI" id="Qkp-8q-WTt" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Xi-dY-hiM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2011" y="2470"/>
+            <point key="canvasLocation" x="947" y="2470"/>
         </scene>
         <!--Carteira-->
         <scene sceneID="Ao5-8U-8Ao">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="NAZ-pP-k9g" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <collectionViewController id="41M-vx-gNQ" customClass="WalletCollectionViewController" customModule="Opes" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="iiA-p5-pPl">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -179,13 +113,11 @@
                         <outlet property="emptyWalletStack" destination="qr8-1H-f1d" id="ERu-DU-jWL"/>
                     </connections>
                 </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NAZ-pP-k9g" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1058" y="2470"/>
+            <point key="canvasLocation" x="268" y="2470"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="N3y-qO-zkG"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <image name="wallet" width="22.5" height="22.5"/>
     </resources>

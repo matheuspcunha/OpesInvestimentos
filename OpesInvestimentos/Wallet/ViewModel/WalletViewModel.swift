@@ -22,6 +22,8 @@ class WalletViewModel {
         }
     }
     
+    private var wallet:[Wallet] = []
+    
     weak var delegate: WalletViewModelDelegate?
     
     var walletLoaded: (()->Void)?
@@ -35,21 +37,23 @@ class WalletViewModel {
     func loadWallet() {
         
         FirebaseService.getSubCollection(collection: .wallet) { (query, error) in
-            var wallet:[Wallet] = []
-            
             guard let query = query, error == nil else {
                 self.walletLoaded?()
                 return
             }
             
+            self.wallet.removeAll()
             for document in query.documents {
                 let data = document.data()
-                wallet.append(Wallet(dictionary: data))
+                self.wallet.append(Wallet(dictionary: data))
             }
             
             self.sections = [
                 NameSection(name: "Everton"),
-                TotalSection(total: self.getTotal(wallet: wallet))
+                TotalSection(total: self.totalWallet),
+                TypeSection(total: self.totalStock, type: .Acoes),
+                TypeSection(total: self.totalFunds, type: .Fundos),
+                TypeSection(total: self.totalTreasury, type: .Tesouro)
             ]
         }
     }
@@ -62,7 +66,11 @@ class WalletViewModel {
         return sections[section].numberOfItems
     }
     
-    func getTotal(wallet:[Wallet]) -> Double {
+    private var totalWallet: Double {
+        return totalStock + totalTreasury + totalFunds
+    }
+    
+    private var totalTreasury: Double {
         var total: Double = 0
         
         for w in wallet {
@@ -73,11 +81,39 @@ class WalletViewModel {
                     }
                 }
             }
-
+        }
+                
+        return total
+    }
+    
+    private var totalStock: Double {
+        var total: Double = 0
+        
+        for w in wallet {
             if let stock = w.stockWallet {
                 if !stock.isEmpty {
                     for s in stock {
-                        total += s.totalValue
+                        if !s.stockType.contains("CI") {
+                            total += s.totalValue
+                        }
+                    }
+                }
+            }
+        }
+                
+        return total
+    }
+    
+    private var totalFunds: Double {
+        var total: Double = 0
+        
+        for w in wallet {
+            if let stock = w.stockWallet {
+                if !stock.isEmpty {
+                    for s in stock {
+                        if s.stockType.contains("CI") {
+                            total += s.totalValue
+                        }
                     }
                 }
             }
