@@ -20,15 +20,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
         
         let vc: UIViewController
-        let nc = window?.rootViewController as? UINavigationController
-
-        if let _ = Auth.auth().currentUser {
+        
+        if Auth.auth().currentUser != nil {
             vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainViewController")
-            nc?.viewControllers = [vc]
         } else {
             vc = UIStoryboard(name: "Welcome", bundle: nil).instantiateViewController(withIdentifier: "WelcomeViewController")
-            nc?.viewControllers = [vc]
         }
+        
+        self.window?.rootViewController = vc
+        self.window?.makeKeyAndVisible()
         
         return true
     }
