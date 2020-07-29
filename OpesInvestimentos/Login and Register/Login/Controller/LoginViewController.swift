@@ -33,7 +33,7 @@ class LoginViewController: UIViewController {
     }
     
     private func showMainScreen() {
-        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainNavigationController")
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainViewController")
         present(vc, animated: true)
     }
 }

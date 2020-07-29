@@ -88,13 +88,13 @@ final class CEIServiceAPI {
                     let components = Calendar.current.dateComponents([.year], from: Date(), to: dividend.date)
                     
                     if (dividend.date <= Date() && components.year! >= 0) {
-                        FirebaseService.setSubCollection(in: .dividends, set: dividend.dictionary)
-                        statement.append(Statement(date: dividend.date, operation: dividend.type, code: dividend.code, quantity: dividend.quantity, price: 0, total: dividend.grossValue))
+                        FirebaseService.insertData(in: .dividends, set: dividend.dictionary)
+                        statement.append(Statement(id: nil, date: dividend.date, operation: dividend.type, code: dividend.code, quantity: dividend.quantity, price: 0, total: dividend.grossValue))
                     }
                 }
                 
                 for stmt in statement {
-                    FirebaseService.setSubCollection(in: .statement, set: stmt.dictionary)
+                    FirebaseService.insertData(in: .statement, set: stmt.dictionary)
                 }
                 
                 onComplete(.success(true))
@@ -140,17 +140,17 @@ final class CEIServiceAPI {
                 var statement: [Statement] = []
                 
                 for h in history {
-                    FirebaseService.setSubCollection(in: .stockHistory, set: h.dictionary)
+                    FirebaseService.insertData(in: .stockHistory, set: h.dictionary)
 
                     if let stocks = h.stockHistory {
                         for stock in stocks {
-                            statement.append(Statement(date: stock.date, operation: stock.operation, code: stock.code, quantity: stock.quantity, price: stock.price, total: stock.totalValue))
+                            statement.append(Statement(id: nil, date: stock.date, operation: stock.operation, code: stock.code, quantity: stock.quantity, price: stock.price, total: stock.totalValue))
                         }
                     }
                 }
                 
                 for stmt in statement {
-                    FirebaseService.setSubCollection(in: .statement, set: stmt.dictionary)
+                    FirebaseService.insertData(in: .statement, set: stmt.dictionary)
                 }
                 
                 onComplete(.success(true))
@@ -194,7 +194,7 @@ final class CEIServiceAPI {
                 let wallet = try decoder.decode([Wallet].self, from: data)
                 
                 for w in wallet {
-                    FirebaseService.setSubCollection(in: .wallet, set: w.dictionary)
+                    FirebaseService.insertData(in: .wallet, set: w.dictionary)
                 }
                 
                 onComplete(.success(wallet))

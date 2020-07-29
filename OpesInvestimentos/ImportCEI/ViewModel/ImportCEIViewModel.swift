@@ -65,7 +65,6 @@ class ImportCEIViewModel {
     }
     
     private func getWallet(_ params: [String: String]) {
-        print("getWallet")
 
         CEIServiceAPI.getWallet(params: params, onComplete: { [weak self] (result) in
             guard let self = self else {return}
@@ -91,7 +90,6 @@ class ImportCEIViewModel {
     }
     
     private func getDividends(_ params: [String: String]) {
-        print("getDividends")
         
         CEIServiceAPI.getDividends(params: params, onComplete: { [weak self] (result) in
             guard let self = self else {return}
@@ -116,8 +114,7 @@ class ImportCEIViewModel {
     }
     
     private func getStockHistory(_ params: [String: String]) {
-        print("getStockHistory")
-
+        
         CEIServiceAPI.getStockHistory(params: params, onComplete: { [weak self] (result) in
             guard let self = self else {return}
 

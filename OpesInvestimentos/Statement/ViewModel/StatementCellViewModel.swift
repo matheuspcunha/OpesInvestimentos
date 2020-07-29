@@ -48,6 +48,6 @@ class StatementCellViewModel {
     }
     
     var operationType: String {
-        return self.statement.type.rawValue
+        return self.statement.type == .Leilao ? "Juros Sobre Capital" : self.statement.type.rawValue
     }
 }

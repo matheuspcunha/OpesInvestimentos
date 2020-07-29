@@ -98,12 +98,12 @@ class FirebaseService {
         }
     }
     
-    static func setSubCollection(in collection: DBCollection, set data: [String : Any]) {
+    static func insertData(in collection: DBCollection, set data: [String : Any]) {
         self.db.collection(collection.rawValue).addDocument(data: data)
     }
     
-    static func getSubCollection(collection: DBCollection,
-                                 onComplete: @escaping (QuerySnapshot?, FirebaseError?) -> Void) {
+    static func getData(collection: DBCollection,
+                        onComplete: @escaping (QuerySnapshot?, FirebaseError?) -> Void) {
         
         let docRef = db.collection(collection.rawValue)
         
@@ -120,6 +120,21 @@ class FirebaseService {
                                     onComplete(snapshot, nil)
                                 }
                             })
+    }
+
+    static func deleteData(in collection: DBCollection, id: String,
+                           onComplete: @escaping (Result<Bool, FirebaseError>) -> Void) {
+        
+        db.collection(collection.rawValue).document(id).delete() { error in
+                
+            if let error = error as NSError? {
+                if let errorCode = FirestoreErrorCode(rawValue: error.code) {
+                    onComplete(.failure(errorCode.error))
+                }
+            } else {
+                onComplete(.success(true))
+            }
+        }
     }
     
     static func checkIfExist(collection: DBCollection, onCompletion: @escaping (Bool) -> ()) {

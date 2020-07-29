@@ -9,16 +9,20 @@
 import Foundation
 import FirebaseFirestore
 
+extension Operation: CaseIterable { }
+
 enum Operation: String {
+    case Todos = "Todos"
     case Compra = "Compra"
     case Venda = "Venda"
     case Dividendo = "Dividendo"
-    case JurosCapital = "Juros Sobre Capital"
+    case JurosCapital = "Juros"
     case Leilao = "Leilão de Frações"
 }
 
 class Statement {
     
+    let id: String?
     let date: Date
     private let operation: String
     let code: String
@@ -26,7 +30,8 @@ class Statement {
     let price: Double
     let total: Double
     
-    init(date: Date, operation: String, code: String, quantity: Int, price: Double, total: Double) {
+    init(id: String?, date: Date, operation: String, code: String, quantity: Int, price: Double, total: Double) {
+        self.id = id
         self.date = date
         self.operation = operation
         self.code = code
@@ -35,7 +40,8 @@ class Statement {
         self.price = price == 0 ? (total / Double(quantity)) : price
     }
     
-    convenience init(dictionary data: [String: Any]) {
+    convenience init(dictionary data: [String : Any]) {
+        let id = (data["id"] as? String) ?? ""
         let date = Timestamp.dateValue(data["date"] as! Timestamp)()
         let operation = (data["operation"] as? String) ?? ""
         let code = (data["code"] as? String) ?? ""
@@ -43,7 +49,7 @@ class Statement {
         let price = (data["price"] as? Double) ?? 0.0
         let total = (data["total"] as? Double) ?? 0.0
         
-        self.init(date: date, operation: operation, code: code, quantity: quantity, price: price, total: total)
+        self.init(id: id, date: date, operation: operation, code: code, quantity: quantity, price: price, total: total)
     }
     
     var type: Operation {

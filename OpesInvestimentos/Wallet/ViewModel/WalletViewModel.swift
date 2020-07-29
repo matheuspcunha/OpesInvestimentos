@@ -36,7 +36,7 @@ class WalletViewModel {
 
     func loadWallet() {
         
-        FirebaseService.getSubCollection(collection: .wallet) { (query, error) in
+        FirebaseService.getData(collection: .wallet) { (query, error) in
             guard let query = query, error == nil else {
                 self.walletLoaded?()
                 return
