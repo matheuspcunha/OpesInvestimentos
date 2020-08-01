@@ -37,6 +37,7 @@ class WalletCollectionViewController: UICollectionViewController {
         self.collectionView.register(UINib(nibName: String(describing: TotalViewCell.self), bundle: nil), forCellWithReuseIdentifier: String(describing: TotalViewCell.self))
         self.collectionView.register(UINib(nibName: String(describing: NameViewCell.self), bundle: nil), forCellWithReuseIdentifier: String(describing: NameViewCell.self))
         self.collectionView.register(UINib(nibName: String(describing: TypeViewCell.self), bundle: nil), forCellWithReuseIdentifier: String(describing: TypeViewCell.self))
+        self.collectionView.register(UINib(nibName: String(describing: PieViewCell.self), bundle: nil), forCellWithReuseIdentifier: String(describing: PieViewCell.self))
 
         viewModel.walletLoaded = walletLoaded
     }
@@ -107,6 +108,11 @@ class WalletCollectionViewController: UICollectionViewController {
         case .type:
             if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: TypeViewCell.self), for: indexPath) as? TypeViewCell {
                 cell.configure(with: item as! WalletViewModelTypeItem)
+                return cell
+            }
+        case .pie:
+            if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: PieViewCell.self), for: indexPath) as? PieViewCell {
+                cell.configure(with: item as! WalletViewModelPieItem)
                 return cell
             }
         }

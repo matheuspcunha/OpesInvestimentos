@@ -8,5 +8,6 @@ target 'OpesInvestimentos' do
   pod 'Firebase/Core'
   pod 'Firebase/Firestore'
   pod 'Firebase/Auth'
+  pod 'Charts'
 
 end

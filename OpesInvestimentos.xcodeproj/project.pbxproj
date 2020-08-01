@@ -34,6 +34,9 @@
 		966C2429249D80AE0099E1BF /* Statement.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 966C2428249D80AE0099E1BF /* Statement.storyboard */; };
 		966C242B249DAD1A0099E1BF /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 966C242A249DAD1A0099E1BF /* Login.storyboard */; };
 		966C242D249DAD950099E1BF /* Register.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 966C242C249DAD950099E1BF /* Register.storyboard */; };
+		966F3C6A24D5E547003E2EF6 /* PieViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966F3C6824D5E547003E2EF6 /* PieViewCell.swift */; };
+		966F3C6B24D5E547003E2EF6 /* PieViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 966F3C6924D5E547003E2EF6 /* PieViewCell.xib */; };
+		966F3C6D24D5E788003E2EF6 /* WalletViewModelPieItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966F3C6C24D5E788003E2EF6 /* WalletViewModelPieItem.swift */; };
 		966F53DD24CF9ED300289C96 /* TypeViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966F53DB24CF9ED300289C96 /* TypeViewCell.swift */; };
 		966F53DE24CF9ED300289C96 /* TypeViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 966F53DC24CF9ED300289C96 /* TypeViewCell.xib */; };
 		966F53E024CFA0E300289C96 /* WalletViewModelTypeItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966F53DF24CFA0E300289C96 /* WalletViewModelTypeItem.swift */; };
@@ -100,6 +103,9 @@
 		966C2428249D80AE0099E1BF /* Statement.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Statement.storyboard; sourceTree = "<group>"; };
 		966C242A249DAD1A0099E1BF /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		966C242C249DAD950099E1BF /* Register.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Register.storyboard; sourceTree = "<group>"; };
+		966F3C6824D5E547003E2EF6 /* PieViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieViewCell.swift; sourceTree = "<group>"; };
+		966F3C6924D5E547003E2EF6 /* PieViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PieViewCell.xib; sourceTree = "<group>"; };
+		966F3C6C24D5E788003E2EF6 /* WalletViewModelPieItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletViewModelPieItem.swift; sourceTree = "<group>"; };
 		966F53DB24CF9ED300289C96 /* TypeViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeViewCell.swift; sourceTree = "<group>"; };
 		966F53DC24CF9ED300289C96 /* TypeViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TypeViewCell.xib; sourceTree = "<group>"; };
 		966F53DF24CFA0E300289C96 /* WalletViewModelTypeItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletViewModelTypeItem.swift; sourceTree = "<group>"; };
@@ -304,6 +310,8 @@
 				96F1644924CCFB5F0008A655 /* NameViewCell.xib */,
 				966F53DB24CF9ED300289C96 /* TypeViewCell.swift */,
 				966F53DC24CF9ED300289C96 /* TypeViewCell.xib */,
+				966F3C6824D5E547003E2EF6 /* PieViewCell.swift */,
+				966F3C6924D5E547003E2EF6 /* PieViewCell.xib */,
 				9673F01524A573BF008A47A3 /* Wallet.storyboard */,
 			);
 			path = View;
@@ -472,6 +480,7 @@
 				96F1644424CCC6DC0008A655 /* WalletViewModelTotalItem.swift */,
 				96F1644C24CCFFCA0008A655 /* WalletViewModelNameItem.swift */,
 				966F53DF24CFA0E300289C96 /* WalletViewModelTypeItem.swift */,
+				966F3C6C24D5E788003E2EF6 /* WalletViewModelPieItem.swift */,
 				9672A81724C7CA3E00161AEF /* WalletViewModel.swift */,
 			);
 			path = ViewModel;
@@ -624,6 +633,7 @@
 				961CF1FC2482F26600BD25F1 /* Assets.xcassets in Resources */,
 				966BFE7424A3F8CD00412D9B /* GoogleService-Info.plist in Resources */,
 				96F1644B24CCFB5F0008A655 /* NameViewCell.xib in Resources */,
+				966F3C6B24D5E547003E2EF6 /* PieViewCell.xib in Resources */,
 				961CF1F72482F26300BD25F1 /* Main.storyboard in Resources */,
 				966C242D249DAD950099E1BF /* Register.storyboard in Resources */,
 			);
@@ -699,6 +709,7 @@
 				966F53DD24CF9ED300289C96 /* TypeViewCell.swift in Sources */,
 				967FE86B2499993700D7C0C5 /* Statement.swift in Sources */,
 				967091AE24AD4EC300257A23 /* User.swift in Sources */,
+				966F3C6D24D5E788003E2EF6 /* WalletViewModelPieItem.swift in Sources */,
 				966BFE7F24A439DE00412D9B /* LoginViewModel.swift in Sources */,
 				9677ED87248D4F1100CD6557 /* CEI.swift in Sources */,
 				963AA31B24A824A70030CD18 /* SettingsTableViewCell.swift in Sources */,
@@ -709,6 +720,7 @@
 				961CF20C2483373000BD25F1 /* CustomUITextField.swift in Sources */,
 				96F898B924C4E48400686915 /* UITableView+Empty.swift in Sources */,
 				9646188624A17BE10051C2F5 /* RegisterViewController.swift in Sources */,
+				966F3C6A24D5E547003E2EF6 /* PieViewCell.swift in Sources */,
 				961CF20E24834A6F00BD25F1 /* CustomUIButton.swift in Sources */,
 				9672A81824C7CA3E00161AEF /* WalletViewModel.swift in Sources */,
 				961CF20724830E6F00BD25F1 /* CEIServiceAPI.swift in Sources */,

@@ -35,7 +35,6 @@ class WalletViewModel {
     // MARK: - Methods
 
     func loadWallet() {
-        
         FirebaseService.getData(collection: .wallet) { (query, error) in
             guard let query = query, error == nil else {
                 self.walletLoaded?()
@@ -48,13 +47,7 @@ class WalletViewModel {
                 self.wallet.append(Wallet(dictionary: data))
             }
             
-            self.items = [
-                WalletViewModelNameItem(name: "Everton"),
-                WalletViewModelTotalItem(total: self.totalWallet),
-                WalletViewModelTypeItem(total: self.totalStock, type: .Acoes),
-                WalletViewModelTypeItem(total: self.totalFunds, type: .Fundos),
-                WalletViewModelTypeItem(total: self.totalTreasury, type: .Tesouro)
-            ]
+            self.setWalletItems()
         }
     }
     
@@ -120,6 +113,35 @@ class WalletViewModel {
         }
                 
         return total
+    }
+    
+    private func setWalletItems() {
+        self.items.removeAll()
+        
+        var items = [WalletViewModelItem]()
+        var pieItems = [PieItem]()
+        
+        items.append(WalletViewModelNameItem(name: "Everton"))
+        items.append(WalletViewModelTotalItem(total: self.totalWallet))
+        
+        if self.totalStock > 0 {
+            items.append(WalletViewModelTypeItem(total: self.totalStock, type: .Acoes))
+            pieItems.append(PieItem(type: .Acoes, value: (self.totalStock / self.totalWallet)))
+        }
+        if self.totalFunds > 0 {
+            items.append(WalletViewModelTypeItem(total: self.totalFunds, type: .Fundos))
+            pieItems.append(PieItem(type: .Fundos, value: (self.totalFunds / self.totalWallet)))
+
+        }
+        if self.totalTreasury > 0 {
+            items.append(WalletViewModelTypeItem(total: self.totalTreasury, type: .Tesouro))
+            pieItems.append(PieItem(type: .Tesouro, value: (self.totalTreasury / self.totalWallet)))
+        }
+        if !pieItems.isEmpty {
+            items.append(WalletViewModelPieItem(items: pieItems))
+        }
+        
+        self.items = items
     }
 }
 

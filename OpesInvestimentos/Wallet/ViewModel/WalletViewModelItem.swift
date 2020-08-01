@@ -9,9 +9,10 @@
 import UIKit
 
 enum WalletViewModelItemType {
-   case total
-   case name
-   case type
+    case total
+    case name
+    case type
+    case pie
 }
 
 protocol WalletViewModelItem {

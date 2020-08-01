@@ -15,4 +15,13 @@ class Formatter {
         formatter.locale = Locale(identifier: "pt_BR")
         return formatter
     }()
+    
+    static let percentFormatter: NumberFormatter = {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = NumberFormatter.Style.percent
+        formatter.minimumFractionDigits = 1
+        formatter.maximumFractionDigits = 1
+        
+        return formatter
+    }()
 }
