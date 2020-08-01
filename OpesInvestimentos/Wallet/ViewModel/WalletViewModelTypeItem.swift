@@ -14,17 +14,20 @@ enum Type: String {
     case Fundos = "Fundos"
 }
 
-struct TypeSection: Section {
-    let numberOfItems = 1
+struct WalletViewModelTypeItem: WalletViewModelItem {
     
-    private let total: String
-    private let name: String
-    private var color: UIColor = UIColor()
+    var type: WalletViewModelItemType {
+        return .type
+    }
 
+    let total: String
+    let name: String
+    var itemType: Type
+    
     init(total: Double, type: Type) {
         self.total = Formatter.currencyFormatter.string(from: NSNumber(value: total)) ?? "R$ \(total)"
         self.name = type.rawValue.uppercased()
-        self.color = getTypeColor(type)
+        self.itemType = type
     }
 
     func layoutSection() -> NSCollectionLayoutSection {
@@ -35,22 +38,5 @@ struct TypeSection: Section {
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
         
         return NSCollectionLayoutSection(group: group)
-    }
-
-    func configure(collectionView: UICollectionView, indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: TypeViewCell.self), for: indexPath) as! TypeViewCell
-        cell.configure(name: name, total: total, color: color)
-        return cell
-    }
-    
-    private func getTypeColor(_ type: Type) -> UIColor {
-        switch type {
-        case .Tesouro:
-            return UIColor(red: 39/255.0, green: 174/255.0, blue: 96/255.0, alpha: 1.0)
-        case .Fundos:
-            return UIColor(red: 230/255.0, green: 126/255.0, blue: 34/255.0, alpha: 1.0)
-        default:
-            return UIColor(red: 165/255.0, green: 94/255.0, blue: 234/255.0, alpha: 1.0)
-        }
     }
 }

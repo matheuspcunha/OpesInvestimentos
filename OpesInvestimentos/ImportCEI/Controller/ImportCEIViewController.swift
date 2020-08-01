@@ -21,6 +21,10 @@ class ImportCEIViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.hideKeyboardWhenTappedAround()
+        
+        TextFieldResponder.shared.add([passwordField, cpfField])
+        
         viewModel.delegate = self
         viewModel.cpfLoaded = cpfLoaded
     }

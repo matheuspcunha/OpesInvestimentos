@@ -21,6 +21,11 @@ class LoginViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.hideKeyboardWhenTappedAround()
+        
+        TextFieldResponder.shared.add([emailField, passwordField])
+        
         viewModel.delegate = self
     }
     
@@ -50,3 +55,5 @@ extension LoginViewController: LoginViewModelDelegate {
         }
     }
 }
+
+

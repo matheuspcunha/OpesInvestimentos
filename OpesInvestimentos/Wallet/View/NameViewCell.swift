@@ -12,9 +12,7 @@ class NameViewCell: UICollectionViewCell {
 
     @IBOutlet weak var labelName: UILabel!
     
-    var name: String? {
-        didSet {
-            labelName.text = "Olá, \(name ?? "")! 🤑"
-        }
+    func configure(with viewModel: WalletViewModelNameItem) {
+        labelName.text = viewModel.name
     }
 }

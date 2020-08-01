@@ -16,20 +16,20 @@ class WalletViewModel {
     
     // MARK: - Properties
 
-    private var sections: [Section] = [] {
+    private var items: [WalletViewModelItem] = [] {
         didSet {
             walletLoaded?()
         }
     }
     
-    private var wallet:[Wallet] = []
+    private var wallet: [Wallet] = []
     
     weak var delegate: WalletViewModelDelegate?
     
     var walletLoaded: (()->Void)?
 
     var count: Int {
-        return sections.count
+        return items.count
     }
     
     // MARK: - Methods
@@ -48,22 +48,22 @@ class WalletViewModel {
                 self.wallet.append(Wallet(dictionary: data))
             }
             
-            self.sections = [
-                NameSection(name: "Everton"),
-                TotalSection(total: self.totalWallet),
-                TypeSection(total: self.totalStock, type: .Acoes),
-                TypeSection(total: self.totalFunds, type: .Fundos),
-                TypeSection(total: self.totalTreasury, type: .Tesouro)
+            self.items = [
+                WalletViewModelNameItem(name: "Everton"),
+                WalletViewModelTotalItem(total: self.totalWallet),
+                WalletViewModelTypeItem(total: self.totalStock, type: .Acoes),
+                WalletViewModelTypeItem(total: self.totalFunds, type: .Fundos),
+                WalletViewModelTypeItem(total: self.totalTreasury, type: .Tesouro)
             ]
         }
     }
     
-    func getSection(in index: Int) -> Section {
-        return sections[index]
+    func getItem(at indexPath: Int) -> WalletViewModelItem {
+        return items[indexPath]
     }
     
     func numberOfItems(in section: Int) -> Int {
-        return sections[section].numberOfItems
+        return items[section].numberOfItems
     }
     
     private var totalWallet: Double {

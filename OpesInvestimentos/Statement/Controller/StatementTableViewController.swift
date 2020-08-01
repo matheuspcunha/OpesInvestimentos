@@ -46,7 +46,6 @@ class StatementTableViewController: UITableViewController {
 
     private func statementLoaded() {
         DispatchQueue.main.async {
-            
             if self.viewModel.count == 0 {
                 self.tableView.setEmptyView(title: "Nenhuma Movimentação", message: "O extrato de seus investimentos aparecerá aqui.")
             } else {
@@ -126,16 +125,14 @@ extension StatementTableViewController: StatementViewModelDelegate {
     }
 }
 
-extension StatementTableViewController: UISearchResultsUpdating {
+extension StatementTableViewController: UISearchResultsUpdating, UISearchBarDelegate {
     
     func updateSearchResults(for searchController: UISearchController) {
         let searchBar = searchController.searchBar
         let operation = Operation(rawValue: searchBar.scopeButtonTitles![searchBar.selectedScopeButtonIndex])
         viewModel.filterContentForSearchText(searchBar.text, operation: operation)
     }
-}
-
-extension StatementTableViewController: UISearchBarDelegate {
+    
     func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
         let operation = Operation(rawValue:
         searchBar.scopeButtonTitles![selectedScope])

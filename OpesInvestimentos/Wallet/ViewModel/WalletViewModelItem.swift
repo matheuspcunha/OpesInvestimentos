@@ -8,8 +8,20 @@
 
 import UIKit
 
-protocol Section {
+enum WalletViewModelItemType {
+   case total
+   case name
+   case type
+}
+
+protocol WalletViewModelItem {
     var numberOfItems: Int { get }
+    var type: WalletViewModelItemType { get }
     func layoutSection() -> NSCollectionLayoutSection
-    func configure(collectionView: UICollectionView, indexPath: IndexPath) -> UICollectionViewCell
+}
+
+extension WalletViewModelItem {
+   var numberOfItems: Int {
+      return 1
+   }
 }

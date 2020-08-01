@@ -8,29 +8,25 @@
 
 import UIKit
 
-struct NameSection: Section {
-    let numberOfItems = 1
+struct WalletViewModelNameItem: WalletViewModelItem {
     
-    private let name: String
+    var type: WalletViewModelItemType {
+        return .name
+    }
+    
+    let name: String
 
     init(name: String) {
-        self.name = name
+        self.name = "Olá, \(name )! 🤑"
     }
 
     func layoutSection() -> NSCollectionLayoutSection {
         let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
 
-        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(70))
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(50))
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
         
         return NSCollectionLayoutSection(group: group)
-    }
-
-    func configure(collectionView: UICollectionView, indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: NameViewCell.self), for: indexPath) as! NameViewCell
-        cell.name = name
-        
-        return cell
     }
 }

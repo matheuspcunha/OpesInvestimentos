@@ -8,10 +8,13 @@
 
 import UIKit
 
-struct TotalSection: Section {
-    let numberOfItems = 1
+struct WalletViewModelTotalItem: WalletViewModelItem {
     
-    private let total: String
+    var type: WalletViewModelItemType {
+        return .total
+    }
+    
+    let total: String
 
     init(total: Double) {
         self.total = Formatter.currencyFormatter.string(from: NSNumber(value: total)) ?? "R$ \(total)"
@@ -25,11 +28,5 @@ struct TotalSection: Section {
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
         
         return NSCollectionLayoutSection(group: group)
-    }
-
-    func configure(collectionView: UICollectionView, indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: TotalViewCell.self), for: indexPath) as! TotalViewCell
-        cell.total = total
-        return cell
     }
 }

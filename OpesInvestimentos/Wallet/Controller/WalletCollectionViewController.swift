@@ -20,7 +20,7 @@ class WalletCollectionViewController: UICollectionViewController {
     
     private lazy var layoutSections: UICollectionViewLayout = {
         let layout = UICollectionViewCompositionalLayout { (index, environment) -> NSCollectionLayoutSection? in
-            return self.viewModel.getSection(in: index).layoutSection()
+            return self.viewModel.getItem(at: index).layoutSection()
         }
         
         return layout
@@ -91,7 +91,30 @@ class WalletCollectionViewController: UICollectionViewController {
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        return viewModel.getSection(in: indexPath.section).configure(collectionView: collectionView, indexPath: indexPath)
+        let item = viewModel.getItem(at: indexPath.section)
+        
+        switch item.type {
+        case .name:
+            if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: NameViewCell.self), for: indexPath) as? NameViewCell {
+                cell.configure(with: item as! WalletViewModelNameItem)
+                return cell
+            }
+        case .total:
+            if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: TotalViewCell.self), for: indexPath) as? TotalViewCell {
+                cell.configure(with: item as! WalletViewModelTotalItem)
+                return cell
+            }
+        case .type:
+            if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: TypeViewCell.self), for: indexPath) as? TypeViewCell {
+                cell.configure(with: item as! WalletViewModelTypeItem)
+                return cell
+            }
+        }
+
+        return UICollectionViewCell()
     }
     
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("item at \(indexPath.section)/\(indexPath.item) tapped")
+    }
 }

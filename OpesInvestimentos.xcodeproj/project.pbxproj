@@ -21,6 +21,7 @@
 		963AA31924A81DA10030CD18 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963AA31824A81DA10030CD18 /* SettingsTableViewController.swift */; };
 		963AA31B24A824A70030CD18 /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963AA31A24A824A70030CD18 /* SettingsTableViewCell.swift */; };
 		9646188624A17BE10051C2F5 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9646188524A17BE10051C2F5 /* RegisterViewController.swift */; };
+		9659119E24D2369100114DB0 /* UIViewController+Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9659119D24D2369100114DB0 /* UIViewController+Keyboard.swift */; };
 		9665682224AEA4DD00E496FF /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9665682124AEA4DD00E496FF /* Alert.swift */; };
 		9665682424AEBBD100E496FF /* FirebaseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9665682324AEBBD100E496FF /* FirebaseError.swift */; };
 		96680303249AD4FB0034F8AF /* StatementTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96680302249AD4FB0034F8AF /* StatementTableViewController.swift */; };
@@ -35,12 +36,13 @@
 		966C242D249DAD950099E1BF /* Register.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 966C242C249DAD950099E1BF /* Register.storyboard */; };
 		966F53DD24CF9ED300289C96 /* TypeViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966F53DB24CF9ED300289C96 /* TypeViewCell.swift */; };
 		966F53DE24CF9ED300289C96 /* TypeViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 966F53DC24CF9ED300289C96 /* TypeViewCell.xib */; };
-		966F53E024CFA0E300289C96 /* TypeSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966F53DF24CFA0E300289C96 /* TypeSection.swift */; };
+		966F53E024CFA0E300289C96 /* WalletViewModelTypeItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966F53DF24CFA0E300289C96 /* WalletViewModelTypeItem.swift */; };
 		966FF78824CDF237001B1F62 /* WalletCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966FF78724CDF237001B1F62 /* WalletCollectionViewController.swift */; };
 		967091AA24AD377100257A23 /* wallet.json in Resources */ = {isa = PBXBuildFile; fileRef = 967091A924AD377100257A23 /* wallet.json */; };
 		967091AC24AD395500257A23 /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967091AB24AD395500257A23 /* FirebaseService.swift */; };
 		967091AE24AD4EC300257A23 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967091AD24AD4EC300257A23 /* User.swift */; };
 		967091B024AD577300257A23 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967091AF24AD577300257A23 /* RegisterViewModel.swift */; };
+		9671504924D37127005E8D17 /* TextFieldResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9671504824D37127005E8D17 /* TextFieldResponder.swift */; };
 		9672567124884E9400394587 /* dividends.json in Resources */ = {isa = PBXBuildFile; fileRef = 9672566F24884E9300394587 /* dividends.json */; };
 		9672567224884E9400394587 /* history.json in Resources */ = {isa = PBXBuildFile; fileRef = 9672567024884E9400394587 /* history.json */; };
 		9672775B24B127150077A4B3 /* String+CPF.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9672775A24B127150077A4B3 /* String+CPF.swift */; };
@@ -59,12 +61,11 @@
 		96DBF3F724C3C80800E159DD /* ImportCEIViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DBF3F624C3C80800E159DD /* ImportCEIViewModel.swift */; };
 		96F1643D24CCB4710008A655 /* TotalViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F1643B24CCB4710008A655 /* TotalViewCell.swift */; };
 		96F1643E24CCB4710008A655 /* TotalViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96F1643C24CCB4710008A655 /* TotalViewCell.xib */; };
-		96F1644324CCC6B50008A655 /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F1644224CCC6B50008A655 /* Section.swift */; };
-		96F1644524CCC6DC0008A655 /* TotalSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F1644424CCC6DC0008A655 /* TotalSection.swift */; };
-		96F1644724CCDB440008A655 /* UICollectionView+Empty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F1644624CCDB440008A655 /* UICollectionView+Empty.swift */; };
+		96F1644324CCC6B50008A655 /* WalletViewModelItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F1644224CCC6B50008A655 /* WalletViewModelItem.swift */; };
+		96F1644524CCC6DC0008A655 /* WalletViewModelTotalItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F1644424CCC6DC0008A655 /* WalletViewModelTotalItem.swift */; };
 		96F1644A24CCFB5F0008A655 /* NameViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F1644824CCFB5F0008A655 /* NameViewCell.swift */; };
 		96F1644B24CCFB5F0008A655 /* NameViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96F1644924CCFB5F0008A655 /* NameViewCell.xib */; };
-		96F1644D24CCFFCA0008A655 /* NameSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F1644C24CCFFCA0008A655 /* NameSection.swift */; };
+		96F1644D24CCFFCA0008A655 /* WalletViewModelNameItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F1644C24CCFFCA0008A655 /* WalletViewModelNameItem.swift */; };
 		96F898B924C4E48400686915 /* UITableView+Empty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F898B824C4E48400686915 /* UITableView+Empty.swift */; };
 /* End PBXBuildFile section */
 
@@ -84,6 +85,7 @@
 		963AA31824A81DA10030CD18 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		963AA31A24A824A70030CD18 /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
 		9646188524A17BE10051C2F5 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		9659119D24D2369100114DB0 /* UIViewController+Keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Keyboard.swift"; sourceTree = "<group>"; };
 		965FBD6B24D1A49900CB4731 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Main.strings"; sourceTree = "<group>"; };
 		965FBD6C24D1A49A00CB4731 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		9665682124AEA4DD00E496FF /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
@@ -100,12 +102,13 @@
 		966C242C249DAD950099E1BF /* Register.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Register.storyboard; sourceTree = "<group>"; };
 		966F53DB24CF9ED300289C96 /* TypeViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeViewCell.swift; sourceTree = "<group>"; };
 		966F53DC24CF9ED300289C96 /* TypeViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TypeViewCell.xib; sourceTree = "<group>"; };
-		966F53DF24CFA0E300289C96 /* TypeSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeSection.swift; sourceTree = "<group>"; };
+		966F53DF24CFA0E300289C96 /* WalletViewModelTypeItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletViewModelTypeItem.swift; sourceTree = "<group>"; };
 		966FF78724CDF237001B1F62 /* WalletCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletCollectionViewController.swift; sourceTree = "<group>"; };
 		967091A924AD377100257A23 /* wallet.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = wallet.json; sourceTree = "<group>"; };
 		967091AB24AD395500257A23 /* FirebaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseService.swift; sourceTree = "<group>"; };
 		967091AD24AD4EC300257A23 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		967091AF24AD577300257A23 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
+		9671504824D37127005E8D17 /* TextFieldResponder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldResponder.swift; sourceTree = "<group>"; };
 		9672566F24884E9300394587 /* dividends.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = dividends.json; sourceTree = "<group>"; };
 		9672567024884E9400394587 /* history.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = history.json; sourceTree = "<group>"; };
 		9672775A24B127150077A4B3 /* String+CPF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+CPF.swift"; sourceTree = "<group>"; };
@@ -124,12 +127,11 @@
 		96DBF3F624C3C80800E159DD /* ImportCEIViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportCEIViewModel.swift; sourceTree = "<group>"; };
 		96F1643B24CCB4710008A655 /* TotalViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalViewCell.swift; sourceTree = "<group>"; };
 		96F1643C24CCB4710008A655 /* TotalViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TotalViewCell.xib; sourceTree = "<group>"; };
-		96F1644224CCC6B50008A655 /* Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
-		96F1644424CCC6DC0008A655 /* TotalSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalSection.swift; sourceTree = "<group>"; };
-		96F1644624CCDB440008A655 /* UICollectionView+Empty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Empty.swift"; sourceTree = "<group>"; };
+		96F1644224CCC6B50008A655 /* WalletViewModelItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletViewModelItem.swift; sourceTree = "<group>"; };
+		96F1644424CCC6DC0008A655 /* WalletViewModelTotalItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletViewModelTotalItem.swift; sourceTree = "<group>"; };
 		96F1644824CCFB5F0008A655 /* NameViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameViewCell.swift; sourceTree = "<group>"; };
 		96F1644924CCFB5F0008A655 /* NameViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NameViewCell.xib; sourceTree = "<group>"; };
-		96F1644C24CCFFCA0008A655 /* NameSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameSection.swift; sourceTree = "<group>"; };
+		96F1644C24CCFFCA0008A655 /* WalletViewModelNameItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletViewModelNameItem.swift; sourceTree = "<group>"; };
 		96F898B824C4E48400686915 /* UITableView+Empty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Empty.swift"; sourceTree = "<group>"; };
 		B1B2BFEEAB4E689DF82A6E38 /* Pods-OpesInvestimentos.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OpesInvestimentos.release.xcconfig"; path = "Target Support Files/Pods-OpesInvestimentos/Pods-OpesInvestimentos.release.xcconfig"; sourceTree = "<group>"; };
 		B7939B4B385326E179FC94AF /* Pods_OpesInvestimentos.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OpesInvestimentos.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -296,7 +298,12 @@
 		966BFE7B24A439A800412D9B /* View */ = {
 			isa = PBXGroup;
 			children = (
-				96F1643F24CCB5100008A655 /* Cells */,
+				96F1643B24CCB4710008A655 /* TotalViewCell.swift */,
+				96F1643C24CCB4710008A655 /* TotalViewCell.xib */,
+				96F1644824CCFB5F0008A655 /* NameViewCell.swift */,
+				96F1644924CCFB5F0008A655 /* NameViewCell.xib */,
+				966F53DB24CF9ED300289C96 /* TypeViewCell.swift */,
+				966F53DC24CF9ED300289C96 /* TypeViewCell.xib */,
 				9673F01524A573BF008A47A3 /* Wallet.storyboard */,
 			);
 			path = View;
@@ -323,7 +330,7 @@
 			children = (
 				9672775A24B127150077A4B3 /* String+CPF.swift */,
 				96F898B824C4E48400686915 /* UITableView+Empty.swift */,
-				96F1644624CCDB440008A655 /* UICollectionView+Empty.swift */,
+				9659119D24D2369100114DB0 /* UIViewController+Keyboard.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -335,6 +342,7 @@
 				9677ED86248D4F1100CD6557 /* CEI.swift */,
 				9665682324AEBBD100E496FF /* FirebaseError.swift */,
 				96AB5F2B24C8EAC600EF9B82 /* Defaults.swift */,
+				9671504824D37127005E8D17 /* TextFieldResponder.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -343,10 +351,6 @@
 			isa = PBXGroup;
 			children = (
 				9672A81524C79B3C00161AEF /* Wallet.swift */,
-				96F1644224CCC6B50008A655 /* Section.swift */,
-				96F1644424CCC6DC0008A655 /* TotalSection.swift */,
-				96F1644C24CCFFCA0008A655 /* NameSection.swift */,
-				966F53DF24CFA0E300289C96 /* TypeSection.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -464,6 +468,10 @@
 		9673F00624A56075008A47A3 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				96F1644224CCC6B50008A655 /* WalletViewModelItem.swift */,
+				96F1644424CCC6DC0008A655 /* WalletViewModelTotalItem.swift */,
+				96F1644C24CCFFCA0008A655 /* WalletViewModelNameItem.swift */,
+				966F53DF24CFA0E300289C96 /* WalletViewModelTypeItem.swift */,
 				9672A81724C7CA3E00161AEF /* WalletViewModel.swift */,
 			);
 			path = ViewModel;
@@ -530,19 +538,6 @@
 				96DBF3F624C3C80800E159DD /* ImportCEIViewModel.swift */,
 			);
 			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		96F1643F24CCB5100008A655 /* Cells */ = {
-			isa = PBXGroup;
-			children = (
-				96F1643B24CCB4710008A655 /* TotalViewCell.swift */,
-				96F1643C24CCB4710008A655 /* TotalViewCell.xib */,
-				96F1644824CCFB5F0008A655 /* NameViewCell.swift */,
-				96F1644924CCFB5F0008A655 /* NameViewCell.xib */,
-				966F53DB24CF9ED300289C96 /* TypeViewCell.swift */,
-				966F53DC24CF9ED300289C96 /* TypeViewCell.xib */,
-			);
-			path = Cells;
 			sourceTree = "<group>";
 		};
 		AAF43B7D0626A47E7E9E76A8 /* Frameworks */ = {
@@ -685,7 +680,7 @@
 			files = (
 				9672A81624C79B3C00161AEF /* Wallet.swift in Sources */,
 				967091AC24AD395500257A23 /* FirebaseService.swift in Sources */,
-				96F1644524CCC6DC0008A655 /* TotalSection.swift in Sources */,
+				96F1644524CCC6DC0008A655 /* WalletViewModelTotalItem.swift in Sources */,
 				968E3D32249065B500F08CBF /* Formatter.swift in Sources */,
 				96680309249AE5B60034F8AF /* StatementViewModel.swift in Sources */,
 				961CF1F42482F26300BD25F1 /* MainViewController.swift in Sources */,
@@ -693,8 +688,8 @@
 				96AB5F2E24C90C8F00EF9B82 /* CustomUIView.swift in Sources */,
 				961CF1FA2482F26300BD25F1 /* OpesInvestimentos.xcdatamodeld in Sources */,
 				96DBF3F424C3C6B900E159DD /* ImportCEIViewController.swift in Sources */,
-				96F1644324CCC6B50008A655 /* Section.swift in Sources */,
-				96F1644D24CCFFCA0008A655 /* NameSection.swift in Sources */,
+				96F1644324CCC6B50008A655 /* WalletViewModelItem.swift in Sources */,
+				96F1644D24CCFFCA0008A655 /* WalletViewModelNameItem.swift in Sources */,
 				9672775B24B127150077A4B3 /* String+CPF.swift in Sources */,
 				9665682224AEA4DD00E496FF /* Alert.swift in Sources */,
 				966BFE7724A4380000412D9B /* WelcomeViewController.swift in Sources */,
@@ -705,10 +700,10 @@
 				967FE86B2499993700D7C0C5 /* Statement.swift in Sources */,
 				967091AE24AD4EC300257A23 /* User.swift in Sources */,
 				966BFE7F24A439DE00412D9B /* LoginViewModel.swift in Sources */,
-				96F1644724CCDB440008A655 /* UICollectionView+Empty.swift in Sources */,
 				9677ED87248D4F1100CD6557 /* CEI.swift in Sources */,
 				963AA31B24A824A70030CD18 /* SettingsTableViewCell.swift in Sources */,
-				966F53E024CFA0E300289C96 /* TypeSection.swift in Sources */,
+				9659119E24D2369100114DB0 /* UIViewController+Keyboard.swift in Sources */,
+				966F53E024CFA0E300289C96 /* WalletViewModelTypeItem.swift in Sources */,
 				96680303249AD4FB0034F8AF /* StatementTableViewController.swift in Sources */,
 				96AB5F2C24C8EAC600EF9B82 /* Defaults.swift in Sources */,
 				961CF20C2483373000BD25F1 /* CustomUITextField.swift in Sources */,
@@ -724,6 +719,7 @@
 				96F1644A24CCFB5F0008A655 /* NameViewCell.swift in Sources */,
 				963AA31924A81DA10030CD18 /* SettingsTableViewController.swift in Sources */,
 				967091B024AD577300257A23 /* RegisterViewModel.swift in Sources */,
+				9671504924D37127005E8D17 /* TextFieldResponder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

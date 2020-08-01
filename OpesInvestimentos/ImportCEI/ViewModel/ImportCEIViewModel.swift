@@ -39,7 +39,6 @@ class ImportCEIViewModel {
     }
 
     func importFromCEI(password: String) {
-        
         if password.isEmpty {
             print("Campo vázio")
             return
@@ -65,7 +64,6 @@ class ImportCEIViewModel {
     }
     
     private func getWallet(_ params: [String: String]) {
-
         CEIServiceAPI.getWallet(params: params, onComplete: { [weak self] (result) in
             guard let self = self else {return}
 
@@ -90,7 +88,6 @@ class ImportCEIViewModel {
     }
     
     private func getDividends(_ params: [String: String]) {
-        
         CEIServiceAPI.getDividends(params: params, onComplete: { [weak self] (result) in
             guard let self = self else {return}
 
@@ -114,7 +111,6 @@ class ImportCEIViewModel {
     }
     
     private func getStockHistory(_ params: [String: String]) {
-        
         CEIServiceAPI.getStockHistory(params: params, onComplete: { [weak self] (result) in
             guard let self = self else {return}
 

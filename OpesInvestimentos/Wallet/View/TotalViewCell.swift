@@ -11,10 +11,8 @@ import UIKit
 class TotalViewCell: UICollectionViewCell {
 
     @IBOutlet weak var totalLabel: UILabel!
-    
-    var total: String? {
-        didSet {
-            totalLabel.text = total
-        }
+
+    func configure(with viewModel: WalletViewModelTotalItem) {
+        totalLabel.text = viewModel.total
     }
 }
