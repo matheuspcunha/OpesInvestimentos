@@ -17,7 +17,7 @@ enum DBCollection: String {
     case wallet = "Wallet"
 }
 
-class FirebaseService {
+final class FirebaseService {
     
     // MARK: - Properties
     
@@ -34,11 +34,7 @@ class FirebaseService {
     }()
     
     private static let db: DocumentReference = {
-        return firestore.collection(DBCollection.userInfo.rawValue).document(userID)
-    }()
-    
-    private static let userID: String = {
-        return currentUser!.uid
+        return firestore.collection(DBCollection.userInfo.rawValue).document(currentUser!.uid)
     }()
     
     static var currentUser: Firebase.User? {
@@ -118,6 +114,8 @@ class FirebaseService {
                                 guard let snapshot = snapshot else {return}
                                 if snapshot.metadata.isFromCache || snapshot.documents.count > 0 {
                                     onComplete(snapshot, nil)
+                                } else {
+                                    onComplete(nil, FirebaseError.unknown)
                                 }
                             })
     }
@@ -137,21 +135,34 @@ class FirebaseService {
         }
     }
     
-    static func checkIfExist(collection: DBCollection, onCompletion: @escaping (Bool) -> ()) {
+    static func checkIfExist(collection: DBCollection, onComplete: @escaping (Bool) -> ()) {
         let docRef = db.collection(collection.rawValue)
 
-        firestoreListener = docRef.addSnapshotListener(includeMetadataChanges: true, listener: { (snapshot, error) in
-                                if error != nil {
-                                    onCompletion(false)
-                                }
-                                
-                                guard let snapshot = snapshot else {return}
-                                if snapshot.metadata.isFromCache || snapshot.documents.count > 0 {
-                                    onCompletion(true)
-                                } else {
-                                    onCompletion(false)
-                                }
-                            })
+        docRef.getDocuments(source: .server) { (snapshot, error) in
+            if error != nil {
+                onComplete(false)
+            }
+
+            guard let snapshot = snapshot else {return}
+            if snapshot.metadata.isFromCache || snapshot.documents.count > 0 {
+                onComplete(true)
+            } else {
+                onComplete(false)
+            }
+        }
+        
+//        firestoreListener = docRef.addSnapshotListener(includeMetadataChanges: true, listener: { (snapshot, error) in
+//                                if error != nil {
+//                                    onComplete(false)
+//                                }
+//
+//                                guard let snapshot = snapshot else {return}
+//                                if snapshot.metadata.isFromCache || snapshot.documents.count > 0 {
+//                                    onComplete(true)
+//                                } else {
+//                                    onComplete(false)
+//                                }
+//                            })
     }
     
     static func updateUserName(name: String) {

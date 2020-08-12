@@ -92,7 +92,6 @@ class StatementViewModel {
     }
     
     func filterContentForSearchText(_ searchText: String?, operation: Operation? = nil) {
-        
         filteredStatement = statement.filter { (statement: Statement) -> Bool in
             let doesOperationMatch = operation == .Todos || statement.type == operation
             
@@ -105,20 +104,4 @@ class StatementViewModel {
 
         statementFiltered?()
     }
-    
-    /*private func updateUserDefaultIfNeeded() {
-        if self.count > 0 {
-            if Defaults.lastUpdateDividend == nil {
-                let dividends = statement.filter({$0.type != .Compra && $0.type != .Venda})
-                let mostRecent = dividends.reduce(dividends[0], { $0.date.timeIntervalSince1970 > $1.date.timeIntervalSince1970 ? $0 : $1 } )
-                Defaults.lastUpdateDividend = mostRecent.date
-            }
-            
-            if Defaults.lastUpdateHistory == nil {
-                let history = statement.filter({$0.type == .Compra || $0.type == .Venda})
-                let mostRecent = history.reduce(history[0], { $0.date.timeIntervalSince1970 > $1.date.timeIntervalSince1970 ? $0 : $1 } )
-                Defaults.lastUpdateHistory = mostRecent.date
-            }
-        }
-    }*/
 }

@@ -48,9 +48,13 @@ class RegisterViewController: UIViewController {
                            confirmpassword: confirmPasswordField.text!)
     }
     
-    private func showLoginScreen() {
-        let vc = UIStoryboard(name: "Login", bundle: nil).instantiateViewController(withIdentifier: "LoginViewController")
-        present(vc, animated: true)
+    private func showImportCEIScreen() {
+        weak var pvc = self.presentingViewController
+
+        self.dismiss(animated: false) {
+            let vc = UIStoryboard(name: "ImportCEI", bundle: nil).instantiateViewController(withIdentifier: "ImportCEIViewController")
+            pvc?.present(vc, animated: true)
+        }
     }
 
     @objc private func adjustForKeyboard(notification: Notification) {
@@ -75,7 +79,7 @@ extension RegisterViewController: RegisterViewModelDelegate {
         DispatchQueue.main.async {
             switch result {
             case .success:
-                self.showLoginScreen()
+                self.showImportCEIScreen()
             case .failure(let error):
                 Alert.show(title: error.title, message: error.message, presenter: self)
             }

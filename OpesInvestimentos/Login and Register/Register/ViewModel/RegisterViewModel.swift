@@ -37,12 +37,25 @@ class RegisterViewModel {
                 case .success:
                     let uid = FirebaseService.currentUser?.uid
                     let user = User(id: uid!, name: name, cpf: cpf, email: email)
-                    
+                    Defaults.shared.cpf = cpf
                     FirebaseService.setUserInfo(data: user.toData())
-                    self.delegate?.onRegisterUser(result: .success(true))
+                    self.login(withEmail: email, password: password)
                 case .failure(let error):
                     self.delegate?.onRegisterUser(result: .failure(error))
                 }
+            }
+        }
+    }
+    
+    private func login(withEmail email: String, password: String) {
+        FirebaseService.login(withEmail: email, password: password) { [weak self] (result) in
+            guard let self = self else {return}
+            
+            switch result {
+            case .success:
+                self.delegate?.onRegisterUser(result: .success(true))
+            case .failure(let error):
+                self.delegate?.onRegisterUser(result: .failure(error))
             }
         }
     }

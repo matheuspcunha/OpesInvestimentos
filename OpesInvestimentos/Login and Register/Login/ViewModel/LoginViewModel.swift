@@ -8,8 +8,13 @@
 
 import Foundation
 
+enum AppStatus: Int {
+    case ready = 1
+    case pendingActivation = 2
+}
+
 protocol LoginViewModelDelegate: class {
-    func onLoginUser(result: Result<Bool, FirebaseError>)
+    func onLoginUser(result: Result<AppStatus, FirebaseError>)
 }
 
 class LoginViewModel {
@@ -26,7 +31,13 @@ class LoginViewModel {
             
             switch result {
             case .success:
-                self.delegate?.onLoginUser(result: .success(true))
+                FirebaseService.checkIfExist(collection: .wallet) { (result) in
+                    if result {
+                        self.delegate?.onLoginUser(result: .success(.ready))
+                    } else {
+                        self.delegate?.onLoginUser(result: .success(.pendingActivation))
+                    }
+                }
             case .failure(let error):
                 self.delegate?.onLoginUser(result: .failure(error))
             }

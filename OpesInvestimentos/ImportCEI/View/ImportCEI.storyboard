@@ -10,7 +10,7 @@
         <!--ImportCEI View Controller-->
         <scene sceneID="4I9-9j-AS3">
             <objects>
-                <viewController storyboardIdentifier="ImportCEIViewController" id="UeX-s1-qm3" customClass="ImportCEIViewController" customModule="Opes" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ImportCEIViewController" modalPresentationStyle="fullScreen" id="UeX-s1-qm3" customClass="ImportCEIViewController" customModule="Opes" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="JjI-th-mSw">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -30,7 +30,7 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="••••••••" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jJV-Ae-EP9" customClass="CustomUITextField" customModule="Opes" customModuleProvider="target">
-                                <rect key="frame" x="40" y="435" width="334" height="34"/>
+                                <rect key="frame" x="40" y="456.5" width="334" height="34"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="bne-lf-XYw"/>
@@ -48,19 +48,19 @@
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CPF" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KvO-K1-0nR">
-                                <rect key="frame" x="40" y="345" width="334" height="18"/>
+                                <rect key="frame" x="40" y="366.5" width="334" height="18"/>
                                 <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="13"/>
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Senha" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PpN-9a-WoY">
-                                <rect key="frame" x="40" y="412" width="334" height="18"/>
+                                <rect key="frame" x="40" y="433.5" width="334" height="18"/>
                                 <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="13"/>
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="123.456.789-10" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1dX-vx-K9C" customClass="CustomUITextField" customModule="Opes" customModuleProvider="target">
-                                <rect key="frame" x="40" y="368" width="334" height="34"/>
+                                <rect key="frame" x="40" y="389.5" width="334" height="34"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="kI6-hl-z2G"/>
@@ -78,8 +78,8 @@
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tB6-Px-AFX">
-                                <rect key="frame" x="40" y="183.5" width="334" height="131.5"/>
-                                <string key="text">Entre com sua senha do Canal Eletrônico do Investidor. 
+                                <rect key="frame" x="40" y="183.5" width="334" height="153"/>
+                                <string key="text">Para começar a utilizar o Opes, ative sua conta entrando com sua senha do Canal Eletrônico do Investidor(CEI). 
 
 Fique tranquilo, sua senha é criptograda e nós não temos acesso. O portal do CEI é apenas para leitura, nada será alterado.</string>
                                 <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="16"/>
@@ -93,7 +93,7 @@ Fique tranquilo, sua senha é criptograda e nós não temos acesso. O portal do 
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cKM-RA-Nf0" customClass="CustomUIButton" customModule="Opes" customModuleProvider="target">
-                                <rect key="frame" x="40" y="504" width="334" height="34"/>
+                                <rect key="frame" x="40" y="525.5" width="334" height="34"/>
                                 <color key="backgroundColor" red="0.036590006199999997" green="0.30357426399999998" blue="0.96295219659999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="P39-VO-OQe"/>

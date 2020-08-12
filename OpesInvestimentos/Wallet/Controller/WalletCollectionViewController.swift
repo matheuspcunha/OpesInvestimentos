@@ -54,8 +54,9 @@ class WalletCollectionViewController: UICollectionViewController {
     private func walletLoaded() {
         DispatchQueue.main.async {
             if self.viewModel.count == 0 {
-                self.setEmpty()
+                self.setEmpty(true)
             } else {
+                self.setEmpty(false)
                 self.collectionView.collectionViewLayout = self.layoutSections
                 self.collectionView.reloadData()
             }
@@ -76,9 +77,9 @@ class WalletCollectionViewController: UICollectionViewController {
         collectionView.refreshControl?.addTarget(self, action: #selector(loadWallet), for: .valueChanged)
     }
     
-    private func setEmpty() {
-        self.emptyWalletStack.isHidden = false
-        self.collectionView.isScrollEnabled = false
+    private func setEmpty(_ status: Bool) {
+        self.emptyWalletStack.isHidden = !status
+        self.collectionView.isScrollEnabled = !status
     }
     
     // MARK: UICollectionViewDataSource

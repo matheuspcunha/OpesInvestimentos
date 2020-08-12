@@ -131,7 +131,6 @@ class WalletViewModel {
         if self.totalFunds > 0 {
             items.append(WalletViewModelTypeItem(total: self.totalFunds, type: .Fundos))
             pieItems.append(PieItem(type: .Fundos, value: (self.totalFunds / self.totalWallet)))
-
         }
         if self.totalTreasury > 0 {
             items.append(WalletViewModelTypeItem(total: self.totalTreasury, type: .Tesouro))

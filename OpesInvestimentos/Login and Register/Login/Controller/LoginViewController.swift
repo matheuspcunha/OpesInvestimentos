@@ -11,7 +11,7 @@ import UIKit
 class LoginViewController: UIViewController {
     
     // MARK: - Properties
-    
+
     @IBOutlet weak var emailField: CustomUITextField!
     @IBOutlet weak var passwordField: CustomUITextField!
     
@@ -41,14 +41,25 @@ class LoginViewController: UIViewController {
         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainViewController")
         present(vc, animated: true)
     }
+    
+    private func showImportCEIScreen() {
+        let vc = UIStoryboard(name: "ImportCEI", bundle: nil).instantiateViewController(withIdentifier: "ImportCEIViewController")
+        present(vc, animated: true)
+    }
 }
 
 extension LoginViewController: LoginViewModelDelegate {
-    func onLoginUser(result: Result<Bool, FirebaseError>) {
+    
+    func onLoginUser(result: Result<AppStatus, FirebaseError>) {
         DispatchQueue.main.async {
             switch result {
-            case .success:
-                self.showMainScreen()
+            case .success(let status):
+                switch status {
+                case .ready:
+                    self.showMainScreen()
+                case .pendingActivation:
+                    self.showImportCEIScreen()
+                }
             case .failure(let error):
                 Alert.show(title: error.title, message: error.message, presenter: self)
             }

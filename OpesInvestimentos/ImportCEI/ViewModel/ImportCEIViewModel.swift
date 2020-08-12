@@ -22,21 +22,13 @@ class ImportCEIViewModel {
     
     private var attemptsCounter: Int = 0
     
-    private var cpf: String = "" {
-        didSet { cpfLoaded?() }
-    }
-    
-    var userCPF: String {
-        return self.cpf
+    var cpf: String {
+        return Defaults.shared.cpf?.cpfFormat() ?? ""
     }
     
     var cpfLoaded: (()->Void)?
     
     // MARK: - Methods
-    
-    init() {
-        self.getUserCPF()
-    }
 
     func importFromCEI(password: String) {
         if password.isEmpty {
@@ -45,21 +37,14 @@ class ImportCEIViewModel {
         }
         
         let params = [ "username":"\(self.cpf.onlyNumbers())", "password":"\(password)" ]
-        if(Defaults.lastUpdateWallet == nil) {
+        if(Defaults.shared.lastUpdateWallet == nil) {
             self.getWallet(params)
-        } else if (Defaults.lastUpdateDividend == nil) {
+        } else if (Defaults.shared.lastUpdateDividend == nil) {
             self.getDividends(params)
-        } else if (Defaults.lastUpdateHistory == nil) {
+        } else if (Defaults.shared.lastUpdateHistory == nil) {
             self.getStockHistory(params)
         } else {
             print("Já adicionados, só atualizar")
-        }
-    }
-
-    private func getUserCPF() {
-        FirebaseService.getUserInfo() { (user, error) in
-            guard let user = user, error == nil else { return }
-            self.cpf = user.cpf.cpfFormat()
         }
     }
     
@@ -71,7 +56,7 @@ class ImportCEIViewModel {
             case .success:
                 self.delegate?.onImport(result: .success(true))
                 self.attemptsCounter = 0
-                Defaults.lastUpdateWallet = Date()
+                Defaults.shared.lastUpdateWallet = Date()
                 self.getDividends(params)
                 
             case .failure(let err):
@@ -94,7 +79,7 @@ class ImportCEIViewModel {
             switch result {
             case .success:
                 self.attemptsCounter = 0
-                Defaults.lastUpdateDividend = Date()
+                Defaults.shared.lastUpdateDividend = Date()
                 self.getStockHistory(params)
                 
             case .failure(let err):
@@ -116,7 +101,7 @@ class ImportCEIViewModel {
 
             switch result {
             case .success:
-                Defaults.lastUpdateHistory = Date()
+                Defaults.shared.lastUpdateHistory = Date()
                 self.delegate?.onImport(result: .success(true))
                 
             case .failure(let err):

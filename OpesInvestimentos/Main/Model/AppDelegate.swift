@@ -22,8 +22,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let vc: UIViewController
         
         if Auth.auth().currentUser != nil {
-            vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainViewController")
+            if Defaults.shared.appStatus == AppStatus.ready.rawValue {
+                vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainViewController")
+            } else {
+                vc = UIStoryboard(name: "ImportCEI", bundle: nil).instantiateViewController(withIdentifier: "ImportCEIViewController")
+            }
         } else {
+            Firestore.firestore().clearPersistence { (error) in
+                if let error = error {
+                    print("Error Clear Persistence: \(error)")
+                }
+            }
             vc = UIStoryboard(name: "Welcome", bundle: nil).instantiateViewController(withIdentifier: "WelcomeViewController")
         }
         

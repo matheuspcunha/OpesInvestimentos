@@ -26,7 +26,7 @@ class ImportCEIViewController: UIViewController {
         TextFieldResponder.shared.add([passwordField, cpfField])
         
         viewModel.delegate = self
-        viewModel.cpfLoaded = cpfLoaded
+        self.cpfField.placeholder = viewModel.cpf
     }
     
     @IBAction func importFromCEI(_ sender: Any) {
@@ -34,11 +34,8 @@ class ImportCEIViewController: UIViewController {
     }
     
     @IBAction func goBack(_ sender: Any) {
-        self.dismiss(animated: true)
-    }
-    
-    private func cpfLoaded() {
-        self.cpfField.placeholder = viewModel.userCPF
+        FirebaseService.signOut()
+        self.view.window!.rootViewController?.dismiss(animated: true, completion: nil)
     }
 }
 

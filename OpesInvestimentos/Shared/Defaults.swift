@@ -12,13 +12,17 @@ final class Defaults {
     
     // MARK: - Properties
     
-    private static let LAST_UPDATE_WALLET: String = "last_update_wallet"
-    private static let LAST_UPDATE_HISTORY: String = "last_update_history"
-    private static let LAST_UPDATE_DIVIDEND: String = "last_update_dividend"
+    static let shared = Defaults()
     
+    private let LAST_UPDATE_WALLET: String = "last_update_wallet"
+    private let LAST_UPDATE_HISTORY: String = "last_update_history"
+    private let LAST_UPDATE_DIVIDEND: String = "last_update_dividend"
+    private let CPF: String = "user_cpf"
+    private let APP_STATUS: String = "app_status"
+
     // MARK: - Methods
     
-    static var lastUpdateWallet: Date? {
+    var lastUpdateWallet: Date? {
         get {
             return UserDefaults.standard.object(forKey: LAST_UPDATE_WALLET) as? Date
         }
@@ -27,7 +31,7 @@ final class Defaults {
         }
     }
     
-    static var lastUpdateHistory: Date? {
+    var lastUpdateHistory: Date? {
         get {
             return UserDefaults.standard.object(forKey: LAST_UPDATE_HISTORY) as? Date
         }
@@ -36,12 +40,30 @@ final class Defaults {
         }
     }
     
-    static var lastUpdateDividend: Date? {
+    var lastUpdateDividend: Date? {
         get {
             return UserDefaults.standard.object(forKey: LAST_UPDATE_DIVIDEND) as? Date
         }
         set(date) {
             UserDefaults.standard.set(date, forKey: LAST_UPDATE_DIVIDEND)
+        }
+    }
+    
+    var cpf: String? {
+        get {
+            return UserDefaults.standard.object(forKey: CPF) as? String
+        }
+        set(cpf) {
+            UserDefaults.standard.set(cpf, forKey: CPF)
+        }
+    }
+    
+    var appStatus: Int? {
+        get {
+            return UserDefaults.standard.object(forKey: APP_STATUS) as? Int
+        }
+        set(status) {
+            UserDefaults.standard.set(status, forKey: APP_STATUS)
         }
     }
     

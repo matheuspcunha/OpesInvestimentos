@@ -81,22 +81,7 @@ final class CEIServiceAPI {
             }
             
             do {
-                let dividends = try decoder.decode([Dividends].self, from: data)
-                var statement: [Statement] = []
-
-                for dividend in dividends {
-                    let components = Calendar.current.dateComponents([.year], from: Date(), to: dividend.date)
-                    
-                    if (dividend.date <= Date() && components.year! >= 0) {
-                        FirebaseService.insertData(in: .dividends, set: dividend.dictionary)
-                        statement.append(Statement(id: nil, date: dividend.date, operation: dividend.type, code: dividend.code, quantity: dividend.quantity, price: 0, total: dividend.grossValue))
-                    }
-                }
-                
-                for stmt in statement {
-                    FirebaseService.insertData(in: .statement, set: stmt.dictionary)
-                }
-                
+                let _ = try decoder.decode([Dividends].self, from: data)
                 onComplete(.success(true))
             } catch {
                 onComplete(.failure(.invalidJSON))
@@ -136,23 +121,7 @@ final class CEIServiceAPI {
             }
             
             do {
-                let history = try decoder.decode([History].self, from: data)
-                var statement: [Statement] = []
-                
-                for h in history {
-                    FirebaseService.insertData(in: .stockHistory, set: h.dictionary)
-
-                    if let stocks = h.stockHistory {
-                        for stock in stocks {
-                            statement.append(Statement(id: nil, date: stock.date, operation: stock.operation, code: stock.code, quantity: stock.quantity, price: stock.price, total: stock.totalValue))
-                        }
-                    }
-                }
-                
-                for stmt in statement {
-                    FirebaseService.insertData(in: .statement, set: stmt.dictionary)
-                }
-                
+                _ = try decoder.decode([History].self, from: data)
                 onComplete(.success(true))
             } catch {
                 onComplete(.failure(.invalidJSON))
@@ -162,7 +131,7 @@ final class CEIServiceAPI {
     }
     
     static func getWallet(params: [String: String],
-                          onComplete: @escaping (Result<[Wallet], APIError>) -> Void) {
+                          onComplete: @escaping (Result<Bool, APIError>) -> Void) {
         
         guard let url = URL(string: "\(basePath)\(RESTOperation.wallet)") else {
             return onComplete(.failure(.invalidURL))
@@ -191,13 +160,8 @@ final class CEIServiceAPI {
             }
             
             do {
-                let wallet = try decoder.decode([Wallet].self, from: data)
-                
-                for w in wallet {
-                    FirebaseService.insertData(in: .wallet, set: w.dictionary)
-                }
-                
-                onComplete(.success(wallet))
+                _ = try decoder.decode([Wallet].self, from: data)
+                onComplete(.success(true))
             } catch {
                 onComplete(.failure(.invalidJSON))
             }
