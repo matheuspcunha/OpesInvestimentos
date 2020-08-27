@@ -8,17 +8,12 @@
 
 import UIKit
 
-protocol WelcomeViewDelegate: class {
-    func loginButtonTapped()
-    func registerButtonTapped()
-}
-
 final class WelcomeView: UIView {
     
-    weak var delegate: WelcomeViewDelegate?
+    private var viewModel: WelcomeViewModelProtocol?
 
-    init(delegate: WelcomeViewDelegate) {
-        self.delegate = delegate
+    init(viewModel: WelcomeViewModelProtocol) {
+        self.viewModel = viewModel
         super.init(frame: .zero)
         buildView()
     }
@@ -35,22 +30,22 @@ final class WelcomeView: UIView {
     }()
     
     private lazy var welcomeLabel: UILabel = {
-        let label = UILabel(style: .title, text: "Seja bem-vindo(a)!")
-        return label
+        UILabel(style: .title, text: "Seja bem-vindo(a)!")
     }()
     
     private lazy var descriptionLabel: UILabel = {
-        let label = UILabel(style: .description, text: "No Opes você pode acompanhar seus investimentos na Bolsa de Valores e no Tesouro Direto, tudo em um só lugar!")
-        return label
+        UILabel(style: .description, text: "No Opes você pode acompanhar seus investimentos na Bolsa de Valores e no Tesouro Direto, tudo em um só lugar!")
     }()
     
     private lazy var loginButton: UIButton = {
         let button = UIButton(style: .primary, text: "Entrar na Minha Conta")
+        button.addTarget(self, action: #selector(goToLogin), for: .touchUpInside)
         return button
     }()
     
     private lazy var registerButton: UIButton = {
         let button = UIButton(style: .secondary, text: "Criar Minha Conta")
+        button.addTarget(self, action: #selector(goToRegister), for: .touchUpInside)
         return button
     }()
     
@@ -69,24 +64,23 @@ final class WelcomeView: UIView {
         return stack
     }()
     
-    @objc func buttonTapped(sender: UIButton) {
-        switch sender {
-        case loginButton:
-            delegate?.loginButtonTapped()
-        case registerButton:
-            delegate?.registerButtonTapped()
-        default:
-            break
-        }
+    @objc private func goToLogin(sender: UIButton) {
+        viewModel?.loginScreen()
     }
+    
+    @objc private func goToRegister(sender: UIButton) {
+        viewModel?.registerScreen()
+    }
+}
+
+extension WelcomeView: WelcomeViewProtocol {
+    
 }
 
 extension WelcomeView: ViewCodeProtocol {
     
     func additionalSetup() {
         backgroundColor = .appBackground
-        loginButton.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
-        registerButton.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
     }
     
     func setupHierarchy() {

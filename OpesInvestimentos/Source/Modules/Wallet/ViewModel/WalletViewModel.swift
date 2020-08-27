@@ -8,18 +8,13 @@
 
 import Foundation
 
-protocol WalletViewModelDelegate: class {
-    func onLoadWallet(error: FirebaseError?)
-}
-
-class WalletViewModel {
+final class WalletViewModel: WalletViewModelProtocol {
     
-    // MARK: - Properties
-
-    private var items: [WalletViewModelItem] = [] {
-        didSet {
-            walletLoaded?()
-        }
+    weak var view: WalletViewProtocol?
+    private var coordinator: WalletCoordinatorProtocol?
+    
+    init(coordinator: WalletCoordinatorProtocol?) {
+        self.coordinator = coordinator
     }
     
     private var wallet: [Wallet] = []
@@ -27,10 +22,6 @@ class WalletViewModel {
     weak var delegate: WalletViewModelDelegate?
     
     var walletLoaded: (()->Void)?
-
-    var count: Int {
-        return items.count
-    }
     
     // MARK: - Methods
 
@@ -40,25 +31,15 @@ class WalletViewModel {
                 self.walletLoaded?()
                 return
             }
-            
+
             self.wallet.removeAll()
             for document in query.documents {
                 let data = document.data()
                 self.wallet.append(Wallet(dictionary: data))
             }
-            
-            self.setWalletItems()
         }
     }
-    
-    func getItem(at indexPath: Int) -> WalletViewModelItem {
-        return items[indexPath]
-    }
-    
-    func numberOfItems(in section: Int) -> Int {
-        return items[section].numberOfItems
-    }
-    
+
     private var totalWallet: Double {
         return totalStock + totalTreasury + totalFunds
     }
@@ -76,7 +57,7 @@ class WalletViewModel {
             }
         }
                 
-        return total
+        return 5
     }
     
     private var totalStock: Double {
@@ -94,7 +75,7 @@ class WalletViewModel {
             }
         }
                 
-        return total
+        return 5
     }
     
     private var totalFunds: Double {
@@ -112,35 +93,7 @@ class WalletViewModel {
             }
         }
                 
-        return total
-    }
-    
-    private func setWalletItems() {
-        self.items.removeAll()
-        
-        var items = [WalletViewModelItem]()
-        var pieItems = [PieItem]()
-        
-        items.append(WalletViewModelNameItem(name: "Everton"))
-        items.append(WalletViewModelTotalItem(total: self.totalWallet))
-        
-        if self.totalStock > 0 {
-            items.append(WalletViewModelTypeItem(total: self.totalStock, type: .Acoes))
-            pieItems.append(PieItem(type: .Acoes, value: (self.totalStock / self.totalWallet)))
-        }
-        if self.totalFunds > 0 {
-            items.append(WalletViewModelTypeItem(total: self.totalFunds, type: .Fundos))
-            pieItems.append(PieItem(type: .Fundos, value: (self.totalFunds / self.totalWallet)))
-        }
-        if self.totalTreasury > 0 {
-            items.append(WalletViewModelTypeItem(total: self.totalTreasury, type: .Tesouro))
-            pieItems.append(PieItem(type: .Tesouro, value: (self.totalTreasury / self.totalWallet)))
-        }
-        if !pieItems.isEmpty {
-            items.append(WalletViewModelPieItem(items: pieItems))
-        }
-        
-        self.items = items
+        return 5
     }
 }
 

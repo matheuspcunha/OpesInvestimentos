@@ -1,20 +1,20 @@
 //
-//  LoginView.swift
+//  ImportCEIView.swift
 //  OpesInvestimentos
 //
-//  Created by Matheus Cunha on 16/08/20.
+//  Created by Matheus Cunha on 20/08/20.
 //  Copyright © 2020 Matheus Cunha. All rights reserved.
 //
 
 import UIKit
 
-final class LoginView: UIView {
-
-    private var viewModel: LoginViewModelProtocol!
+final class ImportCEIView: UIView {
     
-    init(viewModel: LoginViewModelProtocol) {
-        super.init(frame: .zero)
+    private var viewModel: ImportCEIViewModelProtocol!
+
+    init(viewModel: ImportCEIViewModelProtocol) {
         self.viewModel = viewModel
+        super.init(frame: .zero)
         buildView()
     }
     
@@ -29,24 +29,24 @@ final class LoginView: UIView {
     }()
     
     private lazy var titleLabel: UILabel = {
-        UILabel(style: .title, text: "Login")
+        UILabel(style: .title, text: "Importar do CEI")
     }()
     
     private lazy var descriptionLabel: UILabel = {
-        UILabel(style: .description, text: "Entre com seu e-mail e senha cadastrados no Opes.")
+        UILabel(style: .description, text: "Para começar a utilizar o Opes, ative sua conta entrando com sua senha do Canal Eletrônico do Investidor(CEI).\n\nFique tranquilo, sua senha é criptograda e nós não temos acesso. O portal do CEI é apenas para leitura, nada será alterado.")
     }()
     
-    private lazy var emailField: FieldView = {
-        FieldView(title: "E-mail", placeholder: "nome@email.com", type: .email)
+    private lazy var cpfField: FieldView = {
+        FieldView(title: "CPF", placeholder: "123.456.789-10", type: .email, isEnabled: false)
     }()
     
     private lazy var passwordField: FieldView = {
         FieldView(title: "Senha", placeholder: "••••••••", type: .password)
     }()
     
-    private lazy var loginButton: UIButton = {
+    private lazy var importButton: UIButton = {
         let button = UIButton(style: .primary, text: "Entrar")
-        button.addTarget(self, action: #selector(loginTapped), for: .touchUpInside)
+        button.addTarget(self, action: #selector(importTapped), for: .touchUpInside)
         return button
     }()
     
@@ -79,44 +79,44 @@ final class LoginView: UIView {
         return stack
     }()
     
-    @objc private func loginTapped(sender: UIButton) {
-        viewModel.login(withEmail: emailField.field.text, password: passwordField.field.text)
+    @objc private func backTapped(sender: UIButton) {
+        viewModel.backScreen()
+    }
+    
+    @objc private func importTapped(sender: UIButton) {
+        viewModel.importFromCEI(password: passwordField.text)
     }
     
     @objc private func forgotPasswordTapped(sender: UIButton) {
         viewModel.forgotPassword()
     }
+}
+
+extension ImportCEIView: ImportCEIViewProtocol {
     
-    @objc private func backTapped(sender: UIButton) {
-        viewModel.backScreen()
-    }
 }
 
-extension LoginView: LoginViewProtocol {
-
-}
-
-extension LoginView: ViewCodeProtocol {
+extension ImportCEIView: ViewCodeProtocol {
     
     func additionalSetup() {
         backgroundColor = .appBackground
-        TextFieldResponder.shared.add([emailField.field, passwordField.field])
+        TextFieldResponder.shared.add([cpfField.field, passwordField.field])
     }
     
     func setupHierarchy() {
         labelsStack.addArrangedSubview(titleLabel)
         labelsStack.addArrangedSubview(descriptionLabel)
-        
-        fieldsStack.addArrangedSubview(emailField)
-        fieldsStack.addArrangedSubview(passwordField)
 
-        buttonsStack.addArrangedSubview(loginButton)
+        fieldsStack.addArrangedSubview(cpfField)
+        fieldsStack.addArrangedSubview(passwordField)
+        
+        buttonsStack.addArrangedSubview(importButton)
         buttonsStack.addArrangedSubview(forgotPasswordButton)
         
         addSubview(backButton)
         addSubview(labelsStack)
-        addSubview(buttonsStack)
         addSubview(fieldsStack)
+        addSubview(buttonsStack)
     }
     
     func setupConstraints() {
@@ -144,3 +144,4 @@ extension LoginView: ViewCodeProtocol {
         }
     }
 }
+

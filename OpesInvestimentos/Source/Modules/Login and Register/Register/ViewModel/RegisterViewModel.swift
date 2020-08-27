@@ -8,17 +8,14 @@
 
 import Foundation
 
-protocol RegisterViewModelDelegate: class {
-    func onRegisterUser(result: Result<Bool, FirebaseError>)
-}
-
-class RegisterViewModel {
+final class RegisterViewModel: RegisterViewModelProtocol {
     
-    // MARK: - Properties
+    weak var view: RegisterViewProtocol?
+    private var coordinator: RegisterCoordinatorProtocol?
     
-    weak var delegate: RegisterViewModelDelegate?
-
-    // MARK: - Methods
+    init(coordinator: RegisterCoordinatorProtocol?) {
+        self.coordinator = coordinator
+    }
     
     func register(name: String, cpf: String, email: String,
                   password: String, confirmpassword: String) {
@@ -41,7 +38,7 @@ class RegisterViewModel {
                     FirebaseService.setUserInfo(data: user.toData())
                     self.login(withEmail: email, password: password)
                 case .failure(let error):
-                    self.delegate?.onRegisterUser(result: .failure(error))
+                    self.coordinator?.showAlert(Alert.show(title: error.title, message: error.message))
                 }
             }
         }
@@ -53,9 +50,9 @@ class RegisterViewModel {
             
             switch result {
             case .success:
-                self.delegate?.onRegisterUser(result: .success(true))
+                self.coordinator?.coordinateToImportCEI()
             case .failure(let error):
-                self.delegate?.onRegisterUser(result: .failure(error))
+                self.coordinator?.showAlert(Alert.show(title: error.title, message: error.message))
             }
         }
     }
@@ -67,13 +64,14 @@ class RegisterViewModel {
         let confirmPassword = fields["confirmPassword"]
         
         if !checkFieldsFilled(fields) {
-            self.delegate?.onRegisterUser(result: .failure(FirebaseError.emptyField))
+            self.coordinator?.showAlert(Alert.show(title: FirebaseError.emptyField.title, message: FirebaseError.emptyField.message))
+
             return false
         } else if !password!.elementsEqual(confirmPassword!) {
             print("Senhas não conferem")
             return false
         } else if !cpf!.isCPF {
-            self.delegate?.onRegisterUser(result: .failure(FirebaseError.invalidCPF))
+            self.coordinator?.showAlert(Alert.show(title: FirebaseError.invalidCPF.title, message: FirebaseError.invalidCPF.message))
             return false
         }
         
@@ -89,5 +87,9 @@ class RegisterViewModel {
         }
         
         return true
+    }
+    
+    func backScreen() {
+        coordinator?.back()
     }
 }

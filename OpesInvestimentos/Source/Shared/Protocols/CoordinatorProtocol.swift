@@ -6,16 +6,16 @@
 //  Copyright © 2020 Matheus Cunha. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 protocol CoordinatorProtocol {
+    var navigationController: UINavigationController { get }
+    
     func start()
-    func back()
     func coordinate(to coordinator: CoordinatorProtocol)
 }
 
 extension CoordinatorProtocol {
-    func back() {}
     func coordinate(to coordinator: CoordinatorProtocol) {
         coordinator.start()
     }

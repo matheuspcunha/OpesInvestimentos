@@ -8,34 +8,28 @@
 
 import Foundation
 
-protocol ImportCEIViewModelDelegate: class {
-    func onImport(result: Result<Bool, APIError>)
-}
-
-class ImportCEIViewModel {
+class ImportCEIViewModel: ImportCEIViewModelProtocol {
     
-    // MARK: - Properties
-    
+    var view: ImportCEIViewProtocol?
+    private var coordinator: ImportCEICoordinatorProtocol?
     private final let MAX_ATTEMPT: Int = 2
-
-    weak var delegate: ImportCEIViewModelDelegate?
-    
     private var attemptsCounter: Int = 0
     
     var cpf: String {
         return Defaults.shared.cpf?.cpfFormat() ?? ""
     }
+        
+    init(coordinator: ImportCEICoordinatorProtocol?) {
+        self.coordinator = coordinator
+    }
     
-    var cpfLoaded: (()->Void)?
-    
-    // MARK: - Methods
-
-    func importFromCEI(password: String) {
+    func importFromCEI(password: String?) {
+        guard let password = password else { return }
         if password.isEmpty {
             print("Campo vázio")
             return
         }
-        
+
         let params = [ "username":"\(self.cpf.onlyNumbers())", "password":"\(password)" ]
         if(Defaults.shared.lastUpdateWallet == nil) {
             self.getWallet(params)
@@ -48,30 +42,38 @@ class ImportCEIViewModel {
         }
     }
     
+    func forgotPassword() {
+        coordinator?.openCEIWebsite()
+    }
+    
+    func backScreen() {
+        coordinator?.back()
+    }
+    
     private func getWallet(_ params: [String: String]) {
         CEIServiceAPI.getWallet(params: params, onComplete: { [weak self] (result) in
             guard let self = self else {return}
 
             switch result {
             case .success:
-                self.delegate?.onImport(result: .success(true))
+//                self.delegate?.onImport(result: .success(true))
                 self.attemptsCounter = 0
                 Defaults.shared.lastUpdateWallet = Date()
                 self.getDividends(params)
-                
+
             case .failure(let err):
                 if self.attemptsCounter < self.MAX_ATTEMPT {
                     self.getWallet(params)
                     self.attemptsCounter += 1
                     print("Retry getWallet: \(self.attemptsCounter)")
                  } else {
-                    self.delegate?.onImport(result: .failure(err))
+//                    self.delegate?.onImport(result: .failure(err))
                 }
                 break
             }
         })
     }
-    
+
     private func getDividends(_ params: [String: String]) {
         CEIServiceAPI.getDividends(params: params, onComplete: { [weak self] (result) in
             guard let self = self else {return}
@@ -81,20 +83,20 @@ class ImportCEIViewModel {
                 self.attemptsCounter = 0
                 Defaults.shared.lastUpdateDividend = Date()
                 self.getStockHistory(params)
-                
+
             case .failure(let err):
                 if self.attemptsCounter < self.MAX_ATTEMPT {
                     self.getDividends(params)
                     self.attemptsCounter += 1
                     print("Retry getDividends: \(self.attemptsCounter)")
                  } else {
-                    self.delegate?.onImport(result: .failure(err))
+//                    self.delegate?.onImport(result: .failure(err))
                 }
                 break
             }
         })
     }
-    
+
     private func getStockHistory(_ params: [String: String]) {
         CEIServiceAPI.getStockHistory(params: params, onComplete: { [weak self] (result) in
             guard let self = self else {return}
@@ -102,15 +104,15 @@ class ImportCEIViewModel {
             switch result {
             case .success:
                 Defaults.shared.lastUpdateHistory = Date()
-                self.delegate?.onImport(result: .success(true))
-                
+//                self.delegate?.onImport(result: .success(true))
+
             case .failure(let err):
                 if self.attemptsCounter < self.MAX_ATTEMPT {
                     self.getStockHistory(params)
                     self.attemptsCounter += 1
                     print("Retry getStockHistory: \(self.attemptsCounter)")
                  } else {
-                    self.delegate?.onImport(result: .failure(err))
+//                    self.delegate?.onImport(result: .failure(err))
                 }
                 break
             }

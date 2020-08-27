@@ -8,16 +8,21 @@
 
 import UIKit
 
-class WalletCoordinator: CoordinatorProtocol {
-    private weak var navigationController: UINavigationController?
+final class WalletCoordinator: CoordinatorProtocol {
+    
+    var navigationController: UINavigationController
 
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
     }
     
     func start() {
-        let mainViewController = WalletCollectionViewController.instantiateFromStoryboard(.wallet)
-        mainViewController.coordinator = self
-        navigationController?.pushViewController(mainViewController, animated: true)
+        let viewModel = WalletViewModel(coordinator: self)
+        let walletViewController = WalletViewController(viewModel: viewModel)
+        navigationController.pushViewController(walletViewController, animated: true)
     }
+}
+
+extension WalletCoordinator: WalletCoordinatorProtocol {
+    
 }

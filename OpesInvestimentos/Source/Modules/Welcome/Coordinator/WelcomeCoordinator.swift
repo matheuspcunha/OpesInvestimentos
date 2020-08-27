@@ -8,33 +8,30 @@
 
 import UIKit
 
-protocol WelcomeFlow: class {
-    func coordinateToLogin()
-    func coordinateToRegister()
-}
-
-class WelcomeCoordinator: CoordinatorProtocol, WelcomeFlow {
+class WelcomeCoordinator: CoordinatorProtocol {
     
-    private weak var navigationController: UINavigationController?
+    var navigationController: UINavigationController
 
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
     }
     
     func start() {
-        let viewController = WelcomeViewController()
-        viewController.coordinator = self
-        navigationController?.navigationBar.isHidden = true
-        navigationController?.pushViewController(viewController, animated: true)
+        let viewModel = WelcomeViewModel(coordinator: self)
+        let viewController = WelcomeViewController(viewModel: viewModel)
+        navigationController.pushViewController(viewController, animated: true)
     }
+}
+
+extension WelcomeCoordinator: WelcomeCoordinatorProtocol {
     
     func coordinateToLogin() {
-        let loginCoordinator = LoginCoordinator(navigationController: navigationController!)
+        let loginCoordinator = LoginCoordinator(navigationController: navigationController)
         coordinate(to: loginCoordinator)
     }
     
     func coordinateToRegister() {
-        let registerCoordinator = RegisterCoordinator(navigationController: navigationController!)
+        let registerCoordinator = RegisterCoordinator(navigationController: navigationController)
         coordinate(to: registerCoordinator)
     }
 }

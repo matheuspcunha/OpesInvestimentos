@@ -10,18 +10,19 @@ import UIKit
 
 class AppCoordinator: CoordinatorProtocol {
     
+    let navigationController: UINavigationController
     private let window: UIWindow
     
     init(window: UIWindow) {
         self.window = window
+        self.navigationController = UINavigationController()
     }
     
     func start() {
-        let navigationController = UINavigationController()
         window.rootViewController = navigationController
         window.makeKeyAndVisible()
         
-        let startCoordinator = WelcomeCoordinator(navigationController: navigationController)
+        let startCoordinator = WalletCoordinator(navigationController: navigationController)
         coordinate(to: startCoordinator)
     }
 }

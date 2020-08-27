@@ -8,26 +8,35 @@
 
 import UIKit
 
-protocol RegisterFlow: class {
-    func coordinateTabBar()
-}
-
-class RegisterCoordinator: CoordinatorProtocol, RegisterFlow {
+class RegisterCoordinator: CoordinatorProtocol {
     
-    private weak var navigationController: UINavigationController?
-
+    var navigationController: UINavigationController
+    
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
     }
     
     func start() {
-        let viewController = RegisterViewController.instantiateFromStoryboard(.register)
-        viewController.coordinator = self
-        navigationController?.navigationBar.isHidden = true
-        navigationController?.pushViewController(viewController, animated: true)
+        let viewModel = RegisterViewModel(coordinator: self)
+        let viewController = RegisterViewController(viewModel: viewModel)
+        
+        navigationController.navigationBar.isHidden = true
+        navigationController.pushViewController(viewController, animated: true)
+    }
+}
+
+extension RegisterCoordinator: RegisterCoordinatorProtocol {
+    
+    func coordinateToImportCEI() {
+        let importCEICoordinator = ImportCEICoordinator(navigationController: navigationController)
+        coordinate(to: importCEICoordinator)
     }
     
-    func coordinateTabBar() {
-        // TODO
+    func back() {
+        navigationController.popViewController(animated: true)
+    }
+    
+    func showAlert(_ alert: UIAlertController) {
+        navigationController.present(alert, animated: true, completion: nil)
     }
 }

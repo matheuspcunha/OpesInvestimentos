@@ -8,21 +8,21 @@
 
 import Foundation
 
-final class LoginViewModel {
-        
-    private var coordinator: LoginCoordinator?
+final class LoginViewModel: LoginViewModelProtocol {
     
-    init(coordinator: LoginCoordinator) {
+    weak var view: LoginViewProtocol?
+    private var coordinator: LoginCoordinatorProtocol?
+    
+    init(coordinator: LoginCoordinatorProtocol?) {
         self.coordinator = coordinator
     }
     
     func login(withEmail email: String?, password: String?) {
         guard let email = email, let password = password else {
-            coordinator?.showAlert(Alert.show(title: "Test", message: "Campo nulo"))
             return
         }
         
-        if (email.isEmpty || password.isEmpty) {
+        if (!email.isEmpty || !password.isEmpty) {
             FirebaseService.login(withEmail: email, password: password) { [weak self] (result) in
                 guard let self = self else {return}
 

@@ -1,21 +1,21 @@
 //
-//  WelcomeViewController.swift
+//  ImportCEIViewController.swift
 //  OpesInvestimentos
 //
-//  Created by Matheus Cunha on 24/06/20.
+//  Created by Matheus Cunha on 18/07/20.
 //  Copyright © 2020 Matheus Cunha. All rights reserved.
 //
 
 import UIKit
 
-final class WelcomeViewController: UIViewController {
+class ImportCEIViewController: UIViewController {
 
-    private var viewModel: WelcomeViewModelProtocol!
-    private var contentView: WelcomeView!
+    private var viewModel: ImportCEIViewModelProtocol!
+    private var contentView: ImportCEIView!
 
-    init(viewModel: WelcomeViewModelProtocol) {
+    init(viewModel: ImportCEIViewModelProtocol) {
         self.viewModel = viewModel
-        self.contentView = WelcomeView(viewModel: viewModel)
+        self.contentView = ImportCEIView(viewModel: viewModel)
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -25,6 +25,7 @@ final class WelcomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.hideKeyboardWhenTappedAround()
     }
     
     override func loadView() {

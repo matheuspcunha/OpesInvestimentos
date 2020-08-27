@@ -8,16 +8,9 @@
 
 import UIKit
 
-protocol LoginFlow: class {
-    func coordinateToTabBar()
-    func coordinateToForgotPassword()
-    func coordinateToImportCEI()
-
-}
-
-class LoginCoordinator: CoordinatorProtocol, LoginFlow {
+final class LoginCoordinator: CoordinatorProtocol {
     
-    private weak var navigationController: UINavigationController?
+    var navigationController: UINavigationController
 
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
@@ -26,13 +19,14 @@ class LoginCoordinator: CoordinatorProtocol, LoginFlow {
     func start() {
         let viewModel = LoginViewModel(coordinator: self)
         let viewController = LoginViewController(viewModel: viewModel)
-        
-        navigationController?.navigationBar.isHidden = true
-        navigationController?.pushViewController(viewController, animated: true)
+        navigationController.pushViewController(viewController, animated: true)
     }
+}
+
+extension LoginCoordinator: LoginCoordinatorProtocol {
     
     func coordinateToTabBar() {
-        let tabBarCoordinator = TabBarCoordinator(navigationController: navigationController!)
+        let tabBarCoordinator = TabBarCoordinator(navigationController: navigationController)
         coordinate(to: tabBarCoordinator)
     }
     
@@ -41,14 +35,15 @@ class LoginCoordinator: CoordinatorProtocol, LoginFlow {
     }
     
     func coordinateToImportCEI() {
-        print("coordinateToImportCEI")
+        let importCEICoordinator = ImportCEICoordinator(navigationController: navigationController)
+        coordinate(to: importCEICoordinator)
     }
     
     func back() {
-        navigationController?.popViewController(animated: true)
+        navigationController.popViewController(animated: true)
     }
     
     func showAlert(_ alert: UIAlertController) {
-        navigationController?.present(alert, animated: true, completion: nil)
+        navigationController.present(alert, animated: true, completion: nil)
     }
 }

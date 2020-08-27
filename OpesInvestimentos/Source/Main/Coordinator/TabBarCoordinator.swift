@@ -21,26 +21,24 @@ class TabBarCoordinator: CoordinatorProtocol {
         
         let walletNavigationController = UINavigationController()
         walletNavigationController.tabBarItem = UITabBarItem(title: "Carteira", image: #imageLiteral(resourceName: "wallet"), tag: 0)
-        let walletCoordinator = TopRatedCoordinator(navigationController: walletNavigationController)
+        let walletCoordinator = WalletCoordinator(navigationController: walletNavigationController)
         
         let statementNavigationController = UINavigationController()
         statementNavigationController.tabBarItem = UITabBarItem(title: "Extrato", image: UIImage(systemName: "list.dash"), tag: 1)
-        let statementCoordinator = TopRatedCoordinator(navigationController: statementNavigationController)
+//        let statementCoordinator = StatementCoordinator(navigationController: statementNavigationController)
         
         let settingsNavigationController = UINavigationController()
         settingsNavigationController.tabBarItem = UITabBarItem(title: "Ajustes", image: UIImage(systemName: "person"), tag: 2)
-        let settingsCoordinator = TopRatedCoordinator(navigationController: settingsNavigationController)
+//        let settingsCoordinator = SettingsCoordinator(navigationController: settingsNavigationController)
         
-        tabBarController.viewControllers = [walletNavigationController,
-                                            statementNavigationController,
-                                            settingsNavigationController]
+        tabBarController.viewControllers = [walletNavigationController]
         
         tabBarController.modalPresentationStyle = .fullScreen
         navigationController.present(tabBarController, animated: true, completion: nil)
-        
+
         coordinate(to: walletCoordinator)
-        coordinate(to: statementCoordinator)
-        coordinate(to: settingsCoordinator)
+//        coordinate(to: statementCoordinator)
+//        coordinate(to: settingsCoordinator)
     }
 
 }

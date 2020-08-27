@@ -10,11 +10,17 @@ import UIKit
 
 final class LoginViewController: UIViewController {
 
-    private var viewModel: LoginViewModel!
+    private var viewModel: LoginViewModelProtocol!
+    private var contentView: LoginView!
     
-    convenience init(viewModel: LoginViewModel) {
-        self.init()
+    init(viewModel: LoginViewModelProtocol) {
         self.viewModel = viewModel
+        self.contentView = LoginView(viewModel: viewModel)
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 
     override func viewDidLoad() {
@@ -23,6 +29,15 @@ final class LoginViewController: UIViewController {
     }
     
     override func loadView() {
-        view = LoginView(viewModel: viewModel)
+        view = contentView
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setupNavigation()
+    }
+    
+    private func setupNavigation() {
+        navigationController?.isNavigationBarHidden = true
     }
 }
