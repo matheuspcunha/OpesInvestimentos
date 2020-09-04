@@ -8,7 +8,7 @@
 
 import Foundation
 
-class ImportCEIViewModel: ImportCEIViewModelProtocol {
+final class ImportCEIViewModel: ImportCEIViewModelProtocol {
     
     var view: ImportCEIViewProtocol?
     private var coordinator: ImportCEICoordinatorProtocol?

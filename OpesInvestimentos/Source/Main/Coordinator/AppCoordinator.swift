@@ -22,7 +22,7 @@ class AppCoordinator: CoordinatorProtocol {
         window.rootViewController = navigationController
         window.makeKeyAndVisible()
         
-        let startCoordinator = WalletCoordinator(navigationController: navigationController)
+        let startCoordinator = TabBarCoordinator(navigationController: navigationController)
         coordinate(to: startCoordinator)
     }
 }

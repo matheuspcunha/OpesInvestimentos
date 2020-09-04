@@ -1,0 +1,38 @@
+//
+//  ImportCEICoordinator.swift
+//  OpesInvestimentos
+//
+//  Created by Matheus Cunha on 22/08/20.
+//  Copyright © 2020 Matheus Cunha. All rights reserved.
+//
+
+import UIKit
+
+final class ImportCEICoordinator: CoordinatorProtocol {
+    
+    var navigationController: UINavigationController
+
+    init(navigationController: UINavigationController) {
+        self.navigationController = navigationController
+    }
+    
+    func start() {
+        let viewModel = ImportCEIViewModel(coordinator: self)
+        let viewController = ImportCEIViewController(viewModel: viewModel)
+        navigationController.pushViewController(viewController, animated: true)
+    }
+}
+
+extension ImportCEICoordinator: ImportCEICoordinatorProtocol {
+    
+    func back() {
+        navigationController.popViewController(animated: true)
+    }
+    
+    func showAlert(_ alert: UIAlertController) {
+        navigationController.present(alert, animated: true, completion: nil)
+    }
+    func openCEIWebsite() {
+        
+    }
+}

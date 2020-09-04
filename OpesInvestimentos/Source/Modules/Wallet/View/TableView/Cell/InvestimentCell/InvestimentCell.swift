@@ -1,29 +1,30 @@
 //
-//  WalletInvestimentView.swift
-//  OpesInvestimentos
+//  InvestimentCell.swift
+//  TableViewFactoryTest
 //
-//  Created by Matheus Cunha on 25/07/20.
+//  Created by Matheus Cunha on 30/08/20.
 //  Copyright © 2020 Matheus Cunha. All rights reserved.
 //
 
 import UIKit
 
-final class WalletInvestimentView: UIView {
-    
-    private var value: String!
-    private var type: InvestimentType!
-    
-    init(value: String, type: InvestimentType) {
-        super.init(frame: .zero)
-        self.value = value
-        self.type = type
+final class InvestimentCell: UITableViewCell, Reusable {
+
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
         buildView()
     }
-    
-    required init?(coder: NSCoder) {
+
+    required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
+    
+    func configure(value: String, type: InvestimentType) {
+        typeLabel.text = type.name.uppercased()
+        valueLabel.text = value
+        valueLabel.textColor = type.color
+    }
+    
     private lazy var stackView: UIStackView = {
         let stack = UIStackView()
         stack.axis = .vertical
@@ -32,7 +33,6 @@ final class WalletInvestimentView: UIView {
     
     private lazy var typeLabel: UILabel = {
         let label = UILabel()
-        label.text = type.name.uppercased()
         label.textColor = .darkGray
         label.textAlignment = .left
         label.font = UIFont(name: "Avenir-Roman", size: 12)
@@ -41,8 +41,6 @@ final class WalletInvestimentView: UIView {
     
     private lazy var valueLabel: UILabel = {
         let label = UILabel()
-        label.text = value
-        label.textColor = type.color
         label.textAlignment = .left
         label.font = UIFont(name: "Avenir-Medium", size: 20)
         return label
@@ -58,16 +56,13 @@ final class WalletInvestimentView: UIView {
     }()
 }
 
-extension WalletInvestimentView: ViewCodeProtocol {
-    
-    func additionalSetup() {
-        backgroundColor = .clear
-    }
+extension InvestimentCell: ViewCodeProtocol {
     
     func setupHierarchy() {
+        stackView.addSpacing(5)
         stackView.addArrangedSubview(typeLabel)
         stackView.addArrangedSubview(valueLabel)
-        stackView.setCustomSpacing(5, after: valueLabel)
+        stackView.addSpacing(5)
         stackView.addArrangedSubview(dividerLineView)
         
         addSubview(stackView)
@@ -76,8 +71,8 @@ extension WalletInvestimentView: ViewCodeProtocol {
     func setupConstraints() {
         stackView.constraint { view in
             [view.topAnchor.constraint(equalTo: topAnchor),
-             view.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
-             view.trailingAnchor.constraint(equalTo: trailingAnchor),
+             view.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 55),
+             view.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -40),
              view.bottomAnchor.constraint(equalTo: bottomAnchor)]
         }
     }

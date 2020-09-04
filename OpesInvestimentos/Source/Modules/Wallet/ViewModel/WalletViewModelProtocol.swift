@@ -13,7 +13,7 @@ protocol WalletViewModelProtocol: class {
     var delegate: WalletViewModelDelegate? { get set }
     
     var walletLoaded: (()->Void)? { get set }
-    func loadWallet()
+    func loadWallet() -> WalletViewDataProtocol
 }
 
 protocol WalletViewModelDelegate: class {

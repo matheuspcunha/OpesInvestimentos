@@ -9,9 +9,7 @@
 import UIKit
 
 enum InvestimentType {
-    case treasure
-    case funds
-    case stock
+    case treasure, funds, stock
 }
 
 extension InvestimentType {
@@ -38,3 +36,4 @@ extension InvestimentType {
         }
     }
 }
+

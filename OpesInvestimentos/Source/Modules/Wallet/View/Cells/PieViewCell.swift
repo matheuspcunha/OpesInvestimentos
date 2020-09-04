@@ -15,10 +15,10 @@ class PieViewCell: UICollectionViewCell {
 
     private var dataEntry = [PieChartDataEntry]()
 
-    func configure(with viewModel: WalletViewModelPieItem) {
-        self.dataEntry = viewModel.dataEntry
-        updateChartData()
-    }
+//    func configure(with viewModel: WalletViewModelPieItem) {
+//        self.dataEntry = viewModel.dataEntry
+//        updateChartData()
+//    }
 
     private func updateChartData() {
         let chartDataSet = PieChartDataSet(entries: dataEntry, label: nil)

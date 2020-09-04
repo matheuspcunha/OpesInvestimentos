@@ -113,11 +113,11 @@ extension RegisterView: ViewCodeProtocol {
         fields.enumerated().forEach{fieldsStack.addArrangedSubview($1)}
         
         containerStackView.addArrangedSubview(backButton)
-        containerStackView.setCustomSpacing(20, after: backButton)
+        containerStackView.addSpacing(20)
         containerStackView.addArrangedSubview(labelsStack)
-        containerStackView.setCustomSpacing(30, after: labelsStack)
+        containerStackView.addSpacing(30)
         containerStackView.addArrangedSubview(fieldsStack)
-        containerStackView.setCustomSpacing(40, after: fieldsStack)
+        containerStackView.addSpacing(40)
         containerStackView.addArrangedSubview(loginButton)
         
         scrollView.addSubview(containerStackView)

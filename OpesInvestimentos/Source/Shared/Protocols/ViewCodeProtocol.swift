@@ -6,8 +6,6 @@
 //  Copyright © 2020 Matheus Cunha. All rights reserved.
 //
 
-import Foundation
-
 protocol ViewCodeProtocol {
     func setupHierarchy()
     func setupConstraints()

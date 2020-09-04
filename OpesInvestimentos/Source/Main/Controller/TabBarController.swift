@@ -15,6 +15,7 @@ final class TabBarController: UITabBarController {
         self.tabBar.barStyle = .default
         self.tabBar.tintColor = .appBlue
         self.tabBar.layer.borderColor = UIColor.clear.cgColor
+        view.backgroundColor = .white
     }
     
     var coordinator: TabBarCoordinator?

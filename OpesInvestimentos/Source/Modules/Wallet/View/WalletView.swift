@@ -11,6 +11,7 @@ import UIKit
 final class WalletView: UIView {
 
     private var viewModel: WalletViewModelProtocol!
+    private var dataSource: TableViewDataSource?
     
     init(viewModel: WalletViewModelProtocol) {
         super.init(frame: .zero)
@@ -22,33 +23,21 @@ final class WalletView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private lazy var stackView: UIStackView = {
-        let stack = UIStackView()
-        stack.axis = .vertical
-        stack.spacing = 15
-        return stack
-    }()
-
-    private lazy var nameLabel: UILabel = {
-        UILabel(style: .title, text: "Olá, Everton! 🤑")
-    }()
-    
-    private lazy var stockInvestimentView: UIView = {
-        WalletInvestimentView(value: "R$ 10,00", type: .stock)
-    }()
-    
-    private lazy var fundInvestimentView: UIView = {
-        WalletInvestimentView(value: "R$ 10,00", type: .funds)
-    }()
-    
-    private lazy var treasureInvestimentView: UIView = {
-        WalletInvestimentView(value: "R$ 10,00", type: .treasure)
+    private lazy var tableView: UITableView = {
+        let tableView = UITableView.standard()
+        tableView.backgroundColor = .clear
+        tableView.separatorStyle = .none
+        
+        dataSource = TableViewDataSource(
+            sections: WalletTableViewFactory(viewData: self.viewModel.loadWallet()).make(),
+            tableView: tableView
+        )
+        
+        return tableView
     }()
 }
 
-extension WalletView: WalletViewProtocol {
-
-}
+extension WalletView: WalletViewProtocol{}
 
 extension WalletView: ViewCodeProtocol {
     
@@ -57,19 +46,8 @@ extension WalletView: ViewCodeProtocol {
     }
     
     func setupHierarchy() {
-        stackView.addArrangedSubview(nameLabel)
-        stackView.addArrangedSubview(stockInvestimentView)
-        stackView.addArrangedSubview(fundInvestimentView)
-        stackView.addArrangedSubview(treasureInvestimentView)
-        
-        addSubview(stackView)
+        addSubviewWithConstraints(subview: tableView)
     }
     
-    func setupConstraints() {
-        stackView.constraint { view in
-            [view.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 20),
-             view.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 40),
-             view.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -40)]
-        }
-    }
+    func setupConstraints() {}
 }
