@@ -9,7 +9,9 @@
 import UIKit
 
 final class TabBarController: UITabBarController {
-    
+
+    var coordinator: TabBarCoordinator?
+
     override func viewDidLoad() {
         self.tabBar.layer.masksToBounds = true
         self.tabBar.barStyle = .default
@@ -17,6 +19,4 @@ final class TabBarController: UITabBarController {
         self.tabBar.layer.borderColor = UIColor.clear.cgColor
         view.backgroundColor = .white
     }
-    
-    var coordinator: TabBarCoordinator?
 }

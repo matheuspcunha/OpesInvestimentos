@@ -41,7 +41,38 @@ final class WalletViewModel: WalletViewModelProtocol {
 //            let viewData = WalletViewData(wallet: CEIServiceAPI.testGetWallet()!)
 //        }
         
-        return WalletViewData(wallet: CEIServiceAPI.testGetWallet()!)
+        let wallet = CEIServiceAPI.testGetWallet()!
+        return WalletViewData(name: "Everton", investiments: parseInvestiments(in: wallet))
+    }
+    
+    private func parseInvestiments(in wallet: [Wallet]) ->  [Investiment] {
+        var totalFunds: Double = 0
+        var totalStock: Double = 0
+        var totalTreasury: Double = 0
+
+        for w in wallet {
+            if let stock = w.stockWallet {
+                if !stock.isEmpty {
+                    for s in stock {
+                        if s.stockType.contains("CI") {
+                            totalFunds += s.totalValue
+                        } else {
+                            totalStock += s.totalValue
+                        }
+                    }
+                }
+            } else if let treasure = w.nationalTreasuryWallet {
+                if !treasure.isEmpty {
+                    for t in treasure {
+                        totalTreasury += t.grossValue
+                    }
+                }
+            }
+        }
+
+        return [Investiment(type: .funds, value: totalFunds),
+                Investiment(type: .stock, value: totalStock),
+                Investiment(type: .treasure, value: totalTreasury)]
     }
 }
 

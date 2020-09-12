@@ -92,9 +92,7 @@ final class ImportCEIView: UIView {
     }
 }
 
-extension ImportCEIView: ImportCEIViewProtocol {
-    
-}
+extension ImportCEIView: ImportCEIViewProtocol {}
 
 extension ImportCEIView: ViewCodeProtocol {
     

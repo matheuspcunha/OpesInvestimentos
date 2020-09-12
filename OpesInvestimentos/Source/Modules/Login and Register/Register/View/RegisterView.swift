@@ -95,9 +95,7 @@ final class RegisterView: UIView {
     }
 }
 
-extension RegisterView: RegisterViewProtocol {
-
-}
+extension RegisterView: RegisterViewProtocol {}
 
 extension RegisterView: ViewCodeProtocol {
     

@@ -9,6 +9,7 @@
 import Foundation
 
 class Formatter {
+    
     static let currencyFormatter: NumberFormatter = {
         let formatter = NumberFormatter()
         formatter.numberStyle = .currency
@@ -21,7 +22,13 @@ class Formatter {
         formatter.numberStyle = NumberFormatter.Style.percent
         formatter.minimumFractionDigits = 1
         formatter.maximumFractionDigits = 1
-        
+        return formatter
+    }()
+    
+    static let dateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd/MM/yyyy"
+        formatter.timeZone = TimeZone(abbreviation: "GMT")
         return formatter
     }()
 }

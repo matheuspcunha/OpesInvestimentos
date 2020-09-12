@@ -8,7 +8,7 @@
 
 import UIKit
 
-class WelcomeCoordinator: CoordinatorProtocol {
+final class WelcomeCoordinator: CoordinatorProtocol {
     
     var navigationController: UINavigationController
 

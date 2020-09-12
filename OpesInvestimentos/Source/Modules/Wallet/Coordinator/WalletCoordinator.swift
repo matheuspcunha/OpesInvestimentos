@@ -23,6 +23,4 @@ final class WalletCoordinator: CoordinatorProtocol {
     }
 }
 
-extension WalletCoordinator: WalletCoordinatorProtocol {
-    
-}
+extension WalletCoordinator: WalletCoordinatorProtocol {}

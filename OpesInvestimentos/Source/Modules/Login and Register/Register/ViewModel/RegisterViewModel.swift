@@ -19,7 +19,7 @@ final class RegisterViewModel: RegisterViewModelProtocol {
     
     func register(name: String, cpf: String, email: String,
                   password: String, confirmpassword: String) {
-                
+
         let info = ["name":  name,
                     "cpf": cpf,
                     "email": email,
@@ -58,7 +58,6 @@ final class RegisterViewModel: RegisterViewModelProtocol {
     }
     
     private func infoIsValid(fields: [String : String]) -> Bool {
-        
         let cpf = fields["cpf"]
         let password = fields["password"]
         let confirmPassword = fields["confirmPassword"]
@@ -79,13 +78,12 @@ final class RegisterViewModel: RegisterViewModelProtocol {
     }
     
     private func checkFieldsFilled(_ fields: [String : String]) -> Bool {
-        
         for field in fields {
             if field.value.isEmpty {
                 return false
             }
         }
-        
+
         return true
     }
     

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AppCoordinator: CoordinatorProtocol {
+final class AppCoordinator: CoordinatorProtocol {
     
     let navigationController: UINavigationController
     private let window: UIWindow

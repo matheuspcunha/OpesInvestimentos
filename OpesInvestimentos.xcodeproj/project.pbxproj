@@ -8,10 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		333B7F0450C81460502FC813 /* Pods_OpesInvestimentos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7939B4B385326E179FC94AF /* Pods_OpesInvestimentos.framework */; };
+		960A3E3F2505401E0032E1F5 /* PieChartCellBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960A3E3E2505401E0032E1F5 /* PieChartCellBuilder.swift */; };
 		961CF1FF2482F26600BD25F1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 961CF1FD2482F26600BD25F1 /* LaunchScreen.storyboard */; };
 		961CF20724830E6F00BD25F1 /* CEIServiceAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961CF20624830E6F00BD25F1 /* CEIServiceAPI.swift */; };
 		962C048B24F73CDB00981499 /* InvestimentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962C048A24F73CDB00981499 /* InvestimentType.swift */; };
-		963AA31924A81DA10030CD18 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963AA31824A81DA10030CD18 /* SettingsTableViewController.swift */; };
+		963AA31924A81DA10030CD18 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963AA31824A81DA10030CD18 /* SettingsViewController.swift */; };
 		963AA31B24A824A70030CD18 /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963AA31A24A824A70030CD18 /* SettingsTableViewCell.swift */; };
 		9646188624A17BE10051C2F5 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9646188524A17BE10051C2F5 /* RegisterViewController.swift */; };
 		9659119E24D2369100114DB0 /* UIViewController+Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9659119D24D2369100114DB0 /* UIViewController+Keyboard.swift */; };
@@ -62,20 +63,19 @@
 		9662707024E9920D00CA0F08 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9662706F24E9920D00CA0F08 /* LoginViewController.swift */; };
 		9662707224E99DF500CA0F08 /* UILabel+Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9662707124E99DF500CA0F08 /* UILabel+Style.swift */; };
 		9662707424E9B48E00CA0F08 /* UITextField+Custom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9662707324E9B48E00CA0F08 /* UITextField+Custom.swift */; };
+		9663E1C4250B074B00BE0FC1 /* DateHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9663E1C3250B074B00BE0FC1 /* DateHeader.swift */; };
 		9665682224AEA4DD00E496FF /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9665682124AEA4DD00E496FF /* Alert.swift */; };
 		9665682424AEBBD100E496FF /* FirebaseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9665682324AEBBD100E496FF /* FirebaseError.swift */; };
-		96680303249AD4FB0034F8AF /* StatementTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96680302249AD4FB0034F8AF /* StatementTableViewController.swift */; };
-		96680305249AD57C0034F8AF /* StatementTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96680304249AD57C0034F8AF /* StatementTableViewCell.swift */; };
 		96680307249AE5820034F8AF /* StatementCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96680306249AE5820034F8AF /* StatementCellViewModel.swift */; };
 		96680309249AE5B60034F8AF /* StatementViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96680308249AE5B60034F8AF /* StatementViewModel.swift */; };
 		9669C46924EA0BF4004B4BEF /* FieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9669C46824EA0BF4004B4BEF /* FieldView.swift */; };
 		966BFE7724A4380000412D9B /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966BFE7624A4380000412D9B /* WelcomeViewController.swift */; };
 		966BFE7F24A439DE00412D9B /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966BFE7E24A439DE00412D9B /* LoginViewModel.swift */; };
-		966C2429249D80AE0099E1BF /* Statement.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 966C2428249D80AE0099E1BF /* Statement.storyboard */; };
 		966D358A24EF5E30005ACA89 /* ImportCEIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966D358924EF5E30005ACA89 /* ImportCEIView.swift */; };
 		966D358D24EF5EA1005ACA89 /* ImportCEIViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966D358C24EF5EA1005ACA89 /* ImportCEIViewProtocol.swift */; };
-		966F3C6A24D5E547003E2EF6 /* PieViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966F3C6824D5E547003E2EF6 /* PieViewCell.swift */; };
-		966F3C6B24D5E547003E2EF6 /* PieViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 966F3C6924D5E547003E2EF6 /* PieViewCell.xib */; };
+		966D3CFD25099404003A81DD /* StatementCoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966D3CFC25099404003A81DD /* StatementCoordinatorProtocol.swift */; };
+		966D3CFF2509940D003A81DD /* StatementCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966D3CFE2509940D003A81DD /* StatementCoordinator.swift */; };
+		966F3C6A24D5E547003E2EF6 /* PieChartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966F3C6824D5E547003E2EF6 /* PieChartCell.swift */; };
 		966F923124F1846200D5D798 /* ImportCEICoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966F923024F1846200D5D798 /* ImportCEICoordinatorProtocol.swift */; };
 		966F923324F1849000D5D798 /* ImportCEICoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966F923224F1849000D5D798 /* ImportCEICoordinator.swift */; };
 		966F923524F1857800D5D798 /* ImportCEIViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966F923424F1857800D5D798 /* ImportCEIViewModelProtocol.swift */; };
@@ -93,13 +93,26 @@
 		9672775B24B127150077A4B3 /* String+CPF.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9672775A24B127150077A4B3 /* String+CPF.swift */; };
 		9672A81624C79B3C00161AEF /* Wallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9672A81524C79B3C00161AEF /* Wallet.swift */; };
 		9672A81824C7CA3E00161AEF /* WalletViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9672A81724C7CA3E00161AEF /* WalletViewModel.swift */; };
-		9673F01424A57209008A47A3 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9673F01324A57209008A47A3 /* Settings.storyboard */; };
+		9673E98D250C474000D5FFE6 /* SettingsCoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9673E98C250C474000D5FFE6 /* SettingsCoordinatorProtocol.swift */; };
+		9673E98F250C474900D5FFE6 /* SettingsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9673E98E250C474900D5FFE6 /* SettingsCoordinator.swift */; };
+		9673E991250C475900D5FFE6 /* SettingsViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9673E990250C475900D5FFE6 /* SettingsViewModelProtocol.swift */; };
+		9673E993250C476600D5FFE6 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9673E992250C476600D5FFE6 /* SettingsViewModel.swift */; };
+		9673E996250C478E00D5FFE6 /* SettingsViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9673E995250C478E00D5FFE6 /* SettingsViewProtocol.swift */; };
+		9673E998250C479900D5FFE6 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9673E997250C479900D5FFE6 /* SettingsView.swift */; };
 		9677ED87248D4F1100CD6557 /* CEI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9677ED86248D4F1100CD6557 /* CEI.swift */; };
 		967FE86B2499993700D7C0C5 /* Statement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967FE86A2499993700D7C0C5 /* Statement.swift */; };
 		9686E6EC24F4777800BC46C6 /* WalletCoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9686E6EB24F4777800BC46C6 /* WalletCoordinatorProtocol.swift */; };
 		968E3D32249065B500F08CBF /* Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968E3D31249065B500F08CBF /* Formatter.swift */; };
 		96AB5F2C24C8EAC600EF9B82 /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AB5F2B24C8EAC600EF9B82 /* Defaults.swift */; };
-		96AB5F2E24C90C8F00EF9B82 /* CustomUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AB5F2D24C90C8F00EF9B82 /* CustomUIView.swift */; };
+		96B4ED4825067D2700A79DA7 /* StatementViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B4ED4725067D2700A79DA7 /* StatementViewModelProtocol.swift */; };
+		96B4ED4A25067D4300A79DA7 /* StatementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B4ED4925067D4300A79DA7 /* StatementView.swift */; };
+		96B4ED4C25067D5100A79DA7 /* StatementViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B4ED4B25067D5100A79DA7 /* StatementViewProtocol.swift */; };
+		96B4ED4F2506840600A79DA7 /* StatementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B4ED4E2506840600A79DA7 /* StatementViewController.swift */; };
+		96B4ED5125068C5800A79DA7 /* StatementTableViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B4ED5025068C5800A79DA7 /* StatementTableViewFactory.swift */; };
+		96B4ED5525068E5700A79DA7 /* StatementViewDataProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B4ED5425068E5700A79DA7 /* StatementViewDataProtocol.swift */; };
+		96B4ED5725068E8100A79DA7 /* StatementViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B4ED5625068E8100A79DA7 /* StatementViewData.swift */; };
+		96B4ED592506B9F600A79DA7 /* StatementCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B4ED582506B9F600A79DA7 /* StatementCell.swift */; };
+		96B4ED5B2506C99900A79DA7 /* StatementCellBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B4ED5A2506C99900A79DA7 /* StatementCellBuilder.swift */; };
 		96D3E8D025005AD5004FD643 /* TotalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D3E8CF25005AD4004FD643 /* TotalCell.swift */; };
 		96D3E8D325005E05004FD643 /* TotalCellBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D3E8D225005E05004FD643 /* TotalCellBuilder.swift */; };
 		96D3E8D6250071D8004FD643 /* SimpleHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D3E8D5250071D8004FD643 /* SimpleHeader.swift */; };
@@ -129,11 +142,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		960A3E3E2505401E0032E1F5 /* PieChartCellBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartCellBuilder.swift; sourceTree = "<group>"; };
 		961CF1EC2482F26300BD25F1 /* Opes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Opes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		961CF1FE2482F26600BD25F1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		961CF20624830E6F00BD25F1 /* CEIServiceAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CEIServiceAPI.swift; sourceTree = "<group>"; };
 		962C048A24F73CDB00981499 /* InvestimentType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvestimentType.swift; sourceTree = "<group>"; };
-		963AA31824A81DA10030CD18 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
+		963AA31824A81DA10030CD18 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		963AA31A24A824A70030CD18 /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
 		9646188524A17BE10051C2F5 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		9659119D24D2369100114DB0 /* UIViewController+Keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Keyboard.swift"; sourceTree = "<group>"; };
@@ -185,20 +199,19 @@
 		9662706F24E9920D00CA0F08 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		9662707124E99DF500CA0F08 /* UILabel+Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Style.swift"; sourceTree = "<group>"; };
 		9662707324E9B48E00CA0F08 /* UITextField+Custom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Custom.swift"; sourceTree = "<group>"; };
+		9663E1C3250B074B00BE0FC1 /* DateHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHeader.swift; sourceTree = "<group>"; };
 		9665682124AEA4DD00E496FF /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		9665682324AEBBD100E496FF /* FirebaseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseError.swift; sourceTree = "<group>"; };
-		96680302249AD4FB0034F8AF /* StatementTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatementTableViewController.swift; sourceTree = "<group>"; };
-		96680304249AD57C0034F8AF /* StatementTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatementTableViewCell.swift; sourceTree = "<group>"; };
 		96680306249AE5820034F8AF /* StatementCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatementCellViewModel.swift; sourceTree = "<group>"; };
 		96680308249AE5B60034F8AF /* StatementViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatementViewModel.swift; sourceTree = "<group>"; };
 		9669C46824EA0BF4004B4BEF /* FieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldView.swift; sourceTree = "<group>"; };
 		966BFE7624A4380000412D9B /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		966BFE7E24A439DE00412D9B /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
-		966C2428249D80AE0099E1BF /* Statement.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Statement.storyboard; sourceTree = "<group>"; };
 		966D358924EF5E30005ACA89 /* ImportCEIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportCEIView.swift; sourceTree = "<group>"; };
 		966D358C24EF5EA1005ACA89 /* ImportCEIViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportCEIViewProtocol.swift; sourceTree = "<group>"; };
-		966F3C6824D5E547003E2EF6 /* PieViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieViewCell.swift; sourceTree = "<group>"; };
-		966F3C6924D5E547003E2EF6 /* PieViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PieViewCell.xib; sourceTree = "<group>"; };
+		966D3CFC25099404003A81DD /* StatementCoordinatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatementCoordinatorProtocol.swift; sourceTree = "<group>"; };
+		966D3CFE2509940D003A81DD /* StatementCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatementCoordinator.swift; sourceTree = "<group>"; };
+		966F3C6824D5E547003E2EF6 /* PieChartCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartCell.swift; sourceTree = "<group>"; };
 		966F923024F1846200D5D798 /* ImportCEICoordinatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportCEICoordinatorProtocol.swift; sourceTree = "<group>"; };
 		966F923224F1849000D5D798 /* ImportCEICoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportCEICoordinator.swift; sourceTree = "<group>"; };
 		966F923424F1857800D5D798 /* ImportCEIViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportCEIViewModelProtocol.swift; sourceTree = "<group>"; };
@@ -216,13 +229,26 @@
 		9672775A24B127150077A4B3 /* String+CPF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+CPF.swift"; sourceTree = "<group>"; };
 		9672A81524C79B3C00161AEF /* Wallet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wallet.swift; sourceTree = "<group>"; };
 		9672A81724C7CA3E00161AEF /* WalletViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletViewModel.swift; sourceTree = "<group>"; };
-		9673F01324A57209008A47A3 /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
+		9673E98C250C474000D5FFE6 /* SettingsCoordinatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCoordinatorProtocol.swift; sourceTree = "<group>"; };
+		9673E98E250C474900D5FFE6 /* SettingsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCoordinator.swift; sourceTree = "<group>"; };
+		9673E990250C475900D5FFE6 /* SettingsViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModelProtocol.swift; sourceTree = "<group>"; };
+		9673E992250C476600D5FFE6 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		9673E995250C478E00D5FFE6 /* SettingsViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewProtocol.swift; sourceTree = "<group>"; };
+		9673E997250C479900D5FFE6 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		9677ED86248D4F1100CD6557 /* CEI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CEI.swift; sourceTree = "<group>"; };
 		967FE86A2499993700D7C0C5 /* Statement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Statement.swift; sourceTree = "<group>"; };
 		9686E6EB24F4777800BC46C6 /* WalletCoordinatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletCoordinatorProtocol.swift; sourceTree = "<group>"; };
 		968E3D31249065B500F08CBF /* Formatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatter.swift; sourceTree = "<group>"; };
 		96AB5F2B24C8EAC600EF9B82 /* Defaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
-		96AB5F2D24C90C8F00EF9B82 /* CustomUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUIView.swift; sourceTree = "<group>"; };
+		96B4ED4725067D2700A79DA7 /* StatementViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatementViewModelProtocol.swift; sourceTree = "<group>"; };
+		96B4ED4925067D4300A79DA7 /* StatementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatementView.swift; sourceTree = "<group>"; };
+		96B4ED4B25067D5100A79DA7 /* StatementViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatementViewProtocol.swift; sourceTree = "<group>"; };
+		96B4ED4E2506840600A79DA7 /* StatementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatementViewController.swift; sourceTree = "<group>"; };
+		96B4ED5025068C5800A79DA7 /* StatementTableViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatementTableViewFactory.swift; sourceTree = "<group>"; };
+		96B4ED5425068E5700A79DA7 /* StatementViewDataProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatementViewDataProtocol.swift; sourceTree = "<group>"; };
+		96B4ED5625068E8100A79DA7 /* StatementViewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatementViewData.swift; sourceTree = "<group>"; };
+		96B4ED582506B9F600A79DA7 /* StatementCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatementCell.swift; sourceTree = "<group>"; };
+		96B4ED5A2506C99900A79DA7 /* StatementCellBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatementCellBuilder.swift; sourceTree = "<group>"; };
 		96D3E8CF25005AD4004FD643 /* TotalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalCell.swift; sourceTree = "<group>"; };
 		96D3E8D225005E05004FD643 /* TotalCellBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalCellBuilder.swift; sourceTree = "<group>"; };
 		96D3E8D5250071D8004FD643 /* SimpleHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleHeader.swift; sourceTree = "<group>"; };
@@ -308,7 +334,6 @@
 			isa = PBXGroup;
 			children = (
 				965C330024FF0B8600C3B03E /* TableViewFactory */,
-				96AB5F2D24C90C8F00EF9B82 /* CustomUIView.swift */,
 				968E3D31249065B500F08CBF /* Formatter.swift */,
 				9665682124AEA4DD00E496FF /* Alert.swift */,
 				9669C46824EA0BF4004B4BEF /* FieldView.swift */,
@@ -481,20 +506,20 @@
 		965C333B24FF126800C3B03E /* TableView */ = {
 			isa = PBXGroup;
 			children = (
-				965C333D24FF128400C3B03E /* Cell */,
+				965C333D24FF128400C3B03E /* Cells */,
 				965C333C24FF128400C3B03E /* WalletTableViewFactory.swift */,
 			);
 			path = TableView;
 			sourceTree = "<group>";
 		};
-		965C333D24FF128400C3B03E /* Cell */ = {
+		965C333D24FF128400C3B03E /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				965C334524FF222300C3B03E /* PieCell */,
+				965C334524FF222300C3B03E /* PieChartCell */,
 				965C334424FF221800C3B03E /* TotalCell */,
 				965C334324FF220500C3B03E /* InvestimentCell */,
 			);
-			path = Cell;
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		965C334324FF220500C3B03E /* InvestimentCell */ = {
@@ -515,11 +540,13 @@
 			path = TotalCell;
 			sourceTree = "<group>";
 		};
-		965C334524FF222300C3B03E /* PieCell */ = {
+		965C334524FF222300C3B03E /* PieChartCell */ = {
 			isa = PBXGroup;
 			children = (
+				966F3C6824D5E547003E2EF6 /* PieChartCell.swift */,
+				960A3E3E2505401E0032E1F5 /* PieChartCellBuilder.swift */,
 			);
-			path = PieCell;
+			path = PieChartCell;
 			sourceTree = "<group>";
 		};
 		965C334A24FF3DCF00C3B03E /* Foundation */ = {
@@ -542,9 +569,10 @@
 		966059EA24984C330037E73A /* Statement */ = {
 			isa = PBXGroup;
 			children = (
+				96B4ED4625067D0100A79DA7 /* Coordinator */,
 				966059F224984C720037E73A /* View */,
 				966059F024984C720037E73A /* ViewModel */,
-				966059F124984C720037E73A /* Controller */,
+				96B4ED5325068E2A00A79DA7 /* ViewData */,
 			);
 			path = Statement;
 			sourceTree = "<group>";
@@ -554,23 +582,18 @@
 			children = (
 				96680306249AE5820034F8AF /* StatementCellViewModel.swift */,
 				96680308249AE5B60034F8AF /* StatementViewModel.swift */,
+				96B4ED4725067D2700A79DA7 /* StatementViewModelProtocol.swift */,
 			);
 			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		966059F124984C720037E73A /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				96680302249AD4FB0034F8AF /* StatementTableViewController.swift */,
-			);
-			path = Controller;
 			sourceTree = "<group>";
 		};
 		966059F224984C720037E73A /* View */ = {
 			isa = PBXGroup;
 			children = (
-				966C2428249D80AE0099E1BF /* Statement.storyboard */,
-				96680304249AD57C0034F8AF /* StatementTableViewCell.swift */,
+				96B4ED4D25067D5A00A79DA7 /* TableView */,
+				96B4ED4925067D4300A79DA7 /* StatementView.swift */,
+				96B4ED4E2506840600A79DA7 /* StatementViewController.swift */,
+				96B4ED4B25067D5100A79DA7 /* StatementViewProtocol.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -608,7 +631,8 @@
 		966BFE7924A4399900412D9B /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				966BFE7D24A439BE00412D9B /* Controller */,
+				9673E98B250C46E900D5FFE6 /* Coordinator */,
+				9673E98A250C46DF00D5FFE6 /* ViewModel */,
 				966BFE7A24A439A200412D9B /* View */,
 			);
 			path = Settings;
@@ -617,8 +641,10 @@
 		966BFE7A24A439A200412D9B /* View */ = {
 			isa = PBXGroup;
 			children = (
-				9673F01324A57209008A47A3 /* Settings.storyboard */,
-				963AA31A24A824A70030CD18 /* SettingsTableViewCell.swift */,
+				9673E994250C477600D5FFE6 /* TableView */,
+				9673E997250C479900D5FFE6 /* SettingsView.swift */,
+				963AA31824A81DA10030CD18 /* SettingsViewController.swift */,
+				9673E995250C478E00D5FFE6 /* SettingsViewProtocol.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -627,20 +653,11 @@
 			isa = PBXGroup;
 			children = (
 				965C333B24FF126800C3B03E /* TableView */,
-				9671474624F2E54F006BA5CF /* Cells */,
 				9671474924F2E57B006BA5CF /* WalletView.swift */,
 				966FF78724CDF237001B1F62 /* WalletViewController.swift */,
 				9671474724F2E56C006BA5CF /* WalletViewProtocol.swift */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		966BFE7D24A439BE00412D9B /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				963AA31824A81DA10030CD18 /* SettingsTableViewController.swift */,
-			);
-			path = Controller;
 			sourceTree = "<group>";
 		};
 		966D358B24EF5E6A005ACA89 /* Coordinator */ = {
@@ -659,15 +676,6 @@
 				965C334824FF315B00C3B03E /* WalletViewDataProtocol.swift */,
 			);
 			path = ViewData;
-			sourceTree = "<group>";
-		};
-		9671474624F2E54F006BA5CF /* Cells */ = {
-			isa = PBXGroup;
-			children = (
-				966F3C6824D5E547003E2EF6 /* PieViewCell.swift */,
-				966F3C6924D5E547003E2EF6 /* PieViewCell.xib */,
-			);
-			path = Cells;
 			sourceTree = "<group>";
 		};
 		9672775924B126F20077A4B3 /* Extensions */ = {
@@ -779,6 +787,32 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		9673E98A250C46DF00D5FFE6 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				9673E992250C476600D5FFE6 /* SettingsViewModel.swift */,
+				9673E990250C475900D5FFE6 /* SettingsViewModelProtocol.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		9673E98B250C46E900D5FFE6 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				9673E98E250C474900D5FFE6 /* SettingsCoordinator.swift */,
+				9673E98C250C474000D5FFE6 /* SettingsCoordinatorProtocol.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		9673E994250C477600D5FFE6 /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+				963AA31A24A824A70030CD18 /* SettingsTableViewCell.swift */,
+			);
+			path = TableView;
+			sourceTree = "<group>";
+		};
 		9673F00624A56075008A47A3 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -841,10 +875,39 @@
 			path = Service;
 			sourceTree = "<group>";
 		};
+		96B4ED4625067D0100A79DA7 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				966D3CFE2509940D003A81DD /* StatementCoordinator.swift */,
+				966D3CFC25099404003A81DD /* StatementCoordinatorProtocol.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		96B4ED4D25067D5A00A79DA7 /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+				96B4ED582506B9F600A79DA7 /* StatementCell.swift */,
+				96B4ED5A2506C99900A79DA7 /* StatementCellBuilder.swift */,
+				96B4ED5025068C5800A79DA7 /* StatementTableViewFactory.swift */,
+			);
+			path = TableView;
+			sourceTree = "<group>";
+		};
+		96B4ED5325068E2A00A79DA7 /* ViewData */ = {
+			isa = PBXGroup;
+			children = (
+				96B4ED5625068E8100A79DA7 /* StatementViewData.swift */,
+				96B4ED5425068E5700A79DA7 /* StatementViewDataProtocol.swift */,
+			);
+			path = ViewData;
+			sourceTree = "<group>";
+		};
 		96D3E8D4250071C5004FD643 /* Headers */ = {
 			isa = PBXGroup;
 			children = (
 				96D3E8D5250071D8004FD643 /* SimpleHeader.swift */,
+				9663E1C3250B074B00BE0FC1 /* DateHeader.swift */,
 			);
 			path = Headers;
 			sourceTree = "<group>";
@@ -1017,15 +1080,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				966C2429249D80AE0099E1BF /* Statement.storyboard in Resources */,
-				9673F01424A57209008A47A3 /* Settings.storyboard in Resources */,
 				967091AA24AD377100257A23 /* wallet.json in Resources */,
 				9672567124884E9400394587 /* dividends.json in Resources */,
 				961CF1FF2482F26600BD25F1 /* LaunchScreen.storyboard in Resources */,
 				96DC1F7524FACF0C0086382A /* GoogleService-Info.plist in Resources */,
 				9672567224884E9400394587 /* history.json in Resources */,
 				96DC1F7324FACF000086382A /* Assets.xcassets in Resources */,
-				966F3C6B24D5E547003E2EF6 /* PieViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1079,10 +1139,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				9672A81624C79B3C00161AEF /* Wallet.swift in Sources */,
+				9673E98D250C474000D5FFE6 /* SettingsCoordinatorProtocol.swift in Sources */,
 				967091AC24AD395500257A23 /* FirebaseService.swift in Sources */,
+				96B4ED5125068C5800A79DA7 /* StatementTableViewFactory.swift in Sources */,
 				9671474A24F2E57B006BA5CF /* WalletView.swift in Sources */,
 				968E3D32249065B500F08CBF /* Formatter.swift in Sources */,
 				965C332D24FF0B8600C3B03E /* TableViewEditableCellBuilder.swift in Sources */,
+				96B4ED5525068E5700A79DA7 /* StatementViewDataProtocol.swift in Sources */,
 				965C333524FF0B8600C3B03E /* CollectionViewCellBuilder.swift in Sources */,
 				965C32F524FF0A8400C3B03E /* UIView+Builder.swift in Sources */,
 				965C334924FF315B00C3B03E /* WalletViewDataProtocol.swift in Sources */,
@@ -1091,7 +1154,6 @@
 				96FB836524E82AA100259F22 /* ViewCodeProtocol.swift in Sources */,
 				96DD96D024E4AB240053F3D8 /* AppCoordinator.swift in Sources */,
 				966F923324F1849000D5D798 /* ImportCEICoordinator.swift in Sources */,
-				96AB5F2E24C90C8F00EF9B82 /* CustomUIView.swift in Sources */,
 				96DF1FEC24ECC15F00C73AF3 /* RegisterViewModelProtocol.swift in Sources */,
 				965C332C24FF0B8600C3B03E /* SelectableCellBuilder.swift in Sources */,
 				96DF1FDC24EC97A900C73AF3 /* LoginViewModelProtocol.swift in Sources */,
@@ -1099,6 +1161,7 @@
 				965C332424FF0B8600C3B03E /* StaticSection.swift in Sources */,
 				96DF1FE524ECBBA100C73AF3 /* WelcomeViewProtocol.swift in Sources */,
 				965C333224FF0B8600C3B03E /* CollectionViewSection.swift in Sources */,
+				966D3CFD25099404003A81DD /* StatementCoordinatorProtocol.swift in Sources */,
 				9660030B24E622EE00353114 /* TabBarController.swift in Sources */,
 				9662707424E9B48E00CA0F08 /* UITextField+Custom.swift in Sources */,
 				96591FDB24EB64C600609731 /* AppDelegate.swift in Sources */,
@@ -1108,10 +1171,13 @@
 				966BFE7724A4380000412D9B /* WelcomeViewController.swift in Sources */,
 				965C332624FF0B8600C3B03E /* TableViewSection.swift in Sources */,
 				9665682424AEBBD100E496FF /* FirebaseError.swift in Sources */,
+				96B4ED592506B9F600A79DA7 /* StatementCell.swift in Sources */,
 				96DF1FE324ECBA5D00C73AF3 /* WelcomeViewModelProtocol.swift in Sources */,
 				966F923524F1857800D5D798 /* ImportCEIViewModelProtocol.swift in Sources */,
+				96B4ED5B2506C99900A79DA7 /* StatementCellBuilder.swift in Sources */,
 				965C334C24FF3DE000C3B03E /* Double+Extension.swift in Sources */,
 				965C334124FF128400C3B03E /* InvestimentCell.swift in Sources */,
+				9673E996250C478E00D5FFE6 /* SettingsViewProtocol.swift in Sources */,
 				965C332B24FF0B8600C3B03E /* TableViewCellBuilder.swift in Sources */,
 				965C333124FF0B8600C3B03E /* TableViewArrangeableCellBuilder.swift in Sources */,
 				965C334024FF128400C3B03E /* WalletTableViewFactory.swift in Sources */,
@@ -1121,14 +1187,19 @@
 				96680307249AE5820034F8AF /* StatementCellViewModel.swift in Sources */,
 				967FE86B2499993700D7C0C5 /* Statement.swift in Sources */,
 				965C333824FF0B8600C3B03E /* UITableView+DeleteRows.swift in Sources */,
+				960A3E3F2505401E0032E1F5 /* PieChartCellBuilder.swift in Sources */,
 				96FB836924E856C000259F22 /* UIView+Constraints.swift in Sources */,
 				967091AE24AD4EC300257A23 /* User.swift in Sources */,
 				9662706E24E98C3200CA0F08 /* UIColor+Custom.swift in Sources */,
+				96B4ED5725068E8100A79DA7 /* StatementViewData.swift in Sources */,
+				9673E993250C476600D5FFE6 /* SettingsViewModel.swift in Sources */,
 				965C332A24FF0B8600C3B03E /* TableViewDataSource.swift in Sources */,
 				96DF1FEA24ECC06800C73AF3 /* RegisterCoordinatorProtocol.swift in Sources */,
 				966BFE7F24A439DE00412D9B /* LoginViewModel.swift in Sources */,
 				9662707224E99DF500CA0F08 /* UILabel+Style.swift in Sources */,
 				9677ED87248D4F1100CD6557 /* CEI.swift in Sources */,
+				966D3CFF2509940D003A81DD /* StatementCoordinator.swift in Sources */,
+				9673E991250C475900D5FFE6 /* SettingsViewModelProtocol.swift in Sources */,
 				963AA31B24A824A70030CD18 /* SettingsTableViewCell.swift in Sources */,
 				9659119E24D2369100114DB0 /* UIViewController+Keyboard.swift in Sources */,
 				9686E6EC24F4777800BC46C6 /* WalletCoordinatorProtocol.swift in Sources */,
@@ -1136,20 +1207,23 @@
 				965C333724FF0B8600C3B03E /* UITableView+DefaultFactory.swift in Sources */,
 				965C32F624FF0A8400C3B03E /* UITableView+Reusable.swift in Sources */,
 				962C048B24F73CDB00981499 /* InvestimentType.swift in Sources */,
+				96B4ED4825067D2700A79DA7 /* StatementViewModelProtocol.swift in Sources */,
 				965C334224FF128400C3B03E /* InvestimentCellBuilder.swift in Sources */,
 				9660030924E6223000353114 /* TabBarCoordinator.swift in Sources */,
 				9662706A24E989D000CA0F08 /* RegisterCoordinator.swift in Sources */,
 				965C332724FF0B8600C3B03E /* SingleSelectionSection.swift in Sources */,
-				96680303249AD4FB0034F8AF /* StatementTableViewController.swift in Sources */,
+				96B4ED4F2506840600A79DA7 /* StatementViewController.swift in Sources */,
 				96AB5F2C24C8EAC600EF9B82 /* Defaults.swift in Sources */,
 				96F898B924C4E48400686915 /* UITableView+Empty.swift in Sources */,
+				9673E98F250C474900D5FFE6 /* SettingsCoordinator.swift in Sources */,
 				96DF1FDE24EC99F200C73AF3 /* LoginViewProtocol.swift in Sources */,
 				966F923124F1846200D5D798 /* ImportCEICoordinatorProtocol.swift in Sources */,
 				965C32F424FF0A8400C3B03E /* UIStackView+Spacing.swift in Sources */,
 				966D358D24EF5EA1005ACA89 /* ImportCEIViewProtocol.swift in Sources */,
 				96D3E8D325005E05004FD643 /* TotalCellBuilder.swift in Sources */,
 				9646188624A17BE10051C2F5 /* RegisterViewController.swift in Sources */,
-				966F3C6A24D5E547003E2EF6 /* PieViewCell.swift in Sources */,
+				96B4ED4C25067D5100A79DA7 /* StatementViewProtocol.swift in Sources */,
+				966F3C6A24D5E547003E2EF6 /* PieChartCell.swift in Sources */,
 				96FB836724E8328C00259F22 /* WelcomeView.swift in Sources */,
 				96DD96DA24E4C84E0053F3D8 /* WelcomeCoordinator.swift in Sources */,
 				965C32FD24FF0B1A00C3B03E /* Reusable.swift in Sources */,
@@ -1158,6 +1232,7 @@
 				96DF1FE824ECBBC400C73AF3 /* WelcomeViewModel.swift in Sources */,
 				9672A81824C7CA3E00161AEF /* WalletViewModel.swift in Sources */,
 				965C32FC24FF0B1A00C3B03E /* CellConfigurable.swift in Sources */,
+				9663E1C4250B074B00BE0FC1 /* DateHeader.swift in Sources */,
 				961CF20724830E6F00BD25F1 /* CEIServiceAPI.swift in Sources */,
 				96DBF3F724C3C80800E159DD /* ImportCEIViewModel.swift in Sources */,
 				9671474C24F2E75D006BA5CF /* WalletViewModelProtocol.swift in Sources */,
@@ -1165,19 +1240,20 @@
 				965C332524FF0B8600C3B03E /* ArrangeableSection.swift in Sources */,
 				966FF78824CDF237001B1F62 /* WalletViewController.swift in Sources */,
 				9662707024E9920D00CA0F08 /* LoginViewController.swift in Sources */,
+				96B4ED4A25067D4300A79DA7 /* StatementView.swift in Sources */,
 				965C333324FF0B8600C3B03E /* StaticCollectionSection.swift in Sources */,
 				965C334724FF260B00C3B03E /* WalletViewData.swift in Sources */,
-				96680305249AD57C0034F8AF /* StatementTableViewCell.swift in Sources */,
 				96DF1FF024ECC27E00C73AF3 /* RegisterView.swift in Sources */,
 				965C333024FF0B8600C3B03E /* SelectableTableViewCell.swift in Sources */,
 				96FB836B24E8804C00259F22 /* UIButton+Style.swift in Sources */,
-				963AA31924A81DA10030CD18 /* SettingsTableViewController.swift in Sources */,
+				963AA31924A81DA10030CD18 /* SettingsViewController.swift in Sources */,
 				965C32F724FF0A8400C3B03E /* UICollectionView+Reusable.swift in Sources */,
 				967091B024AD577300257A23 /* RegisterViewModel.swift in Sources */,
 				9671474824F2E56C006BA5CF /* WalletViewProtocol.swift in Sources */,
 				966D358A24EF5E30005ACA89 /* ImportCEIView.swift in Sources */,
 				96DF1FEE24ECC17A00C73AF3 /* RegisterViewProtocol.swift in Sources */,
 				9671504924D37127005E8D17 /* TextFieldResponder.swift in Sources */,
+				9673E998250C479900D5FFE6 /* SettingsView.swift in Sources */,
 				9662706C24E98ACE00CA0F08 /* LoginView.swift in Sources */,
 				965C332924FF0B8600C3B03E /* TableViewItem.swift in Sources */,
 				9660030324E5FE1100353114 /* WalletCoordinator.swift in Sources */,

@@ -8,7 +8,7 @@
 
 import Foundation
 
-class StatementCellViewModel {
+final class StatementCellViewModel {
     
     private var statement: Statement
 

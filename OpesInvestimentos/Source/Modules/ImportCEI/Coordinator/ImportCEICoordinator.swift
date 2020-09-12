@@ -32,7 +32,6 @@ extension ImportCEICoordinator: ImportCEICoordinatorProtocol {
     func showAlert(_ alert: UIAlertController) {
         navigationController.present(alert, animated: true, completion: nil)
     }
-    func openCEIWebsite() {
-        
-    }
+    
+    func openCEIWebsite() {}
 }

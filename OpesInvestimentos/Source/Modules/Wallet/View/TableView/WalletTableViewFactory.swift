@@ -21,24 +21,19 @@ struct WalletTableViewFactory: TableViewFactoryProtocol {
     }
     
     func make() -> [TableViewSection] {
-        return [section(builder: TotalCellBuilder(value: data.total), title: "Olá, \(data.name)! 🤑"),
-                section(builder: builderCells(in: data.investiments))]
+        let sections = [section(builder: [TotalCellBuilder(value: data.total)], title: "Olá, \(data.name)! 🤑"),
+                        section(builder: data.investiments.map(InvestimentCellBuilder.init)),
+                        section(builder: [PieChartCellBuilder(model: data.investiments)])]
+        
+        return sections
     }
 
-    private func section(builder: TableViewCellBuilder, title: String? = nil) -> TableViewSection {
-        StaticSection(cellBuilders: [builder], header: header(title: title))
-    }
-
-    private func section(builder: [TableViewCellBuilder]) -> TableViewSection {
-        StaticSection(cellBuilders: builder)
+    private func section(builder: [TableViewCellBuilder], title: String? = nil) -> TableViewSection {
+        StaticSection(cellBuilders: builder, header: header(title: title))
     }
 
     private func header(title: String?) -> UIView? {
-        if let title = title { return SimpleHeader(title: title) }
-        return nil
-    }
-    
-    private func builderCells(in investiments: [Investiment]) -> [TableViewCellBuilder] {
-        return investiments.map(InvestimentCellBuilder.init)
+        guard let title = title else { return nil }
+        return SimpleHeader(title: title)
     }
 }

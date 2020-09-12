@@ -8,6 +8,4 @@
 
 import Foundation
 
-protocol LoginViewProtocol: class {
-
-}
+protocol LoginViewProtocol: class {}

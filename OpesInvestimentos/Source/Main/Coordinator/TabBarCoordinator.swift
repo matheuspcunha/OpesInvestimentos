@@ -8,7 +8,8 @@
 
 import UIKit
 
-class TabBarCoordinator: CoordinatorProtocol {
+final class TabBarCoordinator: CoordinatorProtocol {
+
     let navigationController: UINavigationController
     
     init(navigationController: UINavigationController) {
@@ -25,20 +26,21 @@ class TabBarCoordinator: CoordinatorProtocol {
         
         let statementNavigationController = UINavigationController()
         statementNavigationController.tabBarItem = UITabBarItem(title: "Extrato", image: UIImage(systemName: "list.dash"), tag: 1)
-//        let statementCoordinator = StatementCoordinator(navigationController: statementNavigationController)
+        let statementCoordinator = StatementCoordinator(navigationController: statementNavigationController)
         
         let settingsNavigationController = UINavigationController()
         settingsNavigationController.tabBarItem = UITabBarItem(title: "Ajustes", image: UIImage(systemName: "person"), tag: 2)
-//        let settingsCoordinator = SettingsCoordinator(navigationController: settingsNavigationController)
+        let settingsCoordinator = SettingsCoordinator(navigationController: settingsNavigationController)
         
-        tabBarController.viewControllers = [walletNavigationController]
+        tabBarController.viewControllers = [walletNavigationController,
+                                            statementNavigationController,
+                                            settingsNavigationController]
         
         tabBarController.modalPresentationStyle = .fullScreen
         navigationController.present(tabBarController, animated: true, completion: nil)
 
         coordinate(to: walletCoordinator)
-//        coordinate(to: statementCoordinator)
-//        coordinate(to: settingsCoordinator)
+        coordinate(to: statementCoordinator)
+        coordinate(to: settingsCoordinator)
     }
-
 }

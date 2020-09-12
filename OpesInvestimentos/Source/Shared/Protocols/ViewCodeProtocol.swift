@@ -10,7 +10,7 @@ protocol ViewCodeProtocol {
     func setupHierarchy()
     func setupConstraints()
     func additionalSetup()
-    
+
     func buildView()
 }
 

@@ -92,9 +92,7 @@ final class LoginView: UIView {
     }
 }
 
-extension LoginView: LoginViewProtocol {
-
-}
+extension LoginView: LoginViewProtocol {}
 
 extension LoginView: ViewCodeProtocol {
     

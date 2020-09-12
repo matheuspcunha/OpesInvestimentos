@@ -1,43 +1,43 @@
 //
-//  ImportCEIViewController.swift
+//  StatementViewController.swift
 //  OpesInvestimentos
 //
-//  Created by Matheus Cunha on 18/07/20.
+//  Created by Matheus Cunha on 07/09/20.
 //  Copyright © 2020 Matheus Cunha. All rights reserved.
 //
 
 import UIKit
 
-final class ImportCEIViewController: UIViewController {
+final class StatementViewController: UIViewController {
 
-    private var viewModel: ImportCEIViewModelProtocol!
-    private var contentView: ImportCEIView!
+    private var viewModel: StatementViewModelProtocol!
+    private var contentView: StatementView!
 
-    init(viewModel: ImportCEIViewModelProtocol) {
+    init(viewModel: StatementViewModelProtocol) {
         self.viewModel = viewModel
-        self.contentView = ImportCEIView(viewModel: viewModel)
+        self.contentView = StatementView(viewModel: viewModel)
         super.init(nibName: nil, bundle: nil)
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.hideKeyboardWhenTappedAround()
     }
-    
+
     override func loadView() {
         view = contentView
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setupNavigation()
     }
-    
+
     private func setupNavigation() {
-        navigationController?.isNavigationBarHidden = true
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationItem.title = "Extrato"
     }
 }

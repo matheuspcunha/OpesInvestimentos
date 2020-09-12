@@ -8,6 +8,4 @@
 
 import Foundation
 
-protocol RegisterViewProtocol: class {
-
-}
+protocol RegisterViewProtocol: class {}
