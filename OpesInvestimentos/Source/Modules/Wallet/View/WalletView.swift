@@ -11,11 +11,17 @@ import UIKit
 final class WalletView: UIView {
 
     private var viewModel: WalletViewModelProtocol!
-    private var dataSource: TableViewDataSource?
     
+    private var dataSource: TableViewDataSource? {
+        didSet {
+            self.tableView.reloadData()
+        }
+    }
+
     init(viewModel: WalletViewModelProtocol) {
         super.init(frame: .zero)
         self.viewModel = viewModel
+        self.viewModel.delegate = self
         buildView()
     }
     
@@ -27,12 +33,6 @@ final class WalletView: UIView {
         let tableView = UITableView.standard()
         tableView.backgroundColor = .clear
         tableView.separatorStyle = .none
-        
-        dataSource = TableViewDataSource(
-            sections: WalletTableViewFactory(viewData: self.viewModel.loadWallet()).make(),
-            tableView: tableView
-        )
-        
         return tableView
     }()
 }
@@ -50,4 +50,17 @@ extension WalletView: ViewCodeProtocol {
     }
     
     func setupConstraints() {}
+}
+
+extension WalletView: WalletViewModelDelegate {
+    func onLoadWallet() {
+        DispatchQueue.main.async {
+            if let data = self.viewModel.viewData {
+                self.dataSource = TableViewDataSource(
+                    sections: WalletTableViewFactory(viewData: data).make(),
+                    tableView: self.tableView
+                )
+            }
+        }
+    }
 }

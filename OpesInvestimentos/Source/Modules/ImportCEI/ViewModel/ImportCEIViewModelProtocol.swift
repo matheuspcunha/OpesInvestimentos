@@ -10,6 +10,7 @@ import Foundation
 
 protocol ImportCEIViewModelProtocol: class {
     var view: ImportCEIViewProtocol? { get set }
+    var viewData: ImportCEIViewDataProtocol { get set }
     
     func importFromCEI(password: String?)
     func forgotPassword()

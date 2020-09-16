@@ -22,4 +22,8 @@ public extension TableViewCellBuilder {
     func tableViewDidSelectCell(_ tableView: UITableView) {
         print("Default implementation")
     }
+    
+    var cellHeight: CGFloat {
+        return UITableView.automaticDimension
+    }
 }

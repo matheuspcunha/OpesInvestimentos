@@ -15,6 +15,7 @@ final class ImportCEIView: UIView {
     init(viewModel: ImportCEIViewModelProtocol) {
         self.viewModel = viewModel
         super.init(frame: .zero)
+        self.viewModel.view = self
         buildView()
     }
     
@@ -37,7 +38,8 @@ final class ImportCEIView: UIView {
     }()
     
     private lazy var cpfField: FieldView = {
-        FieldView(title: "CPF", placeholder: "123.456.789-10", type: .email, isEnabled: false)
+        let data = self.viewModel.viewData
+        return FieldView(title: "CPF", placeholder: data.cpf.cpfFormat(), type: .email, isEnabled: false)
     }()
     
     private lazy var passwordField: FieldView = {
@@ -45,7 +47,7 @@ final class ImportCEIView: UIView {
     }()
     
     private lazy var importButton: UIButton = {
-        let button = UIButton(style: .primary, text: "Entrar")
+        let button = UIButton(style: .primary, text: "Importar")
         button.addTarget(self, action: #selector(importTapped), for: .touchUpInside)
         return button
     }()
@@ -84,7 +86,7 @@ final class ImportCEIView: UIView {
     }
     
     @objc private func importTapped(sender: UIButton) {
-        viewModel.importFromCEI(password: passwordField.text)
+        viewModel.importFromCEI(password: passwordField.field.text)
     }
     
     @objc private func forgotPasswordTapped(sender: UIButton) {

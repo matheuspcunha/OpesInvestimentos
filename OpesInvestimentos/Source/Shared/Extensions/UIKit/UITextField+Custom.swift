@@ -13,6 +13,7 @@ enum TextFieldType {
     case password
     case email
     case name
+    case number
 }
 
 extension UITextField {
@@ -41,6 +42,9 @@ extension UITextField {
         case .name:
             self.textContentType = .name
             self.keyboardType = .namePhonePad
+        case .number:
+            self.textContentType = .none
+            self.keyboardType = .numberPad
         }
     }
     

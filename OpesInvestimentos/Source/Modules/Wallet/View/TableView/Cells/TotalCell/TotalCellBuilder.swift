@@ -12,10 +12,6 @@ struct TotalCellBuilder: TableViewCellBuilder {
     
     var value: String
     
-    var cellHeight: CGFloat {
-        return UITableView.automaticDimension
-    }
-    
     func registerCellIdentifier(in tableView: UITableView) {
         tableView.register(TotalCell.self)
     }
@@ -27,10 +23,6 @@ struct TotalCellBuilder: TableViewCellBuilder {
     }
 
     func tableViewShouldSelectCell(_ tableView: UITableView) -> Bool {
-        true
-    }
-
-    func tableViewDidSelectCell(_ tableView: UITableView) {
-        print("did select cell")
+        false
     }
 }

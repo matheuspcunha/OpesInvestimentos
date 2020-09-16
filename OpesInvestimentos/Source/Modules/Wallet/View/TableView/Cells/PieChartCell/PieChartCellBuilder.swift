@@ -12,10 +12,6 @@ struct PieChartCellBuilder: TableViewCellBuilder {
     
     var model: [Investiment]
     
-    var cellHeight: CGFloat {
-        return UITableView.automaticDimension
-    }
-    
     func registerCellIdentifier(in tableView: UITableView) {
         tableView.register(PieChartCell.self)
     }
@@ -27,10 +23,6 @@ struct PieChartCellBuilder: TableViewCellBuilder {
     }
 
     func tableViewShouldSelectCell(_ tableView: UITableView) -> Bool {
-        true
-    }
-
-    func tableViewDidSelectCell(_ tableView: UITableView) {
-        print("did select cell")
+        false
     }
 }

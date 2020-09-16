@@ -31,6 +31,11 @@ final class SettingsViewController: UIViewController {
         view = contentView
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+//        FirebaseService.signOut()
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setupNavigation()

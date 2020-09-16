@@ -8,8 +8,8 @@
 
 import UIKit
 
-protocol ImportCEICoordinatorProtocol: class {
-    func showAlert(_ alert: UIAlertController)
+protocol ImportCEICoordinatorProtocol: class, ScreenLoader, ShowAlert {
+    func coordinateToTabBar()
     func openCEIWebsite()
     func back()
 }

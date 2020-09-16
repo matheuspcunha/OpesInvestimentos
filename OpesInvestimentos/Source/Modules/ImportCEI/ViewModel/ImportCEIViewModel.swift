@@ -9,37 +9,35 @@
 import Foundation
 
 final class ImportCEIViewModel: ImportCEIViewModelProtocol {
-    
+
     var view: ImportCEIViewProtocol?
-    private var coordinator: ImportCEICoordinatorProtocol?
-    private final let MAX_ATTEMPT: Int = 2
-    private var attemptsCounter: Int = 0
+    var viewData: ImportCEIViewDataProtocol
     
-    var cpf: String {
-        return Defaults.shared.cpf?.cpfFormat() ?? ""
-    }
+    private var service: ImportCEIServiceProtocol
+    private var coordinator: ImportCEICoordinatorProtocol?
         
-    init(coordinator: ImportCEICoordinatorProtocol?) {
+    init(coordinator: ImportCEICoordinatorProtocol?,
+         viewData: ImportCEIViewDataProtocol,
+         service: ImportCEIServiceProtocol = ImportCEIService()) {
         self.coordinator = coordinator
+        self.viewData = viewData
+        self.service = service
     }
     
     func importFromCEI(password: String?) {
-        guard let password = password else { return }
+        guard let password = password,
+              let userID = FirebaseService.currentUser?.uid else { return }
+        
         if password.isEmpty {
             print("Campo vázio")
             return
         }
 
-        let params = [ "username":"\(self.cpf.onlyNumbers())", "password":"\(password)" ]
-        if(Defaults.shared.lastUpdateWallet == nil) {
-            self.getWallet(params)
-        } else if (Defaults.shared.lastUpdateDividend == nil) {
-            self.getDividends(params)
-        } else if (Defaults.shared.lastUpdateHistory == nil) {
-            self.getStockHistory(params)
-        } else {
-            print("Já adicionados, só atualizar")
-        }
+        let params = [ "username":"\(self.viewData.cpf.onlyNumbers())",
+                       "password":"\(password)",
+                       "id":"\(userID)" ]
+
+        importCEI(params)
     }
     
     func forgotPassword() {
@@ -50,72 +48,29 @@ final class ImportCEIViewModel: ImportCEIViewModelProtocol {
         coordinator?.back()
     }
     
-    private func getWallet(_ params: [String: String]) {
-        CEIServiceAPI.getWallet(params: params, onComplete: { [weak self] (result) in
-            guard let self = self else {return}
-
+    private func importCEI(_ params: [String: String]) {
+        coordinator?.showLoading(true)
+        service.getWallet(params: params) { [weak self] (result) in
             switch result {
             case .success:
-//                self.delegate?.onImport(result: .success(true))
-                self.attemptsCounter = 0
-                Defaults.shared.lastUpdateWallet = Date()
-                self.getDividends(params)
-
+                self?.getStatement(params)
             case .failure(let err):
-                if self.attemptsCounter < self.MAX_ATTEMPT {
-                    self.getWallet(params)
-                    self.attemptsCounter += 1
-                    print("Retry getWallet: \(self.attemptsCounter)")
-                 } else {
-//                    self.delegate?.onImport(result: .failure(err))
-                }
-                break
+                self?.coordinator?.showLoading(false)
+                print(err)
             }
-        })
+        }
     }
-
-    private func getDividends(_ params: [String: String]) {
-        CEIServiceAPI.getDividends(params: params, onComplete: { [weak self] (result) in
-            guard let self = self else {return}
-
+    
+    private func getStatement(_ params: [String: String]) {
+        coordinator?.showLoading(true) 
+        service.getStatement(params: params) { [weak self] (result) in
+        self?.coordinator?.showLoading(false)
             switch result {
             case .success:
-                self.attemptsCounter = 0
-                Defaults.shared.lastUpdateDividend = Date()
-                self.getStockHistory(params)
-
+                self?.coordinator?.coordinateToTabBar()
             case .failure(let err):
-                if self.attemptsCounter < self.MAX_ATTEMPT {
-                    self.getDividends(params)
-                    self.attemptsCounter += 1
-                    print("Retry getDividends: \(self.attemptsCounter)")
-                 } else {
-//                    self.delegate?.onImport(result: .failure(err))
-                }
-                break
+                print(err)
             }
-        })
-    }
-
-    private func getStockHistory(_ params: [String: String]) {
-        CEIServiceAPI.getStockHistory(params: params, onComplete: { [weak self] (result) in
-            guard let self = self else {return}
-
-            switch result {
-            case .success:
-                Defaults.shared.lastUpdateHistory = Date()
-//                self.delegate?.onImport(result: .success(true))
-
-            case .failure(let err):
-                if self.attemptsCounter < self.MAX_ATTEMPT {
-                    self.getStockHistory(params)
-                    self.attemptsCounter += 1
-                    print("Retry getStockHistory: \(self.attemptsCounter)")
-                 } else {
-//                    self.delegate?.onImport(result: .failure(err))
-                }
-                break
-            }
-        })
+        }
     }
 }

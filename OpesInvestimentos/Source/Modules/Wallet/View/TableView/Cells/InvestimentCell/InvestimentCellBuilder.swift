@@ -12,10 +12,6 @@ struct InvestimentCellBuilder: TableViewCellBuilder {
     
     var model: Investiment
     
-    var cellHeight: CGFloat {
-        return UITableView.automaticDimension
-    }
-    
     func registerCellIdentifier(in tableView: UITableView) {
         tableView.register(InvestimentCell.self)
     }

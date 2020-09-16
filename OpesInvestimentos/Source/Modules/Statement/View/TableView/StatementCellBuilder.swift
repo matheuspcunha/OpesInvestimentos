@@ -11,10 +11,6 @@ import UIKit
 struct StatementCellBuilder: TableViewCellBuilder {
     
     var model: Statement
-
-    var cellHeight: CGFloat {
-        return UITableView.automaticDimension
-    }
     
     func registerCellIdentifier(in tableView: UITableView) {
         tableView.register(StatementCell.self)

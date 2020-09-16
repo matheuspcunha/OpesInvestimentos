@@ -34,7 +34,7 @@ struct StatementTableViewFactory: TableViewFactoryProtocol {
     
     private func section(movements builder: [Statement],
                          ofTheDay date: Date) -> TableViewSection {
-        
+    
         StaticSection(cellBuilders: builder.map(StatementCellBuilder.init),
                       header: DateHeader(date: Formatter.dateFormatter.string(from: date)))
     }

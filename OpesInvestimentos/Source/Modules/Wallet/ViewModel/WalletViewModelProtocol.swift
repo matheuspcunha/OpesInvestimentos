@@ -11,9 +11,9 @@ import UIKit
 protocol WalletViewModelProtocol: class {
     var view: WalletViewProtocol? { get set }
     var delegate: WalletViewModelDelegate? { get set }
+    var viewData: WalletViewDataProtocol? { get set }
     
-    var walletLoaded: (()->Void)? { get set }
-    func loadWallet() -> WalletViewDataProtocol
+    func loadWallet()
 }
 
 protocol WalletViewModelDelegate: class {

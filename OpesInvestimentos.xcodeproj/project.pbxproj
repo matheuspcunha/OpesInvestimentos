@@ -79,10 +79,10 @@
 		966F923124F1846200D5D798 /* ImportCEICoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966F923024F1846200D5D798 /* ImportCEICoordinatorProtocol.swift */; };
 		966F923324F1849000D5D798 /* ImportCEICoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966F923224F1849000D5D798 /* ImportCEICoordinator.swift */; };
 		966F923524F1857800D5D798 /* ImportCEIViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966F923424F1857800D5D798 /* ImportCEIViewModelProtocol.swift */; };
+		966FAA1F25102F9500372D88 /* ImportCEIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966FAA1E25102F9500372D88 /* ImportCEIService.swift */; };
 		966FF78824CDF237001B1F62 /* WalletViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966FF78724CDF237001B1F62 /* WalletViewController.swift */; };
 		967091AA24AD377100257A23 /* wallet.json in Resources */ = {isa = PBXBuildFile; fileRef = 967091A924AD377100257A23 /* wallet.json */; };
 		967091AC24AD395500257A23 /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967091AB24AD395500257A23 /* FirebaseService.swift */; };
-		967091AE24AD4EC300257A23 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967091AD24AD4EC300257A23 /* User.swift */; };
 		967091B024AD577300257A23 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967091AF24AD577300257A23 /* RegisterViewModel.swift */; };
 		9671474824F2E56C006BA5CF /* WalletViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9671474724F2E56C006BA5CF /* WalletViewProtocol.swift */; };
 		9671474A24F2E57B006BA5CF /* WalletView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9671474924F2E57B006BA5CF /* WalletView.swift */; };
@@ -99,7 +99,6 @@
 		9673E993250C476600D5FFE6 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9673E992250C476600D5FFE6 /* SettingsViewModel.swift */; };
 		9673E996250C478E00D5FFE6 /* SettingsViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9673E995250C478E00D5FFE6 /* SettingsViewProtocol.swift */; };
 		9673E998250C479900D5FFE6 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9673E997250C479900D5FFE6 /* SettingsView.swift */; };
-		9677ED87248D4F1100CD6557 /* CEI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9677ED86248D4F1100CD6557 /* CEI.swift */; };
 		967FE86B2499993700D7C0C5 /* Statement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967FE86A2499993700D7C0C5 /* Statement.swift */; };
 		9686E6EC24F4777800BC46C6 /* WalletCoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9686E6EB24F4777800BC46C6 /* WalletCoordinatorProtocol.swift */; };
 		968E3D32249065B500F08CBF /* Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968E3D31249065B500F08CBF /* Formatter.swift */; };
@@ -118,6 +117,11 @@
 		96D3E8D6250071D8004FD643 /* SimpleHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D3E8D5250071D8004FD643 /* SimpleHeader.swift */; };
 		96DBF3F424C3C6B900E159DD /* ImportCEIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DBF3F324C3C6B900E159DD /* ImportCEIViewController.swift */; };
 		96DBF3F724C3C80800E159DD /* ImportCEIViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DBF3F624C3C80800E159DD /* ImportCEIViewModel.swift */; };
+		96DC169A250D4006003C6C54 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DC1699250D4006003C6C54 /* LoadingView.swift */; };
+		96DC169C250D4079003C6C54 /* ScreenLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DC169B250D4079003C6C54 /* ScreenLoader.swift */; };
+		96DC169E250D4356003C6C54 /* ImportCEIViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DC169D250D4356003C6C54 /* ImportCEIViewData.swift */; };
+		96DC16A0250D435F003C6C54 /* ImportCEIViewDataProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DC169F250D435F003C6C54 /* ImportCEIViewDataProtocol.swift */; };
+		96DC16A2250D47BB003C6C54 /* ShowAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DC16A1250D47BB003C6C54 /* ShowAlert.swift */; };
 		96DC1F7324FACF000086382A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96DC1F7224FACF000086382A /* Assets.xcassets */; };
 		96DC1F7524FACF0C0086382A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 96DC1F7424FACF0C0086382A /* GoogleService-Info.plist */; };
 		96DD96CD24E4A9430053F3D8 /* CoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DD96CC24E4A9430053F3D8 /* CoordinatorProtocol.swift */; };
@@ -134,6 +138,7 @@
 		96DF1FEC24ECC15F00C73AF3 /* RegisterViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DF1FEB24ECC15F00C73AF3 /* RegisterViewModelProtocol.swift */; };
 		96DF1FEE24ECC17A00C73AF3 /* RegisterViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DF1FED24ECC17A00C73AF3 /* RegisterViewProtocol.swift */; };
 		96DF1FF024ECC27E00C73AF3 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DF1FEF24ECC27E00C73AF3 /* RegisterView.swift */; };
+		96EF4DDB25119EBA00936B9F /* StockTimesSeries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96EF4DDA25119EBA00936B9F /* StockTimesSeries.swift */; };
 		96F898B924C4E48400686915 /* UITableView+Empty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F898B824C4E48400686915 /* UITableView+Empty.swift */; };
 		96FB836524E82AA100259F22 /* ViewCodeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FB836424E82AA100259F22 /* ViewCodeProtocol.swift */; };
 		96FB836724E8328C00259F22 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FB836624E8328C00259F22 /* WelcomeView.swift */; };
@@ -215,10 +220,10 @@
 		966F923024F1846200D5D798 /* ImportCEICoordinatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportCEICoordinatorProtocol.swift; sourceTree = "<group>"; };
 		966F923224F1849000D5D798 /* ImportCEICoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportCEICoordinator.swift; sourceTree = "<group>"; };
 		966F923424F1857800D5D798 /* ImportCEIViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportCEIViewModelProtocol.swift; sourceTree = "<group>"; };
+		966FAA1E25102F9500372D88 /* ImportCEIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportCEIService.swift; sourceTree = "<group>"; };
 		966FF78724CDF237001B1F62 /* WalletViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletViewController.swift; sourceTree = "<group>"; };
 		967091A924AD377100257A23 /* wallet.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = wallet.json; sourceTree = "<group>"; };
 		967091AB24AD395500257A23 /* FirebaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseService.swift; sourceTree = "<group>"; };
-		967091AD24AD4EC300257A23 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		967091AF24AD577300257A23 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 		9671474724F2E56C006BA5CF /* WalletViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletViewProtocol.swift; sourceTree = "<group>"; };
 		9671474924F2E57B006BA5CF /* WalletView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletView.swift; sourceTree = "<group>"; };
@@ -235,7 +240,6 @@
 		9673E992250C476600D5FFE6 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		9673E995250C478E00D5FFE6 /* SettingsViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewProtocol.swift; sourceTree = "<group>"; };
 		9673E997250C479900D5FFE6 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
-		9677ED86248D4F1100CD6557 /* CEI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CEI.swift; sourceTree = "<group>"; };
 		967FE86A2499993700D7C0C5 /* Statement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Statement.swift; sourceTree = "<group>"; };
 		9686E6EB24F4777800BC46C6 /* WalletCoordinatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletCoordinatorProtocol.swift; sourceTree = "<group>"; };
 		968E3D31249065B500F08CBF /* Formatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatter.swift; sourceTree = "<group>"; };
@@ -254,6 +258,11 @@
 		96D3E8D5250071D8004FD643 /* SimpleHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleHeader.swift; sourceTree = "<group>"; };
 		96DBF3F324C3C6B900E159DD /* ImportCEIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportCEIViewController.swift; sourceTree = "<group>"; };
 		96DBF3F624C3C80800E159DD /* ImportCEIViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportCEIViewModel.swift; sourceTree = "<group>"; };
+		96DC1699250D4006003C6C54 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		96DC169B250D4079003C6C54 /* ScreenLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenLoader.swift; sourceTree = "<group>"; };
+		96DC169D250D4356003C6C54 /* ImportCEIViewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportCEIViewData.swift; sourceTree = "<group>"; };
+		96DC169F250D435F003C6C54 /* ImportCEIViewDataProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportCEIViewDataProtocol.swift; sourceTree = "<group>"; };
+		96DC16A1250D47BB003C6C54 /* ShowAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowAlert.swift; sourceTree = "<group>"; };
 		96DC1F7024FACEED0086382A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		96DC1F7224FACF000086382A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		96DC1F7424FACF0C0086382A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -271,6 +280,7 @@
 		96DF1FEB24ECC15F00C73AF3 /* RegisterViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModelProtocol.swift; sourceTree = "<group>"; };
 		96DF1FED24ECC17A00C73AF3 /* RegisterViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewProtocol.swift; sourceTree = "<group>"; };
 		96DF1FEF24ECC27E00C73AF3 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
+		96EF4DDA25119EBA00936B9F /* StockTimesSeries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockTimesSeries.swift; sourceTree = "<group>"; };
 		96F898B824C4E48400686915 /* UITableView+Empty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Empty.swift"; sourceTree = "<group>"; };
 		96FB836424E82AA100259F22 /* ViewCodeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCodeProtocol.swift; sourceTree = "<group>"; };
 		96FB836624E8328C00259F22 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
@@ -337,6 +347,7 @@
 				968E3D31249065B500F08CBF /* Formatter.swift */,
 				9665682124AEA4DD00E496FF /* Alert.swift */,
 				9669C46824EA0BF4004B4BEF /* FieldView.swift */,
+				96DC1699250D4006003C6C54 /* LoadingView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -669,6 +680,14 @@
 			path = Coordinator;
 			sourceTree = "<group>";
 		};
+		966FAA2025102F9C00372D88 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				966FAA1E25102F9500372D88 /* ImportCEIService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 		967136C824F87BD900884AF4 /* ViewData */ = {
 			isa = PBXGroup;
 			children = (
@@ -850,11 +869,11 @@
 				965C32F124FF0A8400C3B03E /* UITableView+Reusable.swift */,
 				965C332224FF0B8600C3B03E /* UITableView+DefaultFactory.swift */,
 				965C332324FF0B8600C3B03E /* UITableView+DeleteRows.swift */,
+				96F898B824C4E48400686915 /* UITableView+Empty.swift */,
 				965C32EE24FF0A8300C3B03E /* UIView+AddSubview.swift */,
 				965C32F024FF0A8400C3B03E /* UIView+Builder.swift */,
-				96F898B824C4E48400686915 /* UITableView+Empty.swift */,
-				9659119D24D2369100114DB0 /* UIViewController+Keyboard.swift */,
 				96FB836824E856C000259F22 /* UIView+Constraints.swift */,
+				9659119D24D2369100114DB0 /* UIViewController+Keyboard.swift */,
 				96FB836A24E8804C00259F22 /* UIButton+Style.swift */,
 				9662707124E99DF500CA0F08 /* UILabel+Style.swift */,
 				9662706D24E98C3200CA0F08 /* UIColor+Custom.swift */,
@@ -917,8 +936,9 @@
 			children = (
 				96DBF3EF24C3C5DF00E159DD /* View */,
 				96DBF3F024C3C5E300E159DD /* ViewModel */,
-				96E4FD0024F1A81000078497 /* ViewData */,
 				966D358B24EF5E6A005ACA89 /* Coordinator */,
+				96E4FD0024F1A81000078497 /* ViewData */,
+				966FAA2025102F9C00372D88 /* Service */,
 			);
 			path = ImportCEI;
 			sourceTree = "<group>";
@@ -962,6 +982,8 @@
 				965C32F824FF0B1900C3B03E /* CellConfigurable.swift */,
 				965C32F924FF0B1900C3B03E /* Reusable.swift */,
 				965C32FB24FF0B1A00C3B03E /* ViewConfigurable.swift */,
+				96DC169B250D4079003C6C54 /* ScreenLoader.swift */,
+				96DC16A1250D47BB003C6C54 /* ShowAlert.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -996,6 +1018,8 @@
 		96E4FD0024F1A81000078497 /* ViewData */ = {
 			isa = PBXGroup;
 			children = (
+				96DC169D250D4356003C6C54 /* ImportCEIViewData.swift */,
+				96DC169F250D435F003C6C54 /* ImportCEIViewDataProtocol.swift */,
 			);
 			path = ViewData;
 			sourceTree = "<group>";
@@ -1003,10 +1027,9 @@
 		96E4FD0124F1D02D00078497 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				967091AD24AD4EC300257A23 /* User.swift */,
-				9677ED86248D4F1100CD6557 /* CEI.swift */,
 				967FE86A2499993700D7C0C5 /* Statement.swift */,
 				9672A81524C79B3C00161AEF /* Wallet.swift */,
+				96EF4DDA25119EBA00936B9F /* StockTimesSeries.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1146,10 +1169,12 @@
 				968E3D32249065B500F08CBF /* Formatter.swift in Sources */,
 				965C332D24FF0B8600C3B03E /* TableViewEditableCellBuilder.swift in Sources */,
 				96B4ED5525068E5700A79DA7 /* StatementViewDataProtocol.swift in Sources */,
+				96EF4DDB25119EBA00936B9F /* StockTimesSeries.swift in Sources */,
 				965C333524FF0B8600C3B03E /* CollectionViewCellBuilder.swift in Sources */,
 				965C32F524FF0A8400C3B03E /* UIView+Builder.swift in Sources */,
 				965C334924FF315B00C3B03E /* WalletViewDataProtocol.swift in Sources */,
 				965C332F24FF0B8600C3B03E /* TableViewSingleSelectionCellBuilder.swift in Sources */,
+				96DC16A0250D435F003C6C54 /* ImportCEIViewDataProtocol.swift in Sources */,
 				96680309249AE5B60034F8AF /* StatementViewModel.swift in Sources */,
 				96FB836524E82AA100259F22 /* ViewCodeProtocol.swift in Sources */,
 				96DD96D024E4AB240053F3D8 /* AppCoordinator.swift in Sources */,
@@ -1186,18 +1211,18 @@
 				96DD96CD24E4A9430053F3D8 /* CoordinatorProtocol.swift in Sources */,
 				96680307249AE5820034F8AF /* StatementCellViewModel.swift in Sources */,
 				967FE86B2499993700D7C0C5 /* Statement.swift in Sources */,
+				966FAA1F25102F9500372D88 /* ImportCEIService.swift in Sources */,
 				965C333824FF0B8600C3B03E /* UITableView+DeleteRows.swift in Sources */,
 				960A3E3F2505401E0032E1F5 /* PieChartCellBuilder.swift in Sources */,
 				96FB836924E856C000259F22 /* UIView+Constraints.swift in Sources */,
-				967091AE24AD4EC300257A23 /* User.swift in Sources */,
 				9662706E24E98C3200CA0F08 /* UIColor+Custom.swift in Sources */,
+				96DC169C250D4079003C6C54 /* ScreenLoader.swift in Sources */,
 				96B4ED5725068E8100A79DA7 /* StatementViewData.swift in Sources */,
 				9673E993250C476600D5FFE6 /* SettingsViewModel.swift in Sources */,
 				965C332A24FF0B8600C3B03E /* TableViewDataSource.swift in Sources */,
 				96DF1FEA24ECC06800C73AF3 /* RegisterCoordinatorProtocol.swift in Sources */,
 				966BFE7F24A439DE00412D9B /* LoginViewModel.swift in Sources */,
 				9662707224E99DF500CA0F08 /* UILabel+Style.swift in Sources */,
-				9677ED87248D4F1100CD6557 /* CEI.swift in Sources */,
 				966D3CFF2509940D003A81DD /* StatementCoordinator.swift in Sources */,
 				9673E991250C475900D5FFE6 /* SettingsViewModelProtocol.swift in Sources */,
 				963AA31B24A824A70030CD18 /* SettingsTableViewCell.swift in Sources */,
@@ -1211,6 +1236,7 @@
 				965C334224FF128400C3B03E /* InvestimentCellBuilder.swift in Sources */,
 				9660030924E6223000353114 /* TabBarCoordinator.swift in Sources */,
 				9662706A24E989D000CA0F08 /* RegisterCoordinator.swift in Sources */,
+				96DC16A2250D47BB003C6C54 /* ShowAlert.swift in Sources */,
 				965C332724FF0B8600C3B03E /* SingleSelectionSection.swift in Sources */,
 				96B4ED4F2506840600A79DA7 /* StatementViewController.swift in Sources */,
 				96AB5F2C24C8EAC600EF9B82 /* Defaults.swift in Sources */,
@@ -1220,6 +1246,7 @@
 				966F923124F1846200D5D798 /* ImportCEICoordinatorProtocol.swift in Sources */,
 				965C32F424FF0A8400C3B03E /* UIStackView+Spacing.swift in Sources */,
 				966D358D24EF5EA1005ACA89 /* ImportCEIViewProtocol.swift in Sources */,
+				96DC169E250D4356003C6C54 /* ImportCEIViewData.swift in Sources */,
 				96D3E8D325005E05004FD643 /* TotalCellBuilder.swift in Sources */,
 				9646188624A17BE10051C2F5 /* RegisterViewController.swift in Sources */,
 				96B4ED4C25067D5100A79DA7 /* StatementViewProtocol.swift in Sources */,
@@ -1227,6 +1254,7 @@
 				96FB836724E8328C00259F22 /* WelcomeView.swift in Sources */,
 				96DD96DA24E4C84E0053F3D8 /* WelcomeCoordinator.swift in Sources */,
 				965C32FD24FF0B1A00C3B03E /* Reusable.swift in Sources */,
+				96DC169A250D4006003C6C54 /* LoadingView.swift in Sources */,
 				965C333624FF0B8600C3B03E /* HorizontalCollectionViewCellBuilder.swift in Sources */,
 				9662706824E9887C00CA0F08 /* LoginCoordinator.swift in Sources */,
 				96DF1FE824ECBBC400C73AF3 /* WelcomeViewModel.swift in Sources */,

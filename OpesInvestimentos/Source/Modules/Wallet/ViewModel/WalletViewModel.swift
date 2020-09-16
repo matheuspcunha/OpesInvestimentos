@@ -11,41 +11,35 @@ import Foundation
 final class WalletViewModel: WalletViewModelProtocol {
     
     weak var view: WalletViewProtocol?
+    weak var delegate: WalletViewModelDelegate?
     private var coordinator: WalletCoordinatorProtocol?
+    
+    var viewData: WalletViewDataProtocol? {
+        didSet {
+            delegate?.onLoadWallet()
+        }
+    }
     
     init(coordinator: WalletCoordinatorProtocol?) {
         self.coordinator = coordinator
     }
-    
-    private var wallet: [Wallet] = []
-    
-    weak var delegate: WalletViewModelDelegate?
-    
-    var walletLoaded: (()->Void)?
-    
-    // MARK: - Methods
 
-    func loadWallet() -> WalletViewDataProtocol {
-//        FirebaseService.getData(collection: .wallet) { (query, error) in
-//            guard let query = query, error == nil else {
-//                self.walletLoaded?()
-//                return
-//            }
-//
-//            var wallet: [Wallet] = []
-//            for document in query.documents {
-//                let data = document.data()
-//                wallet.append(Wallet(dictionary: data))
-//            }
-//
-//            let viewData = WalletViewData(wallet: CEIServiceAPI.testGetWallet()!)
-//        }
-        
-        let wallet = CEIServiceAPI.testGetWallet()!
-        return WalletViewData(name: "Everton", investiments: parseInvestiments(in: wallet))
+    func loadWallet() {
+        FirebaseService.getData(collection: .wallet) { (query, error) in
+            guard let query = query, error == nil else { return }
+
+            var wallet: [Wallet] = []
+            for document in query.documents {
+                let data = document.data()
+                wallet.append(Wallet(dictionary: data))
+            }
+
+            self.viewData = WalletViewData(name: "Teste",
+                                           investiments: self.parseInvestiments(in: wallet))
+        }
     }
     
-    private func parseInvestiments(in wallet: [Wallet]) ->  [Investiment] {
+    private func parseInvestiments(in wallet: [Wallet]) -> [Investiment] {
         var totalFunds: Double = 0
         var totalStock: Double = 0
         var totalTreasury: Double = 0
@@ -61,7 +55,8 @@ final class WalletViewModel: WalletViewModelProtocol {
                         }
                     }
                 }
-            } else if let treasure = w.nationalTreasuryWallet {
+            }
+            if let treasure = w.nationalTreasuryWallet {
                 if !treasure.isEmpty {
                     for t in treasure {
                         totalTreasury += t.grossValue

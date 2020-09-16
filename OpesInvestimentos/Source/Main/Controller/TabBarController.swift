@@ -13,6 +13,7 @@ final class TabBarController: UITabBarController {
     var coordinator: TabBarCoordinator?
 
     override func viewDidLoad() {
+        self.view.backgroundColor = .clear
         self.tabBar.layer.masksToBounds = true
         self.tabBar.barStyle = .default
         self.tabBar.tintColor = .appBlue

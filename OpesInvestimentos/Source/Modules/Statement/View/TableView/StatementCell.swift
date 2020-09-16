@@ -24,21 +24,12 @@ final class StatementCell: UITableViewCell, Reusable {
         priceLabel.text = viewModel.price
         quantityLabel.text = viewModel.unityPrice
         typeLabel.text = viewModel.operationType
-        dateLabel.text = viewModel.date
     }
     
     private lazy var stackView: UIStackView = {
         let stack = UIStackView()
         stack.axis = .horizontal
         stack.distribution = .fillProportionally
-        return stack
-    }()
-    
-    private lazy var codeAndTypeStack: UIStackView = {
-        let stack = UIStackView()
-        stack.axis = .horizontal
-        stack.distribution = .fillProportionally
-        stack.alignment = .center
         return stack
     }()
     
@@ -87,24 +78,14 @@ final class StatementCell: UITableViewCell, Reusable {
         label.font = UIFont(name: "Avenir-Heavy", size: 12)
         return label
     }()
-
-    private lazy var dateLabel: UILabel = {
-        let label = UILabel()
-        label.textColor = .black
-        label.textAlignment = .left
-        label.font = UIFont(name: "Avenir-Book", size: 16)
-        return label
-    }()
 }
 
 extension StatementCell: ViewCodeProtocol {
     
     func setupHierarchy() {
-        codeAndTypeStack.addArrangedSubview(codeLabel)
-        codeAndTypeStack.addArrangedSubview(typeLabel)
-        
-        leftStack.addArrangedSubview(codeAndTypeStack)
-        leftStack.addArrangedSubview(dateLabel)
+
+        leftStack.addArrangedSubview(codeLabel)
+        leftStack.addArrangedSubview(typeLabel)
         
         rightStack.addArrangedSubview(priceLabel)
         rightStack.addArrangedSubview(quantityLabel)

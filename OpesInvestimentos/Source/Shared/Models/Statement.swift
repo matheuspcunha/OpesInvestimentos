@@ -12,15 +12,15 @@ import FirebaseFirestore
 extension Operation: CaseIterable { }
 
 enum Operation: String {
-    case Todos = "Todos"
-    case Compra = "Compra"
-    case Venda = "Venda"
-    case Dividendo = "Dividendo"
-    case JurosCapital = "Juros"
-    case Leilao = "Leilão de Frações"
+    case todos = "Todos"
+    case compra = "Compra"
+    case venda = "Venda"
+    case dividendo = "Dividendo"
+    case jurosCapital = "Juros"
+    case leilao = "Leilão de Frações"
 }
 
-class Statement {
+struct Statement {
     
     let id: String?
     let date: Date
@@ -40,7 +40,7 @@ class Statement {
         self.price = price == 0 ? (total / Double(quantity)) : price
     }
     
-    convenience init(dictionary data: [String : Any]) {
+    init(dictionary data: [String : Any]) {
         let id = (data["id"] as? String) ?? ""
         let date = Timestamp.dateValue(data["date"] as! Timestamp)()
         let operation = (data["operation"] as? String) ?? ""
@@ -55,15 +55,15 @@ class Statement {
     var type: Operation {
         switch self.operation {
         case "C", "Compra":
-            return Operation.Compra
+            return Operation.compra
         case "V", "Venda":
-            return Operation.Venda
+            return Operation.venda
         case "DIVIDENDO", "Dividendo", "RENDIMENTO":
-            return Operation.Dividendo
+            return Operation.dividendo
         case "JUROS SOBRE CAPITAL PRÓPRIO", "Juros Sobre Capital":
-            return Operation.JurosCapital
+            return Operation.jurosCapital
         default:
-            return Operation.Leilao
+            return Operation.leilao
         }
     }
     

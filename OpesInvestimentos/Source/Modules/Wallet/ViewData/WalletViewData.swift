@@ -15,7 +15,7 @@ struct WalletViewData: WalletViewDataProtocol {
     var total: String {
         investiments.map({$0.value}).reduce(0, +).formatCurrency()
     }
-    
+
     init(name: String, investiments: [Investiment]) {
         self.name = name
         self.investiments = investiments

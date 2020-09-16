@@ -99,7 +99,7 @@ struct Wallet: Decodable {
 
         init(dictionary data: [String: Any]) {
             self.code = (data["code"] as? String) ?? ""
-            self.expirationDate = Timestamp.dateValue(data["expirationDate"] as! Timestamp)()
+            self.expirationDate = ISO8601DateFormatter().date(from: (data["expirationDate"] as? String) ?? "") ?? Date()
             self.investedValue = (data["investedValue"] as? Double) ?? 0.0
             self.grossValue = (data["grossValue"] as? Double) ?? 0.0
             self.netValue = (data["netValue"] as? Double) ?? 0.0

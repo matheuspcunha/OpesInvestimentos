@@ -10,10 +10,12 @@ import Foundation
 
 protocol StatementViewModelProtocol: class {
     var view: StatementViewProtocol? { get set }
-    
-    func loadStatement() -> StatementViewDataProtocol
+    var delegate: StatementViewModelDelegate? { get set }
+    var viewData: StatementViewDataProtocol? { get set }
+
+    func loadStatement()
 }
 
 protocol StatementViewModelDelegate: class {
-    func onLoadStatement(error: FirebaseError?)
+    func onLoadStatement()
 }

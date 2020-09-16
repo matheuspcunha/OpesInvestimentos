@@ -12,7 +12,7 @@ final class WalletViewController: UIViewController {
 
     private var viewModel: WalletViewModelProtocol!
     private var contentView: WalletView!
-
+    
     init(viewModel: WalletViewModelProtocol) {
         self.viewModel = viewModel
         self.contentView = WalletView(viewModel: viewModel)
@@ -25,12 +25,15 @@ final class WalletViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel.loadWallet()
+        let teste = CEIServiceAPI()
+        teste.requestTest()
     }
 
     override func loadView() {
         view = contentView
     }
-
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setupNavigation()

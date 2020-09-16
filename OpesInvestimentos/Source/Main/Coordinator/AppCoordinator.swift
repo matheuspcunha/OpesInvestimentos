@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 final class AppCoordinator: CoordinatorProtocol {
     
@@ -22,7 +23,31 @@ final class AppCoordinator: CoordinatorProtocol {
         window.rootViewController = navigationController
         window.makeKeyAndVisible()
         
+        if Auth.auth().currentUser != nil {
+            FirebaseService.checkIfExist(collection: .wallet) { (result) in
+                if result {
+                    self.showHome()
+                } else {
+                    self.showImportCEI()
+                }
+            }
+        } else {
+            showWelcome()
+        }
+    }
+    
+    private func showWelcome() {
+        let startCoordinator = WelcomeCoordinator(navigationController: navigationController)
+        coordinate(to: startCoordinator)
+    }
+    
+    private func showHome() {
         let startCoordinator = TabBarCoordinator(navigationController: navigationController)
         coordinate(to: startCoordinator)
+    }
+    
+    private func showImportCEI() {
+        let importCEICoordinator = ImportCEICoordinator(navigationController: navigationController)
+        coordinate(to: importCEICoordinator)
     }
 }

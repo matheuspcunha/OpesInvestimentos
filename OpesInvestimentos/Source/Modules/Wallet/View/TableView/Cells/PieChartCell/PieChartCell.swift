@@ -32,15 +32,16 @@ final class PieChartCell: UITableViewCell, Reusable {
         view.entryLabelFont = UIFont(name: "Avenir-Medium", size: 12)
         view.isUserInteractionEnabled = false
         view.legend.horizontalAlignment = .center
+        view.rotationAngle = 125.0
         return view
     }()
     
     private func updateChartData() {
         var dataEntry = [PieChartDataEntry]()
         var dataColors = [UIColor]()
-        
+        let total = investiments.reduce(0, {$0 + $1.value})
         investiments.makeIterator().forEach { investiment in
-            dataEntry.append(PieChartDataEntry(value: investiment.value, label: investiment.type.name))
+            dataEntry.append(PieChartDataEntry(value: investiment.value / total, label: investiment.type.name))
             dataColors.append(investiment.type.color)
         }
         
@@ -64,7 +65,8 @@ extension PieChartCell: ViewCodeProtocol {
             [view.topAnchor.constraint(equalTo: topAnchor),
              view.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 40),
              view.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -40),
-             view.heightAnchor.constraint(equalToConstant: 300)]
+             view.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -5),
+             view.heightAnchor.constraint(equalToConstant: 300),]
         }
     }
 }

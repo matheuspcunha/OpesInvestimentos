@@ -56,7 +56,7 @@ final class RegisterView: UIView {
     }()
     
     private lazy var cpfField: FieldView = {
-        FieldView(title: "CPF", placeholder: "123.456.789-10", type: .password)
+        FieldView(title: "CPF", placeholder: "123.456.789-10", type: .number)
     }()
     
     private lazy var emailField: FieldView = {
@@ -92,6 +92,11 @@ final class RegisterView: UIView {
     }
     
     @objc private func registerTapped(sender: UIButton) {
+        viewModel.register(name: nameField.field.text,
+                           cpf: cpfField.field.text,
+                           email: emailField.field.text,
+                           password: passwordField.field.text,
+                           confirmpassword: confirmPasswordField.field.text)
     }
 }
 

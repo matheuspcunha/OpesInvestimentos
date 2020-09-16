@@ -17,6 +17,8 @@ protocol CoordinatorProtocol {
 
 extension CoordinatorProtocol {
     func coordinate(to coordinator: CoordinatorProtocol) {
-        coordinator.start()
+        DispatchQueue.main.async {
+            coordinator.start()
+        }
     }
 }

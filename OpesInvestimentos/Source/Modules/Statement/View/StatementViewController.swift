@@ -25,12 +25,13 @@ final class StatementViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel.loadStatement()
     }
 
     override func loadView() {
         view = contentView
     }
-
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setupNavigation()

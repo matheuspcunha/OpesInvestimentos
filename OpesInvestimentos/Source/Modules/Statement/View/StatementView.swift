@@ -11,11 +11,17 @@ import UIKit
 final class StatementView: UIView {
 
     private var viewModel: StatementViewModelProtocol!
-    private var dataSource: TableViewDataSource?
+
+    private var dataSource: TableViewDataSource? {
+        didSet {
+            self.tableView.reloadData()
+        }
+    }
     
     init(viewModel: StatementViewModelProtocol) {
         super.init(frame: .zero)
         self.viewModel = viewModel
+        self.viewModel.delegate = self
         buildView()
     }
     
@@ -25,12 +31,6 @@ final class StatementView: UIView {
     
     private lazy var tableView: UITableView = {
         let tableView = UITableView.standard()
-
-        dataSource = TableViewDataSource(
-            sections: StatementTableViewFactory(viewData: self.viewModel.loadStatement()).make(),
-            tableView: tableView
-        )
-
         return tableView
     }()
 }
@@ -44,4 +44,17 @@ extension StatementView: ViewCodeProtocol {
     }
     
     func setupConstraints() {}
+}
+
+extension StatementView: StatementViewModelDelegate {
+    func onLoadStatement() {
+        DispatchQueue.main.async {
+            if let data = self.viewModel.viewData {
+                self.dataSource = TableViewDataSource(
+                    sections: StatementTableViewFactory(viewData: data).make(),
+                    tableView: self.tableView
+                )
+            }
+        }
+    }
 }

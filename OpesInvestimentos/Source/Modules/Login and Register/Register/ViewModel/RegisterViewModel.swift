@@ -17,9 +17,14 @@ final class RegisterViewModel: RegisterViewModelProtocol {
         self.coordinator = coordinator
     }
     
-    func register(name: String, cpf: String, email: String,
-                  password: String, confirmpassword: String) {
-
+    func register(name: String?, cpf: String?, email: String?,
+                  password: String?, confirmpassword: String?) {
+        guard let name = name, let cpf = cpf,
+              let email = email,
+              let password = password,
+              let confirmpassword = confirmpassword
+        else {return}
+        
         let info = ["name":  name,
                     "cpf": cpf,
                     "email": email,
@@ -32,10 +37,8 @@ final class RegisterViewModel: RegisterViewModelProtocol {
                             
                 switch result {
                 case .success:
-                    let uid = FirebaseService.currentUser?.uid
-                    let user = User(id: uid!, name: name, cpf: cpf, email: email)
                     Defaults.shared.cpf = cpf
-                    FirebaseService.setUserInfo(data: user.toData())
+                    FirebaseService.updateUserName(name: name)
                     self.login(withEmail: email, password: password)
                 case .failure(let error):
                     self.coordinator?.showAlert(Alert.show(title: error.title, message: error.message))

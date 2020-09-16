@@ -17,7 +17,8 @@ final class ImportCEICoordinator: CoordinatorProtocol {
     }
     
     func start() {
-        let viewModel = ImportCEIViewModel(coordinator: self)
+        let viewData = ImportCEIViewData(cpf: Defaults.shared.cpf ?? "")
+        let viewModel = ImportCEIViewModel(coordinator: self, viewData: viewData)
         let viewController = ImportCEIViewController(viewModel: viewModel)
         navigationController.pushViewController(viewController, animated: true)
     }
@@ -25,12 +26,13 @@ final class ImportCEICoordinator: CoordinatorProtocol {
 
 extension ImportCEICoordinator: ImportCEICoordinatorProtocol {
     
-    func back() {
-        navigationController.popViewController(animated: true)
+    func coordinateToTabBar() {
+        let tabBarCoordinator = TabBarCoordinator(navigationController: navigationController)
+        coordinate(to: tabBarCoordinator)
     }
     
-    func showAlert(_ alert: UIAlertController) {
-        navigationController.present(alert, animated: true, completion: nil)
+    func back() {
+        navigationController.popViewController(animated: true)
     }
     
     func openCEIWebsite() {}

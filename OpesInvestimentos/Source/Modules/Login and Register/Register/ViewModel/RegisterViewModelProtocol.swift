@@ -11,6 +11,6 @@ import UIKit
 protocol RegisterViewModelProtocol: class {
     var view: RegisterViewProtocol? { get set }
     
-    func register(name: String, cpf: String, email: String, password: String, confirmpassword: String)
+    func register(name: String?, cpf: String?, email: String?, password: String?, confirmpassword: String?)
     func backScreen()
 }
