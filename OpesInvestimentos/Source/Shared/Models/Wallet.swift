@@ -50,73 +50,73 @@ struct Wallet: Decodable {
             "nationalTreasuryWallet": self.nationalTreasuryWallet?.map({$0.dictionary}) ?? NSNull()
         ]
     }
+}
+
+struct StockWallet: Decodable {
     
-    struct StockWallet: Decodable {
-        
-        let company: String
-        let stockType: String
-        let code: String
-        let isin: String
-        let price: Double
-        let quantity: Int
-        let quotationFactor: Int
-        let totalValue: Double
-        
-        init(dictionary data: [String: Any]) {
-            self.company = (data["company"] as? String) ?? ""
-            self.stockType = (data["stockType"] as? String) ?? ""
-            self.code = (data["code"] as? String) ?? ""
-            self.isin = (data["isin"] as? String) ?? ""
-            self.price = (data["price"] as? Double) ?? 0.0
-            self.quantity = (data["quantity"] as? Int) ?? 0
-            self.quotationFactor = (data["quotationFactor"] as? Int) ?? 0
-            self.totalValue = (data["totalValue"] as? Double) ?? 0.0
-        }
-        
-        var dictionary:[String:Any] {
-            return [
-                "company": self.company,
-                "stockType": self.stockType,
-                "code": self.code,
-                "isin": self.isin,
-                "price": self.price,
-                "quantity": self.quantity,
-                "quotationFactor": self.quotationFactor,
-                "totalValue": self.totalValue,
-            ]
-        }
+    let company: String
+    let stockType: String
+    let code: String
+    let isin: String
+    let price: Double
+    let quantity: Int
+    let quotationFactor: Int
+    let totalValue: Double
+    
+    init(dictionary data: [String: Any]) {
+        self.company = (data["company"] as? String) ?? ""
+        self.stockType = (data["stockType"] as? String) ?? ""
+        self.code = (data["code"] as? String) ?? ""
+        self.isin = (data["isin"] as? String) ?? ""
+        self.price = (data["price"] as? Double) ?? 0.0
+        self.quantity = (data["quantity"] as? Int) ?? 0
+        self.quotationFactor = (data["quotationFactor"] as? Int) ?? 0
+        self.totalValue = (data["totalValue"] as? Double) ?? 0.0
     }
     
-    struct NationalTreasuryWallet: Decodable {
+    var dictionary:[String:Any] {
+        return [
+            "company": self.company,
+            "stockType": self.stockType,
+            "code": self.code,
+            "isin": self.isin,
+            "price": self.price,
+            "quantity": self.quantity,
+            "quotationFactor": self.quotationFactor,
+            "totalValue": self.totalValue,
+        ]
+    }
+}
 
-        let code: String
-        let expirationDate: Date
-        let investedValue: Double
-        let grossValue: Double
-        let netValue: Double
-        let quantity: Double
-        let blocked: Int
+struct NationalTreasuryWallet: Decodable {
 
-        init(dictionary data: [String: Any]) {
-            self.code = (data["code"] as? String) ?? ""
-            self.expirationDate = ISO8601DateFormatter().date(from: (data["expirationDate"] as? String) ?? "") ?? Date()
-            self.investedValue = (data["investedValue"] as? Double) ?? 0.0
-            self.grossValue = (data["grossValue"] as? Double) ?? 0.0
-            self.netValue = (data["netValue"] as? Double) ?? 0.0
-            self.quantity = (data["quantity"] as? Double) ?? 0.0
-            self.blocked = (data["blocked"] as? Int) ?? 0
-        }
-        
-        var dictionary:[String:Any] {
-            return [
-                "code": self.code,
-                "expirationDate": Timestamp(date: self.expirationDate),
-                "investedValue": self.investedValue,
-                "grossValue": self.grossValue,
-                "netValue": self.netValue,
-                "quantity": self.quantity,
-                "blocked": self.blocked
-            ]
-        }
+    let code: String
+    let expirationDate: Date
+    let investedValue: Double
+    let grossValue: Double
+    let netValue: Double
+    let quantity: Double
+    let blocked: Int
+
+    init(dictionary data: [String: Any]) {
+        self.code = (data["code"] as? String) ?? ""
+        self.expirationDate = ISO8601DateFormatter().date(from: (data["expirationDate"] as? String) ?? "") ?? Date()
+        self.investedValue = (data["investedValue"] as? Double) ?? 0.0
+        self.grossValue = (data["grossValue"] as? Double) ?? 0.0
+        self.netValue = (data["netValue"] as? Double) ?? 0.0
+        self.quantity = (data["quantity"] as? Double) ?? 0.0
+        self.blocked = (data["blocked"] as? Int) ?? 0
+    }
+    
+    var dictionary:[String:Any] {
+        return [
+            "code": self.code,
+            "expirationDate": Timestamp(date: self.expirationDate),
+            "investedValue": self.investedValue,
+            "grossValue": self.grossValue,
+            "netValue": self.netValue,
+            "quantity": self.quantity,
+            "blocked": self.blocked
+        ]
     }
 }

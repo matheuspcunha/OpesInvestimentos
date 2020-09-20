@@ -12,7 +12,8 @@ import Charts
 final class PieChartCell: UITableViewCell, Reusable {
 
     private var investiments: [Investiment] = []
-    
+    private var totalWallet: Double = 0
+
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         buildView()
@@ -22,8 +23,9 @@ final class PieChartCell: UITableViewCell, Reusable {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configure(investiments: [Investiment]) {
+    func configure(investiments: [Investiment], totalWallet: Double) {
         self.investiments = investiments
+        self.totalWallet = totalWallet
         updateChartData()
     }
     
@@ -39,14 +41,21 @@ final class PieChartCell: UITableViewCell, Reusable {
     private func updateChartData() {
         var dataEntry = [PieChartDataEntry]()
         var dataColors = [UIColor]()
-        let total = investiments.reduce(0, {$0 + $1.value})
         investiments.makeIterator().forEach { investiment in
-            dataEntry.append(PieChartDataEntry(value: investiment.value / total, label: investiment.type.name))
+            dataEntry.append(PieChartDataEntry(value: investiment.total / totalWallet,
+                                               label: investiment.type.name))
             dataColors.append(investiment.type.color)
         }
         
         let chartDataSet = PieChartDataSet(entries: dataEntry, label: nil)
         chartDataSet.colors = dataColors
+//        chartDataSet.xValuePosition = .outsideSlice
+//        chartDataSet.yValuePosition = .outsideSlice
+//        chartDataSet.valueTextColor = .darkGray
+//        chartDataSet.entryLabelColor = .darkGray
+//        chartDataSet.valueLineWidth = 0.1
+//        chartDataSet.valueLinePart1Length = 0.2
+//        chartDataSet.valueLinePart2Length = 1
 
         let chartData = PieChartData(dataSet: chartDataSet)
         chartData.setValueFormatter(DefaultValueFormatter(formatter: Formatter.percentFormatter))
@@ -63,8 +72,8 @@ extension PieChartCell: ViewCodeProtocol {
     func setupConstraints() {
         pieChart.constraint { view in
             [view.topAnchor.constraint(equalTo: topAnchor),
-             view.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 40),
-             view.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -40),
+             view.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+             view.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
              view.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -5),
              view.heightAnchor.constraint(equalToConstant: 300),]
         }

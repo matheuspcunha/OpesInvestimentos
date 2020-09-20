@@ -28,26 +28,25 @@ final class StatementCellViewModel {
     }
     
     var unityPrice: String {
-        let price = Formatter.currencyFormatter.string(from: NSNumber(value: statement.price)) ?? "R$ \(statement.price)"
+        let price = statement.price.formatCurrency()
         return "\(price) x \(self.statement.quantity) unidades"
     }
     
     var price: String {
         var price: String
         
-        if self.statement.type == .Dividendo || self.statement.type == .JurosCapital {
-            price = "+ " + (Formatter.currencyFormatter.string(from: NSNumber(value: statement.total)) ?? "R$ \(statement.total)")
-        } else if self.statement.type == .Venda {
-            price = "- " + (Formatter.currencyFormatter.string(from: NSNumber(value: statement.total)) ?? "R$ \(statement.total)")
-
+        if self.statement.type == .dividendo || self.statement.type == .jurosCapital {
+            price = "+ " + statement.total.formatCurrency()
+        } else if self.statement.type == .venda {
+            price = "- " + statement.total.formatCurrency()
         } else {
-            price = Formatter.currencyFormatter.string(from: NSNumber(value: statement.total)) ?? "R$ \(statement.total)"
+            price = statement.total.formatCurrency()
         }
         
         return price
     }
     
     var operationType: String {
-        return self.statement.type == .Leilao ? "Juros Sobre Capital" : self.statement.type.rawValue
+        return self.statement.type == .leilao ? "Juros Sobre Capital" : self.statement.type.rawValue
     }
 }

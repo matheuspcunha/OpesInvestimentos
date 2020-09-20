@@ -10,7 +10,7 @@ import UIKit
 
 struct TotalCellBuilder: TableViewCellBuilder {
     
-    var value: String
+    var value: Double
     
     func registerCellIdentifier(in tableView: UITableView) {
         tableView.register(TotalCell.self)
@@ -18,7 +18,7 @@ struct TotalCellBuilder: TableViewCellBuilder {
 
     func tableViewCell(at indexPath: IndexPath, on tableView: UITableView) -> UITableViewCell {
         let cell: TotalCell = tableView.dequeueReusableCell(for: indexPath)
-        cell.configure(value: value)
+        cell.configure(value: value.formatCurrency())
         return cell
     }
 

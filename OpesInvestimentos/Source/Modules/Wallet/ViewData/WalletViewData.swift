@@ -9,25 +9,39 @@
 import Foundation
 
 struct WalletViewData: WalletViewDataProtocol {
-    
+
     var investiments: [Investiment]
     var name: String
-    var total: String {
-        investiments.map({$0.value}).reduce(0, +).formatCurrency()
+    var totalCost: Double
+    
+    var total: Double {
+        investiments.map({$0.total}).reduce(0, +)
     }
-
-    init(name: String, investiments: [Investiment]) {
-        self.name = name
-        self.investiments = investiments
+    
+    var result: Double {
+        (total - totalCost)
+    }
+    
+    var variation: Double {
+        (result / totalCost)
     }
 }
 
 struct Investiment {
-    let type: InvestimentType
-    let value: Double
     
-    init(type: InvestimentType, value: Double) {
-        self.type = type
-        self.value = value
+    var type: InvestimentType
+
+    var assets: [InvestimentAsset]
+    
+    var total: Double {
+        assets.map({$0.total}).reduce(0, +)
     }
+}
+
+struct InvestimentAsset {
+    let symbol: String
+    let name: String
+    let price: Double
+    let quantity: Int
+    let total: Double
 }

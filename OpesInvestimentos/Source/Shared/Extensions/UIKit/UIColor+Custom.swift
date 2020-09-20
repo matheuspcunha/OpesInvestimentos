@@ -32,4 +32,12 @@ extension UIColor {
     public class var appStock: UIColor {
         return UIColor(red: 165/255.0, green: 94/255.0, blue: 234/255.0, alpha: 1.0)
     }
+    
+    public class var appPositive: UIColor {
+        return UIColor(red: 68/255.0, green: 189/255.0, blue: 50/255.0, alpha: 1.0)
+    }
+
+    public class var appNegative: UIColor {
+        return UIColor(red: 232/255.0, green: 65/255.0, blue: 24/255.0, alpha: 1.0)
+    }
 }

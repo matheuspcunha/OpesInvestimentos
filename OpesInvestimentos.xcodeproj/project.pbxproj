@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -99,7 +99,13 @@
 		9673E993250C476600D5FFE6 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9673E992250C476600D5FFE6 /* SettingsViewModel.swift */; };
 		9673E996250C478E00D5FFE6 /* SettingsViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9673E995250C478E00D5FFE6 /* SettingsViewProtocol.swift */; };
 		9673E998250C479900D5FFE6 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9673E997250C479900D5FFE6 /* SettingsView.swift */; };
+		967ADE0F2512D31A00CB729E /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 967ADE0E2512D31A00CB729E /* Alamofire */; };
+		967ADE112512D33E00CB729E /* AlphaVantageServiceAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967ADE102512D33E00CB729E /* AlphaVantageServiceAPI.swift */; };
+		967ADE132512D36400CB729E /* Price.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967ADE122512D36400CB729E /* Price.swift */; };
+		967ADE162512D50000CB729E /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 967ADE152512D50000CB729E /* SwiftyJSON */; };
 		967FE86B2499993700D7C0C5 /* Statement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967FE86A2499993700D7C0C5 /* Statement.swift */; };
+		968617892516B15900C62D59 /* DetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968617882516B15800C62D59 /* DetailCell.swift */; };
+		9686178B2516B16800C62D59 /* DetailCellBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9686178A2516B16800C62D59 /* DetailCellBuilder.swift */; };
 		9686E6EC24F4777800BC46C6 /* WalletCoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9686E6EB24F4777800BC46C6 /* WalletCoordinatorProtocol.swift */; };
 		968E3D32249065B500F08CBF /* Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968E3D31249065B500F08CBF /* Formatter.swift */; };
 		96AB5F2C24C8EAC600EF9B82 /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AB5F2B24C8EAC600EF9B82 /* Defaults.swift */; };
@@ -138,7 +144,6 @@
 		96DF1FEC24ECC15F00C73AF3 /* RegisterViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DF1FEB24ECC15F00C73AF3 /* RegisterViewModelProtocol.swift */; };
 		96DF1FEE24ECC17A00C73AF3 /* RegisterViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DF1FED24ECC17A00C73AF3 /* RegisterViewProtocol.swift */; };
 		96DF1FF024ECC27E00C73AF3 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DF1FEF24ECC27E00C73AF3 /* RegisterView.swift */; };
-		96EF4DDB25119EBA00936B9F /* StockTimesSeries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96EF4DDA25119EBA00936B9F /* StockTimesSeries.swift */; };
 		96F898B924C4E48400686915 /* UITableView+Empty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F898B824C4E48400686915 /* UITableView+Empty.swift */; };
 		96FB836524E82AA100259F22 /* ViewCodeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FB836424E82AA100259F22 /* ViewCodeProtocol.swift */; };
 		96FB836724E8328C00259F22 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FB836624E8328C00259F22 /* WelcomeView.swift */; };
@@ -240,7 +245,11 @@
 		9673E992250C476600D5FFE6 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		9673E995250C478E00D5FFE6 /* SettingsViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewProtocol.swift; sourceTree = "<group>"; };
 		9673E997250C479900D5FFE6 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		967ADE102512D33E00CB729E /* AlphaVantageServiceAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlphaVantageServiceAPI.swift; sourceTree = "<group>"; };
+		967ADE122512D36400CB729E /* Price.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Price.swift; sourceTree = "<group>"; };
 		967FE86A2499993700D7C0C5 /* Statement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Statement.swift; sourceTree = "<group>"; };
+		968617882516B15800C62D59 /* DetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCell.swift; sourceTree = "<group>"; };
+		9686178A2516B16800C62D59 /* DetailCellBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCellBuilder.swift; sourceTree = "<group>"; };
 		9686E6EB24F4777800BC46C6 /* WalletCoordinatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletCoordinatorProtocol.swift; sourceTree = "<group>"; };
 		968E3D31249065B500F08CBF /* Formatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatter.swift; sourceTree = "<group>"; };
 		96AB5F2B24C8EAC600EF9B82 /* Defaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
@@ -280,7 +289,6 @@
 		96DF1FEB24ECC15F00C73AF3 /* RegisterViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModelProtocol.swift; sourceTree = "<group>"; };
 		96DF1FED24ECC17A00C73AF3 /* RegisterViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewProtocol.swift; sourceTree = "<group>"; };
 		96DF1FEF24ECC27E00C73AF3 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
-		96EF4DDA25119EBA00936B9F /* StockTimesSeries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockTimesSeries.swift; sourceTree = "<group>"; };
 		96F898B824C4E48400686915 /* UITableView+Empty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Empty.swift"; sourceTree = "<group>"; };
 		96FB836424E82AA100259F22 /* ViewCodeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCodeProtocol.swift; sourceTree = "<group>"; };
 		96FB836624E8328C00259F22 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
@@ -296,7 +304,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				967ADE162512D50000CB729E /* SwiftyJSON in Frameworks */,
 				333B7F0450C81460502FC813 /* Pods_OpesInvestimentos.framework in Frameworks */,
+				967ADE0F2512D31A00CB729E /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -526,9 +536,10 @@
 		965C333D24FF128400C3B03E /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				965C334524FF222300C3B03E /* PieChartCell */,
 				965C334424FF221800C3B03E /* TotalCell */,
+				968617872516B13C00C62D59 /* DetailCell */,
 				965C334324FF220500C3B03E /* InvestimentCell */,
+				965C334524FF222300C3B03E /* PieChartCell */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -630,6 +641,7 @@
 		966BFE7824A4399300412D9B /* Wallet */ = {
 			isa = PBXGroup;
 			children = (
+				967ADE172512D97B00CB729E /* Service */,
 				962C048924F73CCB00981499 /* Enum */,
 				9660030124E5FDFF00353114 /* Coordinator */,
 				966BFE7B24A439A800412D9B /* View */,
@@ -886,12 +898,29 @@
 			isa = PBXGroup;
 			children = (
 				961CF20624830E6F00BD25F1 /* CEIServiceAPI.swift */,
+				967ADE102512D33E00CB729E /* AlphaVantageServiceAPI.swift */,
 				967091AB24AD395500257A23 /* FirebaseService.swift */,
 				9672567024884E9400394587 /* history.json */,
 				9672566F24884E9300394587 /* dividends.json */,
 				967091A924AD377100257A23 /* wallet.json */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		967ADE172512D97B00CB729E /* Service */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		968617872516B13C00C62D59 /* DetailCell */ = {
+			isa = PBXGroup;
+			children = (
+				968617882516B15800C62D59 /* DetailCell.swift */,
+				9686178A2516B16800C62D59 /* DetailCellBuilder.swift */,
+			);
+			path = DetailCell;
 			sourceTree = "<group>";
 		};
 		96B4ED4625067D0100A79DA7 /* Coordinator */ = {
@@ -1029,7 +1058,7 @@
 			children = (
 				967FE86A2499993700D7C0C5 /* Statement.swift */,
 				9672A81524C79B3C00161AEF /* Wallet.swift */,
-				96EF4DDA25119EBA00936B9F /* StockTimesSeries.swift */,
+				967ADE122512D36400CB729E /* Price.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1060,6 +1089,10 @@
 			dependencies = (
 			);
 			name = OpesInvestimentos;
+			packageProductDependencies = (
+				967ADE0E2512D31A00CB729E /* Alamofire */,
+				967ADE152512D50000CB729E /* SwiftyJSON */,
+			);
 			productName = OpesInvestimentos;
 			productReference = 961CF1EC2482F26300BD25F1 /* Opes.app */;
 			productType = "com.apple.product-type.application";
@@ -1089,6 +1122,10 @@
 				"pt-BR",
 			);
 			mainGroup = 961CF1E32482F26300BD25F1;
+			packageReferences = (
+				967ADE0D2512D31A00CB729E /* XCRemoteSwiftPackageReference "Alamofire" */,
+				967ADE142512D50000CB729E /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
+			);
 			productRefGroup = 961CF1ED2482F26300BD25F1 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -1169,7 +1206,6 @@
 				968E3D32249065B500F08CBF /* Formatter.swift in Sources */,
 				965C332D24FF0B8600C3B03E /* TableViewEditableCellBuilder.swift in Sources */,
 				96B4ED5525068E5700A79DA7 /* StatementViewDataProtocol.swift in Sources */,
-				96EF4DDB25119EBA00936B9F /* StockTimesSeries.swift in Sources */,
 				965C333524FF0B8600C3B03E /* CollectionViewCellBuilder.swift in Sources */,
 				965C32F524FF0A8400C3B03E /* UIView+Builder.swift in Sources */,
 				965C334924FF315B00C3B03E /* WalletViewDataProtocol.swift in Sources */,
@@ -1202,6 +1238,7 @@
 				96B4ED5B2506C99900A79DA7 /* StatementCellBuilder.swift in Sources */,
 				965C334C24FF3DE000C3B03E /* Double+Extension.swift in Sources */,
 				965C334124FF128400C3B03E /* InvestimentCell.swift in Sources */,
+				967ADE132512D36400CB729E /* Price.swift in Sources */,
 				9673E996250C478E00D5FFE6 /* SettingsViewProtocol.swift in Sources */,
 				965C332B24FF0B8600C3B03E /* TableViewCellBuilder.swift in Sources */,
 				965C333124FF0B8600C3B03E /* TableViewArrangeableCellBuilder.swift in Sources */,
@@ -1223,6 +1260,7 @@
 				96DF1FEA24ECC06800C73AF3 /* RegisterCoordinatorProtocol.swift in Sources */,
 				966BFE7F24A439DE00412D9B /* LoginViewModel.swift in Sources */,
 				9662707224E99DF500CA0F08 /* UILabel+Style.swift in Sources */,
+				9686178B2516B16800C62D59 /* DetailCellBuilder.swift in Sources */,
 				966D3CFF2509940D003A81DD /* StatementCoordinator.swift in Sources */,
 				9673E991250C475900D5FFE6 /* SettingsViewModelProtocol.swift in Sources */,
 				963AA31B24A824A70030CD18 /* SettingsTableViewCell.swift in Sources */,
@@ -1242,6 +1280,7 @@
 				96AB5F2C24C8EAC600EF9B82 /* Defaults.swift in Sources */,
 				96F898B924C4E48400686915 /* UITableView+Empty.swift in Sources */,
 				9673E98F250C474900D5FFE6 /* SettingsCoordinator.swift in Sources */,
+				967ADE112512D33E00CB729E /* AlphaVantageServiceAPI.swift in Sources */,
 				96DF1FDE24EC99F200C73AF3 /* LoginViewProtocol.swift in Sources */,
 				966F923124F1846200D5D798 /* ImportCEICoordinatorProtocol.swift in Sources */,
 				965C32F424FF0A8400C3B03E /* UIStackView+Spacing.swift in Sources */,
@@ -1282,6 +1321,7 @@
 				96DF1FEE24ECC17A00C73AF3 /* RegisterViewProtocol.swift in Sources */,
 				9671504924D37127005E8D17 /* TextFieldResponder.swift in Sources */,
 				9673E998250C479900D5FFE6 /* SettingsView.swift in Sources */,
+				968617892516B15900C62D59 /* DetailCell.swift in Sources */,
 				9662706C24E98ACE00CA0F08 /* LoginView.swift in Sources */,
 				965C332924FF0B8600C3B03E /* TableViewItem.swift in Sources */,
 				9660030324E5FE1100353114 /* WalletCoordinator.swift in Sources */,
@@ -1440,7 +1480,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.br.mcunha.Opes;
 				PRODUCT_NAME = Opes;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -1459,7 +1499,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.br.mcunha.Opes;
 				PRODUCT_NAME = Opes;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -1485,6 +1525,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		967ADE0D2512D31A00CB729E /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.2.2;
+			};
+		};
+		967ADE142512D50000CB729E /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		967ADE0E2512D31A00CB729E /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 967ADE0D2512D31A00CB729E /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		967ADE152512D50000CB729E /* SwiftyJSON */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 967ADE142512D50000CB729E /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
+			productName = SwiftyJSON;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 961CF1E42482F26300BD25F1 /* Project object */;
 }

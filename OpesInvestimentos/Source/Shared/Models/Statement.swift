@@ -34,7 +34,13 @@ struct Statement {
         self.id = id
         self.date = date
         self.operation = operation
-        self.code = code
+        
+        var symbol = code
+        if let index = symbol.lastIndex(where: {$0 == "F"}) {
+            symbol.remove(at: index)
+        }
+        self.code = symbol
+        
         self.quantity = quantity
         self.total = total
         self.price = price == 0 ? (total / Double(quantity)) : price
@@ -44,7 +50,13 @@ struct Statement {
         let id = (data["id"] as? String) ?? ""
         let date = Timestamp.dateValue(data["date"] as! Timestamp)()
         let operation = (data["operation"] as? String) ?? ""
-        let code = (data["code"] as? String) ?? ""
+        
+        var symbol = (data["code"] as? String) ?? ""
+        if let index = symbol.lastIndex(where: {$0 == "F"}) {
+            symbol.remove(at: index)
+        }
+        let code = symbol
+        
         let quantity = (data["quantity"] as? Int) ?? 0
         let price = (data["price"] as? Double) ?? 0.0
         let total = (data["total"] as? Double) ?? 0.0

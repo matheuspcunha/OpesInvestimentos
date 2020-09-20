@@ -7,7 +7,10 @@
 //
 
 protocol WalletViewDataProtocol {
-    var investiments: [Investiment] { get }
-    var total: String { get }
     var name: String { get }
+    var investiments: [Investiment] { get }
+    var total: Double { get }
+    var totalCost: Double { get }
+    var result: Double { get }
+    var variation: Double { get }
 }

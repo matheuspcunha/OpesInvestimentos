@@ -22,8 +22,9 @@ struct WalletTableViewFactory: TableViewFactoryProtocol {
     
     func make() -> [TableViewSection] {
         let sections = [section(builder: [TotalCellBuilder(value: data.total)], title: "Olá, \(data.name)! 🤑"),
+                        section(builder: [DetailCellBuilder(totalCost: data.totalCost, result: data.result, variation: data.variation)]),
                         section(builder: data.investiments.map(InvestimentCellBuilder.init)),
-                        section(builder: [PieChartCellBuilder(model: data.investiments)])]  
+                        section(builder: [PieChartCellBuilder(model: data)])]  
 
         return sections
     }

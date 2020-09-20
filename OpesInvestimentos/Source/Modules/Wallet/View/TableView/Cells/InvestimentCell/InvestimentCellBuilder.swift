@@ -18,7 +18,7 @@ struct InvestimentCellBuilder: TableViewCellBuilder {
 
     func tableViewCell(at indexPath: IndexPath, on tableView: UITableView) -> UITableViewCell {
         let cell: InvestimentCell = tableView.dequeueReusableCell(for: indexPath)
-        cell.configure(value: model.value.formatCurrency(), type: model.type)
+        cell.configure(value: model.total.formatCurrency(), type: model.type)
         return cell
     }
 
@@ -27,6 +27,6 @@ struct InvestimentCellBuilder: TableViewCellBuilder {
     }
 
     func tableViewDidSelectCell(_ tableView: UITableView) {
-        print("did select cell")
+        print(model.type.name)
     }
 }

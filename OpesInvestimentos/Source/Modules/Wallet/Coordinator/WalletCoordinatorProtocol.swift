@@ -8,4 +8,4 @@
 
 import Foundation
 
-protocol WalletCoordinatorProtocol: class {}
+protocol WalletCoordinatorProtocol: class, ScreenLoader {}

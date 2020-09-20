@@ -26,8 +26,11 @@ final class WalletViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel.loadWallet()
-        let teste = CEIServiceAPI()
-        teste.requestTest()
+//        AlphaVantageServiceAPI.getPricesForTheDay(stock: "ELET6") { (price, error) in
+//            if let price = price {
+//                print(price)
+//            }
+//        }
     }
 
     override func loadView() {

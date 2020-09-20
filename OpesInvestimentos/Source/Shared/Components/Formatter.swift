@@ -9,14 +9,6 @@
 import Foundation
 
 class Formatter {
-    
-    static let currencyFormatter: NumberFormatter = {
-        let formatter = NumberFormatter()
-        formatter.numberStyle = .currency
-        formatter.locale = Locale(identifier: "pt_BR")
-        return formatter
-    }()
-    
     static let percentFormatter: NumberFormatter = {
         let formatter = NumberFormatter()
         formatter.numberStyle = NumberFormatter.Style.percent

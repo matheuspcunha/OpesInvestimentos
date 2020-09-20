@@ -10,7 +10,7 @@ import UIKit
 
 struct PieChartCellBuilder: TableViewCellBuilder {
     
-    var model: [Investiment]
+    var model: WalletViewDataProtocol
     
     func registerCellIdentifier(in tableView: UITableView) {
         tableView.register(PieChartCell.self)
@@ -18,7 +18,7 @@ struct PieChartCellBuilder: TableViewCellBuilder {
 
     func tableViewCell(at indexPath: IndexPath, on tableView: UITableView) -> UITableViewCell {
         let cell: PieChartCell = tableView.dequeueReusableCell(for: indexPath)
-        cell.configure(investiments: model)
+        cell.configure(investiments: model.investiments, totalWallet: model.total)
         return cell
     }
 
