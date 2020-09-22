@@ -99,6 +99,9 @@
 		9673E993250C476600D5FFE6 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9673E992250C476600D5FFE6 /* SettingsViewModel.swift */; };
 		9673E996250C478E00D5FFE6 /* SettingsViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9673E995250C478E00D5FFE6 /* SettingsViewProtocol.swift */; };
 		9673E998250C479900D5FFE6 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9673E997250C479900D5FFE6 /* SettingsView.swift */; };
+		9679303025196C1A002BF901 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9679302F25196C1A002BF901 /* Settings.swift */; };
+		9679303E251977B3002BF901 /* LabelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9679303D251977B3002BF901 /* LabelCell.swift */; };
+		9679304025197875002BF901 /* SettingsTableViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9679303F25197875002BF901 /* SettingsTableViewFactory.swift */; };
 		967ADE0F2512D31A00CB729E /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 967ADE0E2512D31A00CB729E /* Alamofire */; };
 		967ADE112512D33E00CB729E /* AlphaVantageServiceAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967ADE102512D33E00CB729E /* AlphaVantageServiceAPI.swift */; };
 		967ADE132512D36400CB729E /* Price.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967ADE122512D36400CB729E /* Price.swift */; };
@@ -245,6 +248,9 @@
 		9673E992250C476600D5FFE6 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		9673E995250C478E00D5FFE6 /* SettingsViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewProtocol.swift; sourceTree = "<group>"; };
 		9673E997250C479900D5FFE6 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		9679302F25196C1A002BF901 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		9679303D251977B3002BF901 /* LabelCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelCell.swift; sourceTree = "<group>"; };
+		9679303F25197875002BF901 /* SettingsTableViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewFactory.swift; sourceTree = "<group>"; };
 		967ADE102512D33E00CB729E /* AlphaVantageServiceAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlphaVantageServiceAPI.swift; sourceTree = "<group>"; };
 		967ADE122512D36400CB729E /* Price.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Price.swift; sourceTree = "<group>"; };
 		967FE86A2499993700D7C0C5 /* Statement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Statement.swift; sourceTree = "<group>"; };
@@ -387,6 +393,7 @@
 				9672F390248C5FB000C7BB4B /* Login and Register */,
 				96DBF3ED24C3C5B100E159DD /* ImportCEI */,
 				966BFE7824A4399300412D9B /* Wallet */,
+				9679303225197438002BF901 /* Investiment */,
 				966059EA24984C330037E73A /* Statement */,
 				966BFE7924A4399900412D9B /* Settings */,
 			);
@@ -413,6 +420,7 @@
 		965C330224FF0B8600C3B03E /* TableView */ = {
 			isa = PBXGroup;
 			children = (
+				9679303C251977A8002BF901 /* Cell */,
 				96D3E8D4250071C5004FD643 /* Headers */,
 				965C330324FF0B8600C3B03E /* Sections */,
 				965C330B24FF0B8600C3B03E /* CellBuilders */,
@@ -591,10 +599,10 @@
 		966059EA24984C330037E73A /* Statement */ = {
 			isa = PBXGroup;
 			children = (
-				96B4ED4625067D0100A79DA7 /* Coordinator */,
 				966059F224984C720037E73A /* View */,
 				966059F024984C720037E73A /* ViewModel */,
 				96B4ED5325068E2A00A79DA7 /* ViewData */,
+				96B4ED4625067D0100A79DA7 /* Coordinator */,
 			);
 			path = Statement;
 			sourceTree = "<group>";
@@ -641,12 +649,11 @@
 		966BFE7824A4399300412D9B /* Wallet */ = {
 			isa = PBXGroup;
 			children = (
-				967ADE172512D97B00CB729E /* Service */,
 				962C048924F73CCB00981499 /* Enum */,
-				9660030124E5FDFF00353114 /* Coordinator */,
 				966BFE7B24A439A800412D9B /* View */,
 				9673F00624A56075008A47A3 /* ViewModel */,
 				967136C824F87BD900884AF4 /* ViewData */,
+				9660030124E5FDFF00353114 /* Coordinator */,
 			);
 			path = Wallet;
 			sourceTree = "<group>";
@@ -654,9 +661,10 @@
 		966BFE7924A4399900412D9B /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				9679303125196C1F002BF901 /* Enum */,
 				9673E98B250C46E900D5FFE6 /* Coordinator */,
-				9673E98A250C46DF00D5FFE6 /* ViewModel */,
 				966BFE7A24A439A200412D9B /* View */,
+				9673E98A250C46DF00D5FFE6 /* ViewModel */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -840,6 +848,7 @@
 			isa = PBXGroup;
 			children = (
 				963AA31A24A824A70030CD18 /* SettingsTableViewCell.swift */,
+				9679303F25197875002BF901 /* SettingsTableViewFactory.swift */,
 			);
 			path = TableView;
 			sourceTree = "<group>";
@@ -907,11 +916,91 @@
 			path = Service;
 			sourceTree = "<group>";
 		};
-		967ADE172512D97B00CB729E /* Service */ = {
+		9679303125196C1F002BF901 /* Enum */ = {
+			isa = PBXGroup;
+			children = (
+				9679302F25196C1A002BF901 /* Settings.swift */,
+			);
+			path = Enum;
+			sourceTree = "<group>";
+		};
+		9679303225197438002BF901 /* Investiment */ = {
+			isa = PBXGroup;
+			children = (
+				9679303325197461002BF901 /* InvestimentList */,
+				9679303425197471002BF901 /* InvestimentDetail */,
+			);
+			path = Investiment;
+			sourceTree = "<group>";
+		};
+		9679303325197461002BF901 /* InvestimentList */ = {
+			isa = PBXGroup;
+			children = (
+				967930352519753E002BF901 /* View */,
+				9679303625197544002BF901 /* ViewModel */,
+				967930372519754A002BF901 /* Coordinator */,
+			);
+			path = InvestimentList;
+			sourceTree = "<group>";
+		};
+		9679303425197471002BF901 /* InvestimentDetail */ = {
+			isa = PBXGroup;
+			children = (
+				9679303925197563002BF901 /* View */,
+				9679303A25197569002BF901 /* ViewModel */,
+				9679303B2519756E002BF901 /* Coordinator */,
+			);
+			path = InvestimentDetail;
+			sourceTree = "<group>";
+		};
+		967930352519753E002BF901 /* View */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			path = Service;
+			path = View;
+			sourceTree = "<group>";
+		};
+		9679303625197544002BF901 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		967930372519754A002BF901 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		9679303925197563002BF901 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		9679303A25197569002BF901 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		9679303B2519756E002BF901 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		9679303C251977A8002BF901 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				9679303D251977B3002BF901 /* LabelCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		968617872516B13C00C62D59 /* DetailCell */ = {
@@ -1227,6 +1316,7 @@
 				9662707424E9B48E00CA0F08 /* UITextField+Custom.swift in Sources */,
 				96591FDB24EB64C600609731 /* AppDelegate.swift in Sources */,
 				9672775B24B127150077A4B3 /* String+CPF.swift in Sources */,
+				9679304025197875002BF901 /* SettingsTableViewFactory.swift in Sources */,
 				9665682224AEA4DD00E496FF /* Alert.swift in Sources */,
 				965C332E24FF0B8600C3B03E /* EditableCellActionFactory.swift in Sources */,
 				966BFE7724A4380000412D9B /* WelcomeViewController.swift in Sources */,
@@ -1286,6 +1376,7 @@
 				965C32F424FF0A8400C3B03E /* UIStackView+Spacing.swift in Sources */,
 				966D358D24EF5EA1005ACA89 /* ImportCEIViewProtocol.swift in Sources */,
 				96DC169E250D4356003C6C54 /* ImportCEIViewData.swift in Sources */,
+				9679303E251977B3002BF901 /* LabelCell.swift in Sources */,
 				96D3E8D325005E05004FD643 /* TotalCellBuilder.swift in Sources */,
 				9646188624A17BE10051C2F5 /* RegisterViewController.swift in Sources */,
 				96B4ED4C25067D5100A79DA7 /* StatementViewProtocol.swift in Sources */,
@@ -1312,6 +1403,7 @@
 				965C334724FF260B00C3B03E /* WalletViewData.swift in Sources */,
 				96DF1FF024ECC27E00C73AF3 /* RegisterView.swift in Sources */,
 				965C333024FF0B8600C3B03E /* SelectableTableViewCell.swift in Sources */,
+				9679303025196C1A002BF901 /* Settings.swift in Sources */,
 				96FB836B24E8804C00259F22 /* UIButton+Style.swift in Sources */,
 				963AA31924A81DA10030CD18 /* SettingsViewController.swift in Sources */,
 				965C32F724FF0A8400C3B03E /* UICollectionView+Reusable.swift in Sources */,

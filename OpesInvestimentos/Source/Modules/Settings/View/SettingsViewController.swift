@@ -33,7 +33,6 @@ final class SettingsViewController: UIViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-//        FirebaseService.signOut()
     }
     
     override func viewWillAppear(_ animated: Bool) {

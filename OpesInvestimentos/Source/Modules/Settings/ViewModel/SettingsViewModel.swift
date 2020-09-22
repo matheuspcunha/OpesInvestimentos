@@ -16,4 +16,13 @@ final class SettingsViewModel: SettingsViewModelProtocol {
     init(coordinator: SettingsCoordinatorProtocol?) {
         self.coordinator = coordinator
     }
+    
+    func showSetting(for type: Settings) {
+        switch type {
+        case .account:
+            print("account")
+        case .exit:
+            FirebaseService.signOut()
+        }
+    }
 }

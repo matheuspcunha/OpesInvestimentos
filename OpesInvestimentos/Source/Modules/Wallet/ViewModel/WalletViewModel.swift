@@ -88,11 +88,11 @@ final class WalletViewModel: WalletViewModelProtocol {
     private func parseTotalCost(statement: [Statement], investiments: [Investiment]) -> Double {
         var total: Double = 0
         var assets = [InvestimentAsset]()
-        
+
         investiments.forEach { (investiment) in
             assets.append(contentsOf: investiment.assets)
         }
-        
+
         for s in statement.filter({$0.type == .compra}) {
             if assets.contains(where: {$0.symbol == s.code}) {
                 total += s.total

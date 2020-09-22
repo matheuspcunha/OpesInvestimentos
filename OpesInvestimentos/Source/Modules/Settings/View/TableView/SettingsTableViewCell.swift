@@ -8,17 +8,15 @@
 
 import UIKit
 
-class SettingsTableViewCell: UITableViewCell {
+class SettingsTableViewCell<ViewModel: RawRepresentable>: LabelCell, CellConfigurable
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    where ViewModel.RawValue == String {
+    typealias ViewModel = ViewModel
+
+    func configure(with model: ViewModel) {
+        let setting = Settings.init(rawValue: model.rawValue)
+        textLabel?.text = setting?.title
+        textLabel?.textColor = setting?.color
+        self.accessoryType = .disclosureIndicator
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-
 }

@@ -25,6 +25,16 @@ final class SettingsView: UIView {
     
     private lazy var tableView: UITableView = {
         let tableView = UITableView.standard()
+        
+        let factory = SettingsTableViewFactory { [weak self] type in
+            self?.viewModel.showSetting(for: type)
+        }
+        
+        self.dataSource = TableViewDataSource(
+            sections: factory.make(),
+            tableView: tableView
+        )
+        
         return tableView
     }()
 }

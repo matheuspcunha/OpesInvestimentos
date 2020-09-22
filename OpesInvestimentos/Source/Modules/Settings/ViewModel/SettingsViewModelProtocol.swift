@@ -10,4 +10,6 @@ import Foundation
 
 protocol SettingsViewModelProtocol: class {
     var view: SettingsViewProtocol? { get set }
+    
+    func showSetting(for type: Settings)
 }
