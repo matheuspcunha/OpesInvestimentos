@@ -21,17 +21,18 @@ enum RESTOperation: String {
     case stockHistory = "stockHistory"
     case dividends = "dividends"
     case wallet = "wallet"
+    case statement = "statement"
+    case walletTest = "walletTest"
+    case statementTest = "statementTest"
 }
 
 final class CEIServiceAPI {
     
-    // MARK: - Properties
+    private let basePath = "https://api-cei.rj.r.appspot.com/"
     
-    private static let basePath = "https://api-cei.rj.r.appspot.com/"
+    private let session: URLSession
     
-    private static let session = URLSession(configuration: configuration)
-    
-    private static let configuration: URLSessionConfiguration = {
+    private let configuration: URLSessionConfiguration = {
         let configuration = URLSessionConfiguration.default
         configuration.timeoutIntervalForRequest = 60
         configuration.allowsCellularAccess = true
@@ -39,7 +40,7 @@ final class CEIServiceAPI {
         return configuration
     }()
     
-    private static let decoder: JSONDecoder = {
+    private let decoder: JSONDecoder = {
         let decoder = JSONDecoder()
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
@@ -47,53 +48,15 @@ final class CEIServiceAPI {
         return decoder
     }()
     
-    // MARK: - Methods
-    
-    private init() {}
-    
-    static func getDividends(params: [String: String],
-                             onComplete: @escaping (Result<Bool, APIError>) -> Void) {
-        
-        guard let url = URL(string: "\(basePath)\(RESTOperation.dividends)") else {
-            return onComplete(.failure(.invalidURL))
-        }
-        
-        let postString = params.map { "\($0.0)=\($0.1)" }.joined(separator: "&")
-        var request = URLRequest(url: url)
-        request.httpMethod = "POST"
-        request.httpBody = postString.data(using: .utf8)
-        
-        let task = session.dataTask(with: request) { (data, response, error) in
-            if let _ = error {
-                return onComplete(.failure(.taskError))
-            }
-            
-            guard let response = response as? HTTPURLResponse else {
-                return onComplete(.failure(.invalidResponse))
-            }
-            
-            if response.statusCode != 200 {
-                return onComplete(.failure(.invalidStatusCode(response.statusCode)))
-            }
-            
-            guard let data = data else {
-                return onComplete(.failure(.noData))
-            }
-            
-            do {
-                let _ = try decoder.decode([Dividends].self, from: data)
-                onComplete(.success(true))
-            } catch {
-                onComplete(.failure(.invalidJSON))
-            }
-        }
-        task.resume()
+    init() {
+        self.session = URLSession(configuration: configuration)
     }
     
-    static func getStockHistory(params: [String: String],
-                                onComplete: @escaping (Result<Bool, APIError>)->Void) {
+    func request(with params: [String: String],
+                 operation: RESTOperation,
+                 onComplete: @escaping (Result<Bool, APIError>)->Void) {
         
-        guard let url = URL(string: "\(basePath)\(RESTOperation.stockHistory)") else {
+        guard let url = URL(string: "\(basePath)\(operation)") else {
             onComplete(.failure(.invalidURL))
             return
         }
@@ -116,103 +79,62 @@ final class CEIServiceAPI {
                 return onComplete(.failure(.invalidStatusCode(response.statusCode)))
             }
             
-            guard let data = data else {
+            guard data != nil else {
                 return onComplete(.failure(.noData))
             }
             
             do {
-                _ = try decoder.decode([History].self, from: data)
                 onComplete(.success(true))
             } catch {
                 onComplete(.failure(.invalidJSON))
             }
         }
+
         task.resume()
     }
     
-    static func getWallet(params: [String: String],
-                          onComplete: @escaping (Result<Bool, APIError>) -> Void) {
+    func requestTest() {
         
-        guard let url = URL(string: "\(basePath)\(RESTOperation.wallet)") else {
-            return onComplete(.failure(.invalidURL))
+        guard let url = URL(string: "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=PETR4.SA&apikey=32D2R6JWK0F7JZKM") else {
+            print("invalidURL")
+            return
         }
         
-        let postString = params.map { "\($0.0)=\($0.1)" }.joined(separator: "&")
         var request = URLRequest(url: url)
-        request.httpMethod = "POST"
-        request.httpBody = postString.data(using: .utf8)
+        request.httpMethod = "GET"
         
         let task = session.dataTask(with: request) { (data, response, error) in
             if let _ = error {
-                return onComplete(.failure(.taskError))
+                print("taskError")
             }
             
             guard let response = response as? HTTPURLResponse else {
-                return onComplete(.failure(.invalidResponse))
+                print("invalidResponse")
+                return
             }
             
             if response.statusCode != 200 {
-                return onComplete(.failure(.invalidStatusCode(response.statusCode)))
+                print(response.statusCode)
+
             }
             
             guard let data = data else {
-                return onComplete(.failure(.noData))
+                print("noData")
+                return
             }
+            
             
             do {
-                _ = try decoder.decode([Wallet].self, from: data)
-                onComplete(.success(true))
-            } catch {
-                onComplete(.failure(.invalidJSON))
+                // make sure this JSON is in the format we expect
+                if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
+                    // try to read out a string array
+                        print(json)
+                }
+            } catch let error as NSError {
+                print("Failed to load: \(error.localizedDescription)")
             }
         }
+
         task.resume()
-    }
-    
-    static func testGetStockHistory() -> [History.StockHistory]? {
-        guard let jsonURL = Bundle.main.url(forResource: "history", withExtension: "json") else {return nil}
-        
-        do {
-            let jsonData = try Data(contentsOf: jsonURL)
-             let history = try decoder.decode([History].self, from: jsonData)
-            
-            var stocks: [History.StockHistory] = []
-            for h in history {
-                guard let stock = h.stockHistory else {continue}
-                stocks.append(contentsOf: stock)
-            }
-            
-            return stocks
-        } catch {
-            print(error)
-        }
-        
-        return nil
-    }
-    
-    static func testGetDividends() -> [Dividends]? {
-        guard let jsonURL = Bundle.main.url(forResource: "dividends", withExtension: "json") else {return nil}
-        
-        do {
-            let jsonData = try Data(contentsOf: jsonURL)
-            return try decoder.decode([Dividends].self, from: jsonData)
-        } catch {
-            print(error)
-        }
-        
-        return nil
-    }
-    
-    static func testGetWallet() -> [Wallet]? {
-        guard let jsonURL = Bundle.main.url(forResource: "wallet", withExtension: "json") else {return nil}
-        
-        do {
-            let jsonData = try Data(contentsOf: jsonURL)
-            return try decoder.decode([Wallet].self, from: jsonData)
-        } catch {
-            print(error)
-        }
-        
-        return nil
     }
 }

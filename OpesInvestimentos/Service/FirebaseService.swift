@@ -47,7 +47,7 @@ final class FirebaseService {
 
     static func register(email: String, withPassword password: String,
                          onComplete: @escaping (Result<Bool, FirebaseError>) -> Void) {
-        
+
         auth.createUser(withEmail: email, password: password) { (result, error) in
             if let error = error as NSError? {
                 if let errorCode = AuthErrorCode(rawValue: error.code) {
@@ -61,7 +61,7 @@ final class FirebaseService {
     
     static func login(withEmail email: String, password: String,
                       onComplete: @escaping (Result<Bool, FirebaseError>) -> Void) {
-        
+
         auth.signIn(withEmail: email, password: password) { (result, error) in
             if let error = error as NSError? {
                 if let errorCode = AuthErrorCode(rawValue: error.code) {
@@ -69,27 +69,6 @@ final class FirebaseService {
                 }
             } else {
                 onComplete(.success(true))
-            }
-        }
-    }
-    
-    static func setUserInfo(data: [String : Any]) {
-        self.db.setData(data)
-    }
-    
-    static func getUserInfo(onComplete: @escaping (User?, FirebaseError?) -> Void) {
-        
-        db.getDocument(source: .server) { (doc, error) in
-            if let error = error as NSError? {
-                if let errorCode = FirestoreErrorCode(rawValue: error.code) {
-                    onComplete(nil, errorCode.error)
-                }
-            }
-            
-            if let doc = doc, doc.exists, let userData = doc.data() {
-                onComplete(User(data: userData), nil)
-            } else {
-                onComplete(nil, FirebaseError.unknown)
             }
         }
     }
@@ -150,23 +129,10 @@ final class FirebaseService {
                 onComplete(false)
             }
         }
-        
-//        firestoreListener = docRef.addSnapshotListener(includeMetadataChanges: true, listener: { (snapshot, error) in
-//                                if error != nil {
-//                                    onComplete(false)
-//                                }
-//
-//                                guard let snapshot = snapshot else {return}
-//                                if snapshot.metadata.isFromCache || snapshot.documents.count > 0 {
-//                                    onComplete(true)
-//                                } else {
-//                                    onComplete(false)
-//                                }
-//                            })
     }
     
     static func updateUserName(name: String) {
-        guard let user = currentUser else {return}
+        guard let user = currentUser else { return }
         let changeRequest = user.createProfileChangeRequest()
         changeRequest.displayName = name
         changeRequest.commitChanges { (error) in

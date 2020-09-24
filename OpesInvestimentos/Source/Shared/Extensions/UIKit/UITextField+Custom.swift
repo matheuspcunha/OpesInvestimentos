@@ -1,0 +1,59 @@
+//
+//  UITextField+Custom.swift
+//  OpesInvestimentos
+//
+//  Created by Matheus Cunha on 16/08/20.
+//  Copyright © 2020 Matheus Cunha. All rights reserved.
+//
+
+import UIKit
+
+enum TextFieldType {
+    case text
+    case password
+    case email
+    case name
+    case number
+}
+
+extension UITextField {
+    
+    convenience init(placeholder: String? = nil, type: TextFieldType, isEnabled: Bool = true) {
+        self.init()
+        
+        self.setType(type)
+        self.setStyle(state: isEnabled)
+        self.placeholder = placeholder
+        self.isEnabled = isEnabled
+    }
+    
+    private func setType(_ type: TextFieldType) {
+        switch type {
+        case .text:
+            self.textContentType = .none
+            self.keyboardType = .default
+        case .password:
+            self.textContentType = .password
+            self.keyboardType = .default
+            self.isSecureTextEntry = true
+        case .email:
+            self.textContentType = .emailAddress
+            self.keyboardType = .emailAddress
+        case .name:
+            self.textContentType = .name
+            self.keyboardType = .namePhonePad
+        case .number:
+            self.textContentType = .none
+            self.keyboardType = .numberPad
+        }
+    }
+    
+    private func setStyle(state isEnabled: Bool) {
+        self.backgroundColor = isEnabled ? .white : .clear
+        self.layer.cornerRadius = 5
+        self.font = UIFont(name: "Avenir-Book", size: 13)
+        self.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        self.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 5, height: 20))
+        self.leftViewMode = .always
+    }
+}

@@ -1,0 +1,94 @@
+//
+//  WalletViewModel.swift
+//  OpesInvestimentos
+//
+//  Created by Matheus Cunha on 21/07/20.
+//  Copyright © 2020 Matheus Cunha. All rights reserved.
+//
+
+import Foundation
+
+final class WalletViewModel: WalletViewModelProtocol {
+    
+    weak var view: WalletViewProtocol?
+    weak var delegate: WalletViewModelDelegate?
+    
+    private var coordinator: WalletCoordinatorProtocol?
+    private var service: WalletServiceProtocol
+    
+    var viewData: WalletViewDataProtocol? {
+        didSet {
+            coordinator?.showLoading(false)
+            delegate?.onLoadWallet()
+        }
+    }
+    
+    init(coordinator: WalletCoordinatorProtocol?,
+         service: WalletServiceProtocol = WalletService()) {
+        self.coordinator = coordinator
+        self.service = service
+    }
+
+    func loadWallet() {
+        coordinator?.showLoading(true)
+        
+        service.getWallet { (result, error) in
+            guard let result = result else {return}
+
+            let investiments = self.parseInvestiments(in: result.wallet)
+            let totalCost = self.parseTotalCost(result.statement, investiments)
+
+            self.viewData = WalletViewData(investiments: investiments, name: "Tester", totalCost: totalCost)
+        }
+    }
+    
+    func showDetail(for investiment: Investiment) {
+        coordinator?.showInvestimentList(for: investiment)
+    }
+    
+    private func parseInvestiments(in wallet: [Wallet]) -> [Investiment] {
+        var funds = [InvestimentAsset]()
+        var stocks = [InvestimentAsset]()
+        var treasures = [InvestimentAsset]()
+
+        for w in wallet {
+            if let stock = w.stockWallet {
+                for s in stock {
+                    if s.stockType.contains("CI") {
+                        funds.append(InvestimentAsset(symbol: s.code, name: s.company, price: s.price, quantity: s.quantity, total: s.totalValue, color: .random))
+                    } else {
+                        stocks.append(InvestimentAsset(symbol: s.code, name: s.company, price: s.price, quantity: s.quantity, total: s.totalValue, color: .random))
+                    }
+                }
+            }
+            if let treasure = w.nationalTreasuryWallet {
+                for t in treasure {
+                    treasures.append(InvestimentAsset(symbol: t.code, name: t.code, price: 0, quantity: 0, total: t.grossValue, color: .random))
+                }
+            }
+        }
+        
+        return [Investiment(type: .funds, assets: funds),
+                Investiment(type: .stock, assets: stocks),
+                Investiment(type: .treasure, assets: treasures)]
+    }
+    
+    private func parseTotalCost(_ statement: [Statement],
+                                _ investiments: [Investiment]) -> Double {
+        var total: Double = 0
+        var assets = [InvestimentAsset]()
+
+        investiments.forEach { investiment in
+            assets.append(contentsOf: investiment.assets)
+        }
+
+        statement.filter({$0.type == .compra}).forEach { statement in
+            if assets.contains(where: {$0.symbol == statement.code}) {
+                total += statement.total
+            }
+        }
+
+        return total
+    }
+}
+
