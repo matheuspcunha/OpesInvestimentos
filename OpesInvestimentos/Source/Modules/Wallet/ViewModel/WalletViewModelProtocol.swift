@@ -14,6 +14,7 @@ protocol WalletViewModelProtocol: class {
     var viewData: WalletViewDataProtocol? { get set }
     
     func loadWallet()
+    func showDetail(for investiment: Investiment)
 }
 
 protocol WalletViewModelDelegate: class {

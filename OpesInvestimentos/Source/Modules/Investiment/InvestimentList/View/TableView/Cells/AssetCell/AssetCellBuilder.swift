@@ -1,24 +1,24 @@
 //
-//  StatementCellBuilder.swift
+//  AssetCellBuilder.swift
 //  OpesInvestimentos
 //
-//  Created by Matheus Cunha on 07/09/20.
+//  Created by Matheus Cunha on 23/09/20.
 //  Copyright © 2020 Matheus Cunha. All rights reserved.
 //
 
 import UIKit
 
-struct StatementCellBuilder: TableViewCellBuilder {
+struct AssetCellBuilder: TableViewCellBuilder {
     
-    let model: Statement
+    let asset: InvestimentAsset
     
     func registerCellIdentifier(in tableView: UITableView) {
-        tableView.register(StatementCell.self)
+        tableView.register(AssetCell.self)
     }
 
     func tableViewCell(at indexPath: IndexPath, on tableView: UITableView) -> UITableViewCell {
-        let cell: StatementCell = tableView.dequeueReusableCell(for: indexPath)
-        cell.configure(viewModel: StatementCellViewModel(statement: model))
+        let cell: AssetCell = tableView.dequeueReusableCell(for: indexPath)
+        cell.configure(asset: asset)
         return cell
     }
 

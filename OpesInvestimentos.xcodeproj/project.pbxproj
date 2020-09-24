@@ -56,6 +56,7 @@
 		9660030324E5FE1100353114 /* WalletCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9660030224E5FE1100353114 /* WalletCoordinator.swift */; };
 		9660030924E6223000353114 /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9660030824E6223000353114 /* TabBarCoordinator.swift */; };
 		9660030B24E622EE00353114 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9660030A24E622EE00353114 /* TabBarController.swift */; };
+		96604828251AAE6400F0B976 /* WalletService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96604827251AAE6400F0B976 /* WalletService.swift */; };
 		9662706824E9887C00CA0F08 /* LoginCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9662706724E9887C00CA0F08 /* LoginCoordinator.swift */; };
 		9662706A24E989D000CA0F08 /* RegisterCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9662706924E989D000CA0F08 /* RegisterCoordinator.swift */; };
 		9662706C24E98ACE00CA0F08 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9662706B24E98ACE00CA0F08 /* LoginView.swift */; };
@@ -76,6 +77,11 @@
 		966D3CFD25099404003A81DD /* StatementCoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966D3CFC25099404003A81DD /* StatementCoordinatorProtocol.swift */; };
 		966D3CFF2509940D003A81DD /* StatementCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966D3CFE2509940D003A81DD /* StatementCoordinator.swift */; };
 		966F3C6A24D5E547003E2EF6 /* PieChartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966F3C6824D5E547003E2EF6 /* PieChartCell.swift */; };
+		966F828F251C015A002082A3 /* AssetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966F828E251C015A002082A3 /* AssetCell.swift */; };
+		966F8291251C01E5002082A3 /* InvestimentListTableViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966F8290251C01E5002082A3 /* InvestimentListTableViewFactory.swift */; };
+		966F8295251C027E002082A3 /* AssetCellBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966F8294251C027E002082A3 /* AssetCellBuilder.swift */; };
+		966F8298251C1D06002082A3 /* AssetsChartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966F8297251C1D06002082A3 /* AssetsChartCell.swift */; };
+		966F829A251C1D16002082A3 /* AssetsChartCellBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966F8299251C1D16002082A3 /* AssetsChartCellBuilder.swift */; };
 		966F923124F1846200D5D798 /* ImportCEICoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966F923024F1846200D5D798 /* ImportCEICoordinatorProtocol.swift */; };
 		966F923324F1849000D5D798 /* ImportCEICoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966F923224F1849000D5D798 /* ImportCEICoordinator.swift */; };
 		966F923524F1857800D5D798 /* ImportCEIViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966F923424F1857800D5D798 /* ImportCEIViewModelProtocol.swift */; };
@@ -102,6 +108,20 @@
 		9679303025196C1A002BF901 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9679302F25196C1A002BF901 /* Settings.swift */; };
 		9679303E251977B3002BF901 /* LabelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9679303D251977B3002BF901 /* LabelCell.swift */; };
 		9679304025197875002BF901 /* SettingsTableViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9679303F25197875002BF901 /* SettingsTableViewFactory.swift */; };
+		9679304225198F1D002BF901 /* InvestimentListViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9679304125198F1D002BF901 /* InvestimentListViewProtocol.swift */; };
+		9679304425198F2A002BF901 /* InvestimentListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9679304325198F2A002BF901 /* InvestimentListView.swift */; };
+		9679304625198F3E002BF901 /* InvestimentListViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9679304525198F3E002BF901 /* InvestimentListViewModelProtocol.swift */; };
+		9679304825198F49002BF901 /* InvestimentListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9679304725198F49002BF901 /* InvestimentListViewModel.swift */; };
+		9679304A25198F64002BF901 /* InvestimentListCoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9679304925198F64002BF901 /* InvestimentListCoordinatorProtocol.swift */; };
+		9679304C25198F6D002BF901 /* InvestimentListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9679304B25198F6D002BF901 /* InvestimentListCoordinator.swift */; };
+		9679304E25198FA8002BF901 /* InvestimentDetailViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9679304D25198FA8002BF901 /* InvestimentDetailViewProtocol.swift */; };
+		9679305025198FCA002BF901 /* InvestimentDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9679304F25198FCA002BF901 /* InvestimentDetailView.swift */; };
+		9679305225198FE1002BF901 /* InvestimentListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9679305125198FE1002BF901 /* InvestimentListViewController.swift */; };
+		967930542519904A002BF901 /* InvestimentDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967930532519904A002BF901 /* InvestimentDetailViewController.swift */; };
+		9679305625199064002BF901 /* InvestimentDetailViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9679305525199064002BF901 /* InvestimentDetailViewModelProtocol.swift */; };
+		9679305825199070002BF901 /* InvestimentDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9679305725199070002BF901 /* InvestimentDetailViewModel.swift */; };
+		9679305A251990DA002BF901 /* InvestimentDetailCoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96793059251990DA002BF901 /* InvestimentDetailCoordinatorProtocol.swift */; };
+		9679305C251990E2002BF901 /* InvestimentDetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9679305B251990E2002BF901 /* InvestimentDetailCoordinator.swift */; };
 		967ADE0F2512D31A00CB729E /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 967ADE0E2512D31A00CB729E /* Alamofire */; };
 		967ADE112512D33E00CB729E /* AlphaVantageServiceAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967ADE102512D33E00CB729E /* AlphaVantageServiceAPI.swift */; };
 		967ADE132512D36400CB729E /* Price.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967ADE122512D36400CB729E /* Price.swift */; };
@@ -205,6 +225,7 @@
 		9660030224E5FE1100353114 /* WalletCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletCoordinator.swift; sourceTree = "<group>"; };
 		9660030824E6223000353114 /* TabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
 		9660030A24E622EE00353114 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		96604827251AAE6400F0B976 /* WalletService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletService.swift; sourceTree = "<group>"; };
 		9662706724E9887C00CA0F08 /* LoginCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCoordinator.swift; sourceTree = "<group>"; };
 		9662706924E989D000CA0F08 /* RegisterCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterCoordinator.swift; sourceTree = "<group>"; };
 		9662706B24E98ACE00CA0F08 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -225,6 +246,11 @@
 		966D3CFC25099404003A81DD /* StatementCoordinatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatementCoordinatorProtocol.swift; sourceTree = "<group>"; };
 		966D3CFE2509940D003A81DD /* StatementCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatementCoordinator.swift; sourceTree = "<group>"; };
 		966F3C6824D5E547003E2EF6 /* PieChartCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartCell.swift; sourceTree = "<group>"; };
+		966F828E251C015A002082A3 /* AssetCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetCell.swift; sourceTree = "<group>"; };
+		966F8290251C01E5002082A3 /* InvestimentListTableViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvestimentListTableViewFactory.swift; sourceTree = "<group>"; };
+		966F8294251C027E002082A3 /* AssetCellBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetCellBuilder.swift; sourceTree = "<group>"; };
+		966F8297251C1D06002082A3 /* AssetsChartCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetsChartCell.swift; sourceTree = "<group>"; };
+		966F8299251C1D16002082A3 /* AssetsChartCellBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetsChartCellBuilder.swift; sourceTree = "<group>"; };
 		966F923024F1846200D5D798 /* ImportCEICoordinatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportCEICoordinatorProtocol.swift; sourceTree = "<group>"; };
 		966F923224F1849000D5D798 /* ImportCEICoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportCEICoordinator.swift; sourceTree = "<group>"; };
 		966F923424F1857800D5D798 /* ImportCEIViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportCEIViewModelProtocol.swift; sourceTree = "<group>"; };
@@ -251,6 +277,20 @@
 		9679302F25196C1A002BF901 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		9679303D251977B3002BF901 /* LabelCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelCell.swift; sourceTree = "<group>"; };
 		9679303F25197875002BF901 /* SettingsTableViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewFactory.swift; sourceTree = "<group>"; };
+		9679304125198F1D002BF901 /* InvestimentListViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvestimentListViewProtocol.swift; sourceTree = "<group>"; };
+		9679304325198F2A002BF901 /* InvestimentListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = InvestimentListView.swift; path = /Users/matheuscunha/Documents/Projetos/OpesInvestimentos/OpesInvestimentos/Source/Modules/Investiment/InvestimentList/View/InvestimentListView.swift; sourceTree = "<absolute>"; };
+		9679304525198F3E002BF901 /* InvestimentListViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvestimentListViewModelProtocol.swift; sourceTree = "<group>"; };
+		9679304725198F49002BF901 /* InvestimentListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvestimentListViewModel.swift; sourceTree = "<group>"; };
+		9679304925198F64002BF901 /* InvestimentListCoordinatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvestimentListCoordinatorProtocol.swift; sourceTree = "<group>"; };
+		9679304B25198F6D002BF901 /* InvestimentListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvestimentListCoordinator.swift; sourceTree = "<group>"; };
+		9679304D25198FA8002BF901 /* InvestimentDetailViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvestimentDetailViewProtocol.swift; sourceTree = "<group>"; };
+		9679304F25198FCA002BF901 /* InvestimentDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvestimentDetailView.swift; sourceTree = "<group>"; };
+		9679305125198FE1002BF901 /* InvestimentListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvestimentListViewController.swift; sourceTree = "<group>"; };
+		967930532519904A002BF901 /* InvestimentDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvestimentDetailViewController.swift; sourceTree = "<group>"; };
+		9679305525199064002BF901 /* InvestimentDetailViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvestimentDetailViewModelProtocol.swift; sourceTree = "<group>"; };
+		9679305725199070002BF901 /* InvestimentDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvestimentDetailViewModel.swift; sourceTree = "<group>"; };
+		96793059251990DA002BF901 /* InvestimentDetailCoordinatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvestimentDetailCoordinatorProtocol.swift; sourceTree = "<group>"; };
+		9679305B251990E2002BF901 /* InvestimentDetailCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvestimentDetailCoordinator.swift; sourceTree = "<group>"; };
 		967ADE102512D33E00CB729E /* AlphaVantageServiceAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlphaVantageServiceAPI.swift; sourceTree = "<group>"; };
 		967ADE122512D36400CB729E /* Price.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Price.swift; sourceTree = "<group>"; };
 		967FE86A2499993700D7C0C5 /* Statement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Statement.swift; sourceTree = "<group>"; };
@@ -596,6 +636,14 @@
 			path = Coordinator;
 			sourceTree = "<group>";
 		};
+		96604826251AAE5400F0B976 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				96604827251AAE6400F0B976 /* WalletService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 		966059EA24984C330037E73A /* Statement */ = {
 			isa = PBXGroup;
 			children = (
@@ -649,6 +697,7 @@
 		966BFE7824A4399300412D9B /* Wallet */ = {
 			isa = PBXGroup;
 			children = (
+				96604826251AAE5400F0B976 /* Service */,
 				962C048924F73CCB00981499 /* Enum */,
 				966BFE7B24A439A800412D9B /* View */,
 				9673F00624A56075008A47A3 /* ViewModel */,
@@ -698,6 +747,42 @@
 				966F923024F1846200D5D798 /* ImportCEICoordinatorProtocol.swift */,
 			);
 			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		966F8280251BFFF8002082A3 /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+				966F8281251C0000002082A3 /* Cells */,
+				966F8290251C01E5002082A3 /* InvestimentListTableViewFactory.swift */,
+			);
+			path = TableView;
+			sourceTree = "<group>";
+		};
+		966F8281251C0000002082A3 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				966F8296251C1CC6002082A3 /* AssetsChartCell */,
+				966F8292251C021B002082A3 /* AssetCell */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		966F8292251C021B002082A3 /* AssetCell */ = {
+			isa = PBXGroup;
+			children = (
+				966F828E251C015A002082A3 /* AssetCell.swift */,
+				966F8294251C027E002082A3 /* AssetCellBuilder.swift */,
+			);
+			path = AssetCell;
+			sourceTree = "<group>";
+		};
+		966F8296251C1CC6002082A3 /* AssetsChartCell */ = {
+			isa = PBXGroup;
+			children = (
+				966F8297251C1D06002082A3 /* AssetsChartCell.swift */,
+				966F8299251C1D16002082A3 /* AssetsChartCellBuilder.swift */,
+			);
+			path = AssetsChartCell;
 			sourceTree = "<group>";
 		};
 		966FAA2025102F9C00372D88 /* Service */ = {
@@ -956,6 +1041,10 @@
 		967930352519753E002BF901 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				966F8280251BFFF8002082A3 /* TableView */,
+				9679304325198F2A002BF901 /* InvestimentListView.swift */,
+				9679305125198FE1002BF901 /* InvestimentListViewController.swift */,
+				9679304125198F1D002BF901 /* InvestimentListViewProtocol.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -963,6 +1052,8 @@
 		9679303625197544002BF901 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				9679304725198F49002BF901 /* InvestimentListViewModel.swift */,
+				9679304525198F3E002BF901 /* InvestimentListViewModelProtocol.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -970,6 +1061,8 @@
 		967930372519754A002BF901 /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
+				9679304B25198F6D002BF901 /* InvestimentListCoordinator.swift */,
+				9679304925198F64002BF901 /* InvestimentListCoordinatorProtocol.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -977,6 +1070,9 @@
 		9679303925197563002BF901 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				9679304F25198FCA002BF901 /* InvestimentDetailView.swift */,
+				967930532519904A002BF901 /* InvestimentDetailViewController.swift */,
+				9679304D25198FA8002BF901 /* InvestimentDetailViewProtocol.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -984,6 +1080,8 @@
 		9679303A25197569002BF901 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				9679305725199070002BF901 /* InvestimentDetailViewModel.swift */,
+				9679305525199064002BF901 /* InvestimentDetailViewModelProtocol.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -991,6 +1089,8 @@
 		9679303B2519756E002BF901 /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
+				9679305B251990E2002BF901 /* InvestimentDetailCoordinator.swift */,
+				96793059251990DA002BF901 /* InvestimentDetailCoordinatorProtocol.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -1292,6 +1392,7 @@
 				967091AC24AD395500257A23 /* FirebaseService.swift in Sources */,
 				96B4ED5125068C5800A79DA7 /* StatementTableViewFactory.swift in Sources */,
 				9671474A24F2E57B006BA5CF /* WalletView.swift in Sources */,
+				9679305A251990DA002BF901 /* InvestimentDetailCoordinatorProtocol.swift in Sources */,
 				968E3D32249065B500F08CBF /* Formatter.swift in Sources */,
 				965C332D24FF0B8600C3B03E /* TableViewEditableCellBuilder.swift in Sources */,
 				96B4ED5525068E5700A79DA7 /* StatementViewDataProtocol.swift in Sources */,
@@ -1300,13 +1401,17 @@
 				965C334924FF315B00C3B03E /* WalletViewDataProtocol.swift in Sources */,
 				965C332F24FF0B8600C3B03E /* TableViewSingleSelectionCellBuilder.swift in Sources */,
 				96DC16A0250D435F003C6C54 /* ImportCEIViewDataProtocol.swift in Sources */,
+				9679304225198F1D002BF901 /* InvestimentListViewProtocol.swift in Sources */,
 				96680309249AE5B60034F8AF /* StatementViewModel.swift in Sources */,
+				966F8295251C027E002082A3 /* AssetCellBuilder.swift in Sources */,
+				9679304425198F2A002BF901 /* InvestimentListView.swift in Sources */,
 				96FB836524E82AA100259F22 /* ViewCodeProtocol.swift in Sources */,
 				96DD96D024E4AB240053F3D8 /* AppCoordinator.swift in Sources */,
 				966F923324F1849000D5D798 /* ImportCEICoordinator.swift in Sources */,
 				96DF1FEC24ECC15F00C73AF3 /* RegisterViewModelProtocol.swift in Sources */,
 				965C332C24FF0B8600C3B03E /* SelectableCellBuilder.swift in Sources */,
 				96DF1FDC24EC97A900C73AF3 /* LoginViewModelProtocol.swift in Sources */,
+				967930542519904A002BF901 /* InvestimentDetailViewController.swift in Sources */,
 				96DBF3F424C3C6B900E159DD /* ImportCEIViewController.swift in Sources */,
 				965C332424FF0B8600C3B03E /* StaticSection.swift in Sources */,
 				96DF1FE524ECBBA100C73AF3 /* WelcomeViewProtocol.swift in Sources */,
@@ -1321,6 +1426,7 @@
 				965C332E24FF0B8600C3B03E /* EditableCellActionFactory.swift in Sources */,
 				966BFE7724A4380000412D9B /* WelcomeViewController.swift in Sources */,
 				965C332624FF0B8600C3B03E /* TableViewSection.swift in Sources */,
+				9679305C251990E2002BF901 /* InvestimentDetailCoordinator.swift in Sources */,
 				9665682424AEBBD100E496FF /* FirebaseError.swift in Sources */,
 				96B4ED592506B9F600A79DA7 /* StatementCell.swift in Sources */,
 				96DF1FE324ECBA5D00C73AF3 /* WelcomeViewModelProtocol.swift in Sources */,
@@ -1328,8 +1434,11 @@
 				96B4ED5B2506C99900A79DA7 /* StatementCellBuilder.swift in Sources */,
 				965C334C24FF3DE000C3B03E /* Double+Extension.swift in Sources */,
 				965C334124FF128400C3B03E /* InvestimentCell.swift in Sources */,
+				9679304A25198F64002BF901 /* InvestimentListCoordinatorProtocol.swift in Sources */,
+				9679304825198F49002BF901 /* InvestimentListViewModel.swift in Sources */,
 				967ADE132512D36400CB729E /* Price.swift in Sources */,
 				9673E996250C478E00D5FFE6 /* SettingsViewProtocol.swift in Sources */,
+				96604828251AAE6400F0B976 /* WalletService.swift in Sources */,
 				965C332B24FF0B8600C3B03E /* TableViewCellBuilder.swift in Sources */,
 				965C333124FF0B8600C3B03E /* TableViewArrangeableCellBuilder.swift in Sources */,
 				965C334024FF128400C3B03E /* WalletTableViewFactory.swift in Sources */,
@@ -1344,17 +1453,20 @@
 				96FB836924E856C000259F22 /* UIView+Constraints.swift in Sources */,
 				9662706E24E98C3200CA0F08 /* UIColor+Custom.swift in Sources */,
 				96DC169C250D4079003C6C54 /* ScreenLoader.swift in Sources */,
+				9679304625198F3E002BF901 /* InvestimentListViewModelProtocol.swift in Sources */,
 				96B4ED5725068E8100A79DA7 /* StatementViewData.swift in Sources */,
 				9673E993250C476600D5FFE6 /* SettingsViewModel.swift in Sources */,
 				965C332A24FF0B8600C3B03E /* TableViewDataSource.swift in Sources */,
 				96DF1FEA24ECC06800C73AF3 /* RegisterCoordinatorProtocol.swift in Sources */,
 				966BFE7F24A439DE00412D9B /* LoginViewModel.swift in Sources */,
+				9679305825199070002BF901 /* InvestimentDetailViewModel.swift in Sources */,
 				9662707224E99DF500CA0F08 /* UILabel+Style.swift in Sources */,
 				9686178B2516B16800C62D59 /* DetailCellBuilder.swift in Sources */,
 				966D3CFF2509940D003A81DD /* StatementCoordinator.swift in Sources */,
 				9673E991250C475900D5FFE6 /* SettingsViewModelProtocol.swift in Sources */,
 				963AA31B24A824A70030CD18 /* SettingsTableViewCell.swift in Sources */,
 				9659119E24D2369100114DB0 /* UIViewController+Keyboard.swift in Sources */,
+				966F829A251C1D16002082A3 /* AssetsChartCellBuilder.swift in Sources */,
 				9686E6EC24F4777800BC46C6 /* WalletCoordinatorProtocol.swift in Sources */,
 				96DF1FDA24EC968800C73AF3 /* LoginCoordinatorProtocol.swift in Sources */,
 				965C333724FF0B8600C3B03E /* UITableView+DefaultFactory.swift in Sources */,
@@ -1364,6 +1476,7 @@
 				965C334224FF128400C3B03E /* InvestimentCellBuilder.swift in Sources */,
 				9660030924E6223000353114 /* TabBarCoordinator.swift in Sources */,
 				9662706A24E989D000CA0F08 /* RegisterCoordinator.swift in Sources */,
+				966F8291251C01E5002082A3 /* InvestimentListTableViewFactory.swift in Sources */,
 				96DC16A2250D47BB003C6C54 /* ShowAlert.swift in Sources */,
 				965C332724FF0B8600C3B03E /* SingleSelectionSection.swift in Sources */,
 				96B4ED4F2506840600A79DA7 /* StatementViewController.swift in Sources */,
@@ -1371,6 +1484,7 @@
 				96F898B924C4E48400686915 /* UITableView+Empty.swift in Sources */,
 				9673E98F250C474900D5FFE6 /* SettingsCoordinator.swift in Sources */,
 				967ADE112512D33E00CB729E /* AlphaVantageServiceAPI.swift in Sources */,
+				966F828F251C015A002082A3 /* AssetCell.swift in Sources */,
 				96DF1FDE24EC99F200C73AF3 /* LoginViewProtocol.swift in Sources */,
 				966F923124F1846200D5D798 /* ImportCEICoordinatorProtocol.swift in Sources */,
 				965C32F424FF0A8400C3B03E /* UIStackView+Spacing.swift in Sources */,
@@ -1380,6 +1494,7 @@
 				96D3E8D325005E05004FD643 /* TotalCellBuilder.swift in Sources */,
 				9646188624A17BE10051C2F5 /* RegisterViewController.swift in Sources */,
 				96B4ED4C25067D5100A79DA7 /* StatementViewProtocol.swift in Sources */,
+				966F8298251C1D06002082A3 /* AssetsChartCell.swift in Sources */,
 				966F3C6A24D5E547003E2EF6 /* PieChartCell.swift in Sources */,
 				96FB836724E8328C00259F22 /* WelcomeView.swift in Sources */,
 				96DD96DA24E4C84E0053F3D8 /* WelcomeCoordinator.swift in Sources */,
@@ -1391,11 +1506,14 @@
 				9672A81824C7CA3E00161AEF /* WalletViewModel.swift in Sources */,
 				965C32FC24FF0B1A00C3B03E /* CellConfigurable.swift in Sources */,
 				9663E1C4250B074B00BE0FC1 /* DateHeader.swift in Sources */,
+				9679305225198FE1002BF901 /* InvestimentListViewController.swift in Sources */,
 				961CF20724830E6F00BD25F1 /* CEIServiceAPI.swift in Sources */,
+				9679304C25198F6D002BF901 /* InvestimentListCoordinator.swift in Sources */,
 				96DBF3F724C3C80800E159DD /* ImportCEIViewModel.swift in Sources */,
 				9671474C24F2E75D006BA5CF /* WalletViewModelProtocol.swift in Sources */,
 				965C32FF24FF0B1A00C3B03E /* ViewConfigurable.swift in Sources */,
 				965C332524FF0B8600C3B03E /* ArrangeableSection.swift in Sources */,
+				9679305625199064002BF901 /* InvestimentDetailViewModelProtocol.swift in Sources */,
 				966FF78824CDF237001B1F62 /* WalletViewController.swift in Sources */,
 				9662707024E9920D00CA0F08 /* LoginViewController.swift in Sources */,
 				96B4ED4A25067D4300A79DA7 /* StatementView.swift in Sources */,
@@ -1403,6 +1521,7 @@
 				965C334724FF260B00C3B03E /* WalletViewData.swift in Sources */,
 				96DF1FF024ECC27E00C73AF3 /* RegisterView.swift in Sources */,
 				965C333024FF0B8600C3B03E /* SelectableTableViewCell.swift in Sources */,
+				9679305025198FCA002BF901 /* InvestimentDetailView.swift in Sources */,
 				9679303025196C1A002BF901 /* Settings.swift in Sources */,
 				96FB836B24E8804C00259F22 /* UIButton+Style.swift in Sources */,
 				963AA31924A81DA10030CD18 /* SettingsViewController.swift in Sources */,
@@ -1422,6 +1541,7 @@
 				965C32FE24FF0B1A00C3B03E /* Builder.swift in Sources */,
 				96D3E8D025005AD5004FD643 /* TotalCell.swift in Sources */,
 				965C333424FF0B8600C3B03E /* CollectionViewDataSource.swift in Sources */,
+				9679304E25198FA8002BF901 /* InvestimentDetailViewProtocol.swift in Sources */,
 				96D3E8D6250071D8004FD643 /* SimpleHeader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

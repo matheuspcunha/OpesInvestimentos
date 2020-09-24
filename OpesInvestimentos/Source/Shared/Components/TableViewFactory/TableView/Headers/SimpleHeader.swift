@@ -18,7 +18,6 @@ final class SimpleHeader: UIView {
          textStyle: UIFont = UIFont(name: "Avenir-Medium", size: 25)!,
          insets: UIEdgeInsets = UIEdgeInsets(top: 10, left: 40,
                                              bottom: -10, right: -40)) {
-        
         self.title = title
         self.textStyle = textStyle
         self.insets = insets
@@ -41,9 +40,8 @@ final class SimpleHeader: UIView {
 }
 
 extension SimpleHeader: ViewCodeProtocol {
+
     func setupHierarchy() {
         addSubviewWithConstraints(subview: titleLabel, insets: insets)
     }
-
-    func setupConstraints() {}
 }

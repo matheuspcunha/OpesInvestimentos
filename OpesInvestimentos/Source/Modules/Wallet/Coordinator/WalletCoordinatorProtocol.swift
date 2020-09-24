@@ -8,4 +8,6 @@
 
 import Foundation
 
-protocol WalletCoordinatorProtocol: class, ScreenLoader {}
+protocol WalletCoordinatorProtocol: class, ScreenLoader {
+    func showInvestimentList(for investiment: Investiment)
+}

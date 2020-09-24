@@ -18,8 +18,8 @@ final class StatementCoordinator: CoordinatorProtocol {
     
     func start() {
         let viewModel = StatementViewModel(coordinator: self)
-        let statementViewController = StatementViewController(viewModel: viewModel)
-        navigationController.pushViewController(statementViewController, animated: true)
+        let statementVC = StatementViewController(viewModel: viewModel)
+        navigationController.pushViewController(statementVC, animated: true)
     }
 }
 

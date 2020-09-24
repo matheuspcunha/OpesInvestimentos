@@ -6,7 +6,7 @@
 //  Copyright © 2020 Matheus Cunha. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 struct WalletViewData: WalletViewDataProtocol {
 
@@ -30,7 +30,6 @@ struct WalletViewData: WalletViewDataProtocol {
 struct Investiment {
     
     var type: InvestimentType
-
     var assets: [InvestimentAsset]
     
     var total: Double {
@@ -44,4 +43,5 @@ struct InvestimentAsset {
     let price: Double
     let quantity: Int
     let total: Double
+    var color: UIColor
 }

@@ -12,7 +12,9 @@ final class WalletViewModel: WalletViewModelProtocol {
     
     weak var view: WalletViewProtocol?
     weak var delegate: WalletViewModelDelegate?
+    
     private var coordinator: WalletCoordinatorProtocol?
+    private var service: WalletServiceProtocol
     
     var viewData: WalletViewDataProtocol? {
         didSet {
@@ -21,41 +23,27 @@ final class WalletViewModel: WalletViewModelProtocol {
         }
     }
     
-    init(coordinator: WalletCoordinatorProtocol?) {
+    init(coordinator: WalletCoordinatorProtocol?,
+         service: WalletServiceProtocol = WalletService()) {
         self.coordinator = coordinator
+        self.service = service
     }
 
     func loadWallet() {
         coordinator?.showLoading(true)
-
-        var statement:[Statement] = []
-        var wallet: [Wallet] = []
         
-        FirebaseService.getData(collection: .wallet) { (query, error) in
-            guard let query = query, error == nil else { return }
+        service.getWallet { (result, error) in
+            guard let result = result else {return}
 
-            for document in query.documents {
-                let data = document.data()
-                wallet.append(Wallet(dictionary: data))
-            }
+            let investiments = self.parseInvestiments(in: result.wallet)
+            let totalCost = self.parseTotalCost(result.statement, investiments)
+
+            self.viewData = WalletViewData(investiments: investiments, name: "Tester", totalCost: totalCost)
         }
-        
-        FirebaseService.getData(collection: .statement) { (query, error) in
-            guard let query = query, error == nil else { return }
-            
-            for document in query.documents {
-                var data: [String : Any] = document.data()
-                data["id"] = document.documentID
-                statement.append(Statement(dictionary: data))
-            }
-            
-            let investments = self.parseInvestiments(in: wallet)
-            let totalCost = self.parseTotalCost(statement: statement,
-                                                investiments: investments)
-            self.viewData = WalletViewData(investiments: investments,
-                                           name: "Tester",
-                                           totalCost: totalCost)
-        }
+    }
+    
+    func showDetail(for investiment: Investiment) {
+        coordinator?.showInvestimentList(for: investiment)
     }
     
     private func parseInvestiments(in wallet: [Wallet]) -> [Investiment] {
@@ -67,35 +55,36 @@ final class WalletViewModel: WalletViewModelProtocol {
             if let stock = w.stockWallet {
                 for s in stock {
                     if s.stockType.contains("CI") {
-                        funds.append(InvestimentAsset(symbol: s.code, name: s.company, price: s.price, quantity: s.quantity, total: s.totalValue))
+                        funds.append(InvestimentAsset(symbol: s.code, name: s.company, price: s.price, quantity: s.quantity, total: s.totalValue, color: .random))
                     } else {
-                        stocks.append(InvestimentAsset(symbol: s.code, name: s.company, price: s.price, quantity: s.quantity, total: s.totalValue))
+                        stocks.append(InvestimentAsset(symbol: s.code, name: s.company, price: s.price, quantity: s.quantity, total: s.totalValue, color: .random))
                     }
                 }
             }
             if let treasure = w.nationalTreasuryWallet {
                 for t in treasure {
-                    treasures.append(InvestimentAsset(symbol: t.code, name: t.code, price: 0, quantity: 0, total: t.grossValue))
+                    treasures.append(InvestimentAsset(symbol: t.code, name: t.code, price: 0, quantity: 0, total: t.grossValue, color: .random))
                 }
             }
         }
-
+        
         return [Investiment(type: .funds, assets: funds),
                 Investiment(type: .stock, assets: stocks),
                 Investiment(type: .treasure, assets: treasures)]
     }
     
-    private func parseTotalCost(statement: [Statement], investiments: [Investiment]) -> Double {
+    private func parseTotalCost(_ statement: [Statement],
+                                _ investiments: [Investiment]) -> Double {
         var total: Double = 0
         var assets = [InvestimentAsset]()
 
-        investiments.forEach { (investiment) in
+        investiments.forEach { investiment in
             assets.append(contentsOf: investiment.assets)
         }
 
-        for s in statement.filter({$0.type == .compra}) {
-            if assets.contains(where: {$0.symbol == s.code}) {
-                total += s.total
+        statement.filter({$0.type == .compra}).forEach { statement in
+            if assets.contains(where: {$0.symbol == statement.code}) {
+                total += statement.total
             }
         }
 

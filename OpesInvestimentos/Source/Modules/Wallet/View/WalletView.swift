@@ -48,8 +48,6 @@ extension WalletView: ViewCodeProtocol {
     func setupHierarchy() {
         addSubviewWithConstraints(subview: tableView)
     }
-    
-    func setupConstraints() {}
 }
 
 extension WalletView: WalletViewModelDelegate {
@@ -57,7 +55,9 @@ extension WalletView: WalletViewModelDelegate {
         DispatchQueue.main.async {
             if let data = self.viewModel.viewData {
                 self.dataSource = TableViewDataSource(
-                    sections: WalletTableViewFactory(viewData: data).make(),
+                    sections: WalletTableViewFactory(viewData: data) { [weak self] type in
+                        self?.viewModel.showDetail(for: type)
+                    }.make(),
                     tableView: self.tableView
                 )
             }

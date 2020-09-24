@@ -1,24 +1,25 @@
 //
-//  StatementCellBuilder.swift
+//  AssetsChartCellBuilder.swift
 //  OpesInvestimentos
 //
-//  Created by Matheus Cunha on 07/09/20.
+//  Created by Matheus Cunha on 23/09/20.
 //  Copyright © 2020 Matheus Cunha. All rights reserved.
 //
 
 import UIKit
 
-struct StatementCellBuilder: TableViewCellBuilder {
+struct AssetsChartCellBuilder: TableViewCellBuilder {
     
-    let model: Statement
+    let assets: [InvestimentAsset]
+    let total: Double
     
     func registerCellIdentifier(in tableView: UITableView) {
-        tableView.register(StatementCell.self)
+        tableView.register(AssetsChartCell.self)
     }
 
     func tableViewCell(at indexPath: IndexPath, on tableView: UITableView) -> UITableViewCell {
-        let cell: StatementCell = tableView.dequeueReusableCell(for: indexPath)
-        cell.configure(viewModel: StatementCellViewModel(statement: model))
+        let cell: AssetsChartCell = tableView.dequeueReusableCell(for: indexPath)
+        cell.configure(assets: assets, totalInvestiment: total)
         return cell
     }
 

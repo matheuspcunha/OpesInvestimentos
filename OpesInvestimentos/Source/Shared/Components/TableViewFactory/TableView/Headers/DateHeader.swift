@@ -33,9 +33,8 @@ final class DateHeader: UIView {
 }
 
 extension DateHeader: ViewCodeProtocol {
+
     func setupHierarchy() {
         addSubviewWithConstraints(subview: dateLabel, insets: UIEdgeInsets(top: 10, left: 20, bottom: -10, right: -20))
     }
-
-    func setupConstraints() {}
 }

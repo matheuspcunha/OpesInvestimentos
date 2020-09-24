@@ -14,19 +14,25 @@ protocol TableViewFactoryProtocol {
 
 struct WalletTableViewFactory: TableViewFactoryProtocol {
 
+    typealias SelectedInvestiment = (Investiment) -> Void
+
     private let data: WalletViewDataProtocol
+    private let selectedInvestiment: SelectedInvestiment?
     
-    init(viewData: WalletViewDataProtocol) {
+    init(viewData: WalletViewDataProtocol, selectedInvestiment: SelectedInvestiment?) {
         self.data = viewData
+        self.selectedInvestiment = selectedInvestiment
     }
     
     func make() -> [TableViewSection] {
-        let sections = [section(builder: [TotalCellBuilder(value: data.total)], title: "Olá, \(data.name)! 🤑"),
-                        section(builder: [DetailCellBuilder(totalCost: data.totalCost, result: data.result, variation: data.variation)]),
-                        section(builder: data.investiments.map(InvestimentCellBuilder.init)),
-                        section(builder: [PieChartCellBuilder(model: data)])]  
+        let total = section(builder: [TotalCellBuilder(value: data.total)], title: "Oi, \(data.name)! 🤑")
+        let detail = section(builder: [DetailCellBuilder(totalCost: data.totalCost, result: data.result, variation: data.variation)])
+        let investiments = section(builder: data.investiments.map({ item in
+            return InvestimentCellBuilder(investiment: item, didSelect: {self.selectedInvestiment?(item)})
+        }))
+        let chart = section(builder: [PieChartCellBuilder(model: data)])
 
-        return sections
+        return [total, detail, investiments, chart]
     }
 
     private func section(builder: [TableViewCellBuilder], title: String? = nil) -> TableViewSection {

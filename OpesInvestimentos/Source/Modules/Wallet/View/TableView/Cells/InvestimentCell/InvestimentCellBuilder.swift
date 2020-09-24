@@ -10,7 +10,8 @@ import UIKit
 
 struct InvestimentCellBuilder: TableViewCellBuilder {
     
-    var model: Investiment
+    let investiment: Investiment
+    let didSelect: () -> Void
     
     func registerCellIdentifier(in tableView: UITableView) {
         tableView.register(InvestimentCell.self)
@@ -18,7 +19,7 @@ struct InvestimentCellBuilder: TableViewCellBuilder {
 
     func tableViewCell(at indexPath: IndexPath, on tableView: UITableView) -> UITableViewCell {
         let cell: InvestimentCell = tableView.dequeueReusableCell(for: indexPath)
-        cell.configure(value: model.total.formatCurrency(), type: model.type)
+        cell.configure(value: investiment.total.formatCurrency(), type: investiment.type)
         return cell
     }
 
@@ -27,6 +28,6 @@ struct InvestimentCellBuilder: TableViewCellBuilder {
     }
 
     func tableViewDidSelectCell(_ tableView: UITableView) {
-        print(model.type.name)
+        didSelect()
     }
 }

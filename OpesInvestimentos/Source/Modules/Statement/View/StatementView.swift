@@ -42,8 +42,6 @@ extension StatementView: ViewCodeProtocol {
     func setupHierarchy() {
         addSubviewWithConstraints(subview: tableView)
     }
-    
-    func setupConstraints() {}
 }
 
 extension StatementView: StatementViewModelDelegate {

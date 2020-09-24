@@ -18,9 +18,15 @@ final class WalletCoordinator: CoordinatorProtocol {
     
     func start() {
         let viewModel = WalletViewModel(coordinator: self)
-        let walletViewController = WalletViewController(viewModel: viewModel)
-        navigationController.pushViewController(walletViewController, animated: true)
+        let walletVC = WalletViewController(viewModel: viewModel)
+        navigationController.pushViewController(walletVC, animated: true)
     }
 }
 
-extension WalletCoordinator: WalletCoordinatorProtocol {}
+extension WalletCoordinator: WalletCoordinatorProtocol {
+    func showInvestimentList(for investiment: Investiment) {
+        let investimentList = InvestimentListCoordinator(navigationController: navigationController,
+                                                         investiment: investiment)
+        coordinate(to: investimentList)
+    }
+}

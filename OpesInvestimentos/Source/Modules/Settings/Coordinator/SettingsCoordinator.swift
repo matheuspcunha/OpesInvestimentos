@@ -18,8 +18,8 @@ final class SettingsCoordinator: CoordinatorProtocol {
     
     func start() {
         let viewModel = SettingsViewModel(coordinator: self)
-        let settingsViewController = SettingsViewController(viewModel: viewModel)
-        navigationController.pushViewController(settingsViewController, animated: true)
+        let settingsVC = SettingsViewController(viewModel: viewModel)
+        navigationController.pushViewController(settingsVC, animated: true)
     }
 }
 

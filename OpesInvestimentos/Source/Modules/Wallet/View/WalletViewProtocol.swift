@@ -6,6 +6,6 @@
 //  Copyright © 2020 Matheus Cunha. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 protocol WalletViewProtocol: class {}
