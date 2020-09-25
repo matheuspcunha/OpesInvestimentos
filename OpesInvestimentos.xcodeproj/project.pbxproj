@@ -90,6 +90,8 @@
 		967091AA24AD377100257A23 /* wallet.json in Resources */ = {isa = PBXBuildFile; fileRef = 967091A924AD377100257A23 /* wallet.json */; };
 		967091AC24AD395500257A23 /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967091AB24AD395500257A23 /* FirebaseService.swift */; };
 		967091B024AD577300257A23 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967091AF24AD577300257A23 /* RegisterViewModel.swift */; };
+		967129F3251D72D100E0DBC9 /* TotalAssetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967129F2251D72D100E0DBC9 /* TotalAssetCell.swift */; };
+		967129F5251D72DB00E0DBC9 /* TotalAssetCellBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967129F4251D72DB00E0DBC9 /* TotalAssetCellBuilder.swift */; };
 		9671474824F2E56C006BA5CF /* WalletViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9671474724F2E56C006BA5CF /* WalletViewProtocol.swift */; };
 		9671474A24F2E57B006BA5CF /* WalletView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9671474924F2E57B006BA5CF /* WalletView.swift */; };
 		9671474C24F2E75D006BA5CF /* WalletViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9671474B24F2E75D006BA5CF /* WalletViewModelProtocol.swift */; };
@@ -259,6 +261,8 @@
 		967091A924AD377100257A23 /* wallet.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = wallet.json; sourceTree = "<group>"; };
 		967091AB24AD395500257A23 /* FirebaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseService.swift; sourceTree = "<group>"; };
 		967091AF24AD577300257A23 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
+		967129F2251D72D100E0DBC9 /* TotalAssetCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalAssetCell.swift; sourceTree = "<group>"; };
+		967129F4251D72DB00E0DBC9 /* TotalAssetCellBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalAssetCellBuilder.swift; sourceTree = "<group>"; };
 		9671474724F2E56C006BA5CF /* WalletViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletViewProtocol.swift; sourceTree = "<group>"; };
 		9671474924F2E57B006BA5CF /* WalletView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletView.swift; sourceTree = "<group>"; };
 		9671474B24F2E75D006BA5CF /* WalletViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletViewModelProtocol.swift; sourceTree = "<group>"; };
@@ -761,8 +765,9 @@
 		966F8281251C0000002082A3 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				966F8296251C1CC6002082A3 /* AssetsChartCell */,
+				967129F1251D72A200E0DBC9 /* TotalAssetCell */,
 				966F8292251C021B002082A3 /* AssetCell */,
+				966F8296251C1CC6002082A3 /* AssetsChartCell */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -791,6 +796,15 @@
 				966FAA1E25102F9500372D88 /* ImportCEIService.swift */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		967129F1251D72A200E0DBC9 /* TotalAssetCell */ = {
+			isa = PBXGroup;
+			children = (
+				967129F2251D72D100E0DBC9 /* TotalAssetCell.swift */,
+				967129F4251D72DB00E0DBC9 /* TotalAssetCellBuilder.swift */,
+			);
+			path = TotalAssetCell;
 			sourceTree = "<group>";
 		};
 		967136C824F87BD900884AF4 /* ViewData */ = {
@@ -1390,6 +1404,7 @@
 				9672A81624C79B3C00161AEF /* Wallet.swift in Sources */,
 				9673E98D250C474000D5FFE6 /* SettingsCoordinatorProtocol.swift in Sources */,
 				967091AC24AD395500257A23 /* FirebaseService.swift in Sources */,
+				967129F5251D72DB00E0DBC9 /* TotalAssetCellBuilder.swift in Sources */,
 				96B4ED5125068C5800A79DA7 /* StatementTableViewFactory.swift in Sources */,
 				9671474A24F2E57B006BA5CF /* WalletView.swift in Sources */,
 				9679305A251990DA002BF901 /* InvestimentDetailCoordinatorProtocol.swift in Sources */,
@@ -1486,6 +1501,7 @@
 				967ADE112512D33E00CB729E /* AlphaVantageServiceAPI.swift in Sources */,
 				966F828F251C015A002082A3 /* AssetCell.swift in Sources */,
 				96DF1FDE24EC99F200C73AF3 /* LoginViewProtocol.swift in Sources */,
+				967129F3251D72D100E0DBC9 /* TotalAssetCell.swift in Sources */,
 				966F923124F1846200D5D798 /* ImportCEICoordinatorProtocol.swift in Sources */,
 				965C32F424FF0A8400C3B03E /* UIStackView+Spacing.swift in Sources */,
 				966D358D24EF5EA1005ACA89 /* ImportCEIViewProtocol.swift in Sources */,
