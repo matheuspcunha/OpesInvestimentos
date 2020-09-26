@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import KeychainSwift
 
 final class WalletViewModel: WalletViewModelProtocol {
     
@@ -15,30 +16,36 @@ final class WalletViewModel: WalletViewModelProtocol {
     
     private var coordinator: WalletCoordinatorProtocol?
     private var service: WalletServiceProtocol
-    
+    private var userStorage: UserStorage
+
     var viewData: WalletViewDataProtocol? {
         didSet {
             coordinator?.showLoading(false)
             delegate?.onLoadWallet()
         }
     }
-    
+
     init(coordinator: WalletCoordinatorProtocol?,
-         service: WalletServiceProtocol = WalletService()) {
+         service: WalletServiceProtocol = WalletService(),
+         userStorage: UserStorage = KeychainSwift()) {
         self.coordinator = coordinator
         self.service = service
+        self.userStorage = userStorage
     }
 
     func loadWallet() {
         coordinator?.showLoading(true)
         
         service.getWallet { (result, error) in
-            guard let result = result else {return}
+            guard let result = result else { return }
 
             let investiments = self.parseInvestiments(in: result.wallet)
             let totalCost = self.parseTotalCost(result.statement, investiments)
+            let name = self.userStorage.name?.components(separatedBy: " ").first ?? ""
 
-            self.viewData = WalletViewData(investiments: investiments, name: "Tester", totalCost: totalCost)
+            self.viewData = WalletViewData(investiments: investiments,
+                                           name: name,
+                                           totalCost: totalCost)
         }
     }
     

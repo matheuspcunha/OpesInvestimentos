@@ -17,8 +17,7 @@ final class ImportCEICoordinator: CoordinatorProtocol {
     }
     
     func start() {
-        let viewData = ImportCEIViewData(cpf: Defaults.shared.cpf ?? "")
-        let viewModel = ImportCEIViewModel(coordinator: self, viewData: viewData)
+        let viewModel = ImportCEIViewModel(coordinator: self)
         let viewController = ImportCEIViewController(viewModel: viewModel)
         navigationController.pushViewController(viewController, animated: true)
     }

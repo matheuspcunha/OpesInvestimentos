@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import KeychainSwift
 
 final class ImportCEIViewModel: ImportCEIViewModelProtocol {
 
@@ -15,13 +16,15 @@ final class ImportCEIViewModel: ImportCEIViewModelProtocol {
     
     private var service: ImportCEIServiceProtocol
     private var coordinator: ImportCEICoordinatorProtocol?
-        
+    private var userStorage: UserStorage
+
     init(coordinator: ImportCEICoordinatorProtocol?,
-         viewData: ImportCEIViewDataProtocol,
-         service: ImportCEIServiceProtocol = ImportCEIService()) {
+         service: ImportCEIServiceProtocol = ImportCEIService(),
+         userStorage: UserStorage = KeychainSwift()) {
         self.coordinator = coordinator
-        self.viewData = viewData
         self.service = service
+        self.userStorage = userStorage
+        self.viewData = ImportCEIViewData(cpf: userStorage.cpf ?? "")
     }
     
     func importFromCEI(password: String?) {
@@ -33,7 +36,7 @@ final class ImportCEIViewModel: ImportCEIViewModelProtocol {
             return
         }
 
-        let params = [ "username":"\(self.viewData.cpf.onlyNumbers())",
+        let params = [ "username":"\(self.viewData.cpf)",
                        "password":"\(password)",
                        "id":"\(userID)" ]
 
