@@ -38,7 +38,7 @@ final class InvestimentListViewController: UIViewController {
 
     private func setupNavigation() {
         navigationController?.navigationBar.prefersLargeTitles = false
-        navigationController?.navigationBar.tintColor = viewModel.attributes.color
+        navigationController?.navigationBar.tintColor = .appBlue
         navigationItem.title = viewModel.attributes.name
     }
 }

@@ -17,10 +17,11 @@ struct InvestimentListTableViewFactory: TableViewFactoryProtocol {
     }
     
     func make() -> [TableViewSection] {
+        let total = section(builder: [TotalAssetCellBuilder(color: investiment.type.color, total: investiment.total)])
         let assets = section(builder: self.investiment.assets.map(AssetCellBuilder.init))
         let chart = section(builder: [AssetsChartCellBuilder(assets: investiment.assets, total: investiment.total)])
 
-        return [assets, chart]
+        return [total, assets, chart]
     }
 
     private func section(builder: [TableViewCellBuilder], title: String? = nil) -> TableViewSection {
