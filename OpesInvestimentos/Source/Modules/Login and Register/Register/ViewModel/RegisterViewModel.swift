@@ -7,14 +7,19 @@
 //
 
 import Foundation
+import KeychainSwift
 
 final class RegisterViewModel: RegisterViewModelProtocol {
     
     weak var view: RegisterViewProtocol?
+
     private var coordinator: RegisterCoordinatorProtocol?
-    
-    init(coordinator: RegisterCoordinatorProtocol?) {
+    private var userStorage: UserStorage
+
+    init(coordinator: RegisterCoordinatorProtocol?,
+         userStorage: UserStorage = KeychainSwift()) {
         self.coordinator = coordinator
+        self.userStorage = userStorage
     }
     
     func register(name: String?, cpf: String?, email: String?,
@@ -37,8 +42,8 @@ final class RegisterViewModel: RegisterViewModelProtocol {
                             
                 switch result {
                 case .success:
-                    Defaults.shared.cpf = cpf
-                    FirebaseService.updateUserName(name: name)
+                    self.userStorage.cpf = cpf
+                    self.userStorage.name = name
                     self.login(withEmail: email, password: password)
                 case .failure(let error):
                     self.coordinator?.showAlert(Alert.show(title: error.title, message: error.message))

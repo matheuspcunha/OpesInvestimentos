@@ -133,7 +133,6 @@
 		9686178B2516B16800C62D59 /* DetailCellBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9686178A2516B16800C62D59 /* DetailCellBuilder.swift */; };
 		9686E6EC24F4777800BC46C6 /* WalletCoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9686E6EB24F4777800BC46C6 /* WalletCoordinatorProtocol.swift */; };
 		968E3D32249065B500F08CBF /* Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968E3D31249065B500F08CBF /* Formatter.swift */; };
-		96AB5F2C24C8EAC600EF9B82 /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AB5F2B24C8EAC600EF9B82 /* Defaults.swift */; };
 		96B4ED4825067D2700A79DA7 /* StatementViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B4ED4725067D2700A79DA7 /* StatementViewModelProtocol.swift */; };
 		96B4ED4A25067D4300A79DA7 /* StatementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B4ED4925067D4300A79DA7 /* StatementView.swift */; };
 		96B4ED4C25067D5100A79DA7 /* StatementViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B4ED4B25067D5100A79DA7 /* StatementViewProtocol.swift */; };
@@ -150,14 +149,17 @@
 		96DBF3F724C3C80800E159DD /* ImportCEIViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DBF3F624C3C80800E159DD /* ImportCEIViewModel.swift */; };
 		96DC169A250D4006003C6C54 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DC1699250D4006003C6C54 /* LoadingView.swift */; };
 		96DC169C250D4079003C6C54 /* ScreenLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DC169B250D4079003C6C54 /* ScreenLoader.swift */; };
-		96DC169E250D4356003C6C54 /* ImportCEIViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DC169D250D4356003C6C54 /* ImportCEIViewData.swift */; };
-		96DC16A0250D435F003C6C54 /* ImportCEIViewDataProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DC169F250D435F003C6C54 /* ImportCEIViewDataProtocol.swift */; };
 		96DC16A2250D47BB003C6C54 /* ShowAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DC16A1250D47BB003C6C54 /* ShowAlert.swift */; };
 		96DC1F7324FACF000086382A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96DC1F7224FACF000086382A /* Assets.xcassets */; };
 		96DC1F7524FACF0C0086382A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 96DC1F7424FACF0C0086382A /* GoogleService-Info.plist */; };
 		96DD96CD24E4A9430053F3D8 /* CoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DD96CC24E4A9430053F3D8 /* CoordinatorProtocol.swift */; };
 		96DD96D024E4AB240053F3D8 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DD96CF24E4AB240053F3D8 /* AppCoordinator.swift */; };
 		96DD96DA24E4C84E0053F3D8 /* WelcomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DD96D924E4C84E0053F3D8 /* WelcomeCoordinator.swift */; };
+		96DED90B251ECE850044AC83 /* KeychainSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 96DED90A251ECE850044AC83 /* KeychainSwift */; };
+		96DED90E251ECF850044AC83 /* UserStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DED90D251ECF850044AC83 /* UserStorage.swift */; };
+		96DED910251ED1160044AC83 /* KeychainSwift+Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DED90F251ED1160044AC83 /* KeychainSwift+Storage.swift */; };
+		96DED914251ED4FE0044AC83 /* ImportCEIViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DED912251ED4FE0044AC83 /* ImportCEIViewData.swift */; };
+		96DED915251ED4FE0044AC83 /* ImportCEIViewDataProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DED913251ED4FE0044AC83 /* ImportCEIViewDataProtocol.swift */; };
 		96DF1FDA24EC968800C73AF3 /* LoginCoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DF1FD924EC968800C73AF3 /* LoginCoordinatorProtocol.swift */; };
 		96DF1FDC24EC97A900C73AF3 /* LoginViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DF1FDB24EC97A900C73AF3 /* LoginViewModelProtocol.swift */; };
 		96DF1FDE24EC99F200C73AF3 /* LoginViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DF1FDD24EC99F200C73AF3 /* LoginViewProtocol.swift */; };
@@ -302,7 +304,6 @@
 		9686178A2516B16800C62D59 /* DetailCellBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCellBuilder.swift; sourceTree = "<group>"; };
 		9686E6EB24F4777800BC46C6 /* WalletCoordinatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletCoordinatorProtocol.swift; sourceTree = "<group>"; };
 		968E3D31249065B500F08CBF /* Formatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatter.swift; sourceTree = "<group>"; };
-		96AB5F2B24C8EAC600EF9B82 /* Defaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
 		96B4ED4725067D2700A79DA7 /* StatementViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatementViewModelProtocol.swift; sourceTree = "<group>"; };
 		96B4ED4925067D4300A79DA7 /* StatementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatementView.swift; sourceTree = "<group>"; };
 		96B4ED4B25067D5100A79DA7 /* StatementViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatementViewProtocol.swift; sourceTree = "<group>"; };
@@ -319,8 +320,6 @@
 		96DBF3F624C3C80800E159DD /* ImportCEIViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportCEIViewModel.swift; sourceTree = "<group>"; };
 		96DC1699250D4006003C6C54 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		96DC169B250D4079003C6C54 /* ScreenLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenLoader.swift; sourceTree = "<group>"; };
-		96DC169D250D4356003C6C54 /* ImportCEIViewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportCEIViewData.swift; sourceTree = "<group>"; };
-		96DC169F250D435F003C6C54 /* ImportCEIViewDataProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportCEIViewDataProtocol.swift; sourceTree = "<group>"; };
 		96DC16A1250D47BB003C6C54 /* ShowAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowAlert.swift; sourceTree = "<group>"; };
 		96DC1F7024FACEED0086382A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		96DC1F7224FACF000086382A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -328,6 +327,10 @@
 		96DD96CC24E4A9430053F3D8 /* CoordinatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorProtocol.swift; sourceTree = "<group>"; };
 		96DD96CF24E4AB240053F3D8 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		96DD96D924E4C84E0053F3D8 /* WelcomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeCoordinator.swift; sourceTree = "<group>"; };
+		96DED90D251ECF850044AC83 /* UserStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStorage.swift; sourceTree = "<group>"; };
+		96DED90F251ED1160044AC83 /* KeychainSwift+Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KeychainSwift+Storage.swift"; sourceTree = "<group>"; };
+		96DED912251ED4FE0044AC83 /* ImportCEIViewData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImportCEIViewData.swift; sourceTree = "<group>"; };
+		96DED913251ED4FE0044AC83 /* ImportCEIViewDataProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImportCEIViewDataProtocol.swift; sourceTree = "<group>"; };
 		96DF1FD924EC968800C73AF3 /* LoginCoordinatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCoordinatorProtocol.swift; sourceTree = "<group>"; };
 		96DF1FDB24EC97A900C73AF3 /* LoginViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModelProtocol.swift; sourceTree = "<group>"; };
 		96DF1FDD24EC99F200C73AF3 /* LoginViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewProtocol.swift; sourceTree = "<group>"; };
@@ -356,6 +359,7 @@
 			files = (
 				967ADE162512D50000CB729E /* SwiftyJSON in Frameworks */,
 				333B7F0450C81460502FC813 /* Pods_OpesInvestimentos.framework in Frameworks */,
+				96DED90B251ECE850044AC83 /* KeychainSwift in Frameworks */,
 				967ADE0F2512D31A00CB729E /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -822,6 +826,7 @@
 				965C334A24FF3DCF00C3B03E /* Foundation */,
 				96786D6224EE17BF008D33C2 /* UIKit */,
 				9672775A24B127150077A4B3 /* String+CPF.swift */,
+				96DED90F251ED1160044AC83 /* KeychainSwift+Storage.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -829,12 +834,12 @@
 		9672775C24B13CA10077A4B3 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				96DED90C251ECF710044AC83 /* Storage */,
 				96E4FD0124F1D02D00078497 /* Models */,
 				961CF20A248336E200BD25F1 /* Components */,
 				9672775924B126F20077A4B3 /* Extensions */,
 				96DD96CB24E4A8FD0053F3D8 /* Protocols */,
 				9665682324AEBBD100E496FF /* FirebaseError.swift */,
-				96AB5F2B24C8EAC600EF9B82 /* Defaults.swift */,
 				9671504824D37127005E8D17 /* TextFieldResponder.swift */,
 			);
 			path = Shared;
@@ -1169,8 +1174,8 @@
 				96DBF3EF24C3C5DF00E159DD /* View */,
 				96DBF3F024C3C5E300E159DD /* ViewModel */,
 				966D358B24EF5E6A005ACA89 /* Coordinator */,
-				96E4FD0024F1A81000078497 /* ViewData */,
 				966FAA2025102F9C00372D88 /* Service */,
+				96DED911251ED4EB0044AC83 /* ViewData */,
 			);
 			path = ImportCEI;
 			sourceTree = "<group>";
@@ -1238,6 +1243,23 @@
 			path = Coordinator;
 			sourceTree = "<group>";
 		};
+		96DED90C251ECF710044AC83 /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				96DED90D251ECF850044AC83 /* UserStorage.swift */,
+			);
+			path = Storage;
+			sourceTree = "<group>";
+		};
+		96DED911251ED4EB0044AC83 /* ViewData */ = {
+			isa = PBXGroup;
+			children = (
+				96DED912251ED4FE0044AC83 /* ImportCEIViewData.swift */,
+				96DED913251ED4FE0044AC83 /* ImportCEIViewDataProtocol.swift */,
+			);
+			path = ViewData;
+			sourceTree = "<group>";
+		};
 		96DF1FE124ECBA4600C73AF3 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -1245,15 +1267,6 @@
 				96DF1FE224ECBA5D00C73AF3 /* WelcomeViewModelProtocol.swift */,
 			);
 			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		96E4FD0024F1A81000078497 /* ViewData */ = {
-			isa = PBXGroup;
-			children = (
-				96DC169D250D4356003C6C54 /* ImportCEIViewData.swift */,
-				96DC169F250D435F003C6C54 /* ImportCEIViewDataProtocol.swift */,
-			);
-			path = ViewData;
 			sourceTree = "<group>";
 		};
 		96E4FD0124F1D02D00078497 /* Models */ = {
@@ -1295,6 +1308,7 @@
 			packageProductDependencies = (
 				967ADE0E2512D31A00CB729E /* Alamofire */,
 				967ADE152512D50000CB729E /* SwiftyJSON */,
+				96DED90A251ECE850044AC83 /* KeychainSwift */,
 			);
 			productName = OpesInvestimentos;
 			productReference = 961CF1EC2482F26300BD25F1 /* Opes.app */;
@@ -1328,6 +1342,7 @@
 			packageReferences = (
 				967ADE0D2512D31A00CB729E /* XCRemoteSwiftPackageReference "Alamofire" */,
 				967ADE142512D50000CB729E /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
+				96DED909251ECE850044AC83 /* XCRemoteSwiftPackageReference "keychain-swift" */,
 			);
 			productRefGroup = 961CF1ED2482F26300BD25F1 /* Products */;
 			projectDirPath = "";
@@ -1415,7 +1430,7 @@
 				965C32F524FF0A8400C3B03E /* UIView+Builder.swift in Sources */,
 				965C334924FF315B00C3B03E /* WalletViewDataProtocol.swift in Sources */,
 				965C332F24FF0B8600C3B03E /* TableViewSingleSelectionCellBuilder.swift in Sources */,
-				96DC16A0250D435F003C6C54 /* ImportCEIViewDataProtocol.swift in Sources */,
+				96DED910251ED1160044AC83 /* KeychainSwift+Storage.swift in Sources */,
 				9679304225198F1D002BF901 /* InvestimentListViewProtocol.swift in Sources */,
 				96680309249AE5B60034F8AF /* StatementViewModel.swift in Sources */,
 				966F8295251C027E002082A3 /* AssetCellBuilder.swift in Sources */,
@@ -1446,6 +1461,7 @@
 				96B4ED592506B9F600A79DA7 /* StatementCell.swift in Sources */,
 				96DF1FE324ECBA5D00C73AF3 /* WelcomeViewModelProtocol.swift in Sources */,
 				966F923524F1857800D5D798 /* ImportCEIViewModelProtocol.swift in Sources */,
+				96DED915251ED4FE0044AC83 /* ImportCEIViewDataProtocol.swift in Sources */,
 				96B4ED5B2506C99900A79DA7 /* StatementCellBuilder.swift in Sources */,
 				965C334C24FF3DE000C3B03E /* Double+Extension.swift in Sources */,
 				965C334124FF128400C3B03E /* InvestimentCell.swift in Sources */,
@@ -1490,12 +1506,12 @@
 				96B4ED4825067D2700A79DA7 /* StatementViewModelProtocol.swift in Sources */,
 				965C334224FF128400C3B03E /* InvestimentCellBuilder.swift in Sources */,
 				9660030924E6223000353114 /* TabBarCoordinator.swift in Sources */,
+				96DED90E251ECF850044AC83 /* UserStorage.swift in Sources */,
 				9662706A24E989D000CA0F08 /* RegisterCoordinator.swift in Sources */,
 				966F8291251C01E5002082A3 /* InvestimentListTableViewFactory.swift in Sources */,
 				96DC16A2250D47BB003C6C54 /* ShowAlert.swift in Sources */,
 				965C332724FF0B8600C3B03E /* SingleSelectionSection.swift in Sources */,
 				96B4ED4F2506840600A79DA7 /* StatementViewController.swift in Sources */,
-				96AB5F2C24C8EAC600EF9B82 /* Defaults.swift in Sources */,
 				96F898B924C4E48400686915 /* UITableView+Empty.swift in Sources */,
 				9673E98F250C474900D5FFE6 /* SettingsCoordinator.swift in Sources */,
 				967ADE112512D33E00CB729E /* AlphaVantageServiceAPI.swift in Sources */,
@@ -1505,7 +1521,6 @@
 				966F923124F1846200D5D798 /* ImportCEICoordinatorProtocol.swift in Sources */,
 				965C32F424FF0A8400C3B03E /* UIStackView+Spacing.swift in Sources */,
 				966D358D24EF5EA1005ACA89 /* ImportCEIViewProtocol.swift in Sources */,
-				96DC169E250D4356003C6C54 /* ImportCEIViewData.swift in Sources */,
 				9679303E251977B3002BF901 /* LabelCell.swift in Sources */,
 				96D3E8D325005E05004FD643 /* TotalCellBuilder.swift in Sources */,
 				9646188624A17BE10051C2F5 /* RegisterViewController.swift in Sources */,
@@ -1525,6 +1540,7 @@
 				9679305225198FE1002BF901 /* InvestimentListViewController.swift in Sources */,
 				961CF20724830E6F00BD25F1 /* CEIServiceAPI.swift in Sources */,
 				9679304C25198F6D002BF901 /* InvestimentListCoordinator.swift in Sources */,
+				96DED914251ED4FE0044AC83 /* ImportCEIViewData.swift in Sources */,
 				96DBF3F724C3C80800E159DD /* ImportCEIViewModel.swift in Sources */,
 				9671474C24F2E75D006BA5CF /* WalletViewModelProtocol.swift in Sources */,
 				965C32FF24FF0B1A00C3B03E /* ViewConfigurable.swift in Sources */,
@@ -1771,6 +1787,14 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		96DED909251ECE850044AC83 /* XCRemoteSwiftPackageReference "keychain-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/evgenyneu/keychain-swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 19.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1783,6 +1807,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 967ADE142512D50000CB729E /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
 			productName = SwiftyJSON;
+		};
+		96DED90A251ECE850044AC83 /* KeychainSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 96DED909251ECE850044AC83 /* XCRemoteSwiftPackageReference "keychain-swift" */;
+			productName = KeychainSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
