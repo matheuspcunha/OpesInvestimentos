@@ -26,5 +26,10 @@ final class InvestimentListCoordinator: CoordinatorProtocol {
 }
 
 extension InvestimentListCoordinator: InvestimentListCoordinatorProtocol {
-    func showDetail(to symbol: String) {}
+
+    func showDetail(to asset: InvestimentAsset) {
+        let investimentDetail = InvestimentDetailCoordinator(navigationController: navigationController,
+                                                             asset: asset)
+        coordinate(to: investimentDetail)
+    }
 }

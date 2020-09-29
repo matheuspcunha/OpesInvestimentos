@@ -33,11 +33,11 @@ final class LoginViewModel: LoginViewModelProtocol {
                             }
                         }
                     case .failure(let error):
-                        self.coordinator?.showAlert(Alert.show(title: error.title, message: error.message))
+                        self.coordinator?.showAlert(Alert.make(title: error.title, message: error.message))
                     }
                 }
             } else {
-                coordinator?.showAlert(Alert.show(title: "Test", message: "Campo Vazio"))
+                coordinator?.showAlert(Alert.make(title: "Test", message: "Campo Vazio"))
             }
         }
     }

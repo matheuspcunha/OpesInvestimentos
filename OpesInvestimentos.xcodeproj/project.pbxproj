@@ -171,6 +171,15 @@
 		96DF1FEC24ECC15F00C73AF3 /* RegisterViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DF1FEB24ECC15F00C73AF3 /* RegisterViewModelProtocol.swift */; };
 		96DF1FEE24ECC17A00C73AF3 /* RegisterViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DF1FED24ECC17A00C73AF3 /* RegisterViewProtocol.swift */; };
 		96DF1FF024ECC27E00C73AF3 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DF1FEF24ECC27E00C73AF3 /* RegisterView.swift */; };
+		96ED5A8C251F995A00B648E9 /* alpha.json in Resources */ = {isa = PBXBuildFile; fileRef = 96ED5A8B251F995A00B648E9 /* alpha.json */; };
+		96ED5A8F251F9B2000B648E9 /* InvestimentDetailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96ED5A8E251F9B2000B648E9 /* InvestimentDetailService.swift */; };
+		96ED5A92251FA02C00B648E9 /* InvestimentDetailViewDataProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96ED5A91251FA02C00B648E9 /* InvestimentDetailViewDataProtocol.swift */; };
+		96ED5A94251FA07300B648E9 /* InvestimentDetailViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96ED5A93251FA07300B648E9 /* InvestimentDetailViewData.swift */; };
+		96ED5A97251FBF3400B648E9 /* InvestimentDetailTableViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96ED5A96251FBF3400B648E9 /* InvestimentDetailTableViewFactory.swift */; };
+		96ED5A9C251FC15600B648E9 /* PricesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96ED5A9B251FC15600B648E9 /* PricesCell.swift */; };
+		96ED5A9E251FC16000B648E9 /* PricesCellBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96ED5A9D251FC16000B648E9 /* PricesCellBuilder.swift */; };
+		96ED5AA1251FC17A00B648E9 /* PriceChartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96ED5AA0251FC17A00B648E9 /* PriceChartCell.swift */; };
+		96ED5AA3251FC18300B648E9 /* PriceChartCellBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96ED5AA2251FC18300B648E9 /* PriceChartCellBuilder.swift */; };
 		96F898B924C4E48400686915 /* UITableView+Empty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F898B824C4E48400686915 /* UITableView+Empty.swift */; };
 		96FB836524E82AA100259F22 /* ViewCodeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FB836424E82AA100259F22 /* ViewCodeProtocol.swift */; };
 		96FB836724E8328C00259F22 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FB836624E8328C00259F22 /* WelcomeView.swift */; };
@@ -342,6 +351,15 @@
 		96DF1FEB24ECC15F00C73AF3 /* RegisterViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModelProtocol.swift; sourceTree = "<group>"; };
 		96DF1FED24ECC17A00C73AF3 /* RegisterViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewProtocol.swift; sourceTree = "<group>"; };
 		96DF1FEF24ECC27E00C73AF3 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
+		96ED5A8B251F995A00B648E9 /* alpha.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = alpha.json; sourceTree = "<group>"; };
+		96ED5A8E251F9B2000B648E9 /* InvestimentDetailService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvestimentDetailService.swift; sourceTree = "<group>"; };
+		96ED5A91251FA02C00B648E9 /* InvestimentDetailViewDataProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvestimentDetailViewDataProtocol.swift; sourceTree = "<group>"; };
+		96ED5A93251FA07300B648E9 /* InvestimentDetailViewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvestimentDetailViewData.swift; sourceTree = "<group>"; };
+		96ED5A96251FBF3400B648E9 /* InvestimentDetailTableViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvestimentDetailTableViewFactory.swift; sourceTree = "<group>"; };
+		96ED5A9B251FC15600B648E9 /* PricesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PricesCell.swift; sourceTree = "<group>"; };
+		96ED5A9D251FC16000B648E9 /* PricesCellBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PricesCellBuilder.swift; sourceTree = "<group>"; };
+		96ED5AA0251FC17A00B648E9 /* PriceChartCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceChartCell.swift; sourceTree = "<group>"; };
+		96ED5AA2251FC18300B648E9 /* PriceChartCellBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceChartCellBuilder.swift; sourceTree = "<group>"; };
 		96F898B824C4E48400686915 /* UITableView+Empty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Empty.swift"; sourceTree = "<group>"; };
 		96FB836424E82AA100259F22 /* ViewCodeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCodeProtocol.swift; sourceTree = "<group>"; };
 		96FB836624E8328C00259F22 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
@@ -1016,6 +1034,7 @@
 				9672567024884E9400394587 /* history.json */,
 				9672566F24884E9300394587 /* dividends.json */,
 				967091A924AD377100257A23 /* wallet.json */,
+				96ED5A8B251F995A00B648E9 /* alpha.json */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -1050,6 +1069,8 @@
 		9679303425197471002BF901 /* InvestimentDetail */ = {
 			isa = PBXGroup;
 			children = (
+				96ED5A90251F9FD000B648E9 /* ViewData */,
+				96ED5A8D251F9AE600B648E9 /* Service */,
 				9679303925197563002BF901 /* View */,
 				9679303A25197569002BF901 /* ViewModel */,
 				9679303B2519756E002BF901 /* Coordinator */,
@@ -1089,6 +1110,7 @@
 		9679303925197563002BF901 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				96ED5A95251FAC8E00B648E9 /* TableView */,
 				9679304F25198FCA002BF901 /* InvestimentDetailView.swift */,
 				967930532519904A002BF901 /* InvestimentDetailViewController.swift */,
 				9679304D25198FA8002BF901 /* InvestimentDetailViewProtocol.swift */,
@@ -1279,6 +1301,59 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		96ED5A8D251F9AE600B648E9 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				96ED5A8E251F9B2000B648E9 /* InvestimentDetailService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		96ED5A90251F9FD000B648E9 /* ViewData */ = {
+			isa = PBXGroup;
+			children = (
+				96ED5A93251FA07300B648E9 /* InvestimentDetailViewData.swift */,
+				96ED5A91251FA02C00B648E9 /* InvestimentDetailViewDataProtocol.swift */,
+			);
+			path = ViewData;
+			sourceTree = "<group>";
+		};
+		96ED5A95251FAC8E00B648E9 /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+				96ED5A98251FC0F300B648E9 /* Cells */,
+				96ED5A96251FBF3400B648E9 /* InvestimentDetailTableViewFactory.swift */,
+			);
+			path = TableView;
+			sourceTree = "<group>";
+		};
+		96ED5A98251FC0F300B648E9 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				96ED5A9A251FC11400B648E9 /* PricesCell */,
+				96ED5A99251FC0FA00B648E9 /* PriceChartCell */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		96ED5A99251FC0FA00B648E9 /* PriceChartCell */ = {
+			isa = PBXGroup;
+			children = (
+				96ED5AA0251FC17A00B648E9 /* PriceChartCell.swift */,
+				96ED5AA2251FC18300B648E9 /* PriceChartCellBuilder.swift */,
+			);
+			path = PriceChartCell;
+			sourceTree = "<group>";
+		};
+		96ED5A9A251FC11400B648E9 /* PricesCell */ = {
+			isa = PBXGroup;
+			children = (
+				96ED5A9B251FC15600B648E9 /* PricesCell.swift */,
+				96ED5A9D251FC16000B648E9 /* PricesCellBuilder.swift */,
+			);
+			path = PricesCell;
+			sourceTree = "<group>";
+		};
 		AAF43B7D0626A47E7E9E76A8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -1359,6 +1434,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				967091AA24AD377100257A23 /* wallet.json in Resources */,
+				96ED5A8C251F995A00B648E9 /* alpha.json in Resources */,
 				9672567124884E9400394587 /* dividends.json in Resources */,
 				961CF1FF2482F26600BD25F1 /* LaunchScreen.storyboard in Resources */,
 				96DC1F7524FACF0C0086382A /* GoogleService-Info.plist in Resources */,
@@ -1440,9 +1516,11 @@
 				966F923324F1849000D5D798 /* ImportCEICoordinator.swift in Sources */,
 				96DF1FEC24ECC15F00C73AF3 /* RegisterViewModelProtocol.swift in Sources */,
 				965C332C24FF0B8600C3B03E /* SelectableCellBuilder.swift in Sources */,
+				96ED5A9E251FC16000B648E9 /* PricesCellBuilder.swift in Sources */,
 				96DF1FDC24EC97A900C73AF3 /* LoginViewModelProtocol.swift in Sources */,
 				967930542519904A002BF901 /* InvestimentDetailViewController.swift in Sources */,
 				96DBF3F424C3C6B900E159DD /* ImportCEIViewController.swift in Sources */,
+				96ED5AA3251FC18300B648E9 /* PriceChartCellBuilder.swift in Sources */,
 				965C332424FF0B8600C3B03E /* StaticSection.swift in Sources */,
 				96DF1FE524ECBBA100C73AF3 /* WelcomeViewProtocol.swift in Sources */,
 				965C333224FF0B8600C3B03E /* CollectionViewSection.swift in Sources */,
@@ -1461,6 +1539,7 @@
 				96B4ED592506B9F600A79DA7 /* StatementCell.swift in Sources */,
 				96DF1FE324ECBA5D00C73AF3 /* WelcomeViewModelProtocol.swift in Sources */,
 				966F923524F1857800D5D798 /* ImportCEIViewModelProtocol.swift in Sources */,
+				96ED5A9C251FC15600B648E9 /* PricesCell.swift in Sources */,
 				96DED915251ED4FE0044AC83 /* ImportCEIViewDataProtocol.swift in Sources */,
 				96B4ED5B2506C99900A79DA7 /* StatementCellBuilder.swift in Sources */,
 				965C334C24FF3DE000C3B03E /* Double+Extension.swift in Sources */,
@@ -1499,6 +1578,7 @@
 				9659119E24D2369100114DB0 /* UIViewController+Keyboard.swift in Sources */,
 				966F829A251C1D16002082A3 /* AssetsChartCellBuilder.swift in Sources */,
 				9686E6EC24F4777800BC46C6 /* WalletCoordinatorProtocol.swift in Sources */,
+				96ED5A8F251F9B2000B648E9 /* InvestimentDetailService.swift in Sources */,
 				96DF1FDA24EC968800C73AF3 /* LoginCoordinatorProtocol.swift in Sources */,
 				965C333724FF0B8600C3B03E /* UITableView+DefaultFactory.swift in Sources */,
 				965C32F624FF0A8400C3B03E /* UITableView+Reusable.swift in Sources */,
@@ -1510,6 +1590,7 @@
 				9662706A24E989D000CA0F08 /* RegisterCoordinator.swift in Sources */,
 				966F8291251C01E5002082A3 /* InvestimentListTableViewFactory.swift in Sources */,
 				96DC16A2250D47BB003C6C54 /* ShowAlert.swift in Sources */,
+				96ED5A97251FBF3400B648E9 /* InvestimentDetailTableViewFactory.swift in Sources */,
 				965C332724FF0B8600C3B03E /* SingleSelectionSection.swift in Sources */,
 				96B4ED4F2506840600A79DA7 /* StatementViewController.swift in Sources */,
 				96F898B924C4E48400686915 /* UITableView+Empty.swift in Sources */,
@@ -1542,6 +1623,7 @@
 				9679304C25198F6D002BF901 /* InvestimentListCoordinator.swift in Sources */,
 				96DED914251ED4FE0044AC83 /* ImportCEIViewData.swift in Sources */,
 				96DBF3F724C3C80800E159DD /* ImportCEIViewModel.swift in Sources */,
+				96ED5AA1251FC17A00B648E9 /* PriceChartCell.swift in Sources */,
 				9671474C24F2E75D006BA5CF /* WalletViewModelProtocol.swift in Sources */,
 				965C32FF24FF0B1A00C3B03E /* ViewConfigurable.swift in Sources */,
 				965C332524FF0B8600C3B03E /* ArrangeableSection.swift in Sources */,
@@ -1549,6 +1631,7 @@
 				966FF78824CDF237001B1F62 /* WalletViewController.swift in Sources */,
 				9662707024E9920D00CA0F08 /* LoginViewController.swift in Sources */,
 				96B4ED4A25067D4300A79DA7 /* StatementView.swift in Sources */,
+				96ED5A92251FA02C00B648E9 /* InvestimentDetailViewDataProtocol.swift in Sources */,
 				965C333324FF0B8600C3B03E /* StaticCollectionSection.swift in Sources */,
 				965C334724FF260B00C3B03E /* WalletViewData.swift in Sources */,
 				96DF1FF024ECC27E00C73AF3 /* RegisterView.swift in Sources */,
@@ -1562,6 +1645,7 @@
 				9671474824F2E56C006BA5CF /* WalletViewProtocol.swift in Sources */,
 				966D358A24EF5E30005ACA89 /* ImportCEIView.swift in Sources */,
 				96DF1FEE24ECC17A00C73AF3 /* RegisterViewProtocol.swift in Sources */,
+				96ED5A94251FA07300B648E9 /* InvestimentDetailViewData.swift in Sources */,
 				9671504924D37127005E8D17 /* TextFieldResponder.swift in Sources */,
 				9673E998250C479900D5FFE6 /* SettingsView.swift in Sources */,
 				968617892516B15900C62D59 /* DetailCell.swift in Sources */,

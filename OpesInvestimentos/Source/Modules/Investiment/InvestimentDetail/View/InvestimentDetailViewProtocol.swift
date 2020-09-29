@@ -7,3 +7,5 @@
 //
 
 import Foundation
+
+protocol InvestimentDetailViewProtocol: class {}

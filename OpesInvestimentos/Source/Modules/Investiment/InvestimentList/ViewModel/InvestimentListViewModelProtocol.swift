@@ -12,4 +12,6 @@ protocol InvestimentListViewModelProtocol: class {
     var view: InvestimentListViewProtocol? { get set }
     var attributes: InvestimentType { get }
     var investiment: Investiment { get set }
+    
+    func showDetail(to asset: InvestimentAsset)
 }

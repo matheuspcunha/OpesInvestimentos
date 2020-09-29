@@ -26,13 +26,6 @@ final class DetailCell: UITableViewCell, Reusable {
         variationValueLabel.textColor = result.sign == .plus ? .appPositive : .appNegative
     }
     
-    private lazy var viewContent: UIView = {
-        let view = UIView()
-        view.backgroundColor = .appBackground
-        view.layer.cornerRadius = 8
-        return view
-    }()
-    
     private lazy var stackView: UIStackView = {
         let stack = UIStackView()
         stack.axis = .horizontal

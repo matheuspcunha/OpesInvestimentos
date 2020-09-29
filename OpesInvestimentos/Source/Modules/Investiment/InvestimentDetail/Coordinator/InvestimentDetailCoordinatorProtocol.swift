@@ -8,4 +8,4 @@
 
 import Foundation
 
-protocol InvestimentDetailCoordinatorProtocol: class {}
+protocol InvestimentDetailCoordinatorProtocol: class, ShowAlert, ScreenLoader {}

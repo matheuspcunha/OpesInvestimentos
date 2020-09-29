@@ -10,7 +10,7 @@ import UIKit
 
 class Alert {
 
-    static func show(title: String?, message: String?) -> UIAlertController {
+    static func make(title: String?, message: String?) -> UIAlertController {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
         alert.addAction(okAction)
