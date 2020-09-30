@@ -16,23 +16,17 @@ enum StyleButton {
 
 extension UIButton {
     
-    convenience init(style: StyleButton, text: String) {
+    convenience init(style: StyleButton, text: String? = nil) {
         self.init()
         
         switch style {
         case .primary:
+            guard let text = text else { return }
             primary(text)
         case .secondary:
+            guard let text = text else { return }
             secondary(text)
-        default:
-            break
-        }
-    }
-    
-    convenience init(style: StyleButton) {
-        self.init()
-        
-        if style == .back {
+        case .back:
             back()
         }
     }
@@ -50,7 +44,7 @@ extension UIButton {
         self.setTitle(text, for: .normal)
         self.setTitleColor(.appBlue, for: .normal)
         self.titleLabel?.font = UIFont(name: "Avenir-Medium", size: 15)
-        
+
         self.backgroundColor = .white
         self.layer.cornerRadius = 5
         self.layer.borderWidth = 1
@@ -64,4 +58,5 @@ extension UIButton {
         self.contentHorizontalAlignment = .left
         self.tintColor = .appBlue
     }
+    
 }
