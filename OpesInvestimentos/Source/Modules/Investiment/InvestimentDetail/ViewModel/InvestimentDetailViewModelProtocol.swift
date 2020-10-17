@@ -7,3 +7,15 @@
 //
 
 import Foundation
+
+protocol InvestimentDetailViewModelProtocol: class {
+    var view: InvestimentDetailViewProtocol? { get set }
+    var delegate: InvestimentDetailViewModelDelegate? { get set }
+    var viewData: InvestimentDetailViewDataProtocol? { get set }
+    
+    func loadDetail()
+}
+
+protocol InvestimentDetailViewModelDelegate: class {
+    func onLoadDetail()
+}

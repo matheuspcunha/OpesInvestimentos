@@ -92,49 +92,4 @@ final class CEIServiceAPI {
 
         task.resume()
     }
-    
-    func requestTest() {
-        
-        guard let url = URL(string: "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=PETR4.SA&apikey=32D2R6JWK0F7JZKM") else {
-            print("invalidURL")
-            return
-        }
-        
-        var request = URLRequest(url: url)
-        request.httpMethod = "GET"
-        
-        let task = session.dataTask(with: request) { (data, response, error) in
-            if let _ = error {
-                print("taskError")
-            }
-            
-            guard let response = response as? HTTPURLResponse else {
-                print("invalidResponse")
-                return
-            }
-            
-            if response.statusCode != 200 {
-                print(response.statusCode)
-
-            }
-            
-            guard let data = data else {
-                print("noData")
-                return
-            }
-            
-            
-            do {
-                // make sure this JSON is in the format we expect
-                if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
-                    // try to read out a string array
-                        print(json)
-                }
-            } catch let error as NSError {
-                print("Failed to load: \(error.localizedDescription)")
-            }
-        }
-
-        task.resume()
-    }
 }

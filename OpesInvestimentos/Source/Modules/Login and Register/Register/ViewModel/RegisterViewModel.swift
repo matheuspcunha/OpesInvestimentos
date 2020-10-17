@@ -46,7 +46,7 @@ final class RegisterViewModel: RegisterViewModelProtocol {
                     self.userStorage.name = name
                     self.login(withEmail: email, password: password)
                 case .failure(let error):
-                    self.coordinator?.showAlert(Alert.show(title: error.title, message: error.message))
+                    self.coordinator?.showAlert(Alert.make(title: error.title, message: error.message))
                 }
             }
         }
@@ -60,7 +60,7 @@ final class RegisterViewModel: RegisterViewModelProtocol {
             case .success:
                 self.coordinator?.coordinateToImportCEI()
             case .failure(let error):
-                self.coordinator?.showAlert(Alert.show(title: error.title, message: error.message))
+                self.coordinator?.showAlert(Alert.make(title: error.title, message: error.message))
             }
         }
     }
@@ -71,14 +71,14 @@ final class RegisterViewModel: RegisterViewModelProtocol {
         let confirmPassword = fields["confirmPassword"]
         
         if !checkFieldsFilled(fields) {
-            self.coordinator?.showAlert(Alert.show(title: FirebaseError.emptyField.title, message: FirebaseError.emptyField.message))
+            self.coordinator?.showAlert(Alert.make(title: FirebaseError.emptyField.title, message: FirebaseError.emptyField.message))
 
             return false
         } else if !password!.elementsEqual(confirmPassword!) {
             print("Senhas não conferem")
             return false
         } else if !cpf!.isCPF {
-            self.coordinator?.showAlert(Alert.show(title: FirebaseError.invalidCPF.title, message: FirebaseError.invalidCPF.message))
+            self.coordinator?.showAlert(Alert.make(title: FirebaseError.invalidCPF.title, message: FirebaseError.invalidCPF.message))
             return false
         }
         

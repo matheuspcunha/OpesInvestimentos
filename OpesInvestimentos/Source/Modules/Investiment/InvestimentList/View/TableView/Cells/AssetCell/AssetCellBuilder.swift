@@ -11,6 +11,7 @@ import UIKit
 struct AssetCellBuilder: TableViewCellBuilder {
     
     let asset: InvestimentAsset
+    let didSelect: () -> Void
     
     func registerCellIdentifier(in tableView: UITableView) {
         tableView.register(AssetCell.self)
@@ -23,6 +24,10 @@ struct AssetCellBuilder: TableViewCellBuilder {
     }
 
     func tableViewShouldSelectCell(_ tableView: UITableView) -> Bool {
-        false
+        true
+    }
+    
+    func tableViewDidSelectCell(_ tableView: UITableView) {
+        didSelect()
     }
 }

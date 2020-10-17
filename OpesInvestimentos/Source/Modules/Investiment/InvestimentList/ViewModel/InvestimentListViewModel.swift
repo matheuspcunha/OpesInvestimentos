@@ -25,4 +25,8 @@ final class InvestimentListViewModel: InvestimentListViewModelProtocol {
         self.coordinator = coordinator
         self.investiment = investiment
     }
+    
+    func showDetail(to asset: InvestimentAsset) {
+        coordinator?.showDetail(to: asset)
+    }
 }

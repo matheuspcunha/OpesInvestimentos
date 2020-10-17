@@ -27,9 +27,13 @@ final class InvestimentListView: UIView {
         let tableView = UITableView.standard()
         tableView.backgroundColor = .clear
         tableView.separatorStyle = .none
+
+        let factory = InvestimentListTableViewFactory(investiment: self.viewModel.investiment) { [weak self] asset in
+            self?.viewModel.showDetail(to: asset)
+        }.make()
         
         self.dataSource = TableViewDataSource(
-            sections: InvestimentListTableViewFactory(investiment: self.viewModel.investiment).make(),
+            sections: factory,
             tableView: tableView
         )
 

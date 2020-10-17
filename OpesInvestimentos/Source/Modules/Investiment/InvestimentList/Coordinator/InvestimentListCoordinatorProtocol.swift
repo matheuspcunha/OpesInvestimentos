@@ -9,5 +9,5 @@
 import Foundation
 
 protocol InvestimentListCoordinatorProtocol: class {
-    func showDetail(to symbol: String)
+    func showDetail(to symbol: InvestimentAsset)
 }
