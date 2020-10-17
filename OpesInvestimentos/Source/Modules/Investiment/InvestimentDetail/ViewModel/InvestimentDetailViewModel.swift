@@ -38,8 +38,14 @@ final class InvestimentDetailViewModel: InvestimentDetailViewModelProtocol {
                 self.viewData?.prices = prices
                 self.delegate?.onLoadDetail()
             case .failure:
-                print("Não foi possível exibir o gráfico")
+                self.coordinator?.showAlert(Alert.make(title: "Ops!",
+                                                       message: "Não foi possível exibir as informações. Tente novamente mais tarde",
+                                                       handler: self.exit))
             }
         }
+    }
+
+    private func exit() {
+        coordinator?.back()
     }
 }

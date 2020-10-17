@@ -21,7 +21,7 @@ struct InvestimentDetailService: InvestimentDetailServiceProtocol {
     }
     
     func getPrices(symbol: String, onComplete: @escaping (Result<[Price], Error>) -> Void) {
-        network.mock(stock: symbol) { (result) in
+        network.getPricesForTheDay(stock: symbol) { (result) in
             switch result {
             case .success:
                 onComplete(result)

@@ -8,4 +8,6 @@
 
 import Foundation
 
-protocol InvestimentDetailCoordinatorProtocol: class, ShowAlert, ScreenLoader {}
+protocol InvestimentDetailCoordinatorProtocol: class, ShowAlert, ScreenLoader {
+    func back()
+}

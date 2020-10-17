@@ -9,4 +9,6 @@
 protocol InvestimentDetailViewDataProtocol {
     var asset: InvestimentAsset { get }
     var prices: [Price]? { get set }
+    var currentPrice: Price? { get }
+    var variation: (Double, Double) { get }
 }

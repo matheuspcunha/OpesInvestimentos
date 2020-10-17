@@ -176,11 +176,8 @@
 		96ED5A8F251F9B2000B648E9 /* InvestimentDetailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96ED5A8E251F9B2000B648E9 /* InvestimentDetailService.swift */; };
 		96ED5A92251FA02C00B648E9 /* InvestimentDetailViewDataProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96ED5A91251FA02C00B648E9 /* InvestimentDetailViewDataProtocol.swift */; };
 		96ED5A94251FA07300B648E9 /* InvestimentDetailViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96ED5A93251FA07300B648E9 /* InvestimentDetailViewData.swift */; };
-		96ED5A97251FBF3400B648E9 /* InvestimentDetailTableViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96ED5A96251FBF3400B648E9 /* InvestimentDetailTableViewFactory.swift */; };
-		96ED5A9C251FC15600B648E9 /* PricesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96ED5A9B251FC15600B648E9 /* PricesCell.swift */; };
-		96ED5A9E251FC16000B648E9 /* PricesCellBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96ED5A9D251FC16000B648E9 /* PricesCellBuilder.swift */; };
-		96ED5AA1251FC17A00B648E9 /* PriceChartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96ED5AA0251FC17A00B648E9 /* PriceChartCell.swift */; };
-		96ED5AA3251FC18300B648E9 /* PriceChartCellBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96ED5AA2251FC18300B648E9 /* PriceChartCellBuilder.swift */; };
+		96ED5A9C251FC15600B648E9 /* PricesDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96ED5A9B251FC15600B648E9 /* PricesDetailView.swift */; };
+		96ED5AA1251FC17A00B648E9 /* PricesChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96ED5AA0251FC17A00B648E9 /* PricesChartView.swift */; };
 		96F898B924C4E48400686915 /* UITableView+Empty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F898B824C4E48400686915 /* UITableView+Empty.swift */; };
 		96FB836524E82AA100259F22 /* ViewCodeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FB836424E82AA100259F22 /* ViewCodeProtocol.swift */; };
 		96FB836724E8328C00259F22 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FB836624E8328C00259F22 /* WelcomeView.swift */; };
@@ -357,11 +354,8 @@
 		96ED5A8E251F9B2000B648E9 /* InvestimentDetailService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvestimentDetailService.swift; sourceTree = "<group>"; };
 		96ED5A91251FA02C00B648E9 /* InvestimentDetailViewDataProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvestimentDetailViewDataProtocol.swift; sourceTree = "<group>"; };
 		96ED5A93251FA07300B648E9 /* InvestimentDetailViewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvestimentDetailViewData.swift; sourceTree = "<group>"; };
-		96ED5A96251FBF3400B648E9 /* InvestimentDetailTableViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvestimentDetailTableViewFactory.swift; sourceTree = "<group>"; };
-		96ED5A9B251FC15600B648E9 /* PricesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PricesCell.swift; sourceTree = "<group>"; };
-		96ED5A9D251FC16000B648E9 /* PricesCellBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PricesCellBuilder.swift; sourceTree = "<group>"; };
-		96ED5AA0251FC17A00B648E9 /* PriceChartCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceChartCell.swift; sourceTree = "<group>"; };
-		96ED5AA2251FC18300B648E9 /* PriceChartCellBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceChartCellBuilder.swift; sourceTree = "<group>"; };
+		96ED5A9B251FC15600B648E9 /* PricesDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PricesDetailView.swift; sourceTree = "<group>"; };
+		96ED5AA0251FC17A00B648E9 /* PricesChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PricesChartView.swift; sourceTree = "<group>"; };
 		96F898B824C4E48400686915 /* UITableView+Empty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Empty.swift"; sourceTree = "<group>"; };
 		96FB836424E82AA100259F22 /* ViewCodeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCodeProtocol.swift; sourceTree = "<group>"; };
 		96FB836624E8328C00259F22 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
@@ -1113,7 +1107,8 @@
 		9679303925197563002BF901 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				96ED5A95251FAC8E00B648E9 /* TableView */,
+				96ED5A9B251FC15600B648E9 /* PricesDetailView.swift */,
+				96ED5AA0251FC17A00B648E9 /* PricesChartView.swift */,
 				9679304F25198FCA002BF901 /* InvestimentDetailView.swift */,
 				967930532519904A002BF901 /* InvestimentDetailViewController.swift */,
 				9679304D25198FA8002BF901 /* InvestimentDetailViewProtocol.swift */,
@@ -1321,42 +1316,6 @@
 			path = ViewData;
 			sourceTree = "<group>";
 		};
-		96ED5A95251FAC8E00B648E9 /* TableView */ = {
-			isa = PBXGroup;
-			children = (
-				96ED5A98251FC0F300B648E9 /* Cells */,
-				96ED5A96251FBF3400B648E9 /* InvestimentDetailTableViewFactory.swift */,
-			);
-			path = TableView;
-			sourceTree = "<group>";
-		};
-		96ED5A98251FC0F300B648E9 /* Cells */ = {
-			isa = PBXGroup;
-			children = (
-				96ED5A9A251FC11400B648E9 /* PricesCell */,
-				96ED5A99251FC0FA00B648E9 /* PriceChartCell */,
-			);
-			path = Cells;
-			sourceTree = "<group>";
-		};
-		96ED5A99251FC0FA00B648E9 /* PriceChartCell */ = {
-			isa = PBXGroup;
-			children = (
-				96ED5AA0251FC17A00B648E9 /* PriceChartCell.swift */,
-				96ED5AA2251FC18300B648E9 /* PriceChartCellBuilder.swift */,
-			);
-			path = PriceChartCell;
-			sourceTree = "<group>";
-		};
-		96ED5A9A251FC11400B648E9 /* PricesCell */ = {
-			isa = PBXGroup;
-			children = (
-				96ED5A9B251FC15600B648E9 /* PricesCell.swift */,
-				96ED5A9D251FC16000B648E9 /* PricesCellBuilder.swift */,
-			);
-			path = PricesCell;
-			sourceTree = "<group>";
-		};
 		AAF43B7D0626A47E7E9E76A8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -1519,11 +1478,9 @@
 				966F923324F1849000D5D798 /* ImportCEICoordinator.swift in Sources */,
 				96DF1FEC24ECC15F00C73AF3 /* RegisterViewModelProtocol.swift in Sources */,
 				965C332C24FF0B8600C3B03E /* SelectableCellBuilder.swift in Sources */,
-				96ED5A9E251FC16000B648E9 /* PricesCellBuilder.swift in Sources */,
 				96DF1FDC24EC97A900C73AF3 /* LoginViewModelProtocol.swift in Sources */,
 				967930542519904A002BF901 /* InvestimentDetailViewController.swift in Sources */,
 				96DBF3F424C3C6B900E159DD /* ImportCEIViewController.swift in Sources */,
-				96ED5AA3251FC18300B648E9 /* PriceChartCellBuilder.swift in Sources */,
 				965C332424FF0B8600C3B03E /* StaticSection.swift in Sources */,
 				96DF1FE524ECBBA100C73AF3 /* WelcomeViewProtocol.swift in Sources */,
 				965C333224FF0B8600C3B03E /* CollectionViewSection.swift in Sources */,
@@ -1543,7 +1500,7 @@
 				96B4ED592506B9F600A79DA7 /* StatementCell.swift in Sources */,
 				96DF1FE324ECBA5D00C73AF3 /* WelcomeViewModelProtocol.swift in Sources */,
 				966F923524F1857800D5D798 /* ImportCEIViewModelProtocol.swift in Sources */,
-				96ED5A9C251FC15600B648E9 /* PricesCell.swift in Sources */,
+				96ED5A9C251FC15600B648E9 /* PricesDetailView.swift in Sources */,
 				96DED915251ED4FE0044AC83 /* ImportCEIViewDataProtocol.swift in Sources */,
 				96B4ED5B2506C99900A79DA7 /* StatementCellBuilder.swift in Sources */,
 				965C334C24FF3DE000C3B03E /* Double+Extension.swift in Sources */,
@@ -1594,7 +1551,6 @@
 				9662706A24E989D000CA0F08 /* RegisterCoordinator.swift in Sources */,
 				966F8291251C01E5002082A3 /* InvestimentListTableViewFactory.swift in Sources */,
 				96DC16A2250D47BB003C6C54 /* ShowAlert.swift in Sources */,
-				96ED5A97251FBF3400B648E9 /* InvestimentDetailTableViewFactory.swift in Sources */,
 				965C332724FF0B8600C3B03E /* SingleSelectionSection.swift in Sources */,
 				96B4ED4F2506840600A79DA7 /* StatementViewController.swift in Sources */,
 				96F898B924C4E48400686915 /* UITableView+Empty.swift in Sources */,
@@ -1627,7 +1583,7 @@
 				9679304C25198F6D002BF901 /* InvestimentListCoordinator.swift in Sources */,
 				96DED914251ED4FE0044AC83 /* ImportCEIViewData.swift in Sources */,
 				96DBF3F724C3C80800E159DD /* ImportCEIViewModel.swift in Sources */,
-				96ED5AA1251FC17A00B648E9 /* PriceChartCell.swift in Sources */,
+				96ED5AA1251FC17A00B648E9 /* PricesChartView.swift in Sources */,
 				9671474C24F2E75D006BA5CF /* WalletViewModelProtocol.swift in Sources */,
 				965C32FF24FF0B1A00C3B03E /* ViewConfigurable.swift in Sources */,
 				965C332524FF0B8600C3B03E /* ArrangeableSection.swift in Sources */,

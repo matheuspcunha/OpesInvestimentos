@@ -17,7 +17,15 @@ extension Date {
         return Calendar.current.date(byAdding: .month, value: -3, to: self)
     }
     
-    func getLast30Day() -> Date? {
+    func getLast30Days() -> Date? {
         return Calendar.current.date(byAdding: .day, value: -30, to: self)
+    }
+    
+    func getLast7Days() -> Date? {
+        return Calendar.current.date(byAdding: .day, value: -7, to: self)
+    }
+    
+    func getLastDay() -> Date? {
+        return Calendar.current.date(byAdding: .day, value: -1, to: self)
     }
 }

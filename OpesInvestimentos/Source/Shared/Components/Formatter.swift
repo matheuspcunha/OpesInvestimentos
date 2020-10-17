@@ -9,6 +9,7 @@
 import Foundation
 
 class Formatter {
+
     static let percentFormatter: NumberFormatter = {
         let formatter = NumberFormatter()
         formatter.numberStyle = NumberFormatter.Style.percent
@@ -20,6 +21,13 @@ class Formatter {
     static let dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateFormat = "dd/MM/yyyy"
+        formatter.timeZone = TimeZone(abbreviation: "GMT")
+        return formatter
+    }()
+    
+    static let dateTimeFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd 'de' MMM. HH:mm"
         formatter.timeZone = TimeZone(abbreviation: "GMT")
         return formatter
     }()

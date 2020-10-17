@@ -59,4 +59,18 @@ extension UIButton {
         self.tintColor = .appBlue
     }
     
+    func changeStatus(selected: Bool) {
+        if selected {
+            self.setTitleColor(.white, for: .normal)
+            self.backgroundColor = .appBlue
+            self.layer.cornerRadius = 5
+        } else {
+            self.setTitleColor(.appBlue, for: .normal)
+            self.backgroundColor = .white
+            self.layer.cornerRadius = 5
+            self.layer.borderWidth = 1
+            self.layer.borderColor = UIColor.appBlue.cgColor
+        }
+    }
+    
 }

@@ -26,4 +26,9 @@ final class InvestimentDetailCoordinator: CoordinatorProtocol {
     }
 }
 
-extension InvestimentDetailCoordinator: InvestimentDetailCoordinatorProtocol {}
+extension InvestimentDetailCoordinator: InvestimentDetailCoordinatorProtocol {
+
+    func back() {
+        navigationController.popViewController(animated: true)
+    }
+}

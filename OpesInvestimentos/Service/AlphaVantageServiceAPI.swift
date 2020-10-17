@@ -32,19 +32,19 @@ final class AlphaVantageServiceAPI {
         }
     }
     
-    func getPricesForTheDay(stock: String, completion: @escaping ([Price]?, Error?) -> Void) {
+    func getPricesForTheDay(stock: String, onComplete: @escaping (Result<[Price], Error>) -> Void) {
         let url = Endpoints.day(stock: stock).stringValue
-        handleRequest(url: url, parseKey: "Time Series (Daily)", completion: completion)
+        handleRequest(url: url, parseKey: "Time Series (Daily)", completion: onComplete)
     }
     
-    func getPricesForTheWeek(stock: String, completion: @escaping ([Price]?, Error?) -> Void) {
+    func getPricesForTheWeek(stock: String, onComplete: @escaping (Result<[Price], Error>) -> Void) {
         let url = Endpoints.week(stock: stock).stringValue
-        handleRequest(url: url, parseKey: "Weekly Time Series", completion: completion)
+        handleRequest(url: url, parseKey: "Weekly Time Series", completion: onComplete)
     }
     
-    func getPricesForTheMonth(stock: String, completion: @escaping ([Price]?, Error?) -> Void) {
+    func getPricesForTheMonth(stock: String, onComplete: @escaping (Result<[Price], Error>) -> Void) {
         let url = Endpoints.month(stock: stock).stringValue
-        handleRequest(url: url, parseKey: "Monthly Time Series", completion: completion)
+        handleRequest(url: url, parseKey: "Monthly Time Series", completion: onComplete)
     }
     
     func mock(stock: String, onComplete: @escaping (Result<[Price], Error>) -> Void) {
@@ -52,15 +52,15 @@ final class AlphaVantageServiceAPI {
         test(url: url, parseKey: "Time Series (Daily)", completion: onComplete)
     }
     
-    private func handleRequest(url: String, parseKey: String, completion: @escaping ([Price]?, Error?) -> Void) {
+    private func handleRequest(url: String, parseKey: String, completion: @escaping (Result<[Price], Error>) -> Void) {
         AF.request(url).responseJSON() { response in
             switch response.result {
                 case .success(let data):
                     let prices = self.parseResponse(data: data, parseKey: parseKey)
-                    completion(prices, nil)
+                    completion(.success(prices))
                     break
                 case .failure(let error):
-                    completion(nil, error)
+                    completion(.failure(error))
                     break
             }
         }

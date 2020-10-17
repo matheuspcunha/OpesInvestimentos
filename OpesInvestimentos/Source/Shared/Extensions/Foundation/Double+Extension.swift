@@ -19,12 +19,10 @@ extension Double {
         }
         return formatted
     }
-
-    private func formatAsPercent() -> String {
+    
+    private func formatAsCurrencyNoSymbol() -> String {
         let formatter = NumberFormatter()
-        formatter.numberStyle = .percent
-        formatter.minimumFractionDigits = 1
-        formatter.maximumFractionDigits = 1
+        formatter.numberStyle = .decimal
         formatter.locale = Locale(identifier: "pt_BR")
         guard let formatted = formatter.string(from: self as NSNumber) else {
             return String(self)
@@ -32,11 +30,23 @@ extension Double {
         return formatted
     }
     
-    func formatCurrency(emptyIfZero: Bool = false) -> String {
+    private func formatAsPercent() -> String {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .percent
+        formatter.minimumFractionDigits = 1
+        formatter.maximumFractionDigits = 2
+        formatter.locale = Locale(identifier: "pt_BR")
+        guard let formatted = formatter.string(from: self as NSNumber) else {
+            return String(self)
+        }
+        return formatted
+    }
+    
+    func formatCurrency(emptyIfZero: Bool = false, symbol: Bool = true) -> String {
         if self.isZero, emptyIfZero {
             return "R$ --"
         }
-        return self.formatAsCurrency()
+        return symbol ? self.formatAsCurrency() : self.formatAsCurrencyNoSymbol()
     }
     
     func formatPercent(emptyIfZero: Bool = false) -> String {
