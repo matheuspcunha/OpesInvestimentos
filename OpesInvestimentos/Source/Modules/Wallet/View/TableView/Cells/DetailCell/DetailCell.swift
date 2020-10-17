@@ -24,6 +24,7 @@ final class DetailCell: UITableViewCell, Reusable {
         resultValueLabel.text = result.formatCurrency()
         variationValueLabel.text =  variation.formatPercent()
         variationValueLabel.textColor = result.sign == .plus ? .appPositive : .appNegative
+        configureVariationIcon(positive: result.sign == .plus)
     }
     
     private lazy var stackView: UIStackView = {
@@ -86,6 +87,15 @@ final class DetailCell: UITableViewCell, Reusable {
         let stack = UIStackView()
         stack.alignment = .center
         stack.axis = .vertical
+        stack.distribution = .fillProportionally
+        return stack
+    }()
+
+    private lazy var variationContentStack: UIStackView = {
+        let stack = UIStackView()
+        stack.alignment = .center
+        stack.axis = .horizontal
+        stack.spacing = 5
         return stack
     }()
     
@@ -104,6 +114,12 @@ final class DetailCell: UITableViewCell, Reusable {
         label.font = UIFont(name: "Avenir-Heavy", size: 15)
         return label
     }()
+
+    private lazy var variationIconImage: UIImageView = {
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFit
+        return imageView
+    }()
     
     private var dividerLineView1: UIView = {
         let view = UIView()
@@ -116,6 +132,13 @@ final class DetailCell: UITableViewCell, Reusable {
         view.backgroundColor = .opaqueSeparator
         return view
     }()
+    
+    private func configureVariationIcon(positive: Bool) {
+        if let image = positive ? UIImage(named: "up") : UIImage(named: "down") {
+            variationIconImage.image = image.withRenderingMode(.alwaysTemplate)
+        }
+        variationIconImage.tintColor = positive ? .appPositive : .appNegative
+    }
 }
 
 extension DetailCell: ViewCodeProtocol {
@@ -124,8 +147,11 @@ extension DetailCell: ViewCodeProtocol {
         totalCostStack.addArrangedSubview(totalCostTitleLabel)
         totalCostStack.addArrangedSubview(totalCostValueLabel)
 
+        variationContentStack.addArrangedSubview(variationValueLabel)
+        variationContentStack.addArrangedSubview(variationIconImage)
+
         variationStack.addArrangedSubview(variationTitleLabel)
-        variationStack.addArrangedSubview(variationValueLabel)
+        variationStack.addArrangedSubview(variationContentStack)
         
         resultStack.addArrangedSubview(resultTitleLabel)
         resultStack.addArrangedSubview(resultValueLabel)
@@ -155,6 +181,12 @@ extension DetailCell: ViewCodeProtocol {
         dividerLineView2.constraint { view in
             [view.widthAnchor.constraint(equalToConstant: 0.5),
              view.heightAnchor.constraint(equalTo: stackView.heightAnchor)]
+        }
+        
+        variationIconImage.constraint { view in
+            [view.widthAnchor.constraint(equalToConstant: 20),
+             view.heightAnchor.constraint(equalTo: view.widthAnchor),
+             view.centerYAnchor.constraint(equalTo: variationContentStack.centerYAnchor)]
         }
     }
 }

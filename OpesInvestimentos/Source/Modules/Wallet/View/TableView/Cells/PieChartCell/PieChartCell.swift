@@ -49,13 +49,6 @@ final class PieChartCell: UITableViewCell, Reusable {
         
         let chartDataSet = PieChartDataSet(entries: dataEntry, label: nil)
         chartDataSet.colors = dataColors
-//        chartDataSet.xValuePosition = .outsideSlice
-//        chartDataSet.yValuePosition = .outsideSlice
-//        chartDataSet.valueTextColor = .darkGray
-//        chartDataSet.entryLabelColor = .darkGray
-//        chartDataSet.valueLineWidth = 0.1
-//        chartDataSet.valueLinePart1Length = 0.2
-//        chartDataSet.valueLinePart2Length = 1
 
         let chartData = PieChartData(dataSet: chartDataSet)
         chartData.setValueFormatter(DefaultValueFormatter(formatter: Formatter.percentFormatter))
@@ -75,7 +68,7 @@ extension PieChartCell: ViewCodeProtocol {
              view.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
              view.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
              view.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -5),
-             view.heightAnchor.constraint(equalToConstant: 300),]
+             view.heightAnchor.constraint(equalToConstant: 400),]
         }
     }
 }

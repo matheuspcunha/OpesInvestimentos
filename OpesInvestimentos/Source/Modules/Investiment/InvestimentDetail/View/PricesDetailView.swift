@@ -195,18 +195,11 @@ final class PricesDetailView: UIView {
     
     private lazy var variationIconImage: UIImageView = {
         let imageView = UIImageView()
-        if let image = UIImage(named: "disclosure_indicator") {
-            imageView.image = image.withRenderingMode(.alwaysTemplate)
-        }
-        
         imageView.contentMode = .scaleAspectFit
-        imageView.tintColor = .opaqueSeparator
-
         return imageView
     }()
     
     private func configureVariationIcon(positive: Bool) {
-        
         if let image = positive ? UIImage(named: "up") : UIImage(named: "down") {
             variationIconImage.image = image.withRenderingMode(.alwaysTemplate)
         }
