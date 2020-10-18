@@ -105,7 +105,6 @@ extension InvestimentDetailView: ViewCodeProtocol {
     }
     
     func setupConstraints() {
-        
         detailsView.constraint { view in
             [view.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 20),
              view.leadingAnchor.constraint(equalTo: leadingAnchor),

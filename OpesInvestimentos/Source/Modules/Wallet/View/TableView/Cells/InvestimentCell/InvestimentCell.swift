@@ -53,13 +53,16 @@ final class InvestimentCell: UITableViewCell, Reusable {
         return label
     }()
     
-    private lazy var arrowIconLabel: UILabel = {
-        let label = UILabel()
-        label.text = ">"
-        label.textColor = .opaqueSeparator
-        label.textAlignment = .left
-        label.font = UIFont(name: "Avenir-Heavy", size: 15)
-        return label
+    private lazy var indicatorIconImage: UIImageView = {
+        let imageView = UIImageView()
+        if let image = UIImage(named: "disclosure_indicator") {
+            imageView.image = image.withRenderingMode(.alwaysTemplate)
+        }
+        
+        imageView.contentMode = .scaleAspectFit
+        imageView.tintColor = .opaqueSeparator
+
+        return imageView
     }()
     
     private lazy var dividerLineView: UIView = {
@@ -82,7 +85,7 @@ extension InvestimentCell: ViewCodeProtocol {
         contentStack.addArrangedSubview(dividerLineView)
         
         stackView.addArrangedSubview(contentStack)
-        stackView.addArrangedSubview(arrowIconLabel)
+        stackView.addArrangedSubview(indicatorIconImage)
         
         addSubview(stackView)
     }
@@ -95,8 +98,8 @@ extension InvestimentCell: ViewCodeProtocol {
              view.bottomAnchor.constraint(equalTo: bottomAnchor)]
         }
         
-        arrowIconLabel.constraint { view in
-            [view.widthAnchor.constraint(equalToConstant: 25),
+        indicatorIconImage.constraint { view in
+            [view.widthAnchor.constraint(equalToConstant: 15),
              view.heightAnchor.constraint(equalTo: view.heightAnchor)]
         }
     }
