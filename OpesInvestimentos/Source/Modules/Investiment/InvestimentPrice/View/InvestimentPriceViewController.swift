@@ -1,5 +1,5 @@
 //
-//  InvestimentDetailViewController.swift
+//  InvestimentPriceViewController.swift
 //  OpesInvestimentos
 //
 //  Created by Matheus Cunha on 21/09/20.
@@ -8,14 +8,14 @@
 
 import UIKit
 
-final class InvestimentDetailViewController: UIViewController {
+final class InvestimentPriceViewController: UIViewController {
 
-    private var viewModel: InvestimentDetailViewModelProtocol!
-    private var contentView: InvestimentDetailView!
+    private var viewModel: InvestimentPriceViewModelProtocol!
+    private var contentView: InvestimentPriceView!
     
-    init(viewModel: InvestimentDetailViewModelProtocol) {
+    init(viewModel: InvestimentPriceViewModelProtocol) {
         self.viewModel = viewModel
-        self.contentView = InvestimentDetailView(viewModel: viewModel)
+        self.contentView = InvestimentPriceView(viewModel: viewModel)
         super.init(nibName: nil, bundle: nil)
     }
 

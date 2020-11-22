@@ -1,5 +1,5 @@
 //
-//  InvestimentDetailViewProtocol.swift
+//  InvestimentPriceViewProtocol.swift
 //  OpesInvestimentos
 //
 //  Created by Matheus Cunha on 21/09/20.
@@ -8,4 +8,4 @@
 
 import Foundation
 
-protocol InvestimentDetailViewProtocol: class {}
+protocol InvestimentPriceViewProtocol: class {}

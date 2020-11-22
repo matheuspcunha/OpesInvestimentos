@@ -1,5 +1,5 @@
 //
-//  InvestimentDetailViewData.swift
+//  InvestimentPriceViewData.swift
 //  OpesInvestimentos
 //
 //  Created by Matheus Cunha on 26/09/20.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct InvestimentDetailViewData: InvestimentDetailViewDataProtocol {
+struct InvestimentPriceViewData: InvestimentPriceViewDataProtocol {
     
     var asset: InvestimentAsset
     var prices: [Price]?

@@ -68,7 +68,7 @@ final class DetailCell: UITableViewCell, Reusable {
     
     private lazy var resultTitleLabel: UILabel = {
         let label = UILabel()
-        label.text = "Resultado"
+        label.text = "Valorização"
         label.textColor = .darkGray
         label.textAlignment = .left
         label.font = UIFont(name: "Avenir-Roman", size: 13)
@@ -170,7 +170,7 @@ extension DetailCell: ViewCodeProtocol {
             [view.topAnchor.constraint(equalTo: topAnchor),
              view.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 40),
              view.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -40),
-             view.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -15)]
+             view.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -25)]
         }
         
         dividerLineView1.constraint { view in

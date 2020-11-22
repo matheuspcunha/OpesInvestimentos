@@ -1,5 +1,5 @@
 //
-//  InvestimentDetailView.swift
+//  InvestimentPriceView.swift
 //  OpesInvestimentos
 //
 //  Created by Matheus Cunha on 21/09/20.
@@ -8,12 +8,12 @@
 
 import UIKit
 
-final class InvestimentDetailView: UIView {
+final class InvestimentPriceView: UIView {
 
-    private var viewModel: InvestimentDetailViewModelProtocol!
+    private var viewModel: InvestimentPriceViewModelProtocol!
     private var buttons: [UIButton] = []
 
-    init(viewModel: InvestimentDetailViewModelProtocol) {
+    init(viewModel: InvestimentPriceViewModelProtocol) {
         self.viewModel = viewModel
         super.init(frame: .zero)
         self.viewModel.delegate = self
@@ -81,9 +81,9 @@ final class InvestimentDetailView: UIView {
     }()
 }
 
-extension InvestimentDetailView: InvestimentDetailViewProtocol {}
+extension InvestimentPriceView: InvestimentPriceViewProtocol {}
 
-extension InvestimentDetailView: ViewCodeProtocol {
+extension InvestimentPriceView: ViewCodeProtocol {
     
     func additionalSetup() {
         backgroundColor = .white
@@ -125,9 +125,9 @@ extension InvestimentDetailView: ViewCodeProtocol {
     }
 }
 
-extension InvestimentDetailView: InvestimentDetailViewModelDelegate {
+extension InvestimentPriceView: InvestimentPriceViewModelDelegate {
 
-    func onLoadDetail() {
+    func onLoadPrice() {
         if let data = self.viewModel.viewData {
             guard let prices = data.prices,
                   let currentPrice = data.currentPrice

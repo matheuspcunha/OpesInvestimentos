@@ -27,6 +27,8 @@ final class InvestimentListViewModel: InvestimentListViewModelProtocol {
     }
     
     func showDetail(to asset: InvestimentAsset) {
-        coordinator?.showDetail(to: asset)
+        if !asset.symbol.contains("Tesouro") && !asset.averagePrice.isNaN {
+            coordinator?.showDetail(to: asset)
+        }
     }
 }

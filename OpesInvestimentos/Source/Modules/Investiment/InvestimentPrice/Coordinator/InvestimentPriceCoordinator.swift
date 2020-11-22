@@ -1,5 +1,5 @@
 //
-//  InvestimentDetailCoordinator.swift
+//  InvestimentPriceCoordinator.swift
 //  OpesInvestimentos
 //
 //  Created by Matheus Cunha on 21/09/20.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class InvestimentDetailCoordinator: CoordinatorProtocol {
+final class InvestimentPriceCoordinator: CoordinatorProtocol {
 
     var navigationController: UINavigationController
     private var asset: InvestimentAsset
@@ -19,14 +19,14 @@ final class InvestimentDetailCoordinator: CoordinatorProtocol {
     }
     
     func start() {
-        let viewData = InvestimentDetailViewData(asset: asset)
-        let viewModel = InvestimentDetailViewModel(coordinator: self, viewData: viewData)
-        let investimentDetailVC = InvestimentDetailViewController(viewModel: viewModel)
-        navigationController.pushViewController(investimentDetailVC, animated: true)
+        let viewData = InvestimentPriceViewData(asset: asset)
+        let viewModel = InvestimentPriceViewModel(coordinator: self, viewData: viewData)
+        let investimentPriceVC = InvestimentPriceViewController(viewModel: viewModel)
+        navigationController.pushViewController(investimentPriceVC, animated: true)
     }
 }
 
-extension InvestimentDetailCoordinator: InvestimentDetailCoordinatorProtocol {
+extension InvestimentPriceCoordinator: InvestimentPriceCoordinatorProtocol {
 
     func back() {
         navigationController.popViewController(animated: true)
