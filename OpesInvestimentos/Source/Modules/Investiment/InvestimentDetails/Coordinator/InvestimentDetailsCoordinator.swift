@@ -31,4 +31,10 @@ extension InvestimentDetailsCoordinator: InvestimentDetailsCoordinatorProtocol {
     func back() {
         navigationController.popViewController(animated: true)
     }
+    
+    func showPrice(to asset: InvestimentAsset) {
+        let investimentDetail = InvestimentPriceCoordinator(navigationController: navigationController,
+                                                            asset: asset)
+        coordinate(to: investimentDetail)
+    }
 }

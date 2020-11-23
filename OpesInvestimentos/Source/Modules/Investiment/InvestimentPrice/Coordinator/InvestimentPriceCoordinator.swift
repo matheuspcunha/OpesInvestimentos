@@ -22,7 +22,8 @@ final class InvestimentPriceCoordinator: CoordinatorProtocol {
         let viewData = InvestimentPriceViewData(asset: asset)
         let viewModel = InvestimentPriceViewModel(coordinator: self, viewData: viewData)
         let investimentPriceVC = InvestimentPriceViewController(viewModel: viewModel)
-        navigationController.pushViewController(investimentPriceVC, animated: true)
+        navigationController.modalPresentationStyle = UIModalPresentationStyle.automatic
+        navigationController.present(investimentPriceVC, animated: true, completion: nil)
     }
 }
 

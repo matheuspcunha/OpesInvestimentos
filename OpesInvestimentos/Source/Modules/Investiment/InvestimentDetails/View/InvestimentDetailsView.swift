@@ -26,6 +26,7 @@ final class InvestimentDetailsView: UIView {
         let stack = UIStackView()
         stack.axis = .vertical
         stack.spacing = 5
+        stack.distribution = .fillProportionally
         return stack
     }()
     
@@ -160,6 +161,16 @@ final class InvestimentDetailsView: UIView {
         return InvestimentDetailsItemView(title: "Pagamentos Recebidos",
                                           description: paymentReceived.formatCurrency() )
     }()
+    
+    private lazy var priceButton: UIButton = {
+        let button = UIButton(style: .secondary, text: "Ver Cotação")
+        button.addTarget(self, action: #selector(showPrice), for: .touchUpInside)
+        return button
+    }()
+    
+    @objc private func showPrice(sender: UIButton) {
+        viewModel.showPrice()
+    }
 }
 
 extension InvestimentDetailsView: InvestimentPriceViewProtocol {}
@@ -191,6 +202,7 @@ extension InvestimentDetailsView: ViewCodeProtocol {
         addSubview(totalViewContent)
         addSubview(infoStack)
         addSubview(incomeAndProfitsStack)
+        addSubview(priceButton)
     }
     
     func setupConstraints() {
@@ -223,6 +235,12 @@ extension InvestimentDetailsView: ViewCodeProtocol {
         dividerLineView.constraint { view in
             [view.widthAnchor.constraint(equalToConstant: 0.5),
              view.heightAnchor.constraint(equalTo: infoStack.heightAnchor)]
+        }
+        
+        priceButton.constraint { view in
+            [view.topAnchor.constraint(equalTo: incomeAndProfitsStack.bottomAnchor, constant: 40),
+             view.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 40),
+             view.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -40)]
         }
     }
 }

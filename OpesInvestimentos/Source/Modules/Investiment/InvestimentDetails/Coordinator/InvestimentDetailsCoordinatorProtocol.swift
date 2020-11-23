@@ -10,4 +10,5 @@ import Foundation
 
 protocol InvestimentDetailsCoordinatorProtocol: class, ShowAlert, ScreenLoader {
     func back()
+    func showPrice(to asset: InvestimentAsset)
 }

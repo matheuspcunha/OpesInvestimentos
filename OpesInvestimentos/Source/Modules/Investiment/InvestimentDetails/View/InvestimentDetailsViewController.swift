@@ -25,7 +25,6 @@ final class InvestimentDetailsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel.loadDetail()
     }
 
     override func loadView() {

@@ -12,5 +12,5 @@ protocol InvestimentDetailsViewModelProtocol: class {
     var view: InvestimentDetailsViewProtocol? { get set }
     var viewData: InvestimentDetailsViewDataProtocol? { get set }
     
-    func loadDetail()
+    func showPrice()
 }

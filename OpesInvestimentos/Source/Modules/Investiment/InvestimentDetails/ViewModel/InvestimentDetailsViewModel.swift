@@ -21,11 +21,12 @@ final class InvestimentDetailsViewModel: InvestimentDetailsViewModelProtocol {
         self.coordinator = coordinator
         self.viewData = viewData
     }
-    
-    func loadDetail() {
 
+    func showPrice() {
+        guard let asset = viewData?.asset else { return }
+        coordinator?.showPrice(to: asset)
     }
-
+    
     private func exit() {
         coordinator?.back()
     }
