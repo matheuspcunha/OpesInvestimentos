@@ -14,6 +14,7 @@ protocol InvestimentPriceViewModelProtocol: class {
     var viewData: InvestimentPriceViewDataProtocol? { get set }
     
     func loadDetail()
+    func backScreen()
 }
 
 protocol InvestimentPriceViewModelDelegate: class {

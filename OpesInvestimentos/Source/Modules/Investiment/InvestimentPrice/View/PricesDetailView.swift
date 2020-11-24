@@ -118,7 +118,7 @@ final class PricesDetailView: UIView {
     
     private lazy var highTitleLabel: UILabel = {
         let label = UILabel()
-        label.text = "Alta"
+        label.text = "Máximo"
         label.textColor = .darkGray
         label.textAlignment = .center
         label.font = UIFont(name: "Avenir-Roman", size: 13)
@@ -166,7 +166,7 @@ final class PricesDetailView: UIView {
     
     private lazy var lowTitleLabel: UILabel = {
         let label = UILabel()
-        label.text = "Baixa"
+        label.text = "Mínimo"
         label.textColor = .darkGray
         label.textAlignment = .center
         label.font = UIFont(name: "Avenir-Roman", size: 13)
@@ -251,9 +251,9 @@ extension PricesDetailView: ViewCodeProtocol {
     
     func setupConstraints() {
         viewContent.constraint { view in
-            [view.topAnchor.constraint(equalTo: topAnchor),
-             view.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-             view.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+            [view.topAnchor.constraint(equalTo: topAnchor, constant: 40),
+             view.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 40),
+             view.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -40),
              view.heightAnchor.constraint(equalToConstant: 80)]
         }
         
@@ -264,9 +264,9 @@ extension PricesDetailView: ViewCodeProtocol {
         }
         
         detailStack.constraint { view in
-            [view.topAnchor.constraint(equalTo: viewContent.bottomAnchor, constant: 15),
-             view.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 30),
-             view.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -30),
+            [view.topAnchor.constraint(equalTo: viewContent.bottomAnchor, constant: 10),
+             view.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 40),
+             view.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -40),
              view.bottomAnchor.constraint(equalTo: bottomAnchor)]
         }
         

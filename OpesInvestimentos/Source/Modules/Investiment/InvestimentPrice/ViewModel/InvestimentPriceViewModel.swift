@@ -40,12 +40,12 @@ final class InvestimentPriceViewModel: InvestimentPriceViewModelProtocol {
             case .failure:
                 self.coordinator?.showAlert(Alert.make(title: "Ops!",
                                                        message: "Não foi possível exibir as informações. Tente novamente mais tarde",
-                                                       handler: self.exit))
+                                                       handler: self.backScreen))
             }
         }
     }
 
-    private func exit() {
+    func backScreen() {
         coordinator?.back()
     }
 }

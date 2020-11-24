@@ -27,6 +27,12 @@ final class InvestimentPriceView: UIView {
     private lazy var chartView = PricesChartView()
     private lazy var detailsView = PricesDetailView()
     
+    private lazy var backButton: UIButton = {
+        let button = UIButton(style: .back)
+        button.addTarget(self, action: #selector(backTapped), for: .touchUpInside)
+        return button
+    }()
+
     private lazy var weekPeriodButton: UIButton = {
         let button = UIButton(style: .primary, text: "7D")
         button.addTarget(self, action: #selector(didPressButton), for: .touchUpInside)
@@ -79,6 +85,10 @@ final class InvestimentPriceView: UIView {
         stack.spacing = 20
         return stack
     }()
+    
+    @objc private func backTapped(sender: UIButton) {
+        viewModel.backScreen()
+    }
 }
 
 extension InvestimentPriceView: InvestimentPriceViewProtocol {}
@@ -99,20 +109,26 @@ extension InvestimentPriceView: ViewCodeProtocol {
         buttonsStack.addArrangedSubview(threeMonthPeriodButton)
         buttonsStack.addArrangedSubview(sixMonthPeriodButton)
 
+        addSubview(backButton)
         addSubview(detailsView)
         addSubview(buttonsStack)
         addSubview(chartView)
     }
     
     func setupConstraints() {
+        backButton.constraint { view in
+            [view.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 30),
+             view.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 40)]
+        }
+        
         detailsView.constraint { view in
-            [view.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 20),
+            [view.topAnchor.constraint(equalTo: backButton.bottomAnchor),
              view.leadingAnchor.constraint(equalTo: leadingAnchor),
              view.trailingAnchor.constraint(equalTo: trailingAnchor)]
         }
         
         chartView.constraint { view in
-            [view.topAnchor.constraint(equalTo: detailsView.bottomAnchor, constant: 10),
+            [view.topAnchor.constraint(equalTo: detailsView.bottomAnchor, constant: 40),
              view.leadingAnchor.constraint(equalTo: leadingAnchor),
              view.trailingAnchor.constraint(equalTo: trailingAnchor)]
         }

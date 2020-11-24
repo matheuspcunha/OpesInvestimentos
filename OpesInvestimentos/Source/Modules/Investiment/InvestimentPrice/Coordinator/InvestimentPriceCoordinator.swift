@@ -30,6 +30,6 @@ final class InvestimentPriceCoordinator: CoordinatorProtocol {
 extension InvestimentPriceCoordinator: InvestimentPriceCoordinatorProtocol {
 
     func back() {
-        navigationController.popViewController(animated: true)
+        navigationController.dismiss(animated: true, completion: nil)
     }
 }
