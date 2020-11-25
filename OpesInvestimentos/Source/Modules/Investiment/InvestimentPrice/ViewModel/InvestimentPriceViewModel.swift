@@ -25,14 +25,14 @@ final class InvestimentPriceViewModel: InvestimentPriceViewModelProtocol {
         self.service = service
         self.viewData = viewData
     }
-    
+
     func loadDetail() {
         coordinator?.showLoading(true)
         guard let symbol = viewData?.asset.symbol else { return }
 
         service.getPrices(symbol: symbol) { result in
             self.coordinator?.showLoading(false)
-            
+
             switch result {
             case .success(let prices):
                 self.viewData?.prices = prices
