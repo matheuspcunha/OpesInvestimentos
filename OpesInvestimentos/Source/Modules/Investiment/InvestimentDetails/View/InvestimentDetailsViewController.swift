@@ -1,21 +1,21 @@
 //
-//  InvestimentDetailViewController.swift
+//  InvestimentDetailsViewController.swift
 //  OpesInvestimentos
 //
-//  Created by Matheus Cunha on 21/09/20.
+//  Created by Matheus Cunha on 17/11/20.
 //  Copyright © 2020 Matheus Cunha. All rights reserved.
 //
 
 import UIKit
 
-final class InvestimentDetailViewController: UIViewController {
+final class InvestimentDetailsViewController: UIViewController {
 
-    private var viewModel: InvestimentDetailViewModelProtocol!
-    private var contentView: InvestimentDetailView!
+    private var viewModel: InvestimentDetailsViewModelProtocol!
+    private var contentView: InvestimentDetailsView!
     
-    init(viewModel: InvestimentDetailViewModelProtocol) {
+    init(viewModel: InvestimentDetailsViewModelProtocol) {
         self.viewModel = viewModel
-        self.contentView = InvestimentDetailView(viewModel: viewModel)
+        self.contentView = InvestimentDetailsView(viewModel: viewModel)
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -25,7 +25,6 @@ final class InvestimentDetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel.loadDetail()
     }
 
     override func loadView() {
@@ -39,6 +38,5 @@ final class InvestimentDetailViewController: UIViewController {
 
     private func setupNavigation() {
         navigationController?.navigationBar.prefersLargeTitles = false
-        navigationItem.title = viewModel.viewData?.asset.symbol
     }
 }

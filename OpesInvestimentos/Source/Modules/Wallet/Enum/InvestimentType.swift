@@ -30,7 +30,7 @@ extension InvestimentType {
         case .treasure:
             return "Tesouro Direto"
         case .funds:
-            return "Fundos"
+            return "Fundos Imobiliarios"
         case .stock:
             return "Ações"
         }

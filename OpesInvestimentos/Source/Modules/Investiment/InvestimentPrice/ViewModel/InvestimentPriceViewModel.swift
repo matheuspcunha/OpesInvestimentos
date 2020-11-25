@@ -1,5 +1,5 @@
 //
-//  InvestimentDetailViewModel.swift
+//  InvestimentPriceViewModel.swift
 //  OpesInvestimentos
 //
 //  Created by Matheus Cunha on 21/09/20.
@@ -8,44 +8,44 @@
 
 import Foundation
 
-final class InvestimentDetailViewModel: InvestimentDetailViewModelProtocol {
+final class InvestimentPriceViewModel: InvestimentPriceViewModelProtocol {
     
-    weak var view: InvestimentDetailViewProtocol?
-    weak var delegate: InvestimentDetailViewModelDelegate?
+    weak var view: InvestimentPriceViewProtocol?
+    weak var delegate: InvestimentPriceViewModelDelegate?
     
-    var viewData: InvestimentDetailViewDataProtocol?
+    var viewData: InvestimentPriceViewDataProtocol?
     
-    private var coordinator: InvestimentDetailCoordinatorProtocol?
-    private var service: InvestimentDetailServiceProtocol
+    private var coordinator: InvestimentPriceCoordinatorProtocol?
+    private var service: InvestimentPriceServiceProtocol
 
-    init(coordinator: InvestimentDetailCoordinatorProtocol?,
-         service: InvestimentDetailServiceProtocol = InvestimentDetailService(),
-         viewData: InvestimentDetailViewDataProtocol) {
+    init(coordinator: InvestimentPriceCoordinatorProtocol?,
+         service: InvestimentPriceServiceProtocol = InvestimentPriceService(),
+         viewData: InvestimentPriceViewDataProtocol) {
         self.coordinator = coordinator
         self.service = service
         self.viewData = viewData
     }
-    
+
     func loadDetail() {
         coordinator?.showLoading(true)
         guard let symbol = viewData?.asset.symbol else { return }
 
         service.getPrices(symbol: symbol) { result in
             self.coordinator?.showLoading(false)
-            
+
             switch result {
             case .success(let prices):
                 self.viewData?.prices = prices
-                self.delegate?.onLoadDetail()
+                self.delegate?.onLoadPrice()
             case .failure:
                 self.coordinator?.showAlert(Alert.make(title: "Ops!",
                                                        message: "Não foi possível exibir as informações. Tente novamente mais tarde",
-                                                       handler: self.exit))
+                                                       handler: self.backScreen))
             }
         }
     }
 
-    private func exit() {
+    func backScreen() {
         coordinator?.back()
     }
 }

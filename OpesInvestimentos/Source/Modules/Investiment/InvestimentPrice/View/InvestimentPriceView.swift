@@ -1,5 +1,5 @@
 //
-//  InvestimentDetailView.swift
+//  InvestimentPriceView.swift
 //  OpesInvestimentos
 //
 //  Created by Matheus Cunha on 21/09/20.
@@ -8,12 +8,12 @@
 
 import UIKit
 
-final class InvestimentDetailView: UIView {
+final class InvestimentPriceView: UIView {
 
-    private var viewModel: InvestimentDetailViewModelProtocol!
+    private var viewModel: InvestimentPriceViewModelProtocol!
     private var buttons: [UIButton] = []
 
-    init(viewModel: InvestimentDetailViewModelProtocol) {
+    init(viewModel: InvestimentPriceViewModelProtocol) {
         self.viewModel = viewModel
         super.init(frame: .zero)
         self.viewModel.delegate = self
@@ -27,6 +27,12 @@ final class InvestimentDetailView: UIView {
     private lazy var chartView = PricesChartView()
     private lazy var detailsView = PricesDetailView()
     
+    private lazy var backButton: UIButton = {
+        let button = UIButton(style: .back)
+        button.addTarget(self, action: #selector(backTapped), for: .touchUpInside)
+        return button
+    }()
+
     private lazy var weekPeriodButton: UIButton = {
         let button = UIButton(style: .primary, text: "7D")
         button.addTarget(self, action: #selector(didPressButton), for: .touchUpInside)
@@ -79,11 +85,15 @@ final class InvestimentDetailView: UIView {
         stack.spacing = 20
         return stack
     }()
+    
+    @objc private func backTapped(sender: UIButton) {
+        viewModel.backScreen()
+    }
 }
 
-extension InvestimentDetailView: InvestimentDetailViewProtocol {}
+extension InvestimentPriceView: InvestimentPriceViewProtocol {}
 
-extension InvestimentDetailView: ViewCodeProtocol {
+extension InvestimentPriceView: ViewCodeProtocol {
     
     func additionalSetup() {
         backgroundColor = .white
@@ -99,20 +109,26 @@ extension InvestimentDetailView: ViewCodeProtocol {
         buttonsStack.addArrangedSubview(threeMonthPeriodButton)
         buttonsStack.addArrangedSubview(sixMonthPeriodButton)
 
+        addSubview(backButton)
         addSubview(detailsView)
         addSubview(buttonsStack)
         addSubview(chartView)
     }
     
     func setupConstraints() {
+        backButton.constraint { view in
+            [view.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 30),
+             view.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 40)]
+        }
+        
         detailsView.constraint { view in
-            [view.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 20),
+            [view.topAnchor.constraint(equalTo: backButton.bottomAnchor),
              view.leadingAnchor.constraint(equalTo: leadingAnchor),
              view.trailingAnchor.constraint(equalTo: trailingAnchor)]
         }
         
         chartView.constraint { view in
-            [view.topAnchor.constraint(equalTo: detailsView.bottomAnchor, constant: 10),
+            [view.topAnchor.constraint(equalTo: detailsView.bottomAnchor, constant: 40),
              view.leadingAnchor.constraint(equalTo: leadingAnchor),
              view.trailingAnchor.constraint(equalTo: trailingAnchor)]
         }
@@ -125,9 +141,9 @@ extension InvestimentDetailView: ViewCodeProtocol {
     }
 }
 
-extension InvestimentDetailView: InvestimentDetailViewModelDelegate {
+extension InvestimentPriceView: InvestimentPriceViewModelDelegate {
 
-    func onLoadDetail() {
+    func onLoadPrice() {
         if let data = self.viewModel.viewData {
             guard let prices = data.prices,
                   let currentPrice = data.currentPrice

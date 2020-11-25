@@ -22,7 +22,6 @@ public protocol CollectionViewCellBuilder {
         on collectionView: UICollectionView
     ) -> UICollectionReusableView
 
-//    func collectionViewShouldSelectCell(_ collectionView: UICollectionView) -> Bool
     func collectionViewDidSelectCell(_ collectionView: UICollectionView, at indexPath: IndexPath)
 }
 

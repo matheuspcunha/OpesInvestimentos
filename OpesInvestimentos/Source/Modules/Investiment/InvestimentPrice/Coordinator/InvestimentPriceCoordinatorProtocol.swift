@@ -1,5 +1,5 @@
 //
-//  InvestimentDetailCoordinatorProtocol.swift
+//  InvestimentPriceCoordinatorProtocol.swift
 //  OpesInvestimentos
 //
 //  Created by Matheus Cunha on 21/09/20.
@@ -8,6 +8,6 @@
 
 import Foundation
 
-protocol InvestimentDetailCoordinatorProtocol: class, ShowAlert, ScreenLoader {
+protocol InvestimentPriceCoordinatorProtocol: class, ShowAlert, ScreenLoader {
     func back()
 }

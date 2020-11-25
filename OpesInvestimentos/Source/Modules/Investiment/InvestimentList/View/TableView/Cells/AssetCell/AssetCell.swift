@@ -21,6 +21,7 @@ final class AssetCell: UITableViewCell, Reusable {
     }
 
     func configure(asset: InvestimentAsset) {
+        indicatorIconImage.isHidden = (asset.symbol.contains("Tesouro") || asset.averagePrice.isNaN)
         symbolLabel.text = asset.symbol.contains("Tesouro") ? asset.symbol.replacingOccurrences(of: "Tesouro ", with: "") : asset.symbol
         nameLabel.text = asset.name.uppercased()
         totalLabel.text = asset.total.formatCurrency()
@@ -95,7 +96,6 @@ final class AssetCell: UITableViewCell, Reusable {
         
         imageView.contentMode = .scaleAspectFit
         imageView.tintColor = .opaqueSeparator
-
         return imageView
     }()
 }

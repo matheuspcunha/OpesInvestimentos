@@ -1,21 +1,21 @@
 //
-//  WalletViewController.swift
+//  InvestimentPriceViewController.swift
 //  OpesInvestimentos
 //
-//  Created by Matheus Cunha on 26/07/20.
+//  Created by Matheus Cunha on 21/09/20.
 //  Copyright © 2020 Matheus Cunha. All rights reserved.
 //
 
 import UIKit
 
-final class WalletViewController: UIViewController {
+final class InvestimentPriceViewController: UIViewController {
 
-    private var viewModel: WalletViewModelProtocol!
-    private var contentView: WalletView!
+    private var viewModel: InvestimentPriceViewModelProtocol!
+    private var contentView: InvestimentPriceView!
     
-    init(viewModel: WalletViewModelProtocol) {
+    init(viewModel: InvestimentPriceViewModelProtocol) {
         self.viewModel = viewModel
-        self.contentView = WalletView(viewModel: viewModel)
+        self.contentView = InvestimentPriceView(viewModel: viewModel)
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -25,7 +25,7 @@ final class WalletViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel.loadWallet()
+        viewModel.loadDetail()
     }
 
     override func loadView() {
@@ -38,7 +38,7 @@ final class WalletViewController: UIViewController {
     }
 
     private func setupNavigation() {
-        navigationController?.navigationBar.prefersLargeTitles = true
-        navigationItem.title = "Carteira"
+        navigationController?.navigationBar.prefersLargeTitles = false
+        navigationItem.title = viewModel.viewData?.asset.symbol
     }
 }

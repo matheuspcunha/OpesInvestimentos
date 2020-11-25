@@ -13,17 +13,11 @@ struct WalletViewData: WalletViewDataProtocol {
     var investiments: [Investiment]
     var name: String
     var totalCost: Double
+    var result: Double { (total - totalCost) }
+    var variation: Double { (result / totalCost) }
     
     var total: Double {
         investiments.map({$0.total}).reduce(0, +)
-    }
-    
-    var result: Double {
-        (total - totalCost)
-    }
-    
-    var variation: Double {
-        (result / totalCost)
     }
 }
 
@@ -38,10 +32,13 @@ struct Investiment {
 }
 
 struct InvestimentAsset {
+
     let symbol: String
     let name: String
     let price: Double
     let quantity: Int
     let total: Double
+    let averagePrice: Double
+    let paymentReceived: Double
     var color: UIColor
 }

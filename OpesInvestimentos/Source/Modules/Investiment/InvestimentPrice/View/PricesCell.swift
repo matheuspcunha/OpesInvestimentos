@@ -9,7 +9,7 @@
 import UIKit
 
 final class PricesDetailView: UIView {
-    
+
     init() {
         super.init(frame: .zero)
         buildView()
@@ -19,18 +19,14 @@ final class PricesDetailView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 
-    func configure(price: Price, variation: (Double, Double), asset: InvestimentAsset) {
+    func configure(price: Price, asset: InvestimentAsset) {
         titleLabel.text = asset.name.uppercased()
         valueLabel.text = price.close.formatCurrency()
         highValueLabel.text = price.high.formatCurrency()
         lowValueLabel.text = price.low.formatCurrency()
         volumeValueLabel.text = price.volume?.formatCurrency()
-        lastUpdateLabel.text = Formatter.dateTimeFormatter.string(from: price.date)
-        variationValueLabel.text = "\(variation.0.formatCurrency(symbol: false)) (\(variation.1.formatPercent()))"
-        variationValueLabel.textColor = variation.0.sign == .plus ? .appPositive : .appNegative
-        configureVariationIcon(positive: variation.0.sign == .plus)
     }
-    
+
     private lazy var viewContent: UIView = {
         let view = UIView()
         view.backgroundColor = .appBackground
@@ -40,24 +36,7 @@ final class PricesDetailView: UIView {
     
     private lazy var stackView: UIStackView = {
         let stack = UIStackView()
-        stack.axis = .horizontal
-        stack.alignment = .center
-        return stack
-    }()
-
-    private lazy var leftStack: UIStackView = {
-        let stack = UIStackView()
-        stack.distribution = .fillProportionally
         stack.axis = .vertical
-        stack.alignment = .leading
-        return stack
-    }()
-
-    private lazy var rightStack: UIStackView = {
-        let stack = UIStackView()
-        stack.distribution = .fillProportionally
-        stack.axis = .vertical
-        stack.alignment = .trailing
         return stack
     }()
     
@@ -77,30 +56,7 @@ final class PricesDetailView: UIView {
         return label
     }()
     
-    private lazy var variationStack: UIStackView = {
-        let stack = UIStackView()
-        stack.alignment = .center
-        stack.axis = .horizontal
-        stack.spacing = 5
-        return stack
-    }()
-    
-    private lazy var variationValueLabel: UILabel = {
-        let label = UILabel()
-        label.textAlignment = .right
-        label.font = UIFont(name: "Avenir-Heavy", size: 15)
-        return label
-    }()
-    
-    private lazy var lastUpdateLabel: UILabel = {
-        let label = UILabel()
-        label.textAlignment = .right
-        label.textColor = .darkGray
-        label.font = UIFont(name: "Avenir-Heavy", size: 15)
-        return label
-    }()
-    
-    // Detail
+    //Detail
     private lazy var detailStack: UIStackView = {
         let stack = UIStackView()
         stack.axis = .horizontal
@@ -109,7 +65,7 @@ final class PricesDetailView: UIView {
         return stack
     }()
     
-    private lazy var highValueStack: UIStackView = {
+    private lazy var totalCostStack: UIStackView = {
         let stack = UIStackView()
         stack.alignment = .center
         stack.axis = .vertical
@@ -157,7 +113,7 @@ final class PricesDetailView: UIView {
         return label
     }()
     
-    private lazy var lowValueStack: UIStackView = {
+    private lazy var variationStack: UIStackView = {
         let stack = UIStackView()
         stack.alignment = .center
         stack.axis = .vertical
@@ -192,19 +148,6 @@ final class PricesDetailView: UIView {
         view.backgroundColor = .opaqueSeparator
         return view
     }()
-    
-    private lazy var variationIconImage: UIImageView = {
-        let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFit
-        return imageView
-    }()
-    
-    private func configureVariationIcon(positive: Bool) {
-        if let image = positive ? UIImage(named: "up") : UIImage(named: "down") {
-            variationIconImage.image = image.withRenderingMode(.alwaysTemplate)
-        }
-        variationIconImage.tintColor = positive ? .appPositive : .appNegative
-    }
 }
 
 extension PricesDetailView: ViewCodeProtocol {
@@ -214,34 +157,24 @@ extension PricesDetailView: ViewCodeProtocol {
     }
 
     func setupHierarchy() {
-        
-        leftStack.addArrangedSubview(titleLabel)
-        leftStack.addArrangedSubview(valueLabel)
-
-        variationStack.addArrangedSubview(variationValueLabel)
-        variationStack.addArrangedSubview(variationIconImage)
-
-        rightStack.addArrangedSubview(lastUpdateLabel)
-        rightStack.addArrangedSubview(variationStack)
-
-        stackView.addArrangedSubview(leftStack)
-        stackView.addArrangedSubview(rightStack)
+        stackView.addArrangedSubview(titleLabel)
+        stackView.addArrangedSubview(valueLabel)
         
         viewContent.addSubview(stackView)
         
-        // Detail
-        highValueStack.addArrangedSubview(highTitleLabel)
-        highValueStack.addArrangedSubview(highValueLabel)
+        //Detail
+        totalCostStack.addArrangedSubview(highTitleLabel)
+        totalCostStack.addArrangedSubview(highValueLabel)
 
-        lowValueStack.addArrangedSubview(lowTitleLabel)
-        lowValueStack.addArrangedSubview(lowValueLabel)
+        variationStack.addArrangedSubview(lowTitleLabel)
+        variationStack.addArrangedSubview(lowValueLabel)
         
         resultStack.addArrangedSubview(volumeTitleLabel)
         resultStack.addArrangedSubview(volumeValueLabel)
 
-        detailStack.addArrangedSubview(highValueStack)
+        detailStack.addArrangedSubview(totalCostStack)
         detailStack.addArrangedSubview(dividerLineView1)
-        detailStack.addArrangedSubview(lowValueStack)
+        detailStack.addArrangedSubview(variationStack)
         detailStack.addArrangedSubview(dividerLineView2)
         detailStack.addArrangedSubview(resultStack)
         
@@ -251,7 +184,7 @@ extension PricesDetailView: ViewCodeProtocol {
     
     func setupConstraints() {
         viewContent.constraint { view in
-            [view.topAnchor.constraint(equalTo: topAnchor),
+            [view.topAnchor.constraint(equalTo: topAnchor, constant: 20),
              view.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
              view.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
              view.heightAnchor.constraint(equalToConstant: 80)]
@@ -265,9 +198,9 @@ extension PricesDetailView: ViewCodeProtocol {
         
         detailStack.constraint { view in
             [view.topAnchor.constraint(equalTo: viewContent.bottomAnchor, constant: 15),
-             view.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 30),
-             view.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -30),
-             view.bottomAnchor.constraint(equalTo: bottomAnchor)]
+             view.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 50),
+             view.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -50),
+             view.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -20)]
         }
         
         dividerLineView1.constraint { view in
@@ -278,12 +211,6 @@ extension PricesDetailView: ViewCodeProtocol {
         dividerLineView2.constraint { view in
             [view.widthAnchor.constraint(equalToConstant: 0.5),
              view.heightAnchor.constraint(equalTo: detailStack.heightAnchor)]
-        }
-        
-        variationIconImage.constraint { view in
-            [view.widthAnchor.constraint(equalToConstant: 20),
-             view.heightAnchor.constraint(equalTo: view.widthAnchor),
-             view.centerYAnchor.constraint(equalTo: variationStack.centerYAnchor)]
         }
     }
 }

@@ -1,5 +1,5 @@
 //
-//  InvestimentDetailViewData.swift
+//  InvestimentPriceViewData.swift
 //  OpesInvestimentos
 //
 //  Created by Matheus Cunha on 26/09/20.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct InvestimentDetailViewData: InvestimentDetailViewDataProtocol {
+struct InvestimentPriceViewData: InvestimentPriceViewDataProtocol {
     
     var asset: InvestimentAsset
     var prices: [Price]?
@@ -23,8 +23,10 @@ struct InvestimentDetailViewData: InvestimentDetailViewDataProtocol {
         var percent: Double = 0
         
         if let prices = prices {
+            let lastDate = prices.map({$0.date}).sorted(by: { $0.compare($1) == .orderedDescending })[1]
+            
             guard let currentPrice = currentPrice,
-                  let lastPrice = prices.first(where: {$0.date == currentPrice.date.getLastDay()} )
+                  let lastPrice = prices.first(where: {$0.date == lastDate} )
             else { return (value, percent) }
 
             value = (currentPrice.close - lastPrice.close)

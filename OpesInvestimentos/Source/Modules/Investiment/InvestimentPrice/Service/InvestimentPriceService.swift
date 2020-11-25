@@ -8,11 +8,11 @@
 
 import Foundation
 
-protocol InvestimentDetailServiceProtocol {
+protocol InvestimentPriceServiceProtocol {
     func getPrices(symbol: String, onComplete: @escaping (Result<[Price], Error>) -> Void)
 }
 
-struct InvestimentDetailService: InvestimentDetailServiceProtocol {
+struct InvestimentPriceService: InvestimentPriceServiceProtocol {
     
     private let network: AlphaVantageServiceAPI
     
